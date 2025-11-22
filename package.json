@@ -1,0 +1,40 @@
+{
+  "name": "hart-art-info",
+  "version": "1.0.0",
+  "description": "Mark Hartzheim Artist Gallery Website - Hugo + Decap CMS",
+  "scripts": {
+    "dev": "hugo server",
+    "dev:netlify": "netlify dev",
+    "build": "hugo --minify",
+    "build:production": "hugo --minify --environment production",
+    "clean": "rm -rf public resources .hugo_build.lock",
+    "rebuild": "npm run clean && npm run build",
+    "serve": "hugo server --disableFastRender",
+    "deploy": "npm run build && git add . && git commit -m 'Build and deploy' && git push",
+    "push": "git push origin main",
+    "pull": "git pull origin main",
+    "status": "git status",
+    "commit": "git add . && git commit",
+    "preview": "hugo server --buildDrafts --buildFuture",
+    "check": "hugo --quiet",
+    "format": "prettier --write \"content/**/*.md\" \"static/**/*.{html,js,css}\"",
+    "lint": "hugo --quiet && echo 'Build check passed'"
+  },
+  "keywords": [
+    "hugo",
+    "decap-cms",
+    "netlify",
+    "artist-gallery",
+    "bilingual"
+  ],
+  "author": "Mark Hartzheim",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "prettier": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
+
