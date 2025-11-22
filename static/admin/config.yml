@@ -1,6 +1,9 @@
 backend:
   name: git-gateway
   branch: main
+  base_url: https://markhartzheimart.netlify.app
+  # For local development, use Netlify Dev: netlify dev
+  # This will proxy git-gateway requests to Netlify
 
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
