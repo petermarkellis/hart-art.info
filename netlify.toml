@@ -8,7 +8,6 @@
 
 [dev]
   command = "hugo server"
-  port = 1313
   publish = "public"
 
 # Serve admin folder as static files (highest priority)
