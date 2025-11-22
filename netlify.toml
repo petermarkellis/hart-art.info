@@ -6,13 +6,16 @@
   HUGO_VERSION = "0.128.0"
   NODE_VERSION = "20"
 
+# Serve admin folder as static files (highest priority)
 [[redirects]]
   from = "/admin"
   to = "/admin/index.html"
   status = 200
+  force = true
 
 [[redirects]]
   from = "/admin/*"
   to = "/admin/index.html"
   status = 200
+  force = true
 
