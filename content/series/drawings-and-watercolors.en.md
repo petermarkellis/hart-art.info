@@ -1,0 +1,25 @@
+---
+title: "Drawings and Watercolors"
+series_slug: "drawings-and-watercolors"
+_build:
+  list: never
+  render: never
+  publishResources: false
+description: "These small pictures contain the main themes of the following series - movement, rhythm, writing - hence form a kind of introduction to my work as a whole."
+gallery_images:
+  - image: "/images/uploads/placeholder.jpg"
+    title: "Untitled"
+    year: "1998"
+    medium: "graphite, colored pencil on paper"
+    dimensions: "17,5 cm x 25,4 cm"
+  - image: "/images/uploads/placeholder.jpg"
+    title: "Outburst"
+    year: "2000"
+    medium: "graphite on paper"
+    dimensions: "17,5 cm x 25,9 cm"
+  - image: "/images/uploads/placeholder.jpg"
+    title: "Frustrated Growth"
+    year: "1990"
+    medium: "graphite on paper"
+    dimensions: "14,7 x 19,5 cm"
+---
