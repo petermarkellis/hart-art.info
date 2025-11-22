@@ -1,0 +1,19 @@
+# Hugo build output
+public/
+resources/
+.hugo_build.lock
+
+# macOS
+.DS_Store
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment files
+.env
+.env.local
+

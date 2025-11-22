@@ -1,0 +1,27 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+
+i18n:
+  structure: multiple_files
+  locales: [en, de]
+  default_locale: en
+
+collections:
+  - name: "artworks"
+    label: "Artworks"
+    folder: "content/artworks"
+    create: true
+    i18n: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string", i18n: true}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "image", widget: "image"}
+      - {label: "Medium", name: "medium", widget: "string", required: false, i18n: true}
+      - {label: "Dimensions", name: "dimensions", widget: "string", required: false}
+      - {label: "Description", name: "body", widget: "markdown", i18n: true}
+

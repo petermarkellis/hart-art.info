@@ -1,0 +1,19 @@
+baseURL = 'https://your-site-name.netlify.app'
+languageCode = 'en-us'
+title = 'Artist Gallery - Demo'
+theme = 'ananke'
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    weight = 1
+    title = "Artist Gallery"
+    
+  [languages.de]
+    languageName = "Deutsch"
+    weight = 2
+    title = "Künstler Galerie"
+
+[params]
+  featured_image = '/images/hero.jpg'
+  description = "Art Gallery Demo"
