@@ -6,20 +6,5 @@ _build:
   render: never
   publishResources: false
 description: "Diese kleinen Bilder enthalten die Hauptthemen der folgenden Serien - Bewegung, Rhythmus, Schrift - und bilden somit eine Art Einführung in mein Gesamtwerk."
-gallery_images:
-  - image: "/images/uploads/placeholder.jpg"
-    title: "Ohne Titel"
-    year: "1998"
-    medium: "Graphit, Buntstift auf Papier"
-    dimensions: "17,5 cm x 25,4 cm"
-  - image: "/images/uploads/placeholder.jpg"
-    title: "Ausbruch"
-    year: "2000"
-    medium: "Graphit auf Papier"
-    dimensions: "17,5 cm x 25,9 cm"
-  - image: "/images/uploads/placeholder.jpg"
-    title: "Frustriertes Wachstum"
-    year: "1990"
-    medium: "Graphit auf Papier"
-    dimensions: "14,7 x 19,5 cm"
+gallery_images: []
 ---
