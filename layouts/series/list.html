@@ -1,0 +1,21 @@
+{{ define "main" }}
+  <div class="pa3 pa4-ns w-100 w-70-ns center">
+    <header class="mb4">
+      <h1 class="f3 f2-ns fw4 lh-title">{{ .Title }}</h1>
+      {{ with .Content }}
+        <div class="f5 f4-ns lh-copy nested-copy-line-height">
+          {{ . }}
+        </div>
+      {{ end }}
+    </header>
+
+    <section class="w-100 mw8">
+      {{ range .Pages }}
+        <div class="w-100 mb4 relative">
+          {{ .Render "summary-with-image" }}
+        </div>
+      {{ end }}
+    </section>
+  </div>
+{{ end }}
+

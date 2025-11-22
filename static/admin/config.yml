@@ -23,6 +23,7 @@ collections:
     fields:
       - {label: "Title", name: "title", widget: "string", i18n: true}
       - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Series", name: "series", widget: "select", options: ["drawings-and-watercolors", "hymnal", "janacek-project", "intimni-skici", "calligraphy", "imaginary-sketchbook", "destroyed-diaries", "action-drawing", "letters-home", "strokes", "music-to-my-ears", "objects-and-assemblages", "on-the-road-rhythms", "homage-to-marienbad", "inner-landscapes"], required: false}
       - {label: "Featured Image", name: "image", widget: "image"}
       - {label: "Medium", name: "medium", widget: "string", required: false, i18n: true}
       - {label: "Dimensions", name: "dimensions", widget: "string", required: false}

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Mark Hartzheim Artist Gallery Website - Hugo + Decap CMS",
   "scripts": {
-    "dev": "hugo server",
+    "dev": "hugo server -D",
     "dev:netlify": "netlify dev",
     "build": "hugo --minify",
     "build:production": "hugo --minify --environment production",
@@ -37,4 +37,3 @@
     "npm": ">=9.0.0"
   }
 }
-

@@ -3,6 +3,9 @@ languageCode = 'en-us'
 title = 'Artist Gallery - Demo'
 theme = 'ananke'
 
+[taxonomies]
+  series = "series"
+
 [languages]
   [languages.en]
     languageName = "English"
@@ -17,3 +20,165 @@ theme = 'ananke'
 [params]
   featured_image = '/images/hero.jpg'
   description = "Art Gallery Demo"
+
+# Menu configuration
+[[languages.en.menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[languages.en.menu.main]]
+  name = "Drawings and Watercolors"
+  url = "/series/drawings-and-watercolors/"
+  weight = 2
+
+[[languages.en.menu.main]]
+  name = "Hymnal"
+  url = "/series/hymnal/"
+  weight = 3
+
+[[languages.en.menu.main]]
+  name = "The Janáček Project"
+  url = "/series/janacek-project/"
+  weight = 4
+
+[[languages.en.menu.main]]
+  name = "Intimni Skici"
+  url = "/series/intimni-skici/"
+  weight = 5
+
+[[languages.en.menu.main]]
+  name = "Calligraphy"
+  url = "/series/calligraphy/"
+  weight = 6
+
+[[languages.en.menu.main]]
+  name = "The Imaginary Sketchbook"
+  url = "/series/imaginary-sketchbook/"
+  weight = 7
+
+[[languages.en.menu.main]]
+  name = "Destroyed Diaries"
+  url = "/series/destroyed-diaries/"
+  weight = 8
+
+[[languages.en.menu.main]]
+  name = "Action Drawing"
+  url = "/series/action-drawing/"
+  weight = 9
+
+[[languages.en.menu.main]]
+  name = "Letters Home"
+  url = "/series/letters-home/"
+  weight = 10
+
+[[languages.en.menu.main]]
+  name = "Strokes"
+  url = "/series/strokes/"
+  weight = 11
+
+[[languages.en.menu.main]]
+  name = "Music to My Ears"
+  url = "/series/music-to-my-ears/"
+  weight = 12
+
+[[languages.en.menu.main]]
+  name = "Objects and Assemblages"
+  url = "/series/objects-and-assemblages/"
+  weight = 13
+
+[[languages.en.menu.main]]
+  name = "On the Road Rhythms"
+  url = "/series/on-the-road-rhythms/"
+  weight = 14
+
+[[languages.en.menu.main]]
+  name = "Homage to Marienbad"
+  url = "/series/homage-to-marienbad/"
+  weight = 15
+
+[[languages.en.menu.main]]
+  name = "Inner Landscapes"
+  url = "/series/inner-landscapes/"
+  weight = 16
+
+# German menu
+[[languages.de.menu.main]]
+  name = "Startseite"
+  url = "/de/"
+  weight = 1
+
+[[languages.de.menu.main]]
+  name = "Zeichnungen und Aquarelle"
+  url = "/de/series/zeichnungen-und-aquarelle/"
+  weight = 2
+
+[[languages.de.menu.main]]
+  name = "Gesangbuch"
+  url = "/de/series/gesangbuch/"
+  weight = 3
+
+[[languages.de.menu.main]]
+  name = "Das Janáček Projekt"
+  url = "/de/series/janacek-projekt/"
+  weight = 4
+
+[[languages.de.menu.main]]
+  name = "Intimni Skici"
+  url = "/de/series/intimni-skici/"
+  weight = 5
+
+[[languages.de.menu.main]]
+  name = "Kalligraphie"
+  url = "/de/series/kalligraphie/"
+  weight = 6
+
+[[languages.de.menu.main]]
+  name = "The Imaginary Sketchbook"
+  url = "/de/series/imaginary-sketchbook/"
+  weight = 7
+
+[[languages.de.menu.main]]
+  name = "Destroyed Diaries"
+  url = "/de/series/destroyed-diaries/"
+  weight = 8
+
+[[languages.de.menu.main]]
+  name = "Gestische Zeichnung"
+  url = "/de/series/gestische-zeichnung/"
+  weight = 9
+
+[[languages.de.menu.main]]
+  name = "Letters Home"
+  url = "/de/series/letters-home/"
+  weight = 10
+
+[[languages.de.menu.main]]
+  name = "Strokes"
+  url = "/de/series/strokes/"
+  weight = 11
+
+[[languages.de.menu.main]]
+  name = "Music to My Ears"
+  url = "/de/series/music-to-my-ears/"
+  weight = 12
+
+[[languages.de.menu.main]]
+  name = "Objekte und Assemblages"
+  url = "/de/series/objekte-und-assemblages/"
+  weight = 13
+
+[[languages.de.menu.main]]
+  name = "On the Road Rhythms"
+  url = "/de/series/on-the-road-rhythms/"
+  weight = 14
+
+[[languages.de.menu.main]]
+  name = "Hommage à Marienbad"
+  url = "/de/series/hommage-a-marienbad/"
+  weight = 15
+
+[[languages.de.menu.main]]
+  name = "Innere Landschaften"
+  url = "/de/series/innere-landschaften/"
+  weight = 16
