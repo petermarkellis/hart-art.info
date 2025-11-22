@@ -1,6 +1,6 @@
 ---
 title: Drawings and Watercolorsssss
-series_slug: drawings-and-watercolors
+series_slug: drawings-and-watercolorsssss
 _build:
   list: never
   render: never
