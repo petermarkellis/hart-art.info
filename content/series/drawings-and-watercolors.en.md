@@ -1,5 +1,5 @@
 ---
-title: Drawings and Watercolors
+title: Drawings and Watercolorsssss
 series_slug: drawings-and-watercolors
 _build:
   list: never
