@@ -44,6 +44,8 @@ Germany
 - **Theme:** [Ananke](https://github.com/theNewDynamic/gohugo-theme-ananke)
 - **CMS:** [Decap CMS](https://decapcms.org/) (formerly Netlify CMS)
 - **Hosting:** Netlify
+- **Authentication:** Netlify Identity
+- **Development Tools:** Node.js, npm, Netlify CLI
 - **Languages:** English & German (bilingual support)
 
 ## Features
@@ -60,13 +62,18 @@ Germany
 .
 ├── content/
 │   └── artworks/          # Artwork content (bilingual)
+├── layouts/
+│   └── partials/         # Custom Hugo templates
+│       └── site-scripts.html  # Netlify Identity widget
 ├── static/
 │   ├── admin/             # Decap CMS interface
 │   └── images/
 │       └── uploads/       # Uploaded artwork images
 ├── themes/
 │   └── ananke/           # Hugo theme (submodule)
-└── hugo.toml             # Hugo configuration
+├── hugo.toml             # Hugo configuration
+├── netlify.toml          # Netlify deployment configuration
+└── package.json          # npm scripts and dependencies
 ```
 
 ## Local Development
@@ -74,6 +81,8 @@ Germany
 ### Prerequisites
 
 - [Hugo](https://gohugo.io/installation/) (extended version recommended)
+- [Node.js](https://nodejs.org/) (v18+ recommended)
+- [Netlify CLI](https://docs.netlify.com/cli/get-started/) (for CMS authentication locally)
 - Git
 
 ### Setup
@@ -89,18 +98,89 @@ cd hart-art.info
 git submodule update --init --recursive
 ```
 
-3. Start the development server:
+3. Install Netlify CLI (if not already installed):
 ```bash
+npm install -g netlify-cli
+```
+
+4. Link your local project to Netlify (first time only):
+```bash
+netlify login
+netlify link --name markhartzheimart
+```
+
+5. Install npm dependencies (optional, for code formatting):
+```bash
+npm install
+```
+
+### Development Options
+
+**Option 1: Development with CMS Authentication (Recommended)**
+Use Netlify Dev to run the site locally with full CMS authentication support:
+
+```bash
+npm run dev:netlify
+# or
+netlify dev
+```
+
+This will:
+- Start Hugo server (usually on port 8888)
+- Enable Netlify Identity authentication
+- Allow CMS access at `http://localhost:8888/admin/`
+- Proxy git-gateway requests to Netlify
+
+**Option 2: Standard Hugo Development**
+For quick site preview without CMS access:
+
+```bash
+npm run dev
+# or
 hugo server
 ```
 
-4. Visit `http://localhost:1313` in your browser
+Visit `http://localhost:1313` in your browser
+
+### Available npm Scripts
+
+The project includes several useful npm scripts:
+
+**Development:**
+- `npm run dev` - Start Hugo development server
+- `npm run dev:netlify` - Start with Netlify Dev (includes CMS auth)
+- `npm run serve` - Start Hugo server with fast render disabled
+- `npm run preview` - Preview site including drafts and future posts
+
+**Build:**
+- `npm run build` - Build site for production (minified)
+- `npm run build:production` - Build with production environment
+- `npm run rebuild` - Clean and rebuild from scratch
+
+**Cleanup:**
+- `npm run clean` - Remove build artifacts
+
+**Git Operations:**
+- `npm run push` - Push changes to GitHub
+- `npm run pull` - Pull latest changes from GitHub
+- `npm run status` - Check git status
+- `npm run commit` - Stage all changes and commit
+
+**Deployment:**
+- `npm run deploy` - Build, commit, and push (all-in-one)
+
+**Quality Checks:**
+- `npm run check` - Quick build check
+- `npm run lint` - Run build check and confirm success
+- `npm run format` - Format markdown and static files with Prettier
 
 ## Content Management
 
 The site uses Decap CMS for content management. Access the CMS at:
-- Production: `https://hart-art.info/admin/`
-- Local: `http://localhost:1313/admin/`
+- **Production:** `https://markhartzheimart.netlify.app/admin/`
+- **Local (with Netlify Dev):** `http://localhost:8888/admin/` (requires `npm run dev:netlify`)
+
+**Note:** For local CMS access, you must use Netlify Dev (`npm run dev:netlify`) as it provides the authentication proxy. Standard Hugo server (`npm run dev`) will not allow CMS login.
 
 ### Adding Artworks
 
@@ -109,6 +189,12 @@ The site uses Decap CMS for content management. Access the CMS at:
 3. Create new entries in both English and German
 4. Upload images to the media library
 5. Save and publish
+
+### Authentication
+
+The CMS uses Netlify Identity for authentication:
+- **Production:** Log in with your Netlify Identity account
+- **Local:** Use `netlify dev` to authenticate with your Netlify account
 
 ## Deployment
 
