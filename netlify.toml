@@ -6,7 +6,13 @@
   HUGO_VERSION = "0.128.0"
   NODE_VERSION = "20"
 
+[dev]
+  command = "hugo server"
+  port = 1313
+  publish = "public"
+
 # Serve admin folder as static files (highest priority)
+# These redirects ensure /admin routes to the CMS interface
 [[redirects]]
   from = "/admin"
   to = "/admin/index.html"
