@@ -1,4 +1,4 @@
-baseURL = 'https://your-site-name.netlify.app'
+baseURL = 'https://hart-art-info.netlify.app'  # Update after Netlify deployment with actual site URL
 languageCode = 'en-us'
 title = 'Artist Gallery - Demo'
 theme = 'ananke'
