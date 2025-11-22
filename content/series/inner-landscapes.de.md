@@ -1,6 +1,6 @@
 ---
-title: "Innere Landschaften"
-series_slug: "inner-landscapes"
+title: Innere Landschaften
+series_slug: inner-landscapes
 _build:
   list: never
   render: never
@@ -8,4 +8,3 @@ _build:
 description: ""
 gallery_images: []
 ---
-
