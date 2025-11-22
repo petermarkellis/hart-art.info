@@ -1,0 +1,24 @@
+{{ if gt (len .Site.Languages) 1 }}
+  <div class="flex items-center">
+    {{ range $index, $lang := .Site.Languages }}
+      {{ if $index }}<span class="mh2 black-50">|</span>{{ end }}
+      {{ $langURL := "" }}
+      {{ if eq $lang.Lang $.Site.Language.Lang }}
+        {{ $langURL = $.RelPermalink }}
+      {{ else }}
+        {{ range $.Translations }}
+          {{ if eq .Lang $lang.Lang }}
+            {{ $langURL = .RelPermalink }}
+          {{ end }}
+        {{ end }}
+        {{ if not $langURL }}
+          {{ $langURL = printf "/%s/" $lang.Lang }}
+        {{ end }}
+      {{ end }}
+      <a class="f5 f4-ns black-90 hover-black no-underline" href="{{ $langURL }}">
+        {{ strings.Upper $lang.Lang }}
+      </a>
+    {{ end }}
+  </div>
+{{ end }}
+

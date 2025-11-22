@@ -1,0 +1,71 @@
+{{ define "main" }}
+  <!-- Hero Banner Section -->
+  <section class="hero-banner relative" style="min-height: 80vh; background-image: url('{{ .Site.Params.featured_image | default "/images/hero.jpg" }}'); background-size: cover; background-position: center;">
+    <div class="absolute bottom-0 right-0 ma4 ma5-ns" style="max-width: 400px;">
+      <div class="bg-white pa3 pa4-ns" style="box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+        <p class="f4 f3-ns fw6 mb2 black-90" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; margin: 0;">"THE SUBCONSCIOUS DICTATES!"</p>
+        <p class="f5 f4-ns mb0 black-70" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; margin: 0;">ANDRÉ MASSON</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Section -->
+  <section class="pa4 pa5-ns bg-white">
+    <h2 class="f2 f1-ns fw6 mb4 black-90" style="font-family: sans-serif; letter-spacing: 0.05em;">LATEST</h2>
+    <div class="flex flex-wrap">
+      {{ $latestArtworks := where .Site.RegularPages "Section" "artworks" | first 3 }}
+      {{ range $latestArtworks }}
+        <div class="w-100 w-third-ns mb4 pr3-ns">
+          <a href="{{ .RelPermalink }}" class="db no-underline">
+            {{ with .Params.image }}
+              <div class="aspect-ratio aspect-ratio--1x1 bg-light-gray mb3">
+                <img src="{{ . }}" alt="{{ $.Title }}" class="aspect-ratio--object cover" />
+              </div>
+            {{ end }}
+            <div class="bg-white pa3">
+              <h3 class="f5 f4-ns fw4 black-90 mb0" style="font-family: sans-serif;">{{ .Title }}</h3>
+            </div>
+          </a>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}
+
+<style>
+  .hero-banner {
+    position: relative;
+  }
+  
+  .aspect-ratio {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+  }
+  
+  .aspect-ratio--1x1 {
+    padding-bottom: 100%;
+  }
+  
+  .aspect-ratio--object {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    object-fit: cover;
+  }
+  
+  /* Responsive quote box */
+  @media (max-width: 60em) {
+    .hero-banner .absolute {
+      position: relative;
+      margin: 1rem;
+      max-width: 100% !important;
+    }
+  }
+</style>
+
