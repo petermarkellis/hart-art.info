@@ -2,11 +2,7 @@
 title: Interview with the National Portrait Gallery, London showcasing 20 years
   of my work
 date: 2025-11-23T13:56:00.000+01:00
-<<<<<<< HEAD
-exhibition_date: 2026-02-23T18:15:00.000+01:00
-=======
 exhibition_date: 2026-11-23T18:39:00.000+01:00
->>>>>>> 155f3fab9a5d62db28a3d3dae96745aabfc7f143
 description: >-
   I'm honored to share that the National Portrait Gallery in London has invited
   me for an exclusive interview and retrospective feature celebrating two
