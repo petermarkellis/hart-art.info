@@ -14,6 +14,9 @@ gallery_images:
     year: "1998"
     medium: Graphite, Colored Pencil on Paper
     dimensions: 17,5cm x 25,4cm
+    title_en: Untitled
+    title_de: Ohne Titel
+    medium_de: Graphit, Farbstift auf Papier
   - image: /images/uploads/dwc_2.jpg
     title: Outburst
     year: "1998"
