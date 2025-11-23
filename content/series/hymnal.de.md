@@ -1,6 +1,6 @@
 ---
-title: "Gesangbuch"
-series_slug: "hymnal"
+title: Gesangbuch
+series_slug: hymnal
 _build:
   list: never
   render: never
@@ -8,4 +8,3 @@ _build:
 description: ""
 gallery_images: []
 ---
-
