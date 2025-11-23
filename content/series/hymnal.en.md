@@ -20,12 +20,12 @@ gallery_images:
     medium: Mixed media on hymnal cover and pages,
     dimensions: 18,5 cm x 11 cm x 3,3 cm
     medium_en: Mixed media on hymnal cover and pages
-    medium_de: Mischtechnik auf Buchdeckel und -seiten
+    medium_de: Mischtechnik auf Buchdeckel und - seiten
   - image: /images/uploads/hymnal_2.jpg
     title: Hymnal
     year: "2002"
     dimensions: 18,5 cm x 11 cm x 3,3 cm
     medium: Mixed media on hymnal cover and pages
-    medium_de: Mischtechnik auf Buchdeckel und -seiten
+    medium_de: Mischtechnik auf Buchdeckel und - seiten
     medium_en: Mixed media on hymnal cover and pages
 ---
