@@ -43,5 +43,10 @@ curriculum_vitae:
     to_year: "2019"
     text_de: 8-monatige Reise durch die USA
     text_en: 8‐month road trip throughout the USA
+other_qualifications:
+  - text_en: Art Association of Hof
+    text_de: Kunstverein Hof
+  - text_de: Bund Fränkischer Künstler
+    text_en: Union of Franconian Artists (Upper Bavaria)
 ---
 Mark was born in Wisconsin in the United States but settled in Germany where he has been working as a freelance artist since 1996. His work explores themes of movement, rhythm, and writing through various series including drawings, watercolors, and mixed media pieces.
