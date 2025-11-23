@@ -15,13 +15,6 @@ description: >-
   In my contribution I responded quite spontaneously to the contents of the hymns and their notation. A certain word, a particular verse or the musical notation itself provoked a reaction on my part. I gave answer to the words and notes by embellishing, transforming or obliterating them.mixed media on hymnal cover and pages, 18,5 cm x 11 cm x 3,3 cm
 gallery_images:
   - image: /images/uploads/hymnal_1.jpg
-    medium: Mixed media on hymnal cover and pages
-    dimensions: 18,5 cm x 11 cm x 3,3 cm
+    title: hymnal
     year: "2022"
-    title: Hymnal
-  - image: /images/uploads/hymnal_2.jpg
-    title: Hymnal 2
-    year: "2022"
-    medium: Mixed media on hymnal cover and pages,
-    dimensions: 18,5 cm x 11 cm x 3,3 cm
 ---
