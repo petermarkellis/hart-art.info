@@ -43,11 +43,11 @@ enFiles.forEach(({ enPath, dePath, baseName }) => {
   let deContent = fs.readFileSync(dePath, 'utf8');
   
   // Parse YAML front matter more carefully
-  // Handle cases where closing --- might be on same line as content
-  let frontMatterMatch = deContent.match(/^---\n([\s\S]*?)\n---/);
+  // Match opening ---, capture content, and match closing --- (with or without newline before it)
+  let frontMatterMatch = deContent.match(/^---\n([\s\S]*?)\n---(\n|$)/);
   if (!frontMatterMatch) {
-    // Try matching with --- on same line as content
-    frontMatterMatch = deContent.match(/^---\n([\s\S]*?)---/);
+    // Try matching with --- immediately after content (no newline before closing ---)
+    frontMatterMatch = deContent.match(/^---\n([\s\S]*?)---(\n|$)/);
   }
   if (!frontMatterMatch) {
     console.log(`⚠️  No front matter found in ${baseName}.de.md, skipping...`);
@@ -55,6 +55,8 @@ enFiles.forEach(({ enPath, dePath, baseName }) => {
   }
 
   let frontMatter = frontMatterMatch[1];
+  // Remove trailing newlines from front matter content (we'll add one back when reconstructing)
+  frontMatter = frontMatter.replace(/\n+$/, '');
   const restOfContent = deContent.slice(frontMatterMatch[0].length);
   let updated = false;
 
@@ -110,9 +112,12 @@ enFiles.forEach(({ enPath, dePath, baseName }) => {
 
   // Reconstruct the file
   if (updated) {
-    // Clean up extra blank lines
+    // Clean up extra blank lines (but preserve at least one newline at the end)
     frontMatter = frontMatter.replace(/\n{3,}/g, '\n\n');
-    deContent = `---\n${frontMatter}---${restOfContent}`;
+    // Trim trailing whitespace but ensure we have exactly one newline before closing delimiter
+    frontMatter = frontMatter.trimEnd();
+    // Always add a newline before the closing delimiter for proper YAML formatting
+    deContent = `---\n${frontMatter}\n---${restOfContent}`;
     fs.writeFileSync(dePath, deContent, 'utf8');
     console.log(`✅ Updated ${baseName}.de.md`);
   } else {

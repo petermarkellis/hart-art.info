@@ -1,4 +1,5 @@
 ---
 title: LN2 DE
-description: LN2 DE DESCR
+date: 2025-11-23T22:28:00.000+01:00
+exhibition_date: 2025-11-23T22:28:00.000+01:00
 ---

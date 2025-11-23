@@ -22,36 +22,53 @@
               {{ $langURL = .RelPermalink }}
             {{ end }}
           {{ end }}
-          {{/* If no translation found, try to map to equivalent page in other language */}}
+          {{/* If no translation found, try to find by matching filename/slug */}}
           {{ if not $langURL }}
             {{/* For homepage, go to language homepage */}}
             {{ if $.IsHome }}
               {{ $langURL = printf "/%s/" $lang.Lang }}
             {{ else }}
-              {{/* For other pages, try to construct equivalent URL */}}
-              {{ $currentPath := $.RelPermalink }}
-              {{/* Remove language prefix if present */}}
-              {{ $pathWithoutLang := $currentPath }}
-              {{ if hasPrefix $currentPath "/en/" }}
-                {{ $pathWithoutLang = strings.TrimPrefix "/en" $currentPath }}
-              {{ else if hasPrefix $currentPath "/de/" }}
-                {{ $pathWithoutLang = strings.TrimPrefix "/de" $currentPath }}
+              {{/* Try to find page with same base filename in other language */}}
+              {{ if $.File }}
+                {{ $baseName := strings.TrimSuffix (printf ".%s" $.Lang) $.File.LogicalName }}
+                {{ $baseName = strings.TrimSuffix ".md" $baseName }}
+                {{ range where $.Site.AllPages "Section" $.Section }}
+                  {{ if and .File (eq .Lang $lang.Lang) }}
+                    {{ $otherBaseName := strings.TrimSuffix (printf ".%s" $lang.Lang) .File.LogicalName }}
+                    {{ $otherBaseName = strings.TrimSuffix ".md" $otherBaseName }}
+                    {{ if eq $otherBaseName $baseName }}
+                      {{ $langURL = .RelPermalink }}
+                      {{ break }}
+                    {{ end }}
+                  {{ end }}
+                {{ end }}
               {{ end }}
-              {{/* Skip if path is 404.html */}}
-              {{ if not (hasSuffix $pathWithoutLang "404.html") }}
-                {{/* Add new language prefix */}}
-                {{ if eq $lang.Lang "en" }}
-                  {{ if hasPrefix $pathWithoutLang "/" }}
-                    {{ $langURL = $pathWithoutLang }}
+              {{/* If still not found, try to construct equivalent URL */}}
+              {{ if not $langURL }}
+                {{ $currentPath := $.RelPermalink }}
+                {{/* Remove language prefix if present */}}
+                {{ $pathWithoutLang := $currentPath }}
+                {{ if hasPrefix $currentPath "/en/" }}
+                  {{ $pathWithoutLang = strings.TrimPrefix "/en" $currentPath }}
+                {{ else if hasPrefix $currentPath "/de/" }}
+                  {{ $pathWithoutLang = strings.TrimPrefix "/de" $currentPath }}
+                {{ end }}
+                {{/* Skip if path is 404.html */}}
+                {{ if not (hasSuffix $pathWithoutLang "404.html") }}
+                  {{/* Add new language prefix */}}
+                  {{ if eq $lang.Lang "en" }}
+                    {{ if hasPrefix $pathWithoutLang "/" }}
+                      {{ $langURL = $pathWithoutLang }}
+                    {{ else }}
+                      {{ $langURL = printf "/%s" $pathWithoutLang }}
+                    {{ end }}
                   {{ else }}
-                    {{ $langURL = printf "/%s" $pathWithoutLang }}
+                    {{ $langURL = printf "/%s%s" $lang.Lang $pathWithoutLang }}
                   {{ end }}
                 {{ else }}
-                  {{ $langURL = printf "/%s%s" $lang.Lang $pathWithoutLang }}
+                  {{/* If path is 404.html, go to homepage */}}
+                  {{ $langURL = printf "/%s/" $lang.Lang }}
                 {{ end }}
-              {{ else }}
-                {{/* If path is 404.html, go to homepage */}}
-                {{ $langURL = printf "/%s/" $lang.Lang }}
               {{ end }}
             {{ end }}
           {{ end }}

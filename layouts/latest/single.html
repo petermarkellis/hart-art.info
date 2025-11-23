@@ -31,10 +31,13 @@
 
   <!-- News Description -->
   {{ $description := "" }}
+  {{/* Always prioritize current language's content first */}}
   {{ if isset .Params "description" }}
-    {{ $description = .Params.description }}
+    {{ if and .Params.description (ne .Params.description "") }}
+      {{ $description = .Params.description }}
+    {{ end }}
   {{ end }}
-  {{/* If current language has no description, try to get from the other language version */}}
+  {{/* Only fallback to other language if current language has no description */}}
   {{ if or (not $description) (eq $description "") }}
     {{/* Try using Hugo's Translations feature first */}}
     {{ range .Translations }}
@@ -80,10 +83,13 @@
 
   <!-- News Image -->
   {{ $newsImage := "" }}
+  {{/* Always prioritize current language's content first */}}
   {{ if isset .Params "image" }}
-    {{ $newsImage = .Params.image }}
+    {{ if and .Params.image (ne .Params.image "") }}
+      {{ $newsImage = .Params.image }}
+    {{ end }}
   {{ end }}
-  {{/* If current language has no image, try to get from the other language version */}}
+  {{/* Only fallback to other language if current language has no image */}}
   {{ if or (not $newsImage) (eq $newsImage "") }}
     {{/* Try using Hugo's Translations feature first */}}
     {{ range .Translations }}
@@ -131,16 +137,23 @@
   {{ $linkType := "" }}
   {{ $internalLink := "" }}
   {{ $externalLink := "" }}
+  {{/* Always prioritize current language's content first */}}
   {{ if isset .Params "link_type" }}
-    {{ $linkType = .Params.link_type }}
+    {{ if and .Params.link_type (ne .Params.link_type "") }}
+      {{ $linkType = .Params.link_type }}
+    {{ end }}
   {{ end }}
   {{ if isset .Params "internal_link" }}
-    {{ $internalLink = .Params.internal_link }}
+    {{ if and .Params.internal_link (ne .Params.internal_link "") }}
+      {{ $internalLink = .Params.internal_link }}
+    {{ end }}
   {{ end }}
   {{ if isset .Params "external_link" }}
-    {{ $externalLink = .Params.external_link }}
+    {{ if and .Params.external_link (ne .Params.external_link "") }}
+      {{ $externalLink = .Params.external_link }}
+    {{ end }}
   {{ end }}
-  {{/* If current language has no link fields, try to get from the other language version */}}
+  {{/* Only fallback to other language if current language has no link fields */}}
   {{ if or (not $linkType) (eq $linkType "") (not $internalLink) (eq $internalLink "") (not $externalLink) (eq $externalLink "") }}
     {{/* Try using Hugo's Translations feature first */}}
     {{ range .Translations }}

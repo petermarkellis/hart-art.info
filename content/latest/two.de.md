@@ -1,4 +1,5 @@
 ---
 title: SVI
-description: German Text
+date: 2025-11-23T22:23:00.000+01:00
+exhibition_date: 2027-11-23T22:23:00.000+01:00
 ---
