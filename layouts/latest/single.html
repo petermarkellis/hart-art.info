@@ -30,64 +30,183 @@
   {{ end }}
 
   <!-- News Description -->
-  {{ if .Params.description }}
-    <div class="f6 f5-ns lh-copy mb5 black-80" style="font-family: 'Inter', sans-serif; max-width: 800px;">
-      {{ .Params.description | markdownify }}
-    </div>
+  {{ $description := "" }}
+  {{ if isset .Params "description" }}
+    {{ $description = .Params.description }}
   {{ end }}
-
-  <!-- News Image -->
-  {{ $newsImage := .Params.image }}
-  {{/* If current language has no image, try to get from the other language version */}}
-  {{ if not $newsImage }}
-    {{ $otherLang := "en" }}
-    {{ if eq .Site.Language.Lang "en" }}
-      {{ $otherLang = "de" }}
-    {{ end }}
-    {{ $otherLangPage := false }}
-    {{ $currentSlug := .File.TranslationBaseName }}
-    {{/* Try to find the other language version by matching the translation base name */}}
-    {{ range where .Site.AllPages "Section" "latest" }}
-      {{ if and .File (eq .File.TranslationBaseName $currentSlug) (eq .Lang $otherLang) }}
-        {{ $otherLangPage = . }}
+  {{/* If current language has no description, try to get from the other language version */}}
+  {{ if or (not $description) (eq $description "") }}
+    {{/* Try using Hugo's Translations feature first */}}
+    {{ range .Translations }}
+      {{ if isset .Params "description" }}
+        {{ if and .Params.description (ne .Params.description "") }}
+          {{ $description = .Params.description }}
+          {{ break }}
+        {{ end }}
       {{ end }}
     {{ end }}
-    {{/* If not found by TranslationBaseName, try by filename without extension */}}
-    {{ if not $otherLangPage }}
+    {{/* Fallback: manually find by matching filename */}}
+    {{ if or (not $description) (eq $description "") }}
+      {{ $otherLang := "en" }}
+      {{ if eq .Site.Language.Lang "en" }}
+        {{ $otherLang = "de" }}
+      {{ end }}
+      {{/* Extract base filename without language suffix */}}
       {{ $baseName := strings.TrimSuffix (printf ".%s" .Lang) .File.LogicalName }}
       {{ $baseName = strings.TrimSuffix ".md" $baseName }}
-      {{ range where .Site.AllPages "Section" "latest" }}
+      {{/* Find the other language version by matching base filename */}}
+      {{ range where $.Site.AllPages "Section" "latest" }}
         {{ if and .File (eq .Lang $otherLang) }}
           {{ $otherBaseName := strings.TrimSuffix (printf ".%s" $otherLang) .File.LogicalName }}
           {{ $otherBaseName = strings.TrimSuffix ".md" $otherBaseName }}
           {{ if eq $otherBaseName $baseName }}
-            {{ $otherLangPage = . }}
+            {{ if isset .Params "description" }}
+              {{ if and .Params.description (ne .Params.description "") }}
+                {{ $description = .Params.description }}
+                {{ break }}
+              {{ end }}
+            {{ end }}
           {{ end }}
         {{ end }}
       {{ end }}
     {{ end }}
-    {{ if and $otherLangPage $otherLangPage.Params.image }}
-      {{ $newsImage = $otherLangPage.Params.image }}
+  {{ end }}
+  
+  {{ if and $description (ne $description "") }}
+    <div class="f6 f5-ns lh-copy mb5 black-80" style="font-family: 'Inter', sans-serif; max-width: 800px;">
+      {{ $description | markdownify }}
+    </div>
+  {{ end }}
+
+  <!-- News Image -->
+  {{ $newsImage := "" }}
+  {{ if isset .Params "image" }}
+    {{ $newsImage = .Params.image }}
+  {{ end }}
+  {{/* If current language has no image, try to get from the other language version */}}
+  {{ if or (not $newsImage) (eq $newsImage "") }}
+    {{/* Try using Hugo's Translations feature first */}}
+    {{ range .Translations }}
+      {{ if isset .Params "image" }}
+        {{ if and .Params.image (ne .Params.image "") }}
+          {{ $newsImage = .Params.image }}
+          {{ break }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{/* Fallback: manually find by matching filename */}}
+    {{ if or (not $newsImage) (eq $newsImage "") }}
+      {{ $otherLang := "en" }}
+      {{ if eq .Site.Language.Lang "en" }}
+        {{ $otherLang = "de" }}
+      {{ end }}
+      {{/* Extract base filename without language suffix */}}
+      {{ $baseName := strings.TrimSuffix (printf ".%s" .Lang) .File.LogicalName }}
+      {{ $baseName = strings.TrimSuffix ".md" $baseName }}
+      {{/* Find the other language version by matching base filename */}}
+      {{ range where $.Site.AllPages "Section" "latest" }}
+        {{ if and .File (eq .Lang $otherLang) }}
+          {{ $otherBaseName := strings.TrimSuffix (printf ".%s" $otherLang) .File.LogicalName }}
+          {{ $otherBaseName = strings.TrimSuffix ".md" $otherBaseName }}
+          {{ if eq $otherBaseName $baseName }}
+            {{ if isset .Params "image" }}
+              {{ if and .Params.image (ne .Params.image "") }}
+                {{ $newsImage = .Params.image }}
+                {{ break }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
     {{ end }}
   {{ end }}
   
-  {{ if $newsImage }}
+  {{ if and $newsImage (ne $newsImage "") }}
     <div class="mb5" style="max-width: 800px;">
       <img src="{{ $newsImage }}" alt="{{ .Title }}" class="w-100" style="max-width: 100%; height: auto; display: block;" />
     </div>
   {{ end }}
 
   <!-- Link Section -->
-  {{ if or .Params.internal_link .Params.external_link }}
+  {{ $linkType := "" }}
+  {{ $internalLink := "" }}
+  {{ $externalLink := "" }}
+  {{ if isset .Params "link_type" }}
+    {{ $linkType = .Params.link_type }}
+  {{ end }}
+  {{ if isset .Params "internal_link" }}
+    {{ $internalLink = .Params.internal_link }}
+  {{ end }}
+  {{ if isset .Params "external_link" }}
+    {{ $externalLink = .Params.external_link }}
+  {{ end }}
+  {{/* If current language has no link fields, try to get from the other language version */}}
+  {{ if or (not $linkType) (eq $linkType "") (not $internalLink) (eq $internalLink "") (not $externalLink) (eq $externalLink "") }}
+    {{/* Try using Hugo's Translations feature first */}}
+    {{ range .Translations }}
+      {{ if isset .Params "link_type" }}
+        {{ if and .Params.link_type (ne .Params.link_type "") (or (not $linkType) (eq $linkType "")) }}
+          {{ $linkType = .Params.link_type }}
+        {{ end }}
+      {{ end }}
+      {{ if isset .Params "internal_link" }}
+        {{ if and .Params.internal_link (ne .Params.internal_link "") (or (not $internalLink) (eq $internalLink "")) }}
+          {{ $internalLink = .Params.internal_link }}
+        {{ end }}
+      {{ end }}
+      {{ if isset .Params "external_link" }}
+        {{ if and .Params.external_link (ne .Params.external_link "") (or (not $externalLink) (eq $externalLink "")) }}
+          {{ $externalLink = .Params.external_link }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{/* Fallback: manually find by matching filename */}}
+    {{ if or (not $linkType) (eq $linkType "") (not $internalLink) (eq $internalLink "") (not $externalLink) (eq $externalLink "") }}
+      {{ $otherLang := "en" }}
+      {{ if eq .Site.Language.Lang "en" }}
+        {{ $otherLang = "de" }}
+      {{ end }}
+      {{/* Extract base filename without language suffix */}}
+      {{ $baseName := strings.TrimSuffix (printf ".%s" .Lang) .File.LogicalName }}
+      {{ $baseName = strings.TrimSuffix ".md" $baseName }}
+      {{/* Find the other language version by matching base filename */}}
+      {{ range where $.Site.AllPages "Section" "latest" }}
+        {{ if and .File (eq .Lang $otherLang) }}
+          {{ $otherBaseName := strings.TrimSuffix (printf ".%s" $otherLang) .File.LogicalName }}
+          {{ $otherBaseName = strings.TrimSuffix ".md" $otherBaseName }}
+          {{ if eq $otherBaseName $baseName }}
+            {{ if isset .Params "link_type" }}
+              {{ if and .Params.link_type (ne .Params.link_type "") (or (not $linkType) (eq $linkType "")) }}
+                {{ $linkType = .Params.link_type }}
+              {{ end }}
+            {{ end }}
+            {{ if isset .Params "internal_link" }}
+              {{ if and .Params.internal_link (ne .Params.internal_link "") (or (not $internalLink) (eq $internalLink "")) }}
+                {{ $internalLink = .Params.internal_link }}
+              {{ end }}
+            {{ end }}
+            {{ if isset .Params "external_link" }}
+              {{ if and .Params.external_link (ne .Params.external_link "") (or (not $externalLink) (eq $externalLink "")) }}
+                {{ $externalLink = .Params.external_link }}
+              {{ end }}
+            {{ end }}
+            {{ break }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  
+  {{ if or $internalLink $externalLink }}
     <div class="mt5 pt4 pb4" style="border-top: 1px solid #e5e5e5;">
       {{ $linkURL := "" }}
       {{ $isExternal := false }}
       
-      {{ if eq .Params.link_type "external" }}
-        {{ $linkURL = .Params.external_link }}
+      {{ if eq $linkType "external" }}
+        {{ $linkURL = $externalLink }}
         {{ $isExternal = true }}
       {{ else }}
-        {{ $linkURL = .Params.internal_link }}
+        {{ $linkURL = $internalLink }}
         {{ if not (hasPrefix $linkURL "/") }}
           {{ $linkURL = printf "/%s" $linkURL }}
         {{ end }}

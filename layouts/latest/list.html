@@ -13,8 +13,16 @@
       {{ $currentLang := .Site.Language.Lang }}
       {{ $latestNews := slice }}
       
-      {{/* Method 1: Try RegularPages (already filtered by language) */}}
+      {{/* Method 1: Try RegularPages (already filtered by language) - includes drafts if running with -D flag */}}
       {{ $latestNews = where .Site.RegularPages "Section" "latest" }}
+      {{/* Also check AllPages to catch any that might be filtered out */}}
+      {{ $allPagesLatest := where .Site.AllPages "Section" "latest" }}
+      {{ $allPagesLatest = where $allPagesLatest "Lang" $currentLang }}
+      {{ $allPagesLatest = where $allPagesLatest "IsNode" false }}
+      {{ $allPagesLatest = where $allPagesLatest "Kind" "!=" "section" }}
+      {{ if gt (len $allPagesLatest) (len $latestNews) }}
+        {{ $latestNews = $allPagesLatest }}
+      {{ end }}
       
       {{/* Method 2: Try AllPages and filter by language to include future-dated pages */}}
       {{ $allLatestNews := where .Site.AllPages "Section" "latest" }}
