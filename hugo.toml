@@ -1,7 +1,8 @@
 baseURL = 'https://markhartzheimart.netlify.app'
 languageCode = 'en-us'
 title = 'Artist Gallery - Demo'
-theme = 'ananke'
+# theme = 'ananke'  # Removed to avoid template conflicts
+buildFuture = true
 
 [taxonomies]
   series = "series"
@@ -25,6 +26,11 @@ theme = 'ananke'
 
 # Menu configuration
 [[languages.en.menu.main]]
+  name = "HOME"
+  url = "/"
+  weight = 0
+
+[[languages.en.menu.main]]
   name = "SERIES"
   url = "/series/"
   weight = 1
@@ -35,17 +41,17 @@ theme = 'ananke'
   weight = 2
 
 [[languages.en.menu.main]]
-  name = "EXHIBITS"
-  url = "/exhibits/"
-  weight = 3
-
-[[languages.en.menu.main]]
   name = "LATEST NEWS"
   url = "/latest/"
-  weight = 4
+  weight = 3
 
 
 # German menu
+[[languages.de.menu.main]]
+  name = "HOME"
+  url = "/de/"
+  weight = 0
+
 [[languages.de.menu.main]]
   name = "SERIEN"
   url = "/de/series/"
@@ -57,11 +63,6 @@ theme = 'ananke'
   weight = 2
 
 [[languages.de.menu.main]]
-  name = "AUSSTELLUNGEN"
-  url = "/de/exhibits/"
-  weight = 3
-
-[[languages.de.menu.main]]
   name = "NEUESTE"
   url = "/de/latest/"
-  weight = 4
+  weight = 3

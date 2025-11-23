@@ -1,0 +1,190 @@
+{{/* Find the series content file that matches this taxonomy term */}}
+{{ $seriesSlug := "" }}
+{{ if .Data }}
+  {{ if .Data.Term }}
+    {{ $seriesSlug = .Data.Term }}
+  {{ end }}
+{{ end }}
+{{ $seriesPage := false }}
+{{ $seriesSection := .Site.GetPage "section" "series" }}
+{{ if $seriesSection }}
+  {{ range $seriesSection.Pages }}
+    {{ if eq .Params.series_slug $seriesSlug }}
+      {{ $seriesPage = . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ if not $seriesPage }}
+  {{ range where .Site.AllPages "Section" "series" }}
+    {{ if eq .Params.series_slug $seriesSlug }}
+      {{ $seriesPage = . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ if not $seriesPage }}
+  {{ range where .Site.RegularPages "Section" "series" }}
+    {{ if eq .Params.series_slug $seriesSlug }}
+      {{ $seriesPage = . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* Get series title - use content file title if available, otherwise use taxonomy term */}}
+{{ $seriesTitle := .Title }}
+{{ if $seriesPage }}
+  {{ $seriesTitle = $seriesPage.Title }}
+{{ end }}
+
+<!-- Series Title -->
+<h1 class="f4 f3-ns fw6 mb4 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
+  {{ $seriesTitle | upper }}
+</h1>
+
+<!-- Series Description -->
+{{ if $seriesPage }}
+  {{ if $seriesPage.Params.description }}
+    <div class="f6 f5-ns lh-copy mb5 black-80" style="font-family: 'Inter', sans-serif; max-width: 800px;">
+      {{ $seriesPage.Params.description | markdownify }}
+    </div>
+  {{ end }}
+{{ end }}
+
+<!-- Gallery Images -->
+{{ if $seriesPage }}
+  {{ if $seriesPage.Params.gallery_images }}
+    <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem 3rem; margin-bottom: 4rem;">
+      {{ range $index, $galleryImage := $seriesPage.Params.gallery_images }}
+        <div class="gallery-item">
+          {{ $galleryURL := printf "/series/%s/gallery/%d/" $seriesSlug $index }}
+          {{ if eq $.Site.Language.Lang "de" }}
+            {{ $galleryURL = printf "/de/series/%s/gallery/%d/" $seriesSlug $index }}
+          {{ end }}
+          {{ if .image }}
+            <div class="mb3" style="width: 100%;">
+              <a href="{{ $galleryURL }}" class="db no-underline">
+                {{ $imgAlt := "" }}
+                {{ $currentLang := $.Site.Language.Lang }}
+                {{ if eq $currentLang "de" }}
+                  {{ $imgAlt = .title_de | default .title_en | default "Artwork" }}
+                {{ else }}
+                  {{ $imgAlt = .title_en | default .title_de | default "Artwork" }}
+                {{ end }}
+                {{/* Fallback to old format for backward compatibility */}}
+                {{ if not $imgAlt }}
+                  {{ if reflect.IsMap .title }}
+                    {{ $imgAlt = index .title $currentLang | default (index .title "en") | default "Artwork" }}
+                  {{ else }}
+                    {{ $imgAlt = .title | default "Artwork" }}
+                  {{ end }}
+                {{ end }}
+                <img src="{{ .image }}" alt="{{ $imgAlt }}" class="w-100" style="max-width: 100%; height: auto; display: block; cursor: pointer;" />
+              </a>
+            </div>
+          {{ end }}
+          {{/* Get title in current language */}}
+          {{ $title := "" }}
+          {{ $currentLang := $.Site.Language.Lang }}
+          {{ if eq $currentLang "de" }}
+            {{ $title = .title_de | default .title_en | default "" }}
+          {{ else }}
+            {{ $title = .title_en | default .title_de | default "" }}
+          {{ end }}
+          {{/* Fallback to old format for backward compatibility */}}
+          {{ if not $title }}
+            {{ if reflect.IsMap .title }}
+              {{ $title = index .title $currentLang | default (index .title "en") | default "" }}
+            {{ else }}
+              {{ $title = .title }}
+            {{ end }}
+          {{ end }}
+          {{ if $title }}
+            <div class="f6 f5-ns fw4 black-90 mb1" style="font-family: 'Inter', sans-serif;">
+              <a href="{{ $galleryURL }}" class="black-90 hover-black no-underline">
+                {{ $title | upper }}
+              </a>
+            </div>
+          {{ end }}
+          {{/* Get medium in current language */}}
+          {{ $medium := "" }}
+          {{ if eq $currentLang "de" }}
+            {{ $medium = .medium_de | default .medium_en | default "" }}
+          {{ else }}
+            {{ $medium = .medium_en | default .medium_de | default "" }}
+          {{ end }}
+          {{/* Fallback to old format for backward compatibility */}}
+          {{ if not $medium }}
+            {{ if reflect.IsMap .medium }}
+              {{ $medium = index .medium $currentLang | default (index .medium "en") | default "" }}
+            {{ else }}
+              {{ $medium = .medium }}
+            {{ end }}
+          {{ end }}
+          {{ if $medium }}
+            <div class="f6 black-70 mb1" style="font-family: 'Inter', sans-serif;">
+              {{ $medium }}
+            </div>
+          {{ end }}
+          {{ if .dimensions }}
+            <div class="f6 black-70 mb1" style="font-family: 'Inter', sans-serif;">
+              {{ .dimensions }}
+            </div>
+          {{ end }}
+          {{ if .year }}
+            <div class="f6 black-70" style="font-family: 'Inter', sans-serif;">
+              {{ .year }}
+            </div>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+  {{ end }}
+{{ end }}
+
+<!-- Fallback: Show artworks from this series if no gallery images -->
+{{ if not (and $seriesPage $seriesPage.Params.gallery_images) }}
+  {{ $artworks := where .Site.RegularPages "Section" "artworks" }}
+  {{ $seriesArtworks := slice }}
+  {{ range $artworks }}
+    {{ $artwork := . }}
+    {{ if .Params.series }}
+      {{ if reflect.IsSlice .Params.series }}
+        {{ range .Params.series }}
+          {{ if eq . $seriesSlug }}
+            {{ $seriesArtworks = $seriesArtworks | append $artwork }}
+          {{ end }}
+        {{ end }}
+      {{ else }}
+        {{ if eq .Params.series $seriesSlug }}
+          {{ $seriesArtworks = $seriesArtworks | append . }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  
+  {{ if $seriesArtworks }}
+    <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem 3rem; margin-bottom: 4rem;">
+      {{ range $seriesArtworks }}
+        <div class="gallery-item">
+          {{ if .Params.image }}
+            <div class="mb3" style="width: 100%;">
+              <a href="{{ .RelPermalink }}" class="db no-underline">
+                <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-100" style="max-width: 100%; height: auto; display: block;" />
+              </a>
+            </div>
+          {{ end }}
+          <div class="f6 f5-ns fw4 black-90 mb1" style="font-family: 'Inter', sans-serif;">
+            <a href="{{ .RelPermalink }}" class="black-90 hover-black no-underline">
+              {{ .Title }}
+            </a>
+          </div>
+          {{ if or .Params.medium .Params.dimensions }}
+            <div class="f6 black-70" style="font-family: 'Inter', sans-serif;">
+              {{ if .Params.medium }}{{ .Params.medium }}{{ end }}{{ if and .Params.medium .Params.dimensions }}, {{ end }}{{ if .Params.dimensions }}{{ .Params.dimensions }}{{ end }}
+            </div>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+  {{ end }}
+{{ end }}
+

@@ -1,11 +1,8 @@
 ---
 title: "Objekte und Assemblages"
 series_slug: "objects-and-assemblages"
-_build:
-  list: never
-  render: never
-  publishResources: false
-description: ""
+series:
+  - objects-and-assemblages
 gallery_images: []
 ---
 

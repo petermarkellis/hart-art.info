@@ -1,13 +1,11 @@
 ---
 title: Gesangbuch
 series_slug: hymnal
-_build:
-  list: never
-  render: never
-  publishResources: false
+series:
+  - hymnal
 description: >-
   Vom 08. bis 15. Dezember 2002 hat die evangelische Paul-Gerhart-Kirche in Köln
-  die Ausstellung *Kirchenlieder als Kunstobjekte* veranstaltet. Die Kirche
+  die Ausstellung *Kirchenlieder als Kunstobjekte* veranstaltet. Die Kirche
   hatte ihre alten Gesangbücher durch eine Neuausgabe ersetzt und kam auf die
   Idee, Künstlerinnen und Künstler einzuladen, mit dem kirchlichen
   Alltagsgegenstand kreativ umzugehen.

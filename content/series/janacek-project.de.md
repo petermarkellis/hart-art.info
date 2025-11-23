@@ -1,10 +1,8 @@
 ---
 title: Das Janáček Projekt
 series_slug: janacek-project
-_build:
-  list: never
-  render: never
-  publishResources: false
+series:
+  - janacek-project
 description: >-
   Das Jahr 2004 war das Leoš-Janáček-Jahr: Es war der 150. Geburtsjahr des
   mährischen Komponisten (1854 - 1928) sowie das 100. Jahr der Uraufführung

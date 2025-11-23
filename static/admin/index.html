@@ -6,6 +6,33 @@
   <meta name="robots" content="noindex" />
   <title>Content Manager</title>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <!-- Google Fonts - Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Apply Inter font to CMS preview - target all possible selectors */
+    .nc-previewPane-frameBody,
+    .nc-previewPane-frameBody *,
+    .nc-previewPane-frameBody body,
+    .nc-previewPane-frameBody p,
+    .nc-previewPane-frameBody h1,
+    .nc-previewPane-frameBody h2,
+    .nc-previewPane-frameBody h3,
+    .nc-previewPane-frameBody h4,
+    .nc-previewPane-frameBody h5,
+    .nc-previewPane-frameBody h6,
+    .nc-previewPane-frameBody div,
+    .nc-previewPane-frameBody span,
+    .nc-previewPane-frameBody a,
+    .nc-previewPane-frameBody li,
+    .nc-previewPane-frameBody td,
+    .nc-previewPane-frameBody th,
+    iframe.nc-previewPane-frame,
+    iframe[class*="preview"] {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    }
+  </style>
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
@@ -19,6 +46,69 @@
         }
       });
     }
+    
+    // Additional script to ensure Inter font is applied to preview iframe after CMS loads
+    document.addEventListener('DOMContentLoaded', function() {
+      function applyInterFont() {
+        // Find all preview iframes
+        const previewFrames = document.querySelectorAll('iframe[class*="preview"], iframe.nc-previewPane-frame, iframe');
+        
+        previewFrames.forEach(function(iframe) {
+          try {
+            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+            if (iframeDoc) {
+              // Add Inter font link to iframe if not already present
+              if (!iframeDoc.querySelector('link[href*="fonts.googleapis.com/css2?family=Inter"]')) {
+                const fontLink = iframeDoc.createElement('link');
+                fontLink.rel = 'preconnect';
+                fontLink.href = 'https://fonts.googleapis.com';
+                iframeDoc.head.appendChild(fontLink);
+                
+                const fontLink2 = iframeDoc.createElement('link');
+                fontLink2.rel = 'preconnect';
+                fontLink2.href = 'https://fonts.gstatic.com';
+                fontLink2.crossOrigin = 'anonymous';
+                iframeDoc.head.appendChild(fontLink2);
+                
+                const fontLink3 = iframeDoc.createElement('link');
+                fontLink3.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap';
+                fontLink3.rel = 'stylesheet';
+                iframeDoc.head.appendChild(fontLink3);
+              }
+              
+              // Apply Inter font to all elements in iframe
+              const style = iframeDoc.createElement('style');
+              style.textContent = `
+                body, body *, p, h1, h2, h3, h4, h5, h6, div, span, a, li, td, th, 
+                .nc-previewPane-frameBody, .nc-previewPane-frameBody * {
+                  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+                }
+              `;
+              iframeDoc.head.appendChild(style);
+            }
+          } catch (e) {
+            // Cross-origin iframe, can't access
+            console.log('Cannot access iframe content:', e);
+          }
+        });
+      }
+      
+      // Apply immediately and then periodically to catch dynamically loaded iframes
+      applyInterFont();
+      setTimeout(applyInterFont, 1000);
+      setTimeout(applyInterFont, 2000);
+      setTimeout(applyInterFont, 3000);
+      
+      // Also watch for new iframes being added
+      const observer = new MutationObserver(function(mutations) {
+        applyInterFont();
+      });
+      
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+    });
   </script>
 </body>
 </html>

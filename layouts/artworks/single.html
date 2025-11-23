@@ -1,0 +1,119 @@
+{{ define "main" }}
+<div class="flex flex-column flex-row-l bg-white" style="min-height: 100vh; height: 100%; width: 100%;">
+  <!-- Left Sidebar - Series Navigation -->
+  <aside class="w-100 w-25-l pa3 pa4-l bg-white dn db-l" style="border-right: 1px solid #e5e5e5; min-height: 100vh; position: sticky; top: 0; align-self: flex-start;">
+    <nav class="series-nav">
+      <ul class="list pl0">
+        {{ $seriesOrder := slice "drawings-and-watercolors" "hymnal" "janacek-project" "intimni-skici" "calligraphy" "imaginary-sketchbook" "destroyed-diaries" "action-drawing" "letters-home" "strokes" "music-to-my-ears" "objects-and-assemblages" "on-the-road-rhythms" "homage-to-marienbad" "inner-landscapes" }}
+        {{ $seriesNames := dict "drawings-and-watercolors" "DRAWINGS AND WATERCOLORS" "hymnal" "HYMNAL" "janacek-project" "THE JANÁČEK PROJECT" "intimni-skici" "INTIMNI SKICI" "calligraphy" "CALLIGRAPHY" "imaginary-sketchbook" "THE IMAGINARY SKETCHBOOK" "destroyed-diaries" "DESTROYED DIARIES" "action-drawing" "ACTION DRAWING" "letters-home" "LETTERS HOME" "strokes" "STROKES" "music-to-my-ears" "MUSIC TO MY EARS" "objects-and-assemblages" "OBJECTS AND ASSEMBLAGES" "on-the-road-rhythms" "ON THE ROAD RHYTHMS" "homage-to-marienbad" "HOMAGE TO MARIENBAD" "inner-landscapes" "INNER LANDSCAPES" }}
+        
+        {{ $currentSeries := "" }}
+        {{ if .Params.series }}
+          {{ if reflect.IsSlice .Params.series }}
+            {{ $currentSeries = index .Params.series 0 }}
+          {{ else }}
+            {{ $currentSeries = .Params.series }}
+          {{ end }}
+        {{ end }}
+        
+        {{ range $seriesOrder }}
+          {{ $seriesSlug := . }}
+          {{ $seriesName := index $seriesNames $seriesSlug | default (upper $seriesSlug) }}
+          {{ $seriesURL := printf "/series/%s/" $seriesSlug }}
+          {{ if eq $.Site.Language.Lang "de" }}
+            {{ $seriesURL = printf "/de/series/%s/" $seriesSlug }}
+          {{ end }}
+          <li class="mb3">
+            <a href="{{ $seriesURL }}" 
+               class="f6 f5-ns black-90 hover-black series-nav-link no-underline {{ if eq $seriesSlug $currentSeries }}fw6{{ else }}fw4{{ end }}"
+               style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
+              {{ $seriesName }}
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="w-100 w-75-l pa3 pa4-l bg-white" style="flex: 1; padding-bottom: 4rem !important;">
+    <!-- Artwork Title -->
+    <h1 class="f4 f3-ns fw6 mb4 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
+      {{ .Title }}
+    </h1>
+
+    <!-- Artwork Description -->
+    {{ if .Content }}
+      <div class="f6 f5-ns lh-copy mb5 black-80" style="font-family: 'Inter', sans-serif; max-width: 800px;">
+        {{ .Content }}
+      </div>
+    {{ end }}
+
+    <!-- Artwork Details -->
+    <div class="mb5" style="font-family: 'Inter', sans-serif;">
+      {{ if .Params.dimensions }}
+        <div class="f6 f5-ns mb2 black-70">
+          <strong class="black-90">Dimensions:</strong> {{ .Params.dimensions }}
+        </div>
+      {{ end }}
+      {{ if .Params.medium }}
+        <div class="f6 f5-ns mb2 black-70">
+          <strong class="black-90">Medium:</strong> {{ .Params.medium }}
+        </div>
+      {{ end }}
+      {{ if .Params.unique_work }}
+        <div class="f6 f5-ns mb2 black-70">
+          Unique work
+        </div>
+      {{ end }}
+      {{ if .Params.certificate }}
+        <div class="f6 f5-ns mb2 black-70">
+          Includes a Certificate of Authenticity.
+        </div>
+      {{ end }}
+    </div>
+
+    <!-- Artwork Image -->
+    {{ if .Params.image }}
+      <div class="mb5" style="width: 100%;">
+        <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-100" style="max-width: 100%; height: auto; display: block;" />
+      </div>
+    {{ end }}
+
+    <!-- Pricing Section -->
+    {{ if .Params.pricing_enquiry_text }}
+      <div class="mt5 pt4 pb6" style="border-top: 1px solid #e5e5e5;">
+        <h2 class="f5 f4-ns fw6 mb3 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">PRICING</h2>
+        <a href="/contact" class="dib bg-black white pa3 pa4-ns no-underline hover-bg-black-80" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; transition: background-color 0.2s;">
+          {{ .Params.pricing_enquiry_text | default "MAKE AN ENQUIRY" }}
+        </a>
+      </div>
+    {{ else }}
+      <!-- Add padding even if pricing section doesn't exist -->
+      <div class="pb6"></div>
+    {{ end }}
+  </main>
+</div>
+
+<style>
+  /* Hover underline for navigation links */
+  .series-nav-link:hover {
+    text-decoration: underline !important;
+  }
+  
+  @media (max-width: 60em) {
+    .series-nav {
+      margin-bottom: 2rem;
+    }
+    .series-nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .series-nav li {
+      margin-bottom: 0;
+    }
+  }
+</style>
+{{ end }}
+

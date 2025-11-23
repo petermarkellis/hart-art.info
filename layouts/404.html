@@ -1,0 +1,14 @@
+{{ define "header" }}
+  {{/* Override header for 404 page - use simple white header */}}
+  <header class="bg-white">
+    {{ partials.Include "site-navigation.html" . }}
+  </header>
+{{ end }}
+
+{{ define "main" }}
+  <article class="center cf pv5 measure-wide-l">
+    <h1>This is not the page you were looking for</h1>
+    <p>The page you requested could not be found.</p>
+    <p><a href="/">Return to homepage</a></p>
+  </article>
+{{ end }}

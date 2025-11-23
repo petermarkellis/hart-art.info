@@ -3,6 +3,11 @@
   <header class="bg-white">
     {{ partials.Include "site-navigation.html" . }}
   </header>
+{{ else if or (eq .Section "series") (eq .Section "latest") (eq .Section "about") }}
+  <!-- Series, Latest News, and About pages - white background, no large header -->
+  <header class="bg-white">
+    {{ partials.Include "site-navigation.html" . }}
+  </header>
 {{ else }}
   {{ $featured_image := partials.Include "func/GetFeaturedImage.html" . }}
   {{ if $featured_image }}

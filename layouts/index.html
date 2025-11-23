@@ -1,71 +1,172 @@
+{{ define "head" }}
+  <style>
+    .hero-banner {
+      position: relative;
+    }
+    
+    .aspect-ratio {
+      position: relative;
+      height: 0;
+      overflow: hidden;
+    }
+    
+    .aspect-ratio--1x1 {
+      padding-bottom: 100%;
+    }
+    
+    .aspect-ratio--object {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+      object-fit: cover;
+    }
+    
+    /* Responsive quote box */
+    @media (max-width: 60em) {
+      .hero-banner .absolute {
+        position: relative;
+        margin: 1rem;
+        max-width: 100% !important;
+      }
+    }
+    
+    /* News item hover */
+    .news-item:hover {
+      background-color: #fafafa;
+    }
+  </style>
+{{ end }}
+
 {{ define "main" }}
+  {{/* Get homepage content */}}
+  {{ $homepagePage := false }}
+  {{ $lang := .Site.Language.Lang }}
+  
+  {{/* Try multiple methods to get the homepage page */}}
+  {{ $paths := slice 
+    (printf "homepage/index.%s" $lang)
+    (printf "homepage/index")
+    (printf "/homepage/index.%s" $lang)
+    (printf "/homepage/index")
+  }}
+  {{ range $paths }}
+    {{ if not $homepagePage }}
+      {{ $homepagePage = $.Site.GetPage . }}
+    {{ end }}
+  {{ end }}
+  
+  {{/* Method 2: Try getting from section pages */}}
+  {{ if not $homepagePage }}
+    {{ $homepageSection := .Site.GetPage "section" "homepage" }}
+    {{ if $homepageSection }}
+      {{ range $homepageSection.Pages }}
+        {{ if not $homepagePage }}
+          {{ $homepagePage = . }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  
+  {{/* Method 3: Try AllPages */}}
+  {{ if not $homepagePage }}
+    {{ range where .Site.AllPages "Section" "homepage" }}
+      {{ if not $homepagePage }}
+        {{ $homepagePage = . }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  
+  {{/* Default values if homepage page not found */}}
+  {{ $heroImage := "/images/hero.jpg" }}
+  {{ $quoteText := "THE SUBCONSCIOUS DICTATES!" }}
+  {{ $quoteAuthor := "ANDRÉ MASSON" }}
+  
+  {{ if $homepagePage }}
+    {{ if $homepagePage.Params.hero_image }}
+      {{ $heroImage = $homepagePage.Params.hero_image }}
+    {{ end }}
+    {{ if $homepagePage.Params.quote_text }}
+      {{ $quoteText = $homepagePage.Params.quote_text }}
+    {{ end }}
+    {{ if $homepagePage.Params.quote_author }}
+      {{ $quoteAuthor = $homepagePage.Params.quote_author }}
+    {{ end }}
+  {{ end }}
+
   <!-- Hero Banner Section -->
-  <section class="hero-banner relative" style="min-height: 80vh; background-image: url('{{ .Site.Params.featured_image | default "/images/hero.jpg" }}'); background-size: cover; background-position: center;">
+  <section class="hero-banner relative" style="min-height: 80vh; background-image: url('{{ $heroImage }}'); background-size: cover; background-position: center;">
     <div class="absolute bottom-0 right-0 ma4 ma5-ns" style="max-width: 400px;">
-      <div class="bg-white pa3 pa4-ns" style="box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
-        <p class="f4 f3-ns fw6 mb2 black-90" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; margin: 0;">"THE SUBCONSCIOUS DICTATES!"</p>
-        <p class="f5 f4-ns mb0 black-70" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; margin: 0;">ANDRÉ MASSON</p>
+      <div class="bg-white" style="padding: 0.6rem 0.8rem;">
+        <p class="f6 f5-ns fw6 mb1 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; margin: 0;">"{{ $quoteText }}"</p>
+        <p class="f6 f5-ns mb0 black-70" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; margin: 0;">{{ $quoteAuthor }}</p>
       </div>
     </div>
   </section>
 
-  <!-- Latest Section -->
+  <!-- Latest News Section -->
   <section class="pa4 pa5-ns bg-white">
-    <h2 class="f2 f1-ns fw6 mb4 black-90" style="font-family: sans-serif; letter-spacing: 0.05em;">LATEST</h2>
-    <div class="flex flex-wrap">
-      {{ $latestArtworks := where .Site.RegularPages "Section" "artworks" | first 3 }}
-      {{ range $latestArtworks }}
-        <div class="w-100 w-third-ns mb4 pr3-ns">
-          <a href="{{ .RelPermalink }}" class="db no-underline">
-            {{ with .Params.image }}
-              <div class="aspect-ratio aspect-ratio--1x1 bg-light-gray mb3">
-                <img src="{{ . }}" alt="{{ $.Title }}" class="aspect-ratio--object cover" />
-              </div>
-            {{ end }}
-            <div class="bg-white pa3">
-              <h3 class="f5 f4-ns fw4 black-90 mb0" style="font-family: sans-serif;">{{ .Title }}</h3>
+    <h2 class="f6 f5-ns fw6 mb4 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">LATEST NEWS</h2>
+    <div class="news-list">
+      {{/* Try multiple methods to get latest news pages - filtered by current language */}}
+      {{ $currentLang := .Site.Language.Lang }}
+      {{ $latestNews := slice }}
+      
+      {{/* Method 1: Try RegularPages (already filtered by language) */}}
+      {{ $latestNews = where .Site.RegularPages "Section" "latest" }}
+      
+      {{/* Method 2: Try AllPages and filter by language to include future-dated pages */}}
+      {{ $allLatestNews := where .Site.AllPages "Section" "latest" }}
+      {{ $allLatestNews = where $allLatestNews "Lang" $currentLang }}
+      {{ if gt (len $allLatestNews) (len $latestNews) }}
+        {{ $latestNews = $allLatestNews }}
+      {{ end }}
+      
+      {{/* Method 3: Try section pages */}}
+      {{ if not $latestNews }}
+        {{ $latestSection := .Site.GetPage "section" "latest" }}
+        {{ if $latestSection }}
+          {{ $latestNews = where $latestSection.Pages "Lang" $currentLang }}
+        {{ end }}
+      {{ end }}
+      
+      {{/* Ensure all items are in the current language */}}
+      {{ $latestNews = where $latestNews "Lang" $currentLang }}
+      
+      {{/* Filter out the section index page (the /latest/ listing page itself) */}}
+      {{/* Use where filters to maintain page collection type */}}
+      {{ $latestNews = where $latestNews "IsNode" false }}
+      {{ $latestNews = where $latestNews "Kind" "!=" "section" }}
+      
+      {{/* Sort by date (newest first) and limit to 10 */}}
+      {{ if $latestNews }}
+        {{/* Convert to proper page collection and sort by date */}}
+        {{ $latestNews = $latestNews.ByDate.Reverse | first 10 }}
+      {{ else }}
+        {{ $latestNews = slice }}
+      {{ end }}
+      {{ range $latestNews }}
+        <a href="{{ .RelPermalink }}" class="db no-underline news-item" style="border-bottom: 1px solid #e5e5e5; padding: 1rem; display: flex; justify-content: space-between; align-items: center;">
+          <div class="flex-auto">
+            <h3 class="f6 f5-ns fw4 black-90 mb0" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; margin: 0;">{{ .Title }}</h3>
+          </div>
+          {{ if not .Date.IsZero }}
+            <div class="ml3 ml4-ns" style="flex-shrink: 0;">
+              <span class="f7 f6-ns black-60" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; white-space: nowrap;">
+                {{ .Date.Format "2 January 2006" | upper }}
+              </span>
             </div>
-          </a>
-        </div>
+          {{ end }}
+        </a>
+      {{ end }}
+      {{ if not $latestNews }}
+        <p class="f6 f5-ns black-70" style="font-family: 'Inter', sans-serif;">No news items yet.</p>
       {{ end }}
     </div>
   </section>
 {{ end }}
-
-<style>
-  .hero-banner {
-    position: relative;
-  }
-  
-  .aspect-ratio {
-    position: relative;
-    height: 0;
-    overflow: hidden;
-  }
-  
-  .aspect-ratio--1x1 {
-    padding-bottom: 100%;
-  }
-  
-  .aspect-ratio--object {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 100;
-    object-fit: cover;
-  }
-  
-  /* Responsive quote box */
-  @media (max-width: 60em) {
-    .hero-banner .absolute {
-      position: relative;
-      margin: 1rem;
-      max-width: 100% !important;
-    }
-  }
-</style>
 

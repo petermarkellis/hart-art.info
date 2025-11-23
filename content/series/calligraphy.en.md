@@ -1,11 +1,8 @@
 ---
 title: "Calligraphy"
 series_slug: "calligraphy"
-_build:
-  list: never
-  render: never
-  publishResources: false
-description: ""
+series:
+  - calligraphy
 gallery_images: []
 ---
 

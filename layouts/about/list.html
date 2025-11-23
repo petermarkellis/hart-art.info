@@ -1,0 +1,11 @@
+{{ define "header" }}
+  <!-- About page - white background, no large header -->
+  <header class="bg-white">
+    {{ partial "site-navigation.html" . }}
+  </header>
+{{ end }}
+
+{{ define "main" }}
+  {{ partial "about-list-content.html" . }}
+{{ end }}
+

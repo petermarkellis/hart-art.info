@@ -1,103 +1,55 @@
 <!-- Top Bar -->
-<div class="bg-white ph3 ph4-ns pv2 flex items-center justify-between">
-  <a href="{{ .Site.Home.RelPermalink }}" class="f3 f2-ns fw6 black-90 no-underline">
+<div class="bg-white ph2 ph4-ns pv2 flex items-center justify-between">
+  <a href="{{ .Site.Home.RelPermalink }}" class="f6 f5-ns fw6 black-90 no-underline" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
     HARTZHEIM
   </a>
   <div class="flex items-center">
-    <a href="/contact" class="f5 f4-ns black-90 no-underline mr3 mr4-ns">CONTACT</a>
+    <a href="mailto:hartzheimmark@gmail.com?subject=HARTZHEIM ART" class="f6 f5-ns black-90 no-underline mr3 mr4-ns" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">CONTACT</a>
     {{ partials.Include "i18nlist.html" . }}
   </div>
 </div>
 
 <!-- Main Navigation -->
-<nav class="bg-white ph3 ph4-ns pv2 bb b--black-10" role="navigation">
+<nav class="bg-white ph2 ph4-ns pv2 bb b--black-10" role="navigation">
   <div class="flex items-center justify-between">
     <div class="flex items-center">
-      <!-- Mobile menu button -->
-      <button class="dn-l dib bg-transparent bn black-90 hover-black pointer mr3" id="mobile-menu-toggle" aria-label="Toggle menu">
-        <svg class="w2 h2" fill="currentColor" viewBox="0 0 20 20">
-          <path id="menu-icon" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" />
-          <path id="close-icon" class="dn" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" />
-        </svg>
-      </button>
       {{ if .Site.Menus.main }}
-        <ul class="list pl0 ml0 mt0 flex-l dn flex-column flex-row-l">
-          {{ range .Site.Menus.main }}
-          <li class="list f5 f4-ns fw4 dib mr3 mr4-ns">
-            <a class="black-90 hover-black no-underline" href="{{ .URL }}" title="{{ lang.Translate "pageTitle" . }}">
-              {{ .Name }}
+        <ul class="list pl0 ml0 mt0 flex flex-row">
+          {{ range sort .Site.Menus.main "Weight" }}
+          {{ $isActive := false }}
+          {{ $menuURL := .URL }}
+          {{ $currentURL := $.RelPermalink }}
+          {{/* Check if current page matches menu URL */}}
+          {{ if eq $menuURL "/" }}
+            {{/* Homepage - only match if we're on the homepage */}}
+            {{ if $.IsHome }}
+              {{ $isActive = true }}
+            {{ end }}
+          {{ else }}
+            {{/* Other pages - check if current URL starts with menu URL */}}
+            {{ if hasPrefix $currentURL $menuURL }}
+              {{ $isActive = true }}
+            {{ end }}
+          {{ end }}
+          {{/* Hide HOME link on mobile, show on desktop */}}
+          {{ if ne $menuURL "/" }}
+          <li class="list f6 f5-ns dib mr3 mr4-ns">
+            <a class="black-90 hover-black no-underline {{ if $isActive }}fw6{{ else }}fw4{{ end }}" href="{{ .URL }}" title="{{ lang.Translate "pageTitle" . }}" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
+              {{ .Name | upper }}
             </a>
           </li>
+          {{ else }}
+          {{/* Show HOME only on desktop (large screens) */}}
+          <li class="list f6 f5-ns dib mr3 mr4-ns dn db-l">
+            <a class="black-90 hover-black no-underline {{ if $isActive }}fw6{{ else }}fw4{{ end }}" href="{{ .URL }}" title="{{ lang.Translate "pageTitle" . }}" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
+              {{ .Name | upper }}
+            </a>
+          </li>
+          {{ end }}
           {{ end }}
         </ul>
       {{ end }}
     </div>
   </div>
-  <!-- Mobile menu -->
-  <div class="dn-l flex-column w-100 mt3" id="mobile-menu">
-    {{ if .Site.Menus.main }}
-      <ul class="list pl0 ml0 mt0">
-        {{ range .Site.Menus.main }}
-        <li class="list f5 fw4 pb2 mb2 bb b--black-10">
-          <a class="black-90 hover-black no-underline" href="{{ .URL }}" title="{{ lang.Translate "pageTitle" . }}">
-            {{ .Name }}
-          </a>
-        </li>
-        {{ end }}
-      </ul>
-    {{ end }}
-  </div>
 </nav>
-
-<script>
-  // Mobile menu toggle
-  (function() {
-    const toggle = document.getElementById('mobile-menu-toggle');
-    const menu = document.getElementById('mobile-menu');
-    const menuIcon = document.getElementById('menu-icon');
-    const closeIcon = document.getElementById('close-icon');
-    
-    if (toggle && menu) {
-      toggle.addEventListener('click', function() {
-        const isOpen = !menu.classList.contains('dn');
-        if (isOpen) {
-          menu.classList.add('dn');
-          menuIcon.classList.remove('dn');
-          closeIcon.classList.add('dn');
-        } else {
-          menu.classList.remove('dn');
-          menu.classList.add('flex');
-          menu.classList.add('flex-column');
-          menu.classList.add('w-100');
-          menu.classList.add('mt3');
-          menuIcon.classList.add('dn');
-          closeIcon.classList.remove('dn');
-        }
-      });
-    }
-  })();
-</script>
-
-<style>
-  /* Mobile menu styles */
-  @media (max-width: 60em) {
-    #mobile-menu {
-      flex-direction: column;
-      width: 100%;
-      margin-top: 1rem;
-    }
-    #mobile-menu ul {
-      flex-direction: column;
-      width: 100%;
-    }
-    #mobile-menu li {
-      display: block;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    #mobile-menu li:last-child {
-      border-bottom: none;
-    }
-  }
-</style>
 

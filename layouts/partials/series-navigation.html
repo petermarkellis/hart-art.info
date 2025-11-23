@@ -1,0 +1,133 @@
+{{ $currentSeriesSlug := "" }}
+{{ if .Data.Term }}
+  {{ $currentSeriesSlug = .Data.Term }}
+{{ end }}
+{{ $currentLang := $.Site.Language.Lang }}
+
+{{/* Dynamically get all unique series slugs from content files */}}
+{{ $seriesMap := dict }}
+{{ range where $.Site.AllPages "Section" "series" }}
+  {{ if .Params.series_slug }}
+    {{ $slug := .Params.series_slug }}
+    {{ if not (index $seriesMap $slug) }}
+      {{ $seriesMap = merge $seriesMap (dict $slug true) }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ $firstSeriesSlug := "" }}
+
+<nav class="series-nav">
+  <ul class="list pl0">
+    {{ range $slug, $_ := $seriesMap }}
+      {{ $seriesSlug := $slug }}
+      {{/* Get the series name from the actual content file for current language */}}
+      {{ $seriesName := "" }}
+      {{ $seriesPage := false }}
+      {{ range where $.Site.AllPages "Section" "series" }}
+        {{ if and .Params.series_slug (eq .Params.series_slug $seriesSlug) (eq .Lang $currentLang) }}
+          {{ $seriesPage = . }}
+        {{ end }}
+      {{ end }}
+      {{ if $seriesPage }}
+        {{ $seriesName = $seriesPage.Title | upper }}
+      {{ else }}
+        {{/* Fallback to English if current language not found */}}
+        {{ range where $.Site.AllPages "Section" "series" }}
+          {{ if and .Params.series_slug (eq .Params.series_slug $seriesSlug) (eq .Lang "en") }}
+            {{ $seriesName = .Title | upper }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{/* Final fallback to slug if no page found */}}
+      {{ if not $seriesName }}
+        {{ $seriesName = $seriesSlug | upper | replace "-" " " }}
+      {{ end }}
+      
+      {{/* Track first series for highlighting on list page */}}
+      {{ if not $firstSeriesSlug }}
+        {{ $firstSeriesSlug = $seriesSlug }}
+      {{ end }}
+      
+      {{/* Determine if this is the active series */}}
+      {{ $isActive := false }}
+      {{ if eq $seriesSlug $currentSeriesSlug }}
+        {{ $isActive = true }}
+      {{ else if and (not $currentSeriesSlug) (eq $seriesSlug $firstSeriesSlug) }}
+        {{ $isActive = true }}
+      {{ end }}
+      
+      {{/* Build the series URL */}}
+      {{ $seriesURL := printf "/series/%s/" $seriesSlug }}
+      {{ if eq $.Site.Language.Lang "de" }}
+        {{ $seriesURL = printf "/de/series/%s/" $seriesSlug }}
+      {{ end }}
+      
+      <li class="mb3">
+        <a href="{{ $seriesURL }}" 
+           data-series-slug="{{ $seriesSlug }}"
+           class="f6 f5-ns black-90 hover-black series-nav-link no-underline {{ if $isActive }}active fw6{{ else }}fw4{{ end }}"
+           style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
+          {{ $seriesName }}
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+</nav>
+
+<style>
+  /* Active series navigation link styling */
+  .series-nav-link.active {
+    font-weight: 600 !important;
+    position: relative;
+  }
+  
+  /* Optional: Add a visual indicator for active link */
+  .series-nav-link.active::before {
+    content: '';
+    position: absolute;
+    left: -1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 1.2em;
+    background-color: #000;
+  }
+</style>
+
+<script>
+  // Set active class based on current URL (for 404 pages, gallery pages, and other cases)
+  (function() {
+    const currentPath = window.location.pathname;
+    let currentSeriesSlug = null;
+    
+    // Check for gallery URL pattern: /series/{slug}/gallery/{index}/
+    const galleryMatch = currentPath.match(/^\/(?:de\/)?series\/([^\/]+)\/gallery\//);
+    if (galleryMatch) {
+      currentSeriesSlug = galleryMatch[1];
+    } else {
+      // Check for series term URL pattern: /series/{slug}/
+      const seriesMatch = currentPath.match(/^\/(?:de\/)?series\/([^\/]+)\/?$/);
+      if (seriesMatch) {
+        currentSeriesSlug = seriesMatch[1];
+      }
+    }
+    
+    if (currentSeriesSlug) {
+      const navLinks = document.querySelectorAll('.series-nav-link[data-series-slug]');
+      navLinks.forEach(link => {
+        const linkSlug = link.getAttribute('data-series-slug');
+        if (linkSlug === currentSeriesSlug) {
+          link.classList.add('active');
+          link.classList.add('fw6');
+          link.classList.remove('fw4');
+        } else {
+          link.classList.remove('active');
+          link.classList.remove('fw6');
+          link.classList.add('fw4');
+        }
+      });
+    }
+  })();
+</script>
+

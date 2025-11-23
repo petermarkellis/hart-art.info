@@ -1,11 +1,8 @@
 ---
 title: "Destroyed Diaries"
 series_slug: "destroyed-diaries"
-_build:
-  list: never
-  render: never
-  publishResources: false
-description: ""
+series:
+  - destroyed-diaries
 gallery_images: []
 ---
 

@@ -1,11 +1,8 @@
 ---
 title: "Music to My Ears"
 series_slug: "music-to-my-ears"
-_build:
-  list: never
-  render: never
-  publishResources: false
-description: ""
+series:
+  - music-to-my-ears
 gallery_images: []
 ---
 

@@ -1,0 +1,137 @@
+{{ define "header" }}
+  <!-- Latest news pages - white background, no large header -->
+  <header class="bg-white">
+    {{ partial "site-navigation.html" . }}
+  </header>
+{{ end }}
+
+{{ define "main" }}
+<div class="pa4 pa5-ns bg-white" style="max-width: 800px; margin: 0 auto;">
+  <!-- News Title -->
+  <h1 class="f4 f3-ns fw6 mb4 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
+    {{ .Title | upper }}
+  </h1>
+
+  <!-- News Date Created -->
+  {{ if not .Date.IsZero }}
+    <div class="f7 f6-ns mb2 black-60" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
+      {{ .Date.Format "2 January 2006" | upper }}
+    </div>
+  {{ end }}
+
+  <!-- Exhibition Date (if set) -->
+  {{ if .Params.exhibition_date }}
+    {{ $exhibitionDate := time .Params.exhibition_date }}
+    {{ if not $exhibitionDate.IsZero }}
+      <div class="f7 f6-ns mb4 black-60" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
+        <strong>EXHIBITION DATE:</strong> {{ $exhibitionDate.Format "2 January 2006" | upper }}
+      </div>
+    {{ end }}
+  {{ end }}
+
+  <!-- News Description -->
+  {{ if .Params.description }}
+    <div class="f6 f5-ns lh-copy mb5 black-80" style="font-family: 'Inter', sans-serif; max-width: 800px;">
+      {{ .Params.description | markdownify }}
+    </div>
+  {{ end }}
+
+  <!-- News Image -->
+  {{ $newsImage := .Params.image }}
+  {{/* If current language has no image, try to get from the other language version */}}
+  {{ if not $newsImage }}
+    {{ $otherLang := "en" }}
+    {{ if eq .Site.Language.Lang "en" }}
+      {{ $otherLang = "de" }}
+    {{ end }}
+    {{ $otherLangPage := false }}
+    {{ $currentSlug := .File.TranslationBaseName }}
+    {{/* Try to find the other language version by matching the translation base name */}}
+    {{ range where .Site.AllPages "Section" "latest" }}
+      {{ if and .File (eq .File.TranslationBaseName $currentSlug) (eq .Lang $otherLang) }}
+        {{ $otherLangPage = . }}
+      {{ end }}
+    {{ end }}
+    {{/* If not found by TranslationBaseName, try by filename without extension */}}
+    {{ if not $otherLangPage }}
+      {{ $baseName := strings.TrimSuffix (printf ".%s" .Lang) .File.LogicalName }}
+      {{ $baseName = strings.TrimSuffix ".md" $baseName }}
+      {{ range where .Site.AllPages "Section" "latest" }}
+        {{ if and .File (eq .Lang $otherLang) }}
+          {{ $otherBaseName := strings.TrimSuffix (printf ".%s" $otherLang) .File.LogicalName }}
+          {{ $otherBaseName = strings.TrimSuffix ".md" $otherBaseName }}
+          {{ if eq $otherBaseName $baseName }}
+            {{ $otherLangPage = . }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{ if and $otherLangPage $otherLangPage.Params.image }}
+      {{ $newsImage = $otherLangPage.Params.image }}
+    {{ end }}
+  {{ end }}
+  
+  {{ if $newsImage }}
+    <div class="mb5" style="max-width: 800px;">
+      <img src="{{ $newsImage }}" alt="{{ .Title }}" class="w-100" style="max-width: 100%; height: auto; display: block;" />
+    </div>
+  {{ end }}
+
+  <!-- Link Section -->
+  {{ if or .Params.internal_link .Params.external_link }}
+    <div class="mt5 pt4 pb4" style="border-top: 1px solid #e5e5e5;">
+      {{ $linkURL := "" }}
+      {{ $isExternal := false }}
+      
+      {{ if eq .Params.link_type "external" }}
+        {{ $linkURL = .Params.external_link }}
+        {{ $isExternal = true }}
+      {{ else }}
+        {{ $linkURL = .Params.internal_link }}
+        {{ if not (hasPrefix $linkURL "/") }}
+          {{ $linkURL = printf "/%s" $linkURL }}
+        {{ end }}
+        {{ if eq $.Site.Language.Lang "de" }}
+          {{ if not (hasPrefix $linkURL "/de/") }}
+            {{ $linkURL = printf "/de%s" $linkURL }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      
+      {{ if $linkURL }}
+        <a href="{{ $linkURL }}" 
+           {{ if $isExternal }}target="_blank" rel="noopener noreferrer"{{ end }}
+           class="dib bg-black white pa3 pa4-ns no-underline hover-bg-black-80" 
+           style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; transition: background-color 0.2s;">
+          {{ if $isExternal }}VISIT LINK{{ else }}LEARN MORE{{ end }}
+        </a>
+      {{ end }}
+    </div>
+  {{ end }}
+
+  <!-- Back to Latest News Link -->
+  <div class="mt4 pt4" style="border-top: 1px solid #e5e5e5;">
+    {{ $latestURL := "/latest/" }}
+    {{ if eq .Site.Language.Lang "de" }}
+      {{ $latestURL = "/de/latest/" }}
+    {{ end }}
+    <a href="{{ $latestURL }}" class="f6 f5-ns black-90 hover-black no-underline" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
+      ← Back to Latest News
+    </a>
+  </div>
+
+  <!-- Add padding at bottom -->
+  <div class="pb6"></div>
+</div>
+
+<style>
+  .news-item:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .news-item:hover h3 {
+    text-decoration: underline;
+  }
+</style>
+{{ end }}
+

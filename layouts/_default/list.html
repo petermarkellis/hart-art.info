@@ -1,0 +1,41 @@
+{{ define "main" }}
+  {{/* Default list template - delegates to section-specific templates if they exist */}}
+  {{ if eq .Section "about" }}
+    {{/* About section uses its own template */}}
+    {{ partial "about-list-content.html" . }}
+  {{ else if eq .Section "latest" }}
+    {{/* Latest section uses its own template */}}
+    {{ partial "latest-list-content.html" . }}
+  {{ else if eq .Section "series" }}
+    {{/* Series section uses its own template */}}
+    {{ partial "series-list-content.html" . }}
+  {{ else }}
+    {{/* Generic list template for other sections */}}
+    <div class="pa3 pa4-ns w-100 w-70-ns center">
+      <header class="mb4">
+        <h1 class="f3 f2-ns fw4 lh-title">{{ .Title }}</h1>
+        {{ with .Content }}
+          <div class="f5 f4-ns lh-copy nested-copy-line-height">
+            {{ . }}
+          </div>
+        {{ end }}
+      </header>
+
+      <section class="w-100 mw8">
+        {{ range .Pages }}
+          <div class="w-100 mb4 relative">
+            <h2 class="f4 f3-ns fw4 lh-title">
+              <a href="{{ .RelPermalink }}" class="link black dim">
+                {{ .Title }}
+              </a>
+            </h2>
+            {{ if .Summary }}
+              <p class="f5 f4-ns lh-copy">{{ .Summary }}</p>
+            {{ end }}
+          </div>
+        {{ end }}
+      </section>
+    </div>
+  {{ end }}
+{{ end }}
+

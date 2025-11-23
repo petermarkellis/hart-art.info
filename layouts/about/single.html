@@ -1,0 +1,61 @@
+{{ define "header" }}
+  <!-- About page - white background, no large header -->
+  <header class="bg-white">
+    {{ partial "site-navigation.html" . }}
+  </header>
+{{ end }}
+
+{{ define "main" }}
+{{ $aboutPage := .Page }}
+
+<div class="flex flex-column flex-row-l bg-white" style="min-height: 100vh; height: 100%; width: 100%;">
+  <!-- Left Column - Portrait and Contact Info -->
+  <aside class="w-100 w-40-l pa3 pa4-l bg-white" style="border-right: 1px solid #e5e5e5; min-height: 100vh; position: sticky; top: 0; align-self: flex-start;">
+    {{ if $aboutPage.Params.image }}
+      <div class="mb4">
+        <img src="{{ $aboutPage.Params.image }}" alt="{{ $aboutPage.Title }}" class="w-100" style="max-width: 100%; height: auto; display: block;" />
+      </div>
+    {{ end }}
+
+    <div class="f6 f5-ns lh-copy black-80 mb4" style="font-family: 'Inter', sans-serif;">
+      {{ with $aboutPage.Params.address_line1 }}<p class="mb0">{{ . }}</p>{{ end }}
+      {{ with $aboutPage.Params.address_line2 }}<p class="mb0">{{ . }}</p>{{ end }}
+      {{ with $aboutPage.Params.address_line3 }}<p class="mb0">{{ . }}</p>{{ end }}
+      <p class="mt3 mb0">© {{ now.Format "2006" }} Mark Hartzheim</p>
+    </div>
+
+    {{ if $aboutPage.Params.email }}
+      <a href="mailto:{{ $aboutPage.Params.email }}" class="dib bg-black white pa3 pa4-ns no-underline hover-bg-black-80 nav-link" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; transition: background-color 0.2s;">
+        {{ $aboutPage.Params.contact_button_text | default "CONTACT THE ARTIST" }}
+      </a>
+    {{ end }}
+  </aside>
+
+  <!-- Right Column - About Content -->
+  <main class="w-100 w-60-l pa3 pa4-l bg-white pb6" style="flex: 1;">
+    <h1 class="f4 f3-ns fw6 mb4 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
+      {{ $aboutPage.Title }}
+    </h1>
+
+    {{ if $aboutPage.Content }}
+      <div class="f6 f5-ns lh-copy black-80" style="font-family: 'Inter', sans-serif; max-width: 800px;">
+        {{ $aboutPage.Content }}
+      </div>
+    {{ end }}
+  </main>
+</div>
+
+<style>
+  /* Responsive layout for about page */
+  @media (max-width: 60em) {
+    aside {
+      border-right: none !important;
+      border-bottom: 1px solid #e5e5e5;
+      min-height: auto !important;
+      position: relative !important;
+      align-self: stretch !important;
+    }
+  }
+</style>
+{{ end }}
+

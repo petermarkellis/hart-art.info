@@ -1,11 +1,8 @@
 ---
 title: "The Imaginary Sketchbook"
 series_slug: "imaginary-sketchbook"
-_build:
-  list: never
-  render: never
-  publishResources: false
-description: ""
+series:
+  - imaginary-sketchbook
 gallery_images: []
 ---
 

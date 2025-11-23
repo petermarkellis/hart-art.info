@@ -6,17 +6,63 @@
       {{ if eq $lang.Lang $.Site.Language.Lang }}
         {{ $langURL = $.RelPermalink }}
       {{ else }}
-        {{ range $.Translations }}
-          {{ if eq .Lang $lang.Lang }}
-            {{ $langURL = .RelPermalink }}
+        {{/* Check if we're on a 404 page - if so, just go to language homepage */}}
+        {{ $is404 := false }}
+        {{ if or (eq $.RelPermalink "/404.html") (eq $.RelPermalink "/de/404.html") (hasSuffix $.RelPermalink "/404.html") }}
+          {{ $is404 = true }}
+        {{ end }}
+        
+        {{ if $is404 }}
+          {{/* On 404 page, just go to language homepage */}}
+          {{ $langURL = printf "/%s/" $lang.Lang }}
+        {{ else }}
+          {{/* Try to find translation of current page */}}
+          {{ range $.Translations }}
+            {{ if eq .Lang $lang.Lang }}
+              {{ $langURL = .RelPermalink }}
+            {{ end }}
+          {{ end }}
+          {{/* If no translation found, try to map to equivalent page in other language */}}
+          {{ if not $langURL }}
+            {{/* For homepage, go to language homepage */}}
+            {{ if $.IsHome }}
+              {{ $langURL = printf "/%s/" $lang.Lang }}
+            {{ else }}
+              {{/* For other pages, try to construct equivalent URL */}}
+              {{ $currentPath := $.RelPermalink }}
+              {{/* Remove language prefix if present */}}
+              {{ $pathWithoutLang := $currentPath }}
+              {{ if hasPrefix $currentPath "/en/" }}
+                {{ $pathWithoutLang = strings.TrimPrefix "/en" $currentPath }}
+              {{ else if hasPrefix $currentPath "/de/" }}
+                {{ $pathWithoutLang = strings.TrimPrefix "/de" $currentPath }}
+              {{ end }}
+              {{/* Skip if path is 404.html */}}
+              {{ if not (hasSuffix $pathWithoutLang "404.html") }}
+                {{/* Add new language prefix */}}
+                {{ if eq $lang.Lang "en" }}
+                  {{ if hasPrefix $pathWithoutLang "/" }}
+                    {{ $langURL = $pathWithoutLang }}
+                  {{ else }}
+                    {{ $langURL = printf "/%s" $pathWithoutLang }}
+                  {{ end }}
+                {{ else }}
+                  {{ $langURL = printf "/%s%s" $lang.Lang $pathWithoutLang }}
+                {{ end }}
+              {{ else }}
+                {{/* If path is 404.html, go to homepage */}}
+                {{ $langURL = printf "/%s/" $lang.Lang }}
+              {{ end }}
+            {{ end }}
           {{ end }}
         {{ end }}
+        {{/* Final fallback to language homepage */}}
         {{ if not $langURL }}
           {{ $langURL = printf "/%s/" $lang.Lang }}
         {{ end }}
       {{ end }}
-      <a class="f5 f4-ns black-90 hover-black no-underline" href="{{ $langURL }}">
-        {{ strings.Upper $lang.Lang }}
+      <a class="f6 f5-ns black-90 hover-black no-underline" href="{{ $langURL }}" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
+        {{ upper $lang.Lang }}
       </a>
     {{ end }}
   </div>

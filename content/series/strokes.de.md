@@ -1,11 +1,8 @@
 ---
 title: "Strokes"
 series_slug: "strokes"
-_build:
-  list: never
-  render: never
-  publishResources: false
-description: ""
+series:
+  - strokes
 gallery_images: []
 ---
 

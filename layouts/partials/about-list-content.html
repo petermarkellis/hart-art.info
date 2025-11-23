@@ -1,0 +1,276 @@
+{{/* Get the about page explicitly - try multiple methods for i18n compatibility */}}
+{{ $aboutPage := false }}
+{{ $lang := .Site.Language.Lang }}
+
+{{/* Method 1: Try GetPage with various path formats */}}
+{{ $paths := slice 
+  (printf "about/_index.%s" $lang)
+  (printf "about/_index")
+  (printf "/about/_index.%s" $lang)
+  (printf "/about/_index")
+}}
+{{ range $paths }}
+  {{ if not $aboutPage }}
+    {{ $aboutPage = $.Site.GetPage . }}
+  {{ end }}
+{{ end }}
+
+{{/* Method 2: Try getting from section pages */}}
+{{ if not $aboutPage }}
+  {{ $aboutSection := .Site.GetPage "section" "about" }}
+  {{ if $aboutSection }}
+    {{ range $aboutSection.Pages }}
+      {{ if and (eq .Kind "page") (eq .Lang $lang) }}
+        {{ $aboutPage = . }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* Method 3: Try AllPages with language filter */}}
+{{ if not $aboutPage }}
+  {{ range where .Site.AllPages "Section" "about" }}
+    {{ if and (eq .Kind "page") (eq .Lang $lang) }}
+      {{ $aboutPage = . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* Fallback to current context if page not found */}}
+{{ if not $aboutPage }}
+  {{ $aboutPage = . }}
+{{ end }}
+
+{{ $profileImage := $aboutPage.Params.image }}
+
+{{/* If current language has no image or image is empty, try to get from the other language version */}}
+{{ if not $profileImage }}
+  {{ $otherLang := "en" }}
+  {{ if eq .Site.Language.Lang "en" }}
+    {{ $otherLang = "de" }}
+  {{ end }}
+  {{ $otherLangPage := false }}
+  {{ range where .Site.AllPages "Section" "about" }}
+    {{ if and (eq .Kind "page") (eq .Lang $otherLang) }}
+      {{ $otherLangPage = . }}
+    {{ end }}
+  {{ end }}
+  {{ if and $otherLangPage $otherLangPage.Params.image }}
+    {{ $profileImage = $otherLangPage.Params.image }}
+  {{ end }}
+{{ end }}
+
+{{/* Also check if the image file exists - if not, use the other language's image */}}
+{{ if $profileImage }}
+  {{ $imageExists := false }}
+  {{ $imagePath := strings.TrimPrefix "/" $profileImage }}
+  {{ $imagePath = strings.TrimPrefix "images/" $imagePath }}
+  {{ $imagePath = printf "static/images/%s" $imagePath }}
+  {{ if fileExists $imagePath }}
+    {{ $imageExists = true }}
+  {{ end }}
+  
+  {{ if not $imageExists }}
+    {{ $otherLang := "en" }}
+    {{ if eq .Site.Language.Lang "en" }}
+      {{ $otherLang = "de" }}
+    {{ end }}
+    {{ $otherLangPage := false }}
+    {{ range where .Site.AllPages "Section" "about" }}
+      {{ if and (eq .Kind "page") (eq .Lang $otherLang) }}
+        {{ $otherLangPage = . }}
+      {{ end }}
+    {{ end }}
+    {{ if and $otherLangPage $otherLangPage.Params.image }}
+      {{ $profileImage = $otherLangPage.Params.image }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+<div class="flex flex-column flex-row-l bg-white" style="min-height: 100vh; height: 100%; width: 100%;">
+  <!-- Left Column - Portrait and Contact Info -->
+  <aside class="w-100 w-40-l pa3 pa4-l bg-white" style="border-right: 1px solid #e5e5e5; min-height: 100vh; position: sticky; top: 0; align-self: flex-start;">
+    {{ if $profileImage }}
+      <div class="mb4">
+        <img src="{{ $profileImage }}" alt="{{ $aboutPage.Title }}" class="w-100" style="max-width: 100%; height: auto; display: block;" />
+      </div>
+    {{ end }}
+
+    <div class="f6 f5-ns lh-copy black-80 mb4" style="font-family: 'Inter', sans-serif;">
+      {{ with $aboutPage.Params.address_line1 }}<p class="mb0">{{ . }}</p>{{ end }}
+      {{ with $aboutPage.Params.address_line2 }}<p class="mb0">{{ . }}</p>{{ end }}
+      {{ with $aboutPage.Params.address_line3 }}<p class="mb0">{{ . }}</p>{{ end }}
+      <p class="mt3 mb0">© {{ now.Format "2006" }} Mark Hartzheim</p>
+    </div>
+
+    {{ if $aboutPage.Params.email }}
+      <a href="mailto:{{ $aboutPage.Params.email }}" class="dib bg-black white pa3 pa4-ns no-underline hover-bg-black-80 nav-link" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; transition: background-color 0.2s;">
+        {{ $aboutPage.Params.contact_button_text | default "CONTACT THE ARTIST" }}
+      </a>
+    {{ end }}
+  </aside>
+
+  <!-- Right Column - About Content -->
+  <main class="w-100 w-60-l pa3 pa4-l bg-white pb6" style="flex: 1;">
+    <h1 class="f4 f3-ns fw6 mb4 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
+      {{ $aboutPage.Title | upper }}
+    </h1>
+
+    {{ if $aboutPage.Content }}
+      <div class="f6 f5-ns lh-copy black-80 mb5" style="font-family: 'Inter', sans-serif; max-width: 800px;">
+        {{ $aboutPage.Content }}
+      </div>
+    {{ end }}
+
+    {{/* Curriculum Vitae Section */}}
+    {{/* Try multiple ways to access CV entries for i18n compatibility */}}
+    {{ $cvEntries := $aboutPage.Params.curriculum_vitae }}
+    {{ if not $cvEntries }}
+      {{ $cvEntries = .Params.curriculum_vitae }}
+    {{ end }}
+    {{ if not $cvEntries }}
+      {{/* Try getting from the first page in the about section */}}
+      {{ range first 1 (where .Site.AllPages "Section" "about") }}
+        {{ if .Params.curriculum_vitae }}
+          {{ $cvEntries = .Params.curriculum_vitae }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{/* If current language has no CV entries, try to get from the other language version */}}
+    {{ if not $cvEntries }}
+      {{ $otherLang := "en" }}
+      {{ if eq .Site.Language.Lang "en" }}
+        {{ $otherLang = "de" }}
+      {{ end }}
+      {{ $otherLangPage := false }}
+      {{ range where .Site.AllPages "Section" "about" }}
+        {{ if and (eq .Kind "page") (eq .Lang $otherLang) }}
+          {{ $otherLangPage = . }}
+        {{ end }}
+      {{ end }}
+      {{ if and $otherLangPage $otherLangPage.Params.curriculum_vitae }}
+        {{ $cvEntries = $otherLangPage.Params.curriculum_vitae }}
+      {{ end }}
+    {{ end }}
+
+    {{ if $cvEntries }}
+      <div class="mb5" style="max-width: 800px;">
+        <h2 class="f5 f4-ns fw6 mb4 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
+          {{ if eq .Site.Language.Lang "de" }}
+            CURRICULUM VITAE
+          {{ else }}
+            CURRICULUM VITAE
+          {{ end }}
+        </h2>
+        <div class="f6 f5-ns lh-copy black-80" style="font-family: 'Inter', sans-serif;">
+          {{ range $cvEntries }}
+            <div class="mb3">
+              {{/* Build year range */}}
+              {{ $yearRange := "" }}
+              {{ if .from_year }}
+                {{ if .to_year }}
+                  {{ $yearRange = printf "%s-%s" .from_year .to_year }}
+                {{ else }}
+                  {{ $yearRange = .from_year }}
+                {{ end }}
+              {{ else if .to_year }}
+                {{ $yearRange = .to_year }}
+              {{ end }}
+              
+              {{/* Get text in current language */}}
+              {{ $text := "" }}
+              {{ $currentLang := $.Site.Language.Lang }}
+              {{ if eq $currentLang "de" }}
+                {{ $text = .text_de | default .text_en | default "" }}
+              {{ else }}
+                {{ $text = .text_en | default .text_de | default "" }}
+              {{ end }}
+              
+              {{ if $yearRange }}
+                <span class="fw6">{{ $yearRange }}</span>
+                {{ if $text }} - {{ $text }}{{ end }}
+              {{ else if $text }}
+                {{ $text }}
+              {{ end }}
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    {{ end }}
+
+    {{/* Other Qualifications Section */}}
+    {{/* Try multiple ways to access qualifications for i18n compatibility */}}
+    {{ $qualifications := $aboutPage.Params.other_qualifications }}
+    {{ if not $qualifications }}
+      {{ $qualifications = .Params.other_qualifications }}
+    {{ end }}
+    {{ if not $qualifications }}
+      {{/* Try getting from the first page in the about section */}}
+      {{ range first 1 (where .Site.AllPages "Section" "about") }}
+        {{ if .Params.other_qualifications }}
+          {{ $qualifications = .Params.other_qualifications }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{/* If current language has no qualifications, try to get from the other language version */}}
+    {{ if not $qualifications }}
+      {{ $otherLang := "en" }}
+      {{ if eq .Site.Language.Lang "en" }}
+        {{ $otherLang = "de" }}
+      {{ end }}
+      {{ $otherLangPage := false }}
+      {{ range where .Site.AllPages "Section" "about" }}
+        {{ if and (eq .Kind "page") (eq .Lang $otherLang) }}
+          {{ $otherLangPage = . }}
+        {{ end }}
+      {{ end }}
+      {{ if and $otherLangPage $otherLangPage.Params.other_qualifications }}
+        {{ $qualifications = $otherLangPage.Params.other_qualifications }}
+      {{ end }}
+    {{ end }}
+
+    {{ if $qualifications }}
+      <div class="mb5" style="max-width: 800px;">
+        <h2 class="f5 f4-ns fw6 mb4 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
+          {{ if eq .Site.Language.Lang "de" }}
+            WEITERE QUALIFIKATIONEN
+          {{ else }}
+            OTHER QUALIFICATIONS
+          {{ end }}
+        </h2>
+        <div class="f6 f5-ns lh-copy black-80" style="font-family: 'Inter', sans-serif;">
+          {{ range $qualifications }}
+            {{/* Get text in current language */}}
+            {{ $text := "" }}
+            {{ $currentLang := $.Site.Language.Lang }}
+            {{ if eq $currentLang "de" }}
+              {{ $text = .text_de | default .text_en | default "" }}
+            {{ else }}
+              {{ $text = .text_en | default .text_de | default "" }}
+            {{ end }}
+            
+            {{ if $text }}
+              <div class="mb3">
+                {{ $text }}
+              </div>
+            {{ end }}
+          {{ end }}
+        </div>
+      </div>
+    {{ end }}
+  </main>
+</div>
+
+<style>
+  /* Responsive layout for about page */
+  @media (max-width: 60em) {
+    aside {
+      border-right: none !important;
+      border-bottom: 1px solid #e5e5e5;
+      min-height: auto !important;
+      position: relative !important;
+      align-self: stretch !important;
+    }
+  }
+</style>
+

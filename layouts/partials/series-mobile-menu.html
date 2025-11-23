@@ -1,0 +1,172 @@
+{{/* Dynamically get all unique series slugs from content files */}}
+{{ $seriesMap := dict }}
+{{ range where $.Site.AllPages "Section" "series" }}
+  {{ if .Params.series_slug }}
+    {{ $slug := .Params.series_slug }}
+    {{ if not (index $seriesMap $slug) }}
+      {{ $seriesMap = merge $seriesMap (dict $slug true) }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ $currentLang := $.Site.Language.Lang }}
+
+{{ $currentSeriesSlug := "" }}
+{{ if .Data.Term }}
+  {{ $currentSeriesSlug = .Data.Term }}
+{{ end }}
+{{/* Also try to extract from URL if Data.Term is not available (for 404 pages) */}}
+{{ if not $currentSeriesSlug }}
+  {{ $urlParts := split (trim $.RelPermalink "/") "/" }}
+  {{ range $index, $part := $urlParts }}
+    {{ if eq $part "series" }}
+      {{ if gt (len $urlParts) (add $index 1) }}
+        {{ $nextPart := index $urlParts (add $index 1) }}
+        {{/* Only use it if it's not "gallery" */}}
+        {{ if ne $nextPart "gallery" }}
+          {{ $currentSeriesSlug = $nextPart }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{/* If still not found, try to get from the page context */}}
+{{ if not $currentSeriesSlug }}
+  {{ if .Params.series_slug }}
+    {{ $currentSeriesSlug = .Params.series_slug }}
+  {{ end }}
+{{ end }}
+{{ $firstSeriesSlug := "" }}
+
+{{/* Mobile Series Menu - Only visible on mobile */}}
+<div class="db dn-l mb3 ph2" style="border-bottom: 1px solid #e5e5e5; padding-bottom: 1rem;">
+  <label for="series-mobile-select" class="f6 f5-ns fw6 black-90 db mb2" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">SERIES</label>
+  <select id="series-mobile-select" class="w-100 pa2 ba b--black-20 bg-white" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; font-size: 0.875rem;" onchange="window.location.href = this.value;">
+    {{ range $slug, $_ := $seriesMap }}
+      {{ $seriesSlug := $slug }}
+      {{/* Get the series name from the actual content file for current language */}}
+      {{ $seriesName := "" }}
+      {{ $seriesPage := false }}
+      {{ range where $.Site.AllPages "Section" "series" }}
+        {{ if and .Params.series_slug (eq .Params.series_slug $seriesSlug) (eq .Lang $currentLang) }}
+          {{ $seriesPage = . }}
+        {{ end }}
+      {{ end }}
+      {{ if $seriesPage }}
+        {{ $seriesName = $seriesPage.Title | upper }}
+      {{ else }}
+        {{/* Fallback to English if current language not found */}}
+        {{ range where $.Site.AllPages "Section" "series" }}
+          {{ if and .Params.series_slug (eq .Params.series_slug $seriesSlug) (eq .Lang "en") }}
+            {{ $seriesName = .Title | upper }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{/* Final fallback to slug if no page found */}}
+      {{ if not $seriesName }}
+        {{ $seriesName = $seriesSlug | upper | replace "-" " " }}
+      {{ end }}
+      {{ $seriesURL := printf "/series/%s/" $seriesSlug }}
+      {{ if eq $currentLang "de" }}
+        {{ $seriesURL = printf "/de/series/%s/" $seriesSlug }}
+      {{ end }}
+      {{ $isSelected := false }}
+      {{ if and $currentSeriesSlug (eq $seriesSlug $currentSeriesSlug) }}
+        {{ $isSelected = true }}
+      {{ else if and (not $currentSeriesSlug) (eq $seriesSlug $firstSeriesSlug) }}
+        {{ $isSelected = true }}
+      {{ end }}
+      <option value="{{ $seriesURL }}"{{ if $isSelected }} selected{{ end }}>{{ $seriesName }}</option>
+    {{ end }}
+  </select>
+</div>
+
+<script>
+  // Update selected option based on current URL - set selected attribute directly
+  (function() {
+    function updateSelectedSeries() {
+      const select = document.getElementById('series-mobile-select');
+      if (!select) {
+        // Retry if element not found yet
+        setTimeout(updateSelectedSeries, 10);
+        return;
+      }
+      
+      const currentPath = window.location.pathname;
+      let currentSeriesSlug = null;
+      
+      // Check for gallery URL pattern: /series/{slug}/gallery/{index}/
+      const galleryMatch = currentPath.match(/^\/(?:de\/)?series\/([^\/]+)\/gallery\//);
+      if (galleryMatch) {
+        currentSeriesSlug = galleryMatch[1];
+      } else {
+        // Check for series term URL pattern: /series/{slug}/
+        const seriesMatch = currentPath.match(/^\/(?:de\/)?series\/([^\/]+)\/?$/);
+        if (seriesMatch) {
+          currentSeriesSlug = seriesMatch[1];
+        }
+      }
+      
+      if (currentSeriesSlug) {
+        // Remove selected from all options first
+        const options = select.querySelectorAll('option');
+        options.forEach(option => {
+          option.removeAttribute('selected');
+        });
+        
+        // Find and set selected attribute on matching option
+        for (let i = 0; i < options.length; i++) {
+          const option = options[i];
+          const url = option.value;
+          // Match both /series/{slug}/ and /de/series/{slug}/
+          const slugMatch = url.match(/\/series\/([^\/]+)\//);
+          if (slugMatch && slugMatch[1] === currentSeriesSlug) {
+            option.setAttribute('selected', 'selected');
+            select.selectedIndex = i;
+            select.value = url;
+            return; // Exit once found
+          }
+        }
+        
+        // Fallback: try to match by checking if URL contains the slug
+        for (let i = 0; i < options.length; i++) {
+          const option = options[i];
+          if (option.value.includes('/series/' + currentSeriesSlug + '/')) {
+            option.setAttribute('selected', 'selected');
+            select.selectedIndex = i;
+            select.value = option.value;
+            return;
+          }
+        }
+      }
+    }
+    
+    // Run immediately (before DOM ready if possible)
+    if (document.body) {
+      updateSelectedSeries();
+    } else {
+      // If body not ready, wait for it
+      const observer = new MutationObserver(function(mutations, obs) {
+        if (document.body) {
+          updateSelectedSeries();
+          obs.disconnect();
+        }
+      });
+      observer.observe(document.documentElement, { childList: true });
+    }
+    
+    // Also run when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', updateSelectedSeries);
+    } else {
+      updateSelectedSeries();
+    }
+    
+    // Run on page show (for back/forward navigation)
+    window.addEventListener('pageshow', updateSelectedSeries);
+    
+    // Run after short delays to catch any late updates
+    setTimeout(updateSelectedSeries, 50);
+    setTimeout(updateSelectedSeries, 150);
+  })();
+</script>
+

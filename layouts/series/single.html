@@ -1,0 +1,220 @@
+{{ define "main" }}
+<div class="flex flex-column flex-row-l bg-white" style="min-height: 100vh; height: 100%; width: 100%;">
+  <!-- Left Sidebar - Series Navigation -->
+  <aside class="w-100 w-25-l pa3 pa4-l bg-white dn db-l" style="border-right: 1px solid #e5e5e5; min-height: 100vh; position: sticky; top: 0; align-self: flex-start;">
+    {{ partial "series-navigation.html" . }}
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="w-100 w-75-l pa3 pa4-l bg-white" style="flex: 1; padding-bottom: 4rem !important;">
+    <!-- Mobile Series Menu - Only visible on mobile -->
+    {{ partial "series-mobile-menu.html" . }}
+
+    <!-- Series Title -->
+    <h1 class="f4 f3-ns fw6 mb4 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
+      {{ .Title | upper }}
+    </h1>
+
+    <!-- Series Description -->
+    {{ if .Params.description }}
+      <div class="f6 f5-ns lh-copy mb5 black-80" style="font-family: 'Inter', sans-serif; max-width: 800px;">
+        {{ .Params.description | markdownify }}
+      </div>
+    {{ end }}
+
+    <!-- Gallery Images -->
+    {{ $galleryImages := .Params.gallery_images }}
+    {{ $otherLangPage := false }}
+    {{ $seriesSlug := .Params.series_slug }}
+    {{ $currentLang := .Site.Language.Lang }}
+    {{ $otherLang := "en" }}
+    {{ if eq $currentLang "en" }}
+      {{ $otherLang = "de" }}
+    {{ end }}
+    
+    {{/* Get the other language version of this series page for translations */}}
+    {{ range where .Site.AllPages "Section" "series" }}
+      {{ if and .Params.series_slug (eq .Params.series_slug $seriesSlug) (eq .Lang $otherLang) }}
+        {{ $otherLangPage = . }}
+      {{ end }}
+    {{ end }}
+    
+    {{/* If current language has no gallery images, try to get from the other language version */}}
+    {{ if not $galleryImages }}
+      {{ if and $otherLangPage $otherLangPage.Params.gallery_images }}
+        {{ $galleryImages = $otherLangPage.Params.gallery_images }}
+      {{ end }}
+    {{ end }}
+    
+    {{ if $galleryImages }}
+      <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem 3rem; margin-bottom: 4rem;">
+        {{ range $index, $galleryImage := $galleryImages }}
+          {{/* Try to find matching image in current language page for translations */}}
+          {{ $currentLangImage := $galleryImage }}
+          {{ if and $otherLangPage $otherLangPage.Params.gallery_images }}
+            {{ range $otherLangPage.Params.gallery_images }}
+              {{ if and .image (eq .image $galleryImage.image) }}
+                {{/* Found matching image in current language page - use it for translations */}}
+                {{ $currentLangImage = . }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+          <div class="gallery-item">
+            {{ if $galleryImage.image }}
+              <div class="mb3" style="width: 100%;">
+                  {{ $imgAlt := "" }}
+                  {{ if eq $currentLang "de" }}
+                    {{ $imgAlt = $currentLangImage.title_de | default $currentLangImage.title_en | default $galleryImage.title_de | default $galleryImage.title_en | default "Artwork" }}
+                  {{ else }}
+                    {{ $imgAlt = $currentLangImage.title_en | default $currentLangImage.title_de | default $galleryImage.title_en | default $galleryImage.title_de | default "Artwork" }}
+                  {{ end }}
+                  {{/* Fallback to old format for backward compatibility */}}
+                  {{ if not $imgAlt }}
+                    {{ if reflect.IsMap $currentLangImage.title }}
+                      {{ $imgAlt = index $currentLangImage.title $currentLang | default (index $currentLangImage.title "en") | default "Artwork" }}
+                    {{ else if reflect.IsMap $galleryImage.title }}
+                      {{ $imgAlt = index $galleryImage.title $currentLang | default (index $galleryImage.title "en") | default "Artwork" }}
+                    {{ else }}
+                      {{ $imgAlt = $currentLangImage.title | default $galleryImage.title | default "Artwork" }}
+                    {{ end }}
+                  {{ end }}
+                  <img src="{{ $galleryImage.image }}" alt="{{ $imgAlt }}" class="w-100" style="max-width: 100%; height: auto; display: block;" />
+              </div>
+            {{ end }}
+            {{/* Get title in current language - check current language image first, then fallback image */}}
+            {{ $title := "" }}
+            {{ if eq $currentLang "de" }}
+              {{ $title = $currentLangImage.title_de | default $currentLangImage.title_en | default $galleryImage.title_de | default $galleryImage.title_en | default "" }}
+            {{ else }}
+              {{ $title = $currentLangImage.title_en | default $currentLangImage.title_de | default $galleryImage.title_en | default $galleryImage.title_de | default "" }}
+            {{ end }}
+            {{/* Fallback to old format for backward compatibility */}}
+            {{ if not $title }}
+              {{ if reflect.IsMap $currentLangImage.title }}
+                {{ $title = index $currentLangImage.title $currentLang | default (index $currentLangImage.title "en") | default "" }}
+              {{ else if reflect.IsMap $galleryImage.title }}
+                {{ $title = index $galleryImage.title $currentLang | default (index $galleryImage.title "en") | default "" }}
+              {{ else }}
+                {{ $title = $currentLangImage.title | default $galleryImage.title | default "" }}
+              {{ end }}
+            {{ end }}
+            {{ if $title }}
+              <div class="f6 f5-ns fw4 black-90 mb1" style="font-family: 'Inter', sans-serif;">
+                {{ $title | upper }}
+              </div>
+            {{ end }}
+            {{/* Get medium in current language - check current language image first, then fallback image */}}
+            {{ $medium := "" }}
+            {{ if eq $currentLang "de" }}
+              {{ $medium = $currentLangImage.medium_de | default $currentLangImage.medium_en | default $galleryImage.medium_de | default $galleryImage.medium_en | default "" }}
+            {{ else }}
+              {{ $medium = $currentLangImage.medium_en | default $currentLangImage.medium_de | default $galleryImage.medium_en | default $galleryImage.medium_de | default "" }}
+            {{ end }}
+            {{/* Fallback to old format for backward compatibility */}}
+            {{ if not $medium }}
+              {{ if reflect.IsMap $currentLangImage.medium }}
+                {{ $medium = index $currentLangImage.medium $currentLang | default (index $currentLangImage.medium "en") | default "" }}
+              {{ else if reflect.IsMap $galleryImage.medium }}
+                {{ $medium = index $galleryImage.medium $currentLang | default (index $galleryImage.medium "en") | default "" }}
+              {{ else }}
+                {{ $medium = $currentLangImage.medium | default $galleryImage.medium | default "" }}
+              {{ end }}
+            {{ end }}
+            {{ if $medium }}
+              <div class="f6 black-70 mb1" style="font-family: 'Inter', sans-serif;">
+                {{ $medium }}
+              </div>
+            {{ end }}
+            {{ $dimensions := $currentLangImage.dimensions | default $galleryImage.dimensions }}
+            {{ if $dimensions }}
+              <div class="f6 black-70 mb1" style="font-family: 'Inter', sans-serif;">
+                {{ $dimensions }}
+              </div>
+            {{ end }}
+            {{ $year := $currentLangImage.year | default $galleryImage.year }}
+            {{ if $year }}
+              <div class="f6 black-70" style="font-family: 'Inter', sans-serif;">
+                {{ $year }}
+              </div>
+            {{ end }}
+          </div>
+        {{ end }}
+      </div>
+    {{ else }}
+      {{/* Fallback: Show artworks from this series if no gallery images */}}
+      {{ $seriesSlug := .Params.series_slug }}
+      {{ $artworks := where .Site.RegularPages "Section" "artworks" }}
+      {{ $seriesArtworks := slice }}
+      {{ range $artworks }}
+        {{ $artwork := . }}
+        {{ if .Params.series }}
+          {{ if reflect.IsSlice .Params.series }}
+            {{ range .Params.series }}
+              {{ if eq . $seriesSlug }}
+                {{ $seriesArtworks = $seriesArtworks | append $artwork }}
+              {{ end }}
+            {{ end }}
+          {{ else }}
+            {{ if eq .Params.series $seriesSlug }}
+              {{ $seriesArtworks = $seriesArtworks | append . }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      
+      {{ if $seriesArtworks }}
+        <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem 3rem; margin-bottom: 4rem;">
+          {{ range $seriesArtworks }}
+            <div class="gallery-item">
+              {{ if .Params.image }}
+                <div class="mb3" style="width: 100%;">
+                  <a href="{{ .RelPermalink }}" class="db no-underline">
+                    <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-100" style="max-width: 100%; height: auto; display: block;" />
+                  </a>
+                </div>
+              {{ end }}
+              <div class="f6 f5-ns fw4 black-90 mb1" style="font-family: 'Inter', sans-serif;">
+                <a href="{{ .RelPermalink }}" class="black-90 hover-black no-underline">
+                  {{ .Title }}
+                </a>
+              </div>
+              {{ if or .Params.medium .Params.dimensions }}
+                <div class="f6 black-70" style="font-family: 'Inter', sans-serif;">
+                  {{ if .Params.medium }}{{ .Params.medium }}{{ end }}{{ if and .Params.medium .Params.dimensions }}, {{ end }}{{ if .Params.dimensions }}{{ .Params.dimensions }}{{ end }}
+                </div>
+              {{ end }}
+            </div>
+          {{ end }}
+        </div>
+      {{ end }}
+    {{ end }}
+    <div class="pb6"></div>
+  </main>
+</div>
+
+<style>
+  /* Hover underline for navigation links */
+  .series-nav-link:hover {
+    text-decoration: underline !important;
+  }
+  
+  @media (max-width: 60em) {
+    .series-nav {
+      margin-bottom: 2rem;
+    }
+    .series-nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .series-nav li {
+      margin-bottom: 0;
+    }
+    
+    .gallery-grid {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>
+{{ end }}
+
