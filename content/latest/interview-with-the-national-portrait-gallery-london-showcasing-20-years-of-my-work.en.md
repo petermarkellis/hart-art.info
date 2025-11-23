@@ -18,6 +18,7 @@ description: >-
 
 
   This recognition from such a prestigious institution feels like validation of the path I've chosen, but more importantly, it's a reminder of why I create art in the first place—to connect with people and share perspectives that might otherwise go unseen.
+image: /images/uploads/npg_forecourt-proposal_jamie-fobert-architects_forbes-massie.jpg.webp
 link_type: external
 external_link: https://www.nationalgallery.org.uk/
 ---
