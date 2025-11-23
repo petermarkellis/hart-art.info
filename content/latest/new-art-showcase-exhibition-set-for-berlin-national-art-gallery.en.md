@@ -1,6 +1,6 @@
 ---
 title: New art showcase exhibition set for Berlin National Art Gallery
-date: 1906-02-23T13:25:00.000+01:00
+date: 2026-01-23T13:33:00.000+01:00
 description: >-
   The Berlin National Art Gallery has announced an exciting new exhibition
   featuring contemporary works from emerging and established artists across
