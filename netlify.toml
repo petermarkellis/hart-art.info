@@ -1,6 +1,6 @@
 [build]
   publish = "public"
-  command = "hugo --minify"
+  command = "npm run sync-dates && hugo --minify"
 
 [build.environment]
   HUGO_VERSION = "0.128.0"

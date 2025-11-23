@@ -43,7 +43,12 @@ enFiles.forEach(({ enPath, dePath, baseName }) => {
   let deContent = fs.readFileSync(dePath, 'utf8');
   
   // Parse YAML front matter more carefully
-  const frontMatterMatch = deContent.match(/^---\n([\s\S]*?)\n---/);
+  // Handle cases where closing --- might be on same line as content
+  let frontMatterMatch = deContent.match(/^---\n([\s\S]*?)\n---/);
+  if (!frontMatterMatch) {
+    // Try matching with --- on same line as content
+    frontMatterMatch = deContent.match(/^---\n([\s\S]*?)---/);
+  }
   if (!frontMatterMatch) {
     console.log(`⚠️  No front matter found in ${baseName}.de.md, skipping...`);
     return;
