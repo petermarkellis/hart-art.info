@@ -12,5 +12,40 @@ description: >-
 
 
   While adding color to the drawings, the background took on more and more importance. It provides an "atmosphere" of color in which playful shapes stand out, or contributes to the compositional division of the picture plane.
-gallery_images: []
+gallery_images:
+  - image: /images/uploads/homage_to_marienbad__in_the_face_of_adversity_1.jpg
+    title_en: In the Face of Adversity
+    year: "2020"
+    medium_en: Graphite, watercolor on papier
+    dimensions: 17,5 x 24,5 cm
+    title_de: Trotz aller Widrigkeiten
+    medium_de: Grafit, Aquarell auf Papier
+  - image: /images/uploads/homage_to_marienbad__freedom_1.jpg
+    title_en: Freedom
+    title_de: Svoboda
+    year: "2020"
+    medium_en: Graphite, watercolor on papier
+    dimensions: 17,5 x 24,5 cm
+    medium_de: Grafit, Aquarell auf Papier
+  - image: /images/uploads/homage_to_marienbad__novelty_1.jpg
+    title_en: Novelty
+    year: "2020"
+    title_de: Novum
+    dimensions: 17,5 x 24,5 cm
+    medium_en: Graphite, watercolor on papier
+    medium_de: Grafit, Aquarell auf Papier
+  - image: /images/uploads/homage_to_marienbad__revelation_1.jpg
+    title_en: Revelation
+    year: "2020"
+    medium_en: Graphite, watercolor on papier
+    dimensions: 17,5 x 24,5 cm
+    medium_de: Grafit, Aquarell auf Papier
+    title_de: Offenbarung
+  - image: /images/uploads/homage_to_marienbad__whatever_it_takes_1.jpg
+    title_en: Whatever it Takes
+    year: "2020"
+    medium_en: graphite, watercolor on papier
+    dimensions: 17,5 x 24,5 cm
+    medium_de: Grafit, Aquarell auf Papier
+    title_de: Was immer es kostet
 ---
