@@ -1,4 +1,5 @@
 ---
 title: LN4 DE
-description: Germany 4
+date: 2025-11-24T12:18:00.000+01:00
+exhibition_date: 2026-01-01T12:18:00.000+01:00
 ---

@@ -1,4 +1,5 @@
 ---
 title: LN3 DE
-description: Germany
+date: 2025-11-24T11:05:00.000+01:00
+exhibition_date: 2026-01-10T11:05:00.000+01:00
 ---

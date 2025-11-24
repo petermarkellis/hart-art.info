@@ -58,7 +58,7 @@ collections:
     fields:
       - {label: "Title", name: "title", widget: "string", i18n: true, required: true}
       - {label: "Date Created", name: "date", widget: "datetime", default: "", required: true, hint: "Creation date (used for sorting and display). Set to current date when creating."}
-      - {label: "Exhibition Date (Optional)", name: "exhibition_date", widget: "datetime", required: false, hint: "Optional date for upcoming exhibitions or events"}
+      - {label: "Exhibition Date", name: "exhibition_date", widget: "datetime", required: false, hint: "Optional date for upcoming exhibitions or events"}
       - {label: "Description", name: "description", widget: "text", i18n: true, required: true}
       - {label: "Image (Optional)", name: "image", widget: "image", required: false, hint: "Optional image to display at the bottom of the description"}
       - {label: "Link Type", name: "link_type", widget: "select", options: ["internal", "external"], default: "internal", required: true}
