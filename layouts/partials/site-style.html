@@ -11,3 +11,15 @@
   <link rel="stylesheet" href="{{ urls.RelURL (.) }}">
 {{ end }}
 
+{{/* Custom text selection styles - black background with white text */}}
+<style>
+  ::selection {
+    background-color: #000;
+    color: #fff;
+  }
+  ::-moz-selection {
+    background-color: #000;
+    color: #fff;
+  }
+</style>
+

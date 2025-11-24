@@ -272,7 +272,7 @@
     {{ if $cvEntries }}
       <div class="mb5" style="max-width: 800px;">
         <h2 class="f5 f4-ns fw6 mb4 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
-          {{ $cvTitle }}
+          {{ $cvTitle | upper }}
         </h2>
         <div class="f6 f5-ns lh-copy black-80" style="font-family: 'Inter', sans-serif;">
           {{ range $cvEntries }}
@@ -443,7 +443,7 @@
     {{ if $qualifications }}
       <div class="mb5" style="max-width: 800px;">
         <h2 class="f5 f4-ns fw6 mb4 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
-          {{ $qualificationsTitle }}
+          {{ $qualificationsTitle | upper }}
         </h2>
         <div class="f6 f5-ns lh-copy black-80" style="font-family: 'Inter', sans-serif;">
           {{ range $qualifications }}
@@ -594,7 +594,7 @@
     {{ if $exhibits }}
       <div class="mb5" style="max-width: 800px;">
         <h2 class="f5 f4-ns fw6 mb4 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
-          {{ $exhibitsTitle }}
+          {{ $exhibitsTitle | upper }}
         </h2>
         <div class="f6 f5-ns lh-copy black-80" style="font-family: 'Inter', sans-serif;">
           {{ range $exhibits }}
