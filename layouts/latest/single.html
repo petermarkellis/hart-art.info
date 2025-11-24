@@ -12,17 +12,90 @@
     {{ .Title | upper }}
   </h1>
 
-  <!-- News Date Created -->
-  {{ if not .Date.IsZero }}
+  {{/* Determine creation date, with fallbacks to other language */}}
+  {{ $creationDate := .Date }}
+  {{ if or (not $creationDate) $creationDate.IsZero }}
+    {{ range .Translations }}
+      {{ if not .Date.IsZero }}
+        {{ $creationDate = .Date }}
+        {{ break }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  {{ if or (not $creationDate) $creationDate.IsZero }}
+    {{ $otherLang := "en" }}
+    {{ if eq .Site.Language.Lang "en" }}
+      {{ $otherLang = "de" }}
+    {{ end }}
+    {{ if and $.File $.File.LogicalName }}
+      {{ $baseName := strings.TrimSuffix (printf ".%s" .Lang) $.File.LogicalName }}
+      {{ $baseName = strings.TrimSuffix ".md" $baseName }}
+      {{ range where $.Site.AllPages "Section" "latest" }}
+        {{ if and .File (eq .Lang $otherLang) }}
+          {{ $otherBaseName := strings.TrimSuffix (printf ".%s" $otherLang) .File.LogicalName }}
+          {{ $otherBaseName = strings.TrimSuffix ".md" $otherBaseName }}
+          {{ if eq $otherBaseName $baseName }}
+            {{ if not .Date.IsZero }}
+              {{ $creationDate = .Date }}
+              {{ break }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{ if and $creationDate (not $creationDate.IsZero) }}
     <div class="f7 f6-ns mb2 black-60" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
-      {{ .Date.Format "2 January 2006" | upper }}
+      {{ $creationDate.Format "2 January 2006" | upper }}
     </div>
   {{ end }}
 
-  <!-- Exhibition Date (if set) -->
-  {{ if .Params.exhibition_date }}
-    {{ $exhibitionDate := time .Params.exhibition_date }}
-    {{ if not $exhibitionDate.IsZero }}
+  {{/* Determine exhibition date, also fall back to other language if missing */}}
+  {{ $exhibitionDateRaw := "" }}
+  {{ if isset .Params "exhibition_date" }}
+    {{ if .Params.exhibition_date }}
+      {{ $exhibitionDateRaw = .Params.exhibition_date }}
+    {{ end }}
+  {{ end }}
+  {{ if not $exhibitionDateRaw }}
+    {{ range .Translations }}
+      {{ if isset .Params "exhibition_date" }}
+        {{ if .Params.exhibition_date }}
+          {{ $exhibitionDateRaw = .Params.exhibition_date }}
+          {{ break }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  {{ if not $exhibitionDateRaw }}
+    {{ $otherLang := "en" }}
+    {{ if eq .Site.Language.Lang "en" }}
+      {{ $otherLang = "de" }}
+    {{ end }}
+    {{ if and $.File $.File.LogicalName }}
+      {{ $baseName := strings.TrimSuffix (printf ".%s" .Lang) $.File.LogicalName }}
+      {{ $baseName = strings.TrimSuffix ".md" $baseName }}
+      {{ range where $.Site.AllPages "Section" "latest" }}
+        {{ if and .File (eq .Lang $otherLang) }}
+          {{ $otherBaseName := strings.TrimSuffix (printf ".%s" $otherLang) .File.LogicalName }}
+          {{ $otherBaseName = strings.TrimSuffix ".md" $otherBaseName }}
+          {{ if eq $otherBaseName $baseName }}
+            {{ if isset .Params "exhibition_date" }}
+              {{ if .Params.exhibition_date }}
+                {{ $exhibitionDateRaw = .Params.exhibition_date }}
+                {{ break }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{ if $exhibitionDateRaw }}
+    {{ $exhibitionDate := time $exhibitionDateRaw }}
+    {{ if and $exhibitionDate (not $exhibitionDate.IsZero) }}
       <div class="f7 f6-ns mb4 black-60" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
         <strong>EXHIBITION DATE:</strong> {{ $exhibitionDate.Format "2 January 2006" | upper }}
       </div>
