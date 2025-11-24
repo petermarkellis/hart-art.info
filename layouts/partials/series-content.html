@@ -120,8 +120,9 @@
             {{ end }}
           {{ end }}
           {{ if $medium }}
+            {{ $mediumFormatted := strings.FirstUpper $medium }}
             <div class="f6 black-70 mb1" style="font-family: 'Inter', sans-serif;">
-              {{ $medium }}
+              {{ $mediumFormatted }}
             </div>
           {{ end }}
           {{ if .dimensions }}

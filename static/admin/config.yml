@@ -81,6 +81,8 @@ collections:
           - {label: "Address Line 2", name: "address_line2", widget: "string", required: false, i18n: true}
           - {label: "Address Line 3", name: "address_line3", widget: "string", required: false, i18n: true}
           - {label: "Contact Button Text", name: "contact_button_text", widget: "string", required: false, i18n: true}
+          - {label: "Curriculum Vitae Title (English)", name: "curriculum_title_en", widget: "string", required: false, hint: "Override CURRICULUM VITAE heading in English"}
+          - {label: "Curriculum Vitae Title (German)", name: "curriculum_title_de", widget: "string", required: false, hint: "Override CURRICULUM VITAE heading in German"}
           - label: "Curriculum Vitae"
             name: "curriculum_vitae"
             widget: "list"
@@ -89,10 +91,23 @@ collections:
               - {label: "To Year", name: "to_year", widget: "string", required: false, hint: "Ending year (optional). Leave empty for ongoing or single year."}
               - {label: "Text (English)", name: "text_en", widget: "text", required: false, hint: "English description of this CV entry"}
               - {label: "Text (German)", name: "text_de", widget: "text", required: false, hint: "German description of this CV entry"}
+          - {label: "Other Qualifications Title (English)", name: "qualifications_title_en", widget: "string", required: false, hint: "Override OTHER QUALIFICATIONS heading in English"}
+          - {label: "Other Qualifications Title (German)", name: "qualifications_title_de", widget: "string", required: false, hint: "Override OTHER QUALIFICATIONS heading in German"}
           - label: "Other Qualifications"
             name: "other_qualifications"
             widget: "list"
             fields:
               - {label: "Text (English)", name: "text_en", widget: "text", required: false, hint: "English qualification text"}
               - {label: "Text (German)", name: "text_de", widget: "text", required: false, hint: "German qualification text"}
+          - {label: "Exhibits Title (English)", name: "exhibits_title_en", widget: "string", required: false, hint: "Override EXHIBITS heading in English"}
+          - {label: "Exhibits Title (German)", name: "exhibits_title_de", widget: "string", required: false, hint: "Override EXHIBITS heading in German"}
+          - label: "Exhibits"
+            name: "exhibits"
+            widget: "list"
+            required: false
+            hint: "Optional list of exhibits with year and description"
+            fields:
+              - {label: "Year", name: "year", widget: "string", required: false}
+              - {label: "Description (English)", name: "text_en", widget: "text", required: false}
+              - {label: "Description (German)", name: "text_de", widget: "text", required: false}
 

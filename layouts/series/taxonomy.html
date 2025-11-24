@@ -138,11 +138,12 @@
                   {{ $medium = .medium }}
                 {{ end }}
               {{ end }}
-              {{ if $medium }}
-                <div class="f6 black-70 mb1" style="font-family: 'Inter', sans-serif;">
-                  {{ $medium }}
-                </div>
-              {{ end }}
+                {{ if $medium }}
+                  {{ $mediumFormatted := strings.FirstUpper $medium }}
+                  <div class="f6 black-70 mb1" style="font-family: 'Inter', sans-serif;">
+                    {{ $mediumFormatted }}
+                  </div>
+                {{ end }}
               {{ if .dimensions }}
                 <div class="f6 black-70 mb1" style="font-family: 'Inter', sans-serif;">
                   {{ .dimensions }}
