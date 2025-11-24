@@ -1,5 +1,5 @@
 ---
-title: "Intimni Skici: Hommage à Leoš Janáček"
+title: "Intime Skizzen: Hommage an Leoš Janáček"
 series_slug: intimni-skici
 series:
   - intimni-skici
