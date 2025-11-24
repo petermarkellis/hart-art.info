@@ -6,7 +6,7 @@
 {{ end }}
 
 {{ define "main" }}
-  <section class="pa4 pa5-ns bg-white">
+  <section class="ph2 pv4 ph4-ns pv5-ns bg-white">
     <h1 class="f6 f5-ns fw6 mb4 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">LATEST NEWS</h1>
     <div class="news-list">
       {{/* Try multiple methods to get latest news pages - filtered by current language */}}
@@ -87,9 +87,21 @@
         padding-left: 0 !important;
         padding-right: 0 !important;
       }
-      .news-item .ml3 {
+      .news-item > .flex-auto {
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+      .news-item .ml3,
+      .news-item .ml3.ml4-ns {
         margin-left: 0 !important;
-        margin-top: 0.5rem;
+        margin-top: 0 !important;
+        width: 100%;
+        display: block;
+      }
+      .news-item h3 {
+        display: block;
+        width: 100%;
+        margin-bottom: 0;
       }
     }
   </style>
