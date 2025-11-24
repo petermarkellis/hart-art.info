@@ -37,7 +37,7 @@ curriculum_vitae:
     text_de: Gymnasiallehrer
     text_en: Middle school / high school teacher
   - from_year: "1996"
-    text_en: Free-lance artist
+    text_en: Freelance artist
     text_de: Freischaffender Künstler
   - from_year: "2018"
     to_year: "2019"
