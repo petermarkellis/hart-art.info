@@ -1,12 +1,29 @@
 <!DOCTYPE html>
 <html lang="{{ site.Language.LanguageCode }}" {{- if eq site.Language.LanguageDirection "rtl" }} dir="rtl" {{- end }}>
+  {{/* Load SEO data from data file with fallbacks - define at top level for all blocks */}}
+  {{ $seo := site.Data.seo }}
+  {{ $siteTitle := $seo.site_title | default .Site.Title }}
+  {{ $siteDescription := $seo.site_description | default .Site.Params.description | default "" }}
+  {{ $author := $seo.author | default .Site.Params.author | default "" }}
+  {{ $keywords := $seo.keywords | default "" }}
+  {{ $ogImage := $seo.og_image | default .Site.Params.featured_image | default "" }}
+  {{ $ogType := $seo.og_type | default "website" }}
+  {{ $twitterCard := $seo.twitter_card | default "summary" }}
+  {{ $twitterSite := $seo.twitter_site | default "" }}
+  {{ $twitterCreator := $seo.twitter_creator | default "" }}
+  {{ $googleVerification := $seo.google_site_verification | default "" }}
+  
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     {{/* NOTE: the Site's title, and if there is a page title, that is set too */}}
+    {{/* Use .Site.Title in title block to avoid scope issues, $siteTitle for meta tags */}}
     <title>{{ block "title" . }}{{ with .Params.Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ $siteDescription }}{{ end }}{{ end }}">
+    {{ if $keywords }}
+      <meta name="keywords" content="{{ $keywords }}">
+    {{ end }}
     {{ hugo.Generator }}
     {{ $production := hugo.IsProduction }}
     {{ $public := not .Params.private }}
@@ -15,12 +32,16 @@
     {{ else }}
       <meta name="robots" content="noindex, nofollow">
     {{ end }}
-    {{ with .Params.author | compare.Default .Site.Params.author }}
-      {{- $author := . -}}
-      {{- if reflect.IsSlice . -}}
-        {{- $author = collections.Delimit . ", " | transform.Plainify -}}
+    {{ if $googleVerification }}
+      <meta name="google-site-verification" content="{{ $googleVerification }}">
+    {{ end }}
+    {{ $pageAuthor := .Params.author | default $author }}
+    {{ if $pageAuthor }}
+      {{- $authorName := $pageAuthor -}}
+      {{- if reflect.IsSlice $pageAuthor -}}
+        {{- $authorName = collections.Delimit $pageAuthor ", " | transform.Plainify -}}
       {{- end -}}
-      <meta name="author" content="{{ $author }}">
+      <meta name="author" content="{{ $authorName }}">
     {{ end }}
 
     {{ partials.Include "site-style.html" . }}
@@ -32,8 +53,8 @@
 
     {{ if .OutputFormats.Get "RSS" }}
     {{ with .OutputFormats.Get "RSS" }}
-      <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
-      <link href="{{ .RelPermalink }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}" />
+      <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $siteTitle }}" />
+      <link href="{{ .RelPermalink }}" rel="feed" type="application/rss+xml" title="{{ $siteTitle }}" />
       {{ end }}
     {{ end }}
 
@@ -41,6 +62,40 @@
       <link rel="canonical" href="{{ .Params.canonicalUrl }}">
     {{ else }}
       <link rel="canonical" href="{{ .Permalink }}">
+    {{ end }}
+
+    {{/* Enhanced Open Graph tags */}}
+    {{ $ogTitle := .Title | default $siteTitle }}
+    {{ $ogDescription := .Description | default .Summary | default $siteDescription }}
+    {{ $ogUrl := .Permalink | absURL }}
+    {{ $ogImageUrl := "" }}
+    {{ if .Params.image }}
+      {{ $ogImageUrl = (.Params.image | absURL) }}
+    {{ else if $ogImage }}
+      {{ $ogImageUrl = ($ogImage | absURL) }}
+    {{ end }}
+    
+    <meta property="og:title" content="{{ $ogTitle }}">
+    <meta property="og:description" content="{{ $ogDescription }}">
+    <meta property="og:type" content="{{ $ogType }}">
+    <meta property="og:url" content="{{ $ogUrl }}">
+    {{ if $ogImageUrl }}
+      <meta property="og:image" content="{{ $ogImageUrl }}">
+    {{ end }}
+    <meta property="og:site_name" content="{{ $siteTitle }}">
+    
+    {{/* Twitter Card tags */}}
+    <meta name="twitter:card" content="{{ $twitterCard }}">
+    <meta name="twitter:title" content="{{ $ogTitle }}">
+    <meta name="twitter:description" content="{{ $ogDescription }}">
+    {{ if $ogImageUrl }}
+      <meta name="twitter:image" content="{{ $ogImageUrl }}">
+    {{ end }}
+    {{ if $twitterSite }}
+      <meta name="twitter:site" content="@{{ $twitterSite }}">
+    {{ end }}
+    {{ if $twitterCreator }}
+      <meta name="twitter:creator" content="@{{ $twitterCreator }}">
     {{ end }}
 
     {{/* NOTE: These Hugo Internal Templates can be found starting at https://github.com/gohugoio/hugo/tree/master/tpl/tplimpl/embedded/templates */}}
