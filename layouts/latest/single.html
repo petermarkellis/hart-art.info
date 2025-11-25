@@ -51,24 +51,55 @@
     </div>
   {{ end }}
 
-  {{/* Determine exhibition date, also fall back to other language if missing */}}
-  {{ $exhibitionDateRaw := "" }}
-  {{ if isset .Params "exhibition_date" }}
-    {{ if .Params.exhibition_date }}
-      {{ $exhibitionDateRaw = .Params.exhibition_date }}
+  {{/* Determine exhibition dates (start and end), also fall back to other language if missing */}}
+  {{ $exhibitionStartDateRaw := "" }}
+  {{ $exhibitionEndDateRaw := "" }}
+  
+  {{/* Get start date from current language first */}}
+  {{ if isset .Params "exhibition_start_date" }}
+    {{ if .Params.exhibition_start_date }}
+      {{ $exhibitionStartDateRaw = .Params.exhibition_start_date }}
     {{ end }}
   {{ end }}
-  {{ if not $exhibitionDateRaw }}
+  {{/* Get end date from current language first */}}
+  {{ if isset .Params "exhibition_end_date" }}
+    {{ if .Params.exhibition_end_date }}
+      {{ $exhibitionEndDateRaw = .Params.exhibition_end_date }}
+    {{ end }}
+  {{ end }}
+  {{/* Legacy support: if no start/end dates, check old exhibition_date field */}}
+  {{ if not $exhibitionStartDateRaw }}
+    {{ if isset .Params "exhibition_date" }}
+      {{ if .Params.exhibition_date }}
+        {{ $exhibitionStartDateRaw = .Params.exhibition_date }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  
+  {{/* Fallback to translations if missing */}}
+  {{ if or (not $exhibitionStartDateRaw) (not $exhibitionEndDateRaw) }}
     {{ range .Translations }}
-      {{ if isset .Params "exhibition_date" }}
+      {{ if and (not $exhibitionStartDateRaw) (isset .Params "exhibition_start_date") }}
+        {{ if .Params.exhibition_start_date }}
+          {{ $exhibitionStartDateRaw = .Params.exhibition_start_date }}
+        {{ end }}
+      {{ end }}
+      {{ if and (not $exhibitionEndDateRaw) (isset .Params "exhibition_end_date") }}
+        {{ if .Params.exhibition_end_date }}
+          {{ $exhibitionEndDateRaw = .Params.exhibition_end_date }}
+        {{ end }}
+      {{ end }}
+      {{/* Legacy support: check old exhibition_date field in translations */}}
+      {{ if and (not $exhibitionStartDateRaw) (isset .Params "exhibition_date") }}
         {{ if .Params.exhibition_date }}
-          {{ $exhibitionDateRaw = .Params.exhibition_date }}
-          {{ break }}
+          {{ $exhibitionStartDateRaw = .Params.exhibition_date }}
         {{ end }}
       {{ end }}
     {{ end }}
   {{ end }}
-  {{ if not $exhibitionDateRaw }}
+  
+  {{/* Fallback to manual filename matching if still missing */}}
+  {{ if or (not $exhibitionStartDateRaw) (not $exhibitionEndDateRaw) }}
     {{ $otherLang := "en" }}
     {{ if eq .Site.Language.Lang "en" }}
       {{ $otherLang = "de" }}
@@ -81,25 +112,90 @@
           {{ $otherBaseName := strings.TrimSuffix (printf ".%s" $otherLang) .File.LogicalName }}
           {{ $otherBaseName = strings.TrimSuffix ".md" $otherBaseName }}
           {{ if eq $otherBaseName $baseName }}
-            {{ if isset .Params "exhibition_date" }}
-              {{ if .Params.exhibition_date }}
-                {{ $exhibitionDateRaw = .Params.exhibition_date }}
-                {{ break }}
+            {{ if and (not $exhibitionStartDateRaw) (isset .Params "exhibition_start_date") }}
+              {{ if .Params.exhibition_start_date }}
+                {{ $exhibitionStartDateRaw = .Params.exhibition_start_date }}
               {{ end }}
             {{ end }}
+            {{ if and (not $exhibitionEndDateRaw) (isset .Params "exhibition_end_date") }}
+              {{ if .Params.exhibition_end_date }}
+                {{ $exhibitionEndDateRaw = .Params.exhibition_end_date }}
+              {{ end }}
+            {{ end }}
+            {{/* Legacy support: check old exhibition_date field */}}
+            {{ if and (not $exhibitionStartDateRaw) (isset .Params "exhibition_date") }}
+              {{ if .Params.exhibition_date }}
+                {{ $exhibitionStartDateRaw = .Params.exhibition_date }}
+              {{ end }}
+            {{ end }}
+            {{ break }}
           {{ end }}
         {{ end }}
       {{ end }}
     {{ end }}
   {{ end }}
 
-  {{ if $exhibitionDateRaw }}
-    {{ $exhibitionDate := time $exhibitionDateRaw }}
-    {{ if and $exhibitionDate (not $exhibitionDate.IsZero) }}
-      <div class="f7 f6-ns mb4 black-60" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
-        <strong>EXHIBITION DATE:</strong> {{ $exhibitionDate.Format "2 January 2006" | upper }}
-      </div>
+  {{/* Format and display exhibition dates */}}
+  {{ $exhibitionStartDate := "" }}
+  {{ $exhibitionEndDate := "" }}
+  
+  {{ if $exhibitionStartDateRaw }}
+    {{ $parsedStart := time $exhibitionStartDateRaw }}
+    {{ if and $parsedStart (not $parsedStart.IsZero) }}
+      {{ $exhibitionStartDate = $parsedStart }}
     {{ end }}
+  {{ end }}
+  
+  {{ if $exhibitionEndDateRaw }}
+    {{ $parsedEnd := time $exhibitionEndDateRaw }}
+    {{ if and $parsedEnd (not $parsedEnd.IsZero) }}
+      {{ $exhibitionEndDate = $parsedEnd }}
+    {{ end }}
+  {{ end }}
+  
+  {{ if $exhibitionStartDate }}
+    {{/* Helper function to get ordinal suffix */}}
+    {{ $day := $exhibitionStartDate.Day }}
+    {{ $ordinal := "th" }}
+    {{ $mod10 := mod $day 10 }}
+    {{ $mod100 := mod $day 100 }}
+    {{ if and (ge $mod100 11) (le $mod100 13) }}
+      {{ $ordinal = "th" }}
+    {{ else if eq $mod10 1 }}
+      {{ $ordinal = "st" }}
+    {{ else if eq $mod10 2 }}
+      {{ $ordinal = "nd" }}
+    {{ else if eq $mod10 3 }}
+      {{ $ordinal = "rd" }}
+    {{ end }}
+    {{ $startFormatted := printf "%d%s %s %d" $day $ordinal ($exhibitionStartDate.Format "January") $exhibitionStartDate.Year }}
+    
+    {{ $endFormatted := "" }}
+    {{ if $exhibitionEndDate }}
+      {{ $endDay := $exhibitionEndDate.Day }}
+      {{ $endOrdinal := "th" }}
+      {{ $endMod10 := mod $endDay 10 }}
+      {{ $endMod100 := mod $endDay 100 }}
+      {{ if and (ge $endMod100 11) (le $endMod100 13) }}
+        {{ $endOrdinal = "th" }}
+      {{ else if eq $endMod10 1 }}
+        {{ $endOrdinal = "st" }}
+      {{ else if eq $endMod10 2 }}
+        {{ $endOrdinal = "nd" }}
+      {{ else if eq $endMod10 3 }}
+        {{ $endOrdinal = "rd" }}
+      {{ end }}
+      {{ $endFormatted = printf "%d%s %s %d" $endDay $endOrdinal ($exhibitionEndDate.Format "January") $exhibitionEndDate.Year }}
+    {{ end }}
+    
+    <div class="f7 f6-ns mb4 black-60" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
+      <strong>EXHIBITION DATE:</strong> 
+      {{ if $endFormatted }}
+        from {{ $startFormatted | upper }} to {{ $endFormatted | upper }}
+      {{ else }}
+        {{ $startFormatted | upper }}
+      {{ end }}
+    </div>
   {{ end }}
 
   <!-- News Description -->

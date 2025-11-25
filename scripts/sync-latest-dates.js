@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
 /**
- * Script to sync date and exhibition_date fields from EN to DE versions
+ * Script to sync date, exhibition_start_date, and exhibition_end_date fields from EN to DE versions
  * of latest news posts. This ensures both language versions have the same dates.
+ * Also supports legacy exhibition_date field for backward compatibility.
  */
 
 const fs = require('fs');
@@ -30,11 +31,14 @@ enFiles.forEach(({ enPath, dePath, baseName }) => {
   // Read EN file
   const enContent = fs.readFileSync(enPath, 'utf8');
   
-  // Extract date and exhibition_date from EN file
+  // Extract date, exhibition_start_date, and exhibition_end_date from EN file
   const dateMatch = enContent.match(/^date:\s*(.+)$/m);
+  const exhibitionStartDateMatch = enContent.match(/^exhibition_start_date:\s*(.+)$/m);
+  const exhibitionEndDateMatch = enContent.match(/^exhibition_end_date:\s*(.+)$/m);
+  // Legacy support for old exhibition_date field
   const exhibitionDateMatch = enContent.match(/^exhibition_date:\s*(.+)$/m);
   
-  if (!dateMatch && !exhibitionDateMatch) {
+  if (!dateMatch && !exhibitionStartDateMatch && !exhibitionEndDateMatch && !exhibitionDateMatch) {
     console.log(`ℹ️  No dates found in ${baseName}.en.md, skipping...`);
     return;
   }
@@ -82,7 +86,70 @@ enFiles.forEach(({ enPath, dePath, baseName }) => {
     }
   }
 
-  // Update or add exhibition_date field
+  // Update or add exhibition_start_date field
+  if (exhibitionStartDateMatch) {
+    const exhibitionStartDateValue = exhibitionStartDateMatch[1].trim();
+    // Remove existing exhibition_start_date field (handle multi-line values)
+    const exhibitionStartDateRegex = /^exhibition_start_date:\s*.*(\n(?:\s+.*|$))*/m;
+    if (exhibitionStartDateRegex.test(frontMatter)) {
+      frontMatter = frontMatter.replace(exhibitionStartDateRegex, '');
+      updated = true;
+    }
+    // Add exhibition_start_date after date (or after title if no date)
+    const dateMatchInDe = frontMatter.match(/^(date:\s*.*\n)/m);
+    if (dateMatchInDe) {
+      const dateEnd = dateMatchInDe.index + dateMatchInDe[0].length;
+      frontMatter = frontMatter.slice(0, dateEnd) + `exhibition_start_date: ${exhibitionStartDateValue}\n` + frontMatter.slice(dateEnd);
+      updated = true;
+    } else {
+      const titleMatch = frontMatter.match(/^(title:\s*.*(?:\n\s+[^:]+)*?)(\n|$)/m);
+      if (titleMatch) {
+        const titleEnd = titleMatch.index + titleMatch[0].length;
+        frontMatter = frontMatter.slice(0, titleEnd) + `\nexhibition_start_date: ${exhibitionStartDateValue}\n` + frontMatter.slice(titleEnd);
+        updated = true;
+      } else {
+        frontMatter = `exhibition_start_date: ${exhibitionStartDateValue}\n${frontMatter}`;
+        updated = true;
+      }
+    }
+  }
+
+  // Update or add exhibition_end_date field
+  if (exhibitionEndDateMatch) {
+    const exhibitionEndDateValue = exhibitionEndDateMatch[1].trim();
+    // Remove existing exhibition_end_date field (handle multi-line values)
+    const exhibitionEndDateRegex = /^exhibition_end_date:\s*.*(\n(?:\s+.*|$))*/m;
+    if (exhibitionEndDateRegex.test(frontMatter)) {
+      frontMatter = frontMatter.replace(exhibitionEndDateRegex, '');
+      updated = true;
+    }
+    // Add exhibition_end_date after exhibition_start_date (or after date if no start date, or after title)
+    const exhibitionStartDateMatchInDe = frontMatter.match(/^(exhibition_start_date:\s*.*\n)/m);
+    if (exhibitionStartDateMatchInDe) {
+      const startDateEnd = exhibitionStartDateMatchInDe.index + exhibitionStartDateMatchInDe[0].length;
+      frontMatter = frontMatter.slice(0, startDateEnd) + `exhibition_end_date: ${exhibitionEndDateValue}\n` + frontMatter.slice(startDateEnd);
+      updated = true;
+    } else {
+      const dateMatchInDe = frontMatter.match(/^(date:\s*.*\n)/m);
+      if (dateMatchInDe) {
+        const dateEnd = dateMatchInDe.index + dateMatchInDe[0].length;
+        frontMatter = frontMatter.slice(0, dateEnd) + `exhibition_end_date: ${exhibitionEndDateValue}\n` + frontMatter.slice(dateEnd);
+        updated = true;
+      } else {
+        const titleMatch = frontMatter.match(/^(title:\s*.*(?:\n\s+[^:]+)*?)(\n|$)/m);
+        if (titleMatch) {
+          const titleEnd = titleMatch.index + titleMatch[0].length;
+          frontMatter = frontMatter.slice(0, titleEnd) + `\nexhibition_end_date: ${exhibitionEndDateValue}\n` + frontMatter.slice(titleEnd);
+          updated = true;
+        } else {
+          frontMatter = `exhibition_end_date: ${exhibitionEndDateValue}\n${frontMatter}`;
+          updated = true;
+        }
+      }
+    }
+  }
+
+  // Legacy support: Update or add old exhibition_date field (for backward compatibility)
   if (exhibitionDateMatch) {
     const exhibitionDateValue = exhibitionDateMatch[1].trim();
     // Remove existing exhibition_date field (handle multi-line values)

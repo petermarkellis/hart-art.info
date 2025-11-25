@@ -9,19 +9,43 @@
     {{ $latestNews = $latestNews.ByDate.Reverse }}
     {{ range $latestNews }}
       {{ $newsItem := . }}
-      {{/* Get date: exhibition_date (preferred) or date from current file */}}
+      {{/* Get date: exhibition_start_date (preferred), then exhibition_end_date, then date from current file */}}
       {{ $displayDate := "" }}
-      {{/* Check exhibition_date in current file first - if it exists and is valid, use it */}}
-      {{ if isset $newsItem.Params "exhibition_date" }}
-        {{ if $newsItem.Params.exhibition_date }}
-          {{ $parsedExhibitionDate := time $newsItem.Params.exhibition_date }}
+      {{/* Check exhibition_start_date in current file first - if it exists and is valid, use it */}}
+      {{ if isset $newsItem.Params "exhibition_start_date" }}
+        {{ if $newsItem.Params.exhibition_start_date }}
+          {{ $parsedExhibitionStartDate := time $newsItem.Params.exhibition_start_date }}
           {{/* Only use if successfully parsed (not zero date) */}}
-          {{ if and $parsedExhibitionDate (not $parsedExhibitionDate.IsZero) }}
-            {{ $displayDate = $parsedExhibitionDate }}
+          {{ if and $parsedExhibitionStartDate (not $parsedExhibitionStartDate.IsZero) }}
+            {{ $displayDate = $parsedExhibitionStartDate }}
           {{ end }}
         {{ end }}
       {{ end }}
-      {{/* If no exhibition_date or it's invalid, use date from current file */}}
+      {{/* If no exhibition_start_date, try exhibition_end_date */}}
+      {{ if or (not $displayDate) $displayDate.IsZero }}
+        {{ if isset $newsItem.Params "exhibition_end_date" }}
+          {{ if $newsItem.Params.exhibition_end_date }}
+            {{ $parsedExhibitionEndDate := time $newsItem.Params.exhibition_end_date }}
+            {{/* Only use if successfully parsed (not zero date) */}}
+            {{ if and $parsedExhibitionEndDate (not $parsedExhibitionEndDate.IsZero) }}
+              {{ $displayDate = $parsedExhibitionEndDate }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{/* Legacy support: check old exhibition_date field */}}
+      {{ if or (not $displayDate) $displayDate.IsZero }}
+        {{ if isset $newsItem.Params "exhibition_date" }}
+          {{ if $newsItem.Params.exhibition_date }}
+            {{ $parsedExhibitionDate := time $newsItem.Params.exhibition_date }}
+            {{/* Only use if successfully parsed (not zero date) */}}
+            {{ if and $parsedExhibitionDate (not $parsedExhibitionDate.IsZero) }}
+              {{ $displayDate = $parsedExhibitionDate }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{/* If no exhibition dates or they're invalid, use date from current file */}}
       {{ if or (not $displayDate) $displayDate.IsZero }}
         {{ if isset $newsItem.Params "date" }}
           {{ if $newsItem.Params.date }}
