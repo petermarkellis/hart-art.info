@@ -402,4 +402,43 @@ gallery_images:
     dimensions: 65 x 23 x 28 cm
     medium_en: coloured pencil on wood
     image: /images/uploads/objects_and_assemblages_spoon_6.webp
+  - title_en: Form Follows Form
+    medium_en: Colored pencil, varnish on wood
+    medium_de: Farbstift, Lack auf Holz
+    dimensions: 29,3 cm x 12 cm x 3 cm
+    year: "2024"
+    title_de: Form Follows Form
+    image: /images/uploads/20251122_form_follows_form_2024__1.webp
+  - title_en: Ode to Nature (A)
+    title_de: An die Natur (A)
+    year: "2024"
+    dimensions: 26,5 cm x 7 cm in Diameter/Durchmesser -  3 cm x 12 cm in diameter
+      (Pedestal/Durchmesser der Plinthe)
+    medium_en: Colored pencil on wood
+    medium_de: Farbstift auf Holz
+    image: /images/uploads/20251122_ode_to_nature_a_2025__1.webp
+  - title_en: Ode to Nature (A)
+    title_de: An die Natur (A)
+    year: "2024"
+    medium_en: Colored pencil on wood
+    medium_de: Farbstift auf Holz
+    dimensions: 26,5 cm x 7 cm in Diameter/Durchmesser -  3 cm x 12 cm in diameter
+      (Pedestal/Durchmesser der Plinthe)
+    image: /images/uploads/20251122_ode_to_nature_b_2025__1.webp
+  - title_en: Ode to Nature (A)
+    title_de: An die Natur (A)
+    year: "2024"
+    medium_en: Colored pencil on wood
+    medium_de: Farbstift auf Holz
+    dimensions: 26,5 cm x 7 cm in Diameter/Durchmesser -  3 cm x 12 cm in diameter
+      (Pedestal/Durchmesser der Plinthe)
+    image: /images/uploads/20251122_ode_to_nature_c_2025__1.webp
+  - title_en: Ode to Nature (A)
+    title_de: An die Natur (A)
+    year: "2024"
+    medium_en: Colored pencil on wood
+    medium_de: Farbstift auf Holz
+    dimensions: 26,5 cm x 7 cm in Diameter/Durchmesser -  3 cm x 12 cm in diameter
+      (Pedestal/Durchmesser der Plinthe)
+    image: /images/uploads/20251122_ode_to_nature_d_2025__1.webp
 ---
