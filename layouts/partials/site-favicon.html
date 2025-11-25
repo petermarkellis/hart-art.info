@@ -1,4 +1,27 @@
-{{ if .Site.Params.favicon }}
-<link rel="shortcut icon" href="{{ urls.RelURL ($.Site.Params.favicon) }}" type="image/x-icon" />
+{{ $favicon := .Site.Params.favicon | default "/favicon.ico" }}
+{{ if $favicon }}
+<link rel="shortcut icon" href="{{ urls.RelURL $favicon }}" type="image/x-icon" />
 {{ end }}
 
+{{/* SVG favicon for modern browsers */}}
+{{ if fileExists "static/favicon.svg" }}
+<link rel="icon" type="image/svg+xml" href="{{ "/favicon.svg" | relURL }}">
+{{ end }}
+
+{{/* PNG fallbacks */}}
+{{ if fileExists "static/favicon-96x96.png" }}
+<link rel="icon" type="image/png" sizes="96x96" href="{{ "/favicon-96x96.png" | relURL }}">
+{{ end }}
+
+{{/* Apple Touch Icon */}}
+{{ if fileExists "static/apple-touch-icon.png" }}
+<link rel="apple-touch-icon" sizes="180x180" href="{{ "/apple-touch-icon.png" | relURL }}">
+{{ end }}
+
+{{/* PWA manifest */}}
+{{ if fileExists "static/site.webmanifest" }}
+<link rel="manifest" href="{{ "/site.webmanifest" | relURL }}">
+{{ end }}
+
+{{/* Theme color to match manifest */}}
+<meta name="theme-color" content="#ffffff">

@@ -23,6 +23,7 @@ buildFuture = true
 [params]
   featured_image = '/images/hero.jpg'
   description = "Art Gallery Demo"
+  favicon = "/favicon.ico"
 
 # Menu configuration
 [[languages.en.menu.main]]
