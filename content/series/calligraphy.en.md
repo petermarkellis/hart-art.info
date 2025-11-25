@@ -53,7 +53,7 @@ gallery_images:
     title_en: Banner II
     title_de: Banner II
     year: "2005"
-    medium_en: Watercolour, ink, gouache,  pastel on paper
+    medium_en: Watercolour, Ink, Gouache, Pastel on Paper
     dimensions: 183 cm  x 71 cm  - 212 cm x 90 cm (with “frame” / mit Aufhängevorrichtung)
     medium_de: Aquarell, Tusche, Gouache, Pastell auf Papier
 ---
