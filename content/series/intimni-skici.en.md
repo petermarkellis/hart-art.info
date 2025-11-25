@@ -1,5 +1,6 @@
 ---
 title: "Intimate Sketches: Hommage to Leoš Janáček"
+weight: 4
 series_slug: intimni-skici
 series:
   - intimni-skici
