@@ -43,6 +43,7 @@ collections:
           - {label: "Hero Image", name: "hero_image", widget: "image", required: true}
           - {label: "Quote Text", name: "quote_text", widget: "string", i18n: true, required: true, hint: "e.g., 'THE SUBCONSCIOUS DICTATES!'"}
           - {label: "Quote Author", name: "quote_author", widget: "string", i18n: true, required: true, hint: "e.g., 'ANDRÉ MASSON'"}
+          - {label: "Show Latest News Section", name: "show_latest_news", widget: "boolean", default: true, required: false, hint: "Toggle to display or hide the Latest News section on the homepage"}
 
   - name: "series"
     label: "Series"

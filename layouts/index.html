@@ -111,6 +111,7 @@
   {{ $heroImage := "/images/hero.jpg" }}
   {{ $quoteText := "THE SUBCONSCIOUS DICTATES!" }}
   {{ $quoteAuthor := "ANDRÉ MASSON" }}
+  {{ $showLatestNews := true }}
   
   {{ if $homepagePage }}
     {{ if $homepagePage.Params.hero_image }}
@@ -121,6 +122,9 @@
     {{ end }}
     {{ if $homepagePage.Params.quote_author }}
       {{ $quoteAuthor = $homepagePage.Params.quote_author }}
+    {{ end }}
+    {{ if isset $homepagePage.Params "show_latest_news" }}
+      {{ $showLatestNews = $homepagePage.Params.show_latest_news }}
     {{ end }}
   {{ end }}
 
@@ -134,6 +138,7 @@
     </div>
   </section>
 
+  {{ if $showLatestNews }}
   <!-- Latest News Section -->
   <section class="ph2 pv4 ph4-ns pv5-ns bg-white">
     <h2 class="f6 f5-ns fw6 mb4 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">LATEST NEWS</h2>
@@ -194,5 +199,6 @@
       {{ end }}
     </div>
   </section>
+  {{ end }}
 {{ end }}
 
