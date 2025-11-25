@@ -12,6 +12,7 @@ description: >-
 
 
   In my contribution I responded quite spontaneously to the contents of the hymns and their notation. A certain word, a particular verse or the musical notation itself provoked a reaction on my part. I gave answer to the words and notes by embellishing, transforming or obliterating them.mixed media on hymnal cover and pages, 18,5 cm x 11 cm x 3,3 cm
+show_carousel: true
 gallery_images:
   - image: /images/uploads/hymnal_1.webp
     title_en: Hymnal Page 1
