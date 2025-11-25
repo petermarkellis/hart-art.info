@@ -1,5 +1,6 @@
 ---
 title: Calligraphy
+weight: 5
 series_slug: calligraphy
 series:
   - calligraphy
