@@ -1,5 +1,6 @@
 ---
 title: Strokes
+weight: 10
 series_slug: strokes
 series:
   - strokes
