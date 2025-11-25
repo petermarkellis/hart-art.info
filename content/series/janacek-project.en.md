@@ -1,5 +1,6 @@
 ---
 title: The Janáček Project
+weight: 3
 series_slug: janacek-project
 series:
   - janacek-project
