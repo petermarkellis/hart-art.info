@@ -1,5 +1,6 @@
 ---
 title: Objects and Assemblages
+weight: 12
 series_slug: objects-and-assemblages
 series:
   - objects-and-assemblages
