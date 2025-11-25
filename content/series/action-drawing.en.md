@@ -1,5 +1,6 @@
 ---
 title: Action Drawing
+weight: 8
 series_slug: action-drawing
 series:
   - action-drawing
