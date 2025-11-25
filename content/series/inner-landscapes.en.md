@@ -152,4 +152,25 @@ gallery_images:
     dimensions: 75 x 110 cm
     medium_de: Pastel, Aquarell auf Papier
     title_de: Ein Vertrauenssprung
+  - title_en: Between Heaven and Earth
+    image: /images/uploads/20251122_between_heaven_and_earth_2024__1.webp
+    title_de: Zwischen Himmel und Erde
+    year: "2024"
+    medium_en: Pastel and watercolor on paper
+    medium_de: "Pastell und Aquarell auf Papier "
+    dimensions: 72,5 cm x 111 cm
+  - title_en: Transformation
+    title_de: Transformation
+    year: "2024"
+    medium_en: Pastel and watercolor on paper
+    medium_de: "Pastell und Aquarell auf Papier "
+    dimensions: 70,5 cm x 108 cm
+    image: /images/uploads/20251122_transformation_2024__1.webp
+  - title_en: Firm and Flowing
+    title_de: Fest und Fliessend
+    year: "2025"
+    medium_de: "Pastell und Aquarell auf Papier "
+    medium_en: Pastel and watercolor on paper
+    dimensions: 73 cm x 111 cm
+    image: /images/uploads/20251122_firm_and_flowing_2025__1.webp
 ---
