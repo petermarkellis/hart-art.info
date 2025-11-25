@@ -1,5 +1,6 @@
 ---
 title: Letters Home (In honor of my parents)
+weight: 9
 series_slug: letters-home
 series:
   - letters-home
