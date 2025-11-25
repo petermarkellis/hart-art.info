@@ -1,5 +1,6 @@
 ---
 title: Music to My Ears
+weight: 11
 series_slug: music-to-my-ears
 series:
   - music-to-my-ears
