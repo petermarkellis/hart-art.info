@@ -1,5 +1,6 @@
 ---
 title: Destroyed Diaries
+weight: 7
 series_slug: destroyed-diaries
 series:
   - destroyed-diaries
