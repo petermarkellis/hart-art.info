@@ -1,5 +1,6 @@
 ---
 title: Hymnal
+weight: 2
 series_slug: hymnal
 series:
   - hymnal
