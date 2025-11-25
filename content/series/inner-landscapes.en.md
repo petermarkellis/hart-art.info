@@ -1,5 +1,6 @@
 ---
 title: Inner Landscapes
+weight: 15
 series_slug: inner-landscapes
 series:
   - inner-landscapes
