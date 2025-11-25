@@ -441,4 +441,46 @@ gallery_images:
     dimensions: 26,5 cm x 7 cm in Diameter/Durchmesser -  3 cm x 12 cm in diameter
       (Pedestal/Durchmesser der Plinthe)
     image: /images/uploads/20251122_ode_to_nature_d_2025__1.webp
+  - image: /images/uploads/20251122_emergence_2024__1.webp
+    title_en: Emergence
+    title_de: Emergence
+    year: "2024"
+    medium_en: Colored pencil on wood
+    medium_de: Farbstift auf Holz
+    dimensions: "30 cm x 26,5 cm x 3 cm "
+  - image: /images/uploads/20251122_the_four_corners_of_the_earth_2025__1.webp
+    title_en: The Four Corners of the World (A)
+    title_de: Les Quatre Coins du Mond (A)
+    year: "2025"
+    medium_en: Mixed media on wood
+    medium_de: Mixed Media auf Holz
+    dimensions: "30 cm x 40 cm x 3 cm "
+  - dimensions: "30 cm x 40 cm x 3 cm "
+    title_en: The Four Corners of the World (B)
+    title_de: Les Quatre Coins du Mond (B)
+    year: "2025"
+    medium_en: Mixed media on wood
+    medium_de: Mixed Media auf Holz
+    image: /images/uploads/20251122_the_four_corners_of_the_earth_2025__2.webp
+  - dimensions: "30 cm x 40 cm x 3 cm "
+    title_en: The Four Corners of the World (C)
+    title_de: Les Quatre Coins du Mond (C)
+    year: "2025"
+    medium_en: Mixed media on wood
+    medium_de: Mixed Media auf Holz
+    image: /images/uploads/20251122_the_four_corners_of_the_earth_2025__3.webp
+  - dimensions: "30 cm x 40 cm x 3 cm "
+    title_en: The Four Corners of the World (D)
+    title_de: Les Quatre Coins du Mond (D)
+    year: "2025"
+    medium_en: Mixed media on wood
+    medium_de: Mixed Media auf Holz
+    image: /images/uploads/20251122_the_four_corners_of_the_earth_2025__4.webp
+  - dimensions: "30 cm x 40 cm x 3 cm "
+    title_en: The Four Corners of the World (E)
+    title_de: Les Quatre Coins du Mond (E)
+    year: "2025"
+    medium_en: Mixed media on wood
+    medium_de: Mixed Media auf Holz
+    image: /images/uploads/20251122_the_four_corners_of_the_earth_20025__5.webp
 ---
