@@ -46,8 +46,12 @@
   {{ end }}
 
   {{ if and $creationDate (not $creationDate.IsZero) }}
-    <div class="f7 f6-ns mb2 black-60" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
-      {{ $creationDate.Format "2 January 2006" | upper }}
+    {{ $publishedLabel := "PUBLISHED ON:" }}
+    {{ if eq .Site.Language.Lang "de" }}
+      {{ $publishedLabel = "VERÖFFENTLICHT AM:" }}
+    {{ end }}
+    <div class="f7 f6-ns mb4 black-60" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
+      <strong>{{ $publishedLabel }}</strong> {{ $creationDate.Format "2 January 2006" | upper }}
     </div>
   {{ end }}
 
@@ -188,10 +192,18 @@
       {{ $endFormatted = printf "%d%s %s %d" $endDay $endOrdinal ($exhibitionEndDate.Format "January") $exhibitionEndDate.Year }}
     {{ end }}
     
+    {{ $exhibitionLabel := "EXHIBITION DATE:" }}
+    {{ $fromText := "from" }}
+    {{ $toText := "to" }}
+    {{ if eq .Site.Language.Lang "de" }}
+      {{ $exhibitionLabel = "AUSSTELLUNGSDATUM:" }}
+      {{ $fromText = "vom" }}
+      {{ $toText = "bis" }}
+    {{ end }}
     <div class="f7 f6-ns mb4 black-60" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
-      <strong>EXHIBITION DATE:</strong> 
+      <strong>{{ $exhibitionLabel }}</strong> 
       {{ if $endFormatted }}
-        from {{ $startFormatted | upper }} to {{ $endFormatted | upper }}
+        {{ $fromText }} {{ $startFormatted | upper }} {{ $toText }} {{ $endFormatted | upper }}
       {{ else }}
         {{ $startFormatted | upper }}
       {{ end }}
