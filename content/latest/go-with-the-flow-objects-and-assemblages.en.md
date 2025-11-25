@@ -7,6 +7,5 @@ description: |-
   Go with the Flow - Objects and Assemblages 
   Exhibition at Konsum 36, 
   Norhalben, Germany
-  July / August 2026
 link_type: internal
 ---
