@@ -112,6 +112,7 @@
   {{ $quoteText := "THE SUBCONSCIOUS DICTATES!" }}
   {{ $quoteAuthor := "ANDRÉ MASSON" }}
   {{ $showLatestNews := true }}
+  {{ $showQuote := true }}
   
   {{ if $homepagePage }}
     {{ if $homepagePage.Params.hero_image }}
@@ -126,16 +127,25 @@
     {{ if isset $homepagePage.Params "show_latest_news" }}
       {{ $showLatestNews = $homepagePage.Params.show_latest_news }}
     {{ end }}
+    {{ if isset $homepagePage.Params "show_quote" }}
+      {{ $showQuote = $homepagePage.Params.show_quote }}
+    {{ end }}
   {{ end }}
 
   <!-- Hero Banner Section -->
   <section class="hero-banner relative" style="min-height: 80vh; background-image: url('{{ $heroImage }}'); background-size: cover; background-position: center;">
+    {{ if and $showQuote (or $quoteText $quoteAuthor) }}
     <div class="absolute bottom-0 right-0 ma4 ma5-ns" style="max-width: 400px;">
       <div class="bg-white" style="padding: 0.6rem 0.8rem;">
+        {{ if $quoteText }}
         <p class="f6 f5-ns fw6 mb1 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; margin: 0;">"{{ $quoteText }}"</p>
+        {{ end }}
+        {{ if $quoteAuthor }}
         <p class="f6 f5-ns mb0 black-70" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; margin: 0;">{{ $quoteAuthor }}</p>
+        {{ end }}
       </div>
     </div>
+    {{ end }}
   </section>
 
   {{ if $showLatestNews }}
