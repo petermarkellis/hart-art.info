@@ -1,5 +1,6 @@
 ---
 title: On the Road Rhythms
+weight: 13
 series_slug: on-the-road-rhythms
 series:
   - on-the-road-rhythms
