@@ -54,6 +54,7 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string", i18n: true}
+      - {label: "Order/Weight", name: "weight", widget: "number", default: 100, required: false, hint: "Lower numbers appear first in the series list. Default is 100. Use 1, 2, 3, etc. for custom ordering."}
       - {label: "Series Slug", name: "series_slug", widget: "string", hint: "Must match taxonomy term (e.g., 'drawings-and-watercolors')"}
       - {label: "Series Taxonomy", name: "series", widget: "list", default: ["{{series_slug}}"], hint: "Auto-populated from series_slug. Used to generate term pages."}
       - {label: "Description", name: "description", widget: "markdown", i18n: true}

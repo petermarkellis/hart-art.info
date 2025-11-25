@@ -4,23 +4,33 @@
 {{ end }}
 {{ $currentLang := $.Site.Language.Lang }}
 
-{{/* Dynamically get all unique series slugs from content files */}}
-{{ $seriesMap := dict }}
+{{/* Dynamically get all unique series slugs from content files with their weights */}}
+{{ $seriesList := slice }}
+{{ $seenSlugs := dict }}
 {{ range where $.Site.AllPages "Section" "series" }}
   {{ if .Params.series_slug }}
     {{ $slug := .Params.series_slug }}
-    {{ if not (index $seriesMap $slug) }}
-      {{ $seriesMap = merge $seriesMap (dict $slug true) }}
+    {{ if not (index $seenSlugs $slug) }}
+      {{ $seenSlugs = merge $seenSlugs (dict $slug true) }}
+      {{/* Get weight from params, default to 100 if not set */}}
+      {{ $weight := 100 }}
+      {{ if isset .Params "weight" }}
+        {{ $weight = .Params.weight }}
+      {{ end }}
+      {{ $seriesList = $seriesList | append (dict "slug" $slug "weight" $weight) }}
     {{ end }}
   {{ end }}
 {{ end }}
+
+{{/* Sort series by weight (lower numbers first) */}}
+{{ $sortedSeries := sort $seriesList "weight" "asc" }}
 
 {{ $firstSeriesSlug := "" }}
 
 <nav class="series-nav">
   <ul class="list pl0">
-    {{ range $slug, $_ := $seriesMap }}
-      {{ $seriesSlug := $slug }}
+    {{ range $sortedSeries }}
+      {{ $seriesSlug := .slug }}
       {{/* Get the series name from the actual content file for current language */}}
       {{ $seriesName := "" }}
       {{ $seriesPage := false }}
@@ -44,7 +54,7 @@
         {{ $seriesName = $seriesSlug | upper | replace "-" " " }}
       {{ end }}
       
-      {{/* Track first series for highlighting on list page */}}
+      {{/* Track first series (lowest weight) for highlighting on list page */}}
       {{ if not $firstSeriesSlug }}
         {{ $firstSeriesSlug = $seriesSlug }}
       {{ end }}
