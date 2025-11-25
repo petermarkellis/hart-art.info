@@ -1,5 +1,6 @@
 ---
 title: Drawings and Watercolors
+weight: 1
 series_slug: drawings-and-watercolors
 series:
   - drawings-and-watercolors
