@@ -1,5 +1,6 @@
 ---
 title: Homage to Marienbad
+weight: 14
 series_slug: homage-to-marienbad
 series:
   - homage-to-marienbad
