@@ -19,7 +19,8 @@
     "check": "hugo --quiet",
     "format": "prettier --write \"content/**/*.md\" \"static/**/*.{html,js,css}\"",
     "lint": "hugo --quiet && echo 'Build check passed'",
-    "sync-dates": "node scripts/sync-latest-dates.js"
+    "sync-dates": "node scripts/sync-latest-dates.js",
+    "convert-to-webp": "node scripts/convert-images-to-webp.js"
   },
   "keywords": [
     "hugo",

@@ -14,28 +14,28 @@ description: >-
 
   My approach to Janáček's oeuvre did not consist of translating his music into a pictorial language, but rather visually responding to the sheet music itself. Fragments of various scores inspired me to "answer" the musical signs with marks of my own, be they gestural, rhythmical or scriptural.
 gallery_images:
-  - image: /images/uploads/janacek_projekt_1.jpg
+  - image: /images/uploads/janacek_projekt_1.webp
     title_en: " Sketch for Jenufa"
     title_de: " Skizze für Jenufa"
     year: "2003"
     medium_en: Ink on score fragment
     medium_de: Tinte auf Partiturfragment
     dimensions: 25,8 x 19,7 cm
-  - image: /images/uploads/janacek_projekt_2.jpg
+  - image: /images/uploads/janacek_projekt_2.webp
     title_en: In the Fog
     title_de: Im Nebel
     year: "2003"
     medium_en: Watercolor on score fragment
     medium_de: Aquarell auf Partiturfragment
     dimensions: 29,6 x 20,2 cm
-  - image: /images/uploads/janacek_projekt_3.jpg
+  - image: /images/uploads/janacek_projekt_3.webp
     title_en: A Recollection
     title_de: Eine Erinnerung
     year: "2003"
     medium_en: Ink, colored pencil, graphite on score fragment
     medium_de: Tinte, Buntstift, Graphit auf Partiturfragment
     dimensions: 60 x 80 cm
-  - image: /images/uploads/janacek_projekt_4.jpg
+  - image: /images/uploads/janacek_projekt_4.webp
     title_en: A Blown-Away Leaf
     title_de: Ein fortgewehtes Blatt
     year: "2003"

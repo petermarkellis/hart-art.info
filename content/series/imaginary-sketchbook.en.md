@@ -16,35 +16,35 @@ description: >-
 
   These "trace elements" became the basis of the present drawings: light, barely visible vestiges of movement or writing which were brought back to life with colored pencil and took on a completely different character than their original one: playful, multicolored, organic as well as geometric shapes. The last three drawings (Go!, Microcosm, Tail of the Comet) were made directly in the sketchbook and push this method still further, taking up on traces of all kinds, be they gestural or random.
 gallery_images:
-  - image: /images/uploads/the_imaginary_sketchbook_terra_incognita_1.jpg
+  - image: /images/uploads/the_imaginary_sketchbook_terra_incognita_1.webp
     year: "2006"
     title_en: Terra Incognita
     medium_en: Pastel, colored pencil on paper
     dimensions: 22 x 60,7 cm
     medium_de: Pastell, Farbstift auf Papier
     title_de: Terra Incognita
-  - image: /images/uploads/the_imaginary_sketchbook_trace_elements_1.jpg
+  - image: /images/uploads/the_imaginary_sketchbook_trace_elements_1.webp
     title_en: Trace Elements
     year: "2006"
     medium_en: Pastel, colored pencil on paper
     dimensions: 22 x 60,7 cm
     title_de: Spurenelemente
     medium_de: Pastell, Farbstift auf Papier
-  - image: /images/uploads/the_imaginary_sketchbook_go_1.jpg
+  - image: /images/uploads/the_imaginary_sketchbook_go_1.webp
     title_de: Los!
     year: "2007"
     medium_de: Pastell, Farbstift auf Papier
     dimensions: 22 x 60,7 cm
     title_en: Go!
     medium_en: Pastel, colored pencil on paper
-  - image: /images/uploads/the_imaginary_sketchbook_microcosm_creation_1.jpg
+  - image: /images/uploads/the_imaginary_sketchbook_microcosm_creation_1.webp
     title_en: Microcosm (Creation)
     year: "2007"
     medium_en: Pastel, colored pencil on paper
     dimensions: 22 x 60,7 cm
     title_de: Microcosm (Creation)
     medium_de: Pastell, Farbstift auf Papier
-  - image: /images/uploads/the_imaginary_sketchbook_tail_of_the_comet_1.jpg
+  - image: /images/uploads/the_imaginary_sketchbook_tail_of_the_comet_1.webp
     title_en: Tail of the Comet
     year: "2008"
     medium_de: Pastell, Farbstift auf Papier
