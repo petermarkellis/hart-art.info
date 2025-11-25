@@ -1,5 +1,6 @@
 ---
 title: The Imaginary Sketchbook
+weight: 6
 series_slug: imaginary-sketchbook
 series:
   - imaginary-sketchbook
