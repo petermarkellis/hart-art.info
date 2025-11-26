@@ -6,24 +6,13 @@
   {{ end }}
 {{ end }}
 {{ $seriesPage := false }}
+{{ $lang := .Site.Language.Lang }}
+
+{{/* Get the series page from section pages */}}
 {{ $seriesSection := .Site.GetPage "section" "series" }}
 {{ if $seriesSection }}
   {{ range $seriesSection.Pages }}
-    {{ if eq .Params.series_slug $seriesSlug }}
-      {{ $seriesPage = . }}
-    {{ end }}
-  {{ end }}
-{{ end }}
-{{ if not $seriesPage }}
-  {{ range where .Site.AllPages "Section" "series" }}
-    {{ if eq .Params.series_slug $seriesSlug }}
-      {{ $seriesPage = . }}
-    {{ end }}
-  {{ end }}
-{{ end }}
-{{ if not $seriesPage }}
-  {{ range where .Site.RegularPages "Section" "series" }}
-    {{ if eq .Params.series_slug $seriesSlug }}
+    {{ if and .Params.series_slug (eq .Params.series_slug $seriesSlug) (eq .Lang $lang) }}
       {{ $seriesPage = . }}
     {{ end }}
   {{ end }}
@@ -52,17 +41,18 @@
 <!-- Gallery Images -->
 {{ if $seriesPage }}
   {{ if $seriesPage.Params.gallery_images }}
-    <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem 3rem; margin-bottom: 4rem;">
-      {{ range $index, $galleryImage := $seriesPage.Params.gallery_images }}
+    {{ $currentLang := .Site.Language.Lang }}
+    <!-- Gallery Grid Mode -->
+      <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem 3rem; margin-bottom: 4rem;">
+        {{ range $index, $galleryImage := $seriesPage.Params.gallery_images }}
         <div class="gallery-item">
           {{ $galleryURL := printf "/series/%s/gallery/%d/" $seriesSlug $index }}
-          {{ if eq $.Site.Language.Lang "de" }}
+          {{ if eq $currentLang "de" }}
             {{ $galleryURL = printf "/de/series/%s/gallery/%d/" $seriesSlug $index }}
           {{ end }}
           {{ if .image }}
             <div class="mb3" style="width: 100%;">
               {{ $imgAlt := "" }}
-              {{ $currentLang := $.Site.Language.Lang }}
               {{ if eq $currentLang "de" }}
                 {{ $imgAlt = .title_de | default .title_en | default "Artwork" }}
               {{ else }}
@@ -253,6 +243,8 @@
 </style>
 
 <script>
+// Initialize modal
+if (document.getElementById('imageModal')) {
 let currentImageIndex = 0;
 let allImages = [];
 let currentSeriesSlug = '';
@@ -365,4 +357,5 @@ function navigateImage(direction) {
   }
   openImageModal(newIndex, currentSeriesSlug);
 }
+} // End modal initialization check
 </script>
