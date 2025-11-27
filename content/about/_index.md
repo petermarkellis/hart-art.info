@@ -1,10 +1,28 @@
 ---
 title: Mark Hartzheim
 image: /images/uploads/mark_hartzheim_photo.webp
-buying_art_title: Buying Art and Commissioning
-buying_art_description: If you like any pieces of art and would like to make an
-  offer please reach out to me at hartzheimmark@gmail.com. I also take on
-  commission work and am happy to discuss projects with you.
+body_en: Mark was born in Wisconsin in the United States but settled in Germany
+  where he has been working as a freelance artist since 1996. His work explores
+  themes of movement, rhythm, and writing through various series including
+  drawings, watercolors, and mixed media pieces.
+body_de: Mark wurde in Wisconsin in den Vereinigten Staaten geboren, ließ sich
+  aber in Deutschland nieder, wo er seit 1996 als freischaffender Künstler tätig
+  ist. Seine Arbeit erforscht Themen von Bewegung, Rhythmus und Schrift durch
+  verschiedene Serien, einschließlich Zeichnungen, Aquarelle und
+  Mixed-Media-Stücke.
+buying_art_title_en: Buying Art and Commissioning
+buying_art_title_de: Kunst kaufen und Aufträge erteilen
+buying_art_description_en: >-
+  If you are interested in any art pieces please reach out to me to discuss. 
+
+
+  I am also happy to take on commission work and have done before for galleries, exhibitors and art dealers. Please reach out to me to discuss your requirements.
+buying_art_description_de: >-
+  Wenn Sie Interesse an meinen Kunstwerken haben, kontaktieren Sie mich bitte,
+  um Details zu besprechen. 
+
+
+  Ich nehme auch gerne Auftragsarbeiten an und habe dies bereits für Galerien, Aussteller und Kunsthändler getan. Bitte kontaktieren Sie mich, um Ihre Wünsche zu besprechen.
 contact_info:
   address_line1: 95138 Bad Steben
   address_line2: Oberfranken
@@ -53,16 +71,17 @@ curriculum_vitae:
     text_en: 8‐month road trip throughout the USA
 qualifications_title_en: Other Qualifications
 qualifications_title_de: Weitere Qualifikationen
+exhibits_title_de: Ausstellungen (Auswahl)
+address_line1: 95138 Bad Steben
 other_qualifications:
   - text_en: Art Association of Hof
     text_de: Kunstverein Hof
   - text_de: Bund Fränkischer Künstler
     text_en: Union of Franconian Artists (Upper Bavaria)
-exhibits_title_de: Ausstellungen (Auswahl)
-address_line1: 95138 Bad Steben
 address_line2: Oberfranken
 address_line3: Bayern
 exhibits_title_en: Exhibits (A Selection)
+buying_art_title: Buying Art and Commissioning
 exhibits:
   - year: "1999"
     text_en: Kunst‐Kabinett‐Knauf, Cologne
@@ -170,5 +189,8 @@ exhibits:
       Plassen Castle, Kulmbach
 contact_button_text: CONTACT THE ARTIST
 email: hartzheimmark@gmail.com
+buying_art_description: If you like any pieces of art and would like to make an
+  offer please reach out to me at hartzheimmark@gmail.com. I also take on
+  commission work and am happy to discuss projects with you.
 ---
 Mark was born in Wisconsin in the United States but settled in Germany where he has been working as a freelance artist since 1996. His work explores themes of movement, rhythm, and writing through various series including drawings, watercolors, and mixed media pieces.
