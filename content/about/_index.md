@@ -2,10 +2,10 @@
 title: Mark Hartzheim
 image: /images/uploads/mark_hartzheim_photo.webp
 contact_info:
-  address_line1: 95138 Bad Steben a
-  address_line2: Oberfranken b
-  address_line3: Bayern c
-  copyright_text: © 2025 Mark Hartzheim d
+  address_line1: 95138 Bad Steben
+  address_line2: Oberfranken
+  address_line3: Bayern
+  copyright_text: © 2025 Mark Hartzheim
   contact_button_text: CONTACT THE ARTIST
   email: hartzheimmark@gmail.com
 curriculum_title_en: Curriculum Vitae
