@@ -1,13 +1,13 @@
 ---
 title: Mark Hartzheim
 image: /images/uploads/mark_hartzheim_photo.webp
-email: hartzheimmark@gmail.com
 contact_info:
-  address_line1: 95138 Bad Steben
-  address_line2: Oberfranken
-  address_line3: Bayern
-  copyright_text: © 2025 Mark Hartzheim
+  address_line1: 95138 Bad Steben a
+  address_line2: Oberfranken b
+  address_line3: Bayern c
+  copyright_text: © 2025 Mark Hartzheim d
   contact_button_text: CONTACT THE ARTIST
+  email: hartzheimmark@gmail.com
 curriculum_title_en: Curriculum Vitae
 curriculum_title_de: Vita
 curriculum_vitae:
@@ -165,5 +165,6 @@ exhibits:
       94th Annual Exhibition
       Plassen Castle, Kulmbach
 contact_button_text: CONTACT THE ARTIST
+email: hartzheimmark@gmail.com
 ---
 Mark was born in Wisconsin in the United States but settled in Germany where he has been working as a freelance artist since 1996. His work explores themes of movement, rhythm, and writing through various series including drawings, watercolors, and mixed media pieces.
