@@ -1,6 +1,10 @@
 ---
 title: Mark Hartzheim
 image: /images/uploads/mark_hartzheim_photo.webp
+buying_art_title: Buying Art and Commissioning
+buying_art_description: If you like any pieces of art and would like to make an
+  offer please reach out to me at hartzheimmark@gmail.com. I also take on
+  commission work and am happy to discuss projects with you.
 contact_info:
   address_line1: 95138 Bad Steben
   address_line2: Oberfranken
