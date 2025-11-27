@@ -10,6 +10,7 @@ body_de: Mark wurde in Wisconsin in den Vereinigten Staaten geboren, ließ sich
   ist. Seine Arbeit erforscht Themen von Bewegung, Rhythmus und Schrift durch
   verschiedene Serien, einschließlich Zeichnungen, Aquarelle und
   Mixed-Media-Stücke.
+show_buying_art: true
 buying_art_title_en: Buying Art and Commissioning
 buying_art_title_de: Kunst kaufen und Aufträge erteilen
 buying_art_description_en: >-
