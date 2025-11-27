@@ -2,10 +2,12 @@
 title: Mark Hartzheim
 image: /images/uploads/mark_hartzheim_photo.webp
 email: hartzheimmark@gmail.com
-address_line1: 95138 Bad Steben
-address_line2: Oberfranken
-address_line3: Bayern
-contact_button_text: CONTACT THE ARTIST
+contact_info:
+  address_line1: 95138 Bad Steben
+  address_line2: Oberfranken
+  address_line3: Bayern
+  copyright_text: © 2025 Mark Hartzheim
+  contact_button_text: CONTACT THE ARTIST
 curriculum_title_en: Curriculum Vitae
 curriculum_title_de: Vita
 curriculum_vitae:
@@ -52,8 +54,11 @@ other_qualifications:
     text_de: Kunstverein Hof
   - text_de: Bund Fränkischer Künstler
     text_en: Union of Franconian Artists (Upper Bavaria)
-exhibits_title_en: Exhibits (A Selection)
 exhibits_title_de: Ausstellungen (Auswahl)
+address_line1: 95138 Bad Steben
+address_line2: Oberfranken
+address_line3: Bayern
+exhibits_title_en: Exhibits (A Selection)
 exhibits:
   - year: "1999"
     text_en: Kunst‐Kabinett‐Knauf, Cologne
@@ -159,5 +164,6 @@ exhibits:
       Union of Franconian Artists:
       94th Annual Exhibition
       Plassen Castle, Kulmbach
+contact_button_text: CONTACT THE ARTIST
 ---
 Mark was born in Wisconsin in the United States but settled in Germany where he has been working as a freelance artist since 1996. His work explores themes of movement, rhythm, and writing through various series including drawings, watercolors, and mixed media pieces.
