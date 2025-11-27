@@ -118,6 +118,15 @@
     <div class="f6 f5-ns lh-copy black-80 mb4" style="font-family: 'Inter', sans-serif;">
       {{/* Support both nested contact_info object and flat structure for backward compatibility */}}
       {{ $contactInfo := $aboutPage.Params.contact_info }}
+      {{/* If language-specific page doesn't have nested structure, check default _index.md */}}
+      {{ if not $contactInfo }}
+        {{ if $defaultAboutParams }}
+          {{ if $defaultAboutParams.contact_info }}
+            {{ $contactInfo = $defaultAboutParams.contact_info }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      
       {{ $email := "" }}
       {{ $addressLine1 := "" }}
       {{ $addressLine2 := "" }}
@@ -133,12 +142,32 @@
         {{ $contactButtonText = $contactInfo.contact_button_text }}
         {{ $copyrightText = $contactInfo.copyright_text }}
       {{ else }}
+        {{/* Fallback to flat structure from language-specific page or default */}}
         {{ $email = $aboutPage.Params.email }}
         {{ $addressLine1 = $aboutPage.Params.address_line1 }}
         {{ $addressLine2 = $aboutPage.Params.address_line2 }}
         {{ $addressLine3 = $aboutPage.Params.address_line3 }}
         {{ $contactButtonText = $aboutPage.Params.contact_button_text }}
         {{ $copyrightText = $aboutPage.Params.copyright_text }}
+        {{/* If still empty, try default file */}}
+        {{ if and (not $email) $defaultAboutParams }}
+          {{ $email = $defaultAboutParams.email }}
+        {{ end }}
+        {{ if and (not $addressLine1) $defaultAboutParams }}
+          {{ $addressLine1 = $defaultAboutParams.address_line1 }}
+        {{ end }}
+        {{ if and (not $addressLine2) $defaultAboutParams }}
+          {{ $addressLine2 = $defaultAboutParams.address_line2 }}
+        {{ end }}
+        {{ if and (not $addressLine3) $defaultAboutParams }}
+          {{ $addressLine3 = $defaultAboutParams.address_line3 }}
+        {{ end }}
+        {{ if and (not $contactButtonText) $defaultAboutParams }}
+          {{ $contactButtonText = $defaultAboutParams.contact_button_text }}
+        {{ end }}
+        {{ if and (not $copyrightText) $defaultAboutParams }}
+          {{ $copyrightText = $defaultAboutParams.copyright_text }}
+        {{ end }}
       {{ end }}
       
       {{ with $addressLine1 }}<p class="mb0">{{ . }}</p>{{ end }}
@@ -166,10 +195,104 @@
       {{ $aboutPage.Title | upper }}
     </h1>
 
-    {{ if $aboutPage.Content }}
+    {{/* Description/Content - language-specific */}}
+    {{ $currentLang := .Site.Language.Lang }}
+    {{ $description := "" }}
+    
+    {{/* Get language-specific description */}}
+    {{ if eq $currentLang "de" }}
+      {{ $description = $aboutPage.Params.body_de }}
+    {{ else }}
+      {{ $description = $aboutPage.Params.body_en }}
+    {{ end }}
+    
+    {{/* Fallback to default file if not found in language-specific page */}}
+    {{ if $defaultAboutParams }}
+      {{ if not $description }}
+        {{ if eq $currentLang "de" }}
+          {{ $description = $defaultAboutParams.body_de }}
+        {{ else }}
+          {{ $description = $defaultAboutParams.body_en }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    
+    {{/* Fallback to Content if language-specific fields are empty (for backward compatibility) */}}
+    {{ $useContentFallback := false }}
+    {{ if not $description }}
+      {{ $description = $aboutPage.Content }}
+      {{ $useContentFallback = true }}
+    {{ end }}
+    
+    {{ if $description }}
       <div class="f6 f5-ns lh-copy black-80 mb5" style="font-family: 'Inter', sans-serif; max-width: 800px;">
-        {{ $aboutPage.Content }}
+        {{ if $useContentFallback }}
+          {{ $description }}
+        {{ else }}
+          {{ $description | markdownify }}
+        {{ end }}
       </div>
+    {{ end }}
+
+    {{/* Buying Art and Commissioning Section */}}
+    {{ $showBuyingArt := $aboutPage.Params.show_buying_art }}
+    {{ if not (isset $aboutPage.Params "show_buying_art") }}
+      {{ $showBuyingArt = true }}
+    {{ end }}
+    {{ if $defaultAboutParams }}
+      {{ if not (isset $aboutPage.Params "show_buying_art") }}
+        {{ if isset $defaultAboutParams "show_buying_art" }}
+          {{ $showBuyingArt = $defaultAboutParams.show_buying_art }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    
+    {{ if $showBuyingArt }}
+      {{ $currentLang := .Site.Language.Lang }}
+      {{ $buyingArtTitle := "" }}
+      {{ $buyingArtDescription := "" }}
+      
+      {{/* Get language-specific fields */}}
+      {{ if eq $currentLang "de" }}
+        {{ $buyingArtTitle = $aboutPage.Params.buying_art_title_de }}
+        {{ $buyingArtDescription = $aboutPage.Params.buying_art_description_de }}
+      {{ else }}
+        {{ $buyingArtTitle = $aboutPage.Params.buying_art_title_en }}
+        {{ $buyingArtDescription = $aboutPage.Params.buying_art_description_en }}
+      {{ end }}
+      
+      {{/* Fallback to default file if not found in language-specific page */}}
+      {{ if $defaultAboutParams }}
+        {{ if not $buyingArtTitle }}
+          {{ if eq $currentLang "de" }}
+            {{ $buyingArtTitle = $defaultAboutParams.buying_art_title_de }}
+          {{ else }}
+            {{ $buyingArtTitle = $defaultAboutParams.buying_art_title_en }}
+          {{ end }}
+        {{ end }}
+        {{ if not $buyingArtDescription }}
+          {{ if eq $currentLang "de" }}
+            {{ $buyingArtDescription = $defaultAboutParams.buying_art_description_de }}
+          {{ else }}
+            {{ $buyingArtDescription = $defaultAboutParams.buying_art_description_en }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      
+      {{ if or $buyingArtTitle $buyingArtDescription }}
+        <div class="f6 f5-ns lh-copy black-80 mb5" style="font-family: 'Inter', sans-serif; max-width: 800px;">
+          {{ if $buyingArtTitle }}
+            <h2 class="f5 f4-ns fw6 mb3 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
+              {{ $buyingArtTitle | upper }}
+            </h2>
+          {{ end }}
+          {{ if $buyingArtDescription }}
+            <div class="mb4">
+              {{ $buyingArtDescription | markdownify }}
+            </div>
+          {{ end }}
+        </div>
+      {{ end }}
     {{ end }}
 
     {{/* Curriculum Vitae Section */}}

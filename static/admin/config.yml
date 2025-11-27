@@ -97,7 +97,13 @@ collections:
         fields:
           - {label: "Title", name: "title", widget: "string", i18n: true, required: true}
           - {label: "Portrait Image", name: "image", widget: "image", required: true}
-          - {label: "Description", name: "body", widget: "markdown", i18n: true, required: true}
+          - {label: "Description (English)", name: "body_en", widget: "markdown", required: true, hint: "Main description text in English"}
+          - {label: "Description (German)", name: "body_de", widget: "markdown", required: false, hint: "Main description text in German"}
+          - {label: "Show Buying Art Section", name: "show_buying_art", widget: "boolean", default: true, required: false, hint: "Toggle to display or hide the Buying Art and Commissioning section"}
+          - {label: "Buying Art Section Title (English)", name: "buying_art_title_en", widget: "string", required: false, hint: "Title for the Buying Art and Commissioning section in English (e.g., 'Buying Art and Commissioning')"}
+          - {label: "Buying Art Section Title (German)", name: "buying_art_title_de", widget: "string", required: false, hint: "Title for the Buying Art and Commissioning section in German"}
+          - {label: "Buying Art Section Description (English)", name: "buying_art_description_en", widget: "markdown", required: false, hint: "Content for the Buying Art and Commissioning section in English"}
+          - {label: "Buying Art Section Description (German)", name: "buying_art_description_de", widget: "markdown", required: false, hint: "Content for the Buying Art and Commissioning section in German"}
           - label: "Contact Information"
             name: "contact_info"
             widget: "object"
