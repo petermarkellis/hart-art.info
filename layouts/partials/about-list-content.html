@@ -116,15 +116,46 @@
     {{ end }}
 
     <div class="f6 f5-ns lh-copy black-80 mb4" style="font-family: 'Inter', sans-serif;">
-      {{ with $aboutPage.Params.address_line1 }}<p class="mb0">{{ . }}</p>{{ end }}
-      {{ with $aboutPage.Params.address_line2 }}<p class="mb0">{{ . }}</p>{{ end }}
-      {{ with $aboutPage.Params.address_line3 }}<p class="mb0">{{ . }}</p>{{ end }}
-      <p class="mt3 mb0">© {{ now.Format "2006" }} Mark Hartzheim</p>
+      {{/* Support both nested contact_info object and flat structure for backward compatibility */}}
+      {{ $contactInfo := $aboutPage.Params.contact_info }}
+      {{ $email := "" }}
+      {{ $addressLine1 := "" }}
+      {{ $addressLine2 := "" }}
+      {{ $addressLine3 := "" }}
+      {{ $contactButtonText := "" }}
+      {{ $copyrightText := "" }}
+      
+      {{ if $contactInfo }}
+        {{ $email = $contactInfo.email }}
+        {{ $addressLine1 = $contactInfo.address_line1 }}
+        {{ $addressLine2 = $contactInfo.address_line2 }}
+        {{ $addressLine3 = $contactInfo.address_line3 }}
+        {{ $contactButtonText = $contactInfo.contact_button_text }}
+        {{ $copyrightText = $contactInfo.copyright_text }}
+      {{ else }}
+        {{ $email = $aboutPage.Params.email }}
+        {{ $addressLine1 = $aboutPage.Params.address_line1 }}
+        {{ $addressLine2 = $aboutPage.Params.address_line2 }}
+        {{ $addressLine3 = $aboutPage.Params.address_line3 }}
+        {{ $contactButtonText = $aboutPage.Params.contact_button_text }}
+        {{ $copyrightText = $aboutPage.Params.copyright_text }}
+      {{ end }}
+      
+      {{ with $addressLine1 }}<p class="mb0">{{ . }}</p>{{ end }}
+      {{ with $addressLine2 }}<p class="mb0">{{ . }}</p>{{ end }}
+      {{ with $addressLine3 }}<p class="mb0">{{ . }}</p>{{ end }}
+      <p class="mt3 mb0">
+        {{ if $copyrightText }}
+          {{ $copyrightText }}
+        {{ else }}
+          © {{ now.Format "2006" }} Mark Hartzheim
+        {{ end }}
+      </p>
     </div>
 
-    {{ if $aboutPage.Params.email }}
-      <a href="mailto:{{ $aboutPage.Params.email }}" class="dib bg-black white pa3 pa4-ns no-underline hover-bg-black-80 nav-link" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; transition: background-color 0.2s;">
-        {{ $aboutPage.Params.contact_button_text | default "CONTACT THE ARTIST" }}
+    {{ if $email }}
+      <a href="mailto:{{ $email }}" class="dib bg-black white pa3 pa4-ns no-underline hover-bg-black-80 nav-link" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; transition: background-color 0.2s;">
+        {{ $contactButtonText | default "CONTACT THE ARTIST" }}
       </a>
     {{ end }}
   </aside>

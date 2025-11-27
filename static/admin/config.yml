@@ -98,11 +98,18 @@ collections:
           - {label: "Title", name: "title", widget: "string", i18n: true, required: true}
           - {label: "Portrait Image", name: "image", widget: "image", required: true}
           - {label: "Description", name: "body", widget: "markdown", i18n: true, required: true}
-          - {label: "Email", name: "email", widget: "string", required: true, hint: "Contact email address"}
-          - {label: "Address Line 1", name: "address_line1", widget: "string", required: false, i18n: true}
-          - {label: "Address Line 2", name: "address_line2", widget: "string", required: false, i18n: true}
-          - {label: "Address Line 3", name: "address_line3", widget: "string", required: false, i18n: true}
-          - {label: "Contact Button Text", name: "contact_button_text", widget: "string", required: false, i18n: true}
+          - label: "Contact Information"
+            name: "contact_info"
+            widget: "object"
+            required: false
+            collapsed: false
+            fields:
+              - {label: "Address Line 1", name: "address_line1", widget: "string", required: false, i18n: true}
+              - {label: "Address Line 2", name: "address_line2", widget: "string", required: false, i18n: true}
+              - {label: "Address Line 3", name: "address_line3", widget: "string", required: false, i18n: true}
+              - {label: "Copyright Text", name: "copyright_text", widget: "string", required: false, i18n: true, hint: "Copyright text (e.g., '© 2025 Mark Hartzheim'). Leave empty to use default format."}
+              - {label: "Contact Button Text", name: "contact_button_text", widget: "string", required: false, i18n: true}
+              - {label: "Contact Button Email Address", name: "email", widget: "string", required: true, hint: "Contact email address"}
           - {label: "Curriculum Vitae Title (English)", name: "curriculum_title_en", widget: "string", required: false, hint: "Override CURRICULUM VITAE heading in English"}
           - {label: "Curriculum Vitae Title (German)", name: "curriculum_title_de", widget: "string", required: false, hint: "Override CURRICULUM VITAE heading in German"}
           - label: "Curriculum Vitae"
