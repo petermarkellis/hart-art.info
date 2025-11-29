@@ -21,8 +21,8 @@
   <div class="image-modal-content" style="width: 100vw; height: 100vh; max-width: 100vw; max-height: 100vh; margin: 0; position: relative; padding: 0; padding-top: 5rem;">
     <button class="image-modal-prev image-modal-prev-side" onclick="window.navigateImage(-1)" style="position: absolute; left: 0.5rem; top: 50%; transform: translateY(-50%); background: black; border: none; color: white; font-size: 2rem; width: 3rem; height: 3rem; cursor: pointer; border-radius: 50%; z-index: 10000; display: none; align-items: center; justify-content: center; line-height: 1; padding: 0; margin: 0; text-align: center; vertical-align: middle;">‹</button>
     <button class="image-modal-next image-modal-next-side" onclick="window.navigateImage(1)" style="position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%); background: black; border: none; color: white; font-size: 2rem; width: 3rem; height: 3rem; cursor: pointer; border-radius: 50%; z-index: 10000; display: none; align-items: center; justify-content: center; line-height: 1; padding: 0; margin: 0; text-align: center; vertical-align: middle;">›</button>
-    <div style="width: 100%; height: calc(100vh - 5rem); display: flex; align-items: center; justify-content: center; padding: 0 4rem; box-sizing: border-box;">
-      <img id="modalImage" src="" alt="" style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; display: block; flex-shrink: 0;" />
+    <div style="width: 90vw; height: 90vh; max-width: 90vw; max-height: 90vh; display: flex; align-items: center; justify-content: center; box-sizing: border-box; margin: auto;">
+      <img id="modalImage" src="" alt="" style="width: 100%; height: 100%; object-fit: contain; display: block;" />
       <!-- Mobile Info (unchanged) -->
       <div class="image-modal-info" style="padding: 2rem 0; margin-top: 1rem; text-align: left;">
       <div id="modalSeries" class="f7 f6-ns black-50 mb2" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; text-transform: uppercase;"></div>
@@ -76,29 +76,24 @@
       justify-content: center !important;
     }
     .image-modal-content > div {
-      width: 100% !important;
-      height: calc(100vh - 5rem) !important;
+      width: 90vw !important;
+      height: 90vh !important;
+      max-width: 90vw !important;
+      max-height: 90vh !important;
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
-      padding: 0 4rem !important;
       box-sizing: border-box !important;
-      max-width: 100% !important;
+      margin: auto !important;
     }
     .image-modal-info {
       display: none !important;
     }
     #modalImage {
-      max-width: 100% !important;
-      max-height: 100% !important;
-      width: auto !important;
-      height: auto !important;
+      width: 100% !important;
+      height: 100% !important;
       object-fit: contain !important;
       display: block !important;
-      flex-shrink: 0 !important;
-      /* Ensure images scale to fill available space */
-      min-width: 0 !important;
-      min-height: 0 !important;
     }
     
     /* Ensure container properly constrains images */
@@ -184,36 +179,6 @@ window.openImageModal = function(index, seriesSlug) {
   // Set image
   modalImage.src = image.src;
   modalImage.alt = titleText;
-  
-  // Optimize image size to maximize space usage
-  modalImage.onload = function() {
-    const container = modalImage.parentElement;
-    // Get available space accounting for padding
-    const containerStyle = window.getComputedStyle(container);
-    const paddingLeft = parseFloat(containerStyle.paddingLeft) || 0;
-    const paddingRight = parseFloat(containerStyle.paddingRight) || 0;
-    const containerWidth = container.clientWidth - paddingLeft - paddingRight;
-    const containerHeight = container.clientHeight;
-    
-    const imageAspectRatio = modalImage.naturalWidth / modalImage.naturalHeight;
-    const containerAspectRatio = containerWidth / containerHeight;
-    
-    // If image is wider than container, maximize width
-    // If image is taller than container, maximize height
-    if (imageAspectRatio > containerAspectRatio) {
-      // Wide image - maximize width (fill available width)
-      modalImage.style.width = '100%';
-      modalImage.style.height = 'auto';
-      modalImage.style.maxWidth = '100%';
-      modalImage.style.maxHeight = 'none';
-    } else {
-      // Tall image - maximize height (fill available height)
-      modalImage.style.width = 'auto';
-      modalImage.style.height = '100%';
-      modalImage.style.maxWidth = 'none';
-      modalImage.style.maxHeight = '100%';
-    }
-  };
   
   // Mobile info (unchanged)
   modalSeries.textContent = seriesText;
