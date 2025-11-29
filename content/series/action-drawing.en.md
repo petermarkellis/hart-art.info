@@ -15,80 +15,103 @@ description: >-
 
   After producing several "action sketches" in this fashion, I evaluate their potential, pick out the most promising and continue to draw. The raw material of the sketches forms a "visual provocateur" (Max Ernst) which provides the point of departure for the drawings. By taking up and elaborating on the expressive strokes they undergo a metamorphosis: barely visible traces become delineated and emphasized, others are toned down or erased, colors are intensified and differentiated, shapes and lines assert themselves and yet, despite the high degree of transformation, the dynamism of the the original action is still evoked.
 gallery_images:
-  - image: /images/uploads/action_drawing_everything_flows_2009_1.webp
+  - title_de: Alles Fließt!
+    medium_de: Pastell, Farbstift auf Papier
+    dimensions: 70 cm x 100 cm
     title_en: Everything Flows!
-    year: "2009"
     medium_en: Pastel, colored pencil on paper
-    dimensions: 70 cm x 100 cm
-    title_de: Alles Fließt!
+    dimensions_de: 70 cm x 100 cm
+    image: /images/uploads/action_drawing_everything_flows_2009_1.webp
+    dimensions_en: 70 cm x 100 cm
+    year: "2009"
+  - title_de: Flüchtige Begegnung
     medium_de: Pastell, Farbstift auf Papier
-  - title_en: Fleeting Encounter
+    dimensions: 70 cm x 100 cm
+    title_en: Fleeting Encounter
+    medium_en: Pastel, colored pencil on paper
+    dimensions_de: 70 cm x 100 cm
     image: /images/uploads/action_drawing_fleeting_encounter_2009_1.webp
+    dimensions_en: 70 cm x 100 cm
     year: "2009"
-    medium_en: Pastel, colored pencil on paper
-    dimensions: 70 cm x 100 cm
-    title_de: Flüchtige Begegnung
+  - title_de: Bildlogik
     medium_de: Pastell, Farbstift auf Papier
-  - title_en: Picture Logic
+    dimensions: 70 cm x 100 cm
+    title_en: Picture Logic
+    medium_en: Pastel, colored pencil on paper
+    dimensions_de: 70 cm x 100 cm
     image: /images/uploads/action_drawing_picture_logic_2009_1.webp
+    dimensions_en: 70 cm x 100 cm
     year: "2009"
-    medium_en: Pastel, colored pencil on paper
-    dimensions: 70 cm x 100 cm
-    title_de: Bildlogik
+  - title_de: Glücksfall
     medium_de: Pastell, Farbstift auf Papier
-  - title_en: Good Fortune
+    dimensions: 73 cm x 102 cm
+    title_en: Good Fortune
+    medium_en: Pastel, colored pencil on paper
+    dimensions_de: 3 cm x 102 cm
     image: /images/uploads/action_drawing_good_fortune_2010_1.webp
+    dimensions_en: 3 cm x 102 cm
     year: "2010"
-    medium_en: Pastel, colored pencil on paper
-    dimensions: 73 cm x 102 cm
-    title_de: Glücksfall
+  - title_de: Fusion
     medium_de: Pastell, Farbstift auf Papier
-  - title_en: Fusion
+    dimensions: 73 cm x 102 cm
+    title_en: Fusion
+    medium_en: Pastel, colored pencil on paper
+    dimensions_de: 73 cm x 102 cm
     image: /images/uploads/action_drawing_fusion_2010_1.webp
-    medium_en: Pastel, colored pencil on paper
+    dimensions_en: 73 cm x 102 cm
+    year: "2010"
+  - title_de: Metamorphose
     medium_de: Pastell, Farbstift auf Papier
-    dimensions: 73 cm x 102 cm
-    title_de: Fusion
-    year: "2010"
-  - image: /images/uploads/action_drawing_metamorphosis_2010_1.webp
-    title_en: Metamorphosis
-    year: "2010"
-    medium_en: Pastel, colored pencil on paper
     dimensions: 61,4 cm x 100 cm
-    title_de: Metamorphose
-    medium_de: Pastell, Farbstift auf Papier
-  - title_en: Dragonfly Dreams
-    image: /images/uploads/action_drawing_dragonfly_dreams_2010_1.webp
+    title_en: Metamorphosis
+    medium_en: Pastel, colored pencil on paper
+    dimensions_de: 61,4 cm x 100 cm
+    image: /images/uploads/action_drawing_metamorphosis_2010_1.webp
+    dimensions_en: 61,4 cm x 100 cm
     year: "2010"
-    medium_en: Pastel, colored pencil on paper
+  - title_de: Libellenträume
+    medium_de: Pastell, Farbstift auf Papier
     dimensions: 73 cm x 102 cm
-    title_de: Libellenträume
+    title_en: Dragonfly Dreams
+    medium_en: Pastel, colored pencil on paper
+    dimensions_de: 73 cm x 102 cm
+    image: /images/uploads/action_drawing_dragonfly_dreams_2010_1.webp
+    dimensions_en: 73 cm x 102 cm
+    year: "2010"
+  - title_de: Godsend
     medium_de: Pastell, Farbstift auf Papier
-  - image: /images/uploads/action_drawing_godsend_2011_1.webp
+    dimensions: 70,4 cm x 100 cm
     title_en: Godsend
-    year: "2011"
     medium_en: Pastel, colored pencil on paper
-    dimensions: 70,4 cm x 100 cm
-    title_de: Godsend
+    dimensions_de: 70,4 cm x 100 cm
+    image: /images/uploads/action_drawing_godsend_2011_1.webp
+    dimensions_en: 70,4 cm x 100 cm
+    year: "2011"
+  - title_de: Making Waves
     medium_de: Pastell, Farbstift auf Papier
-  - title_en: Making Waves
+    dimensions: 70,4 cm x 100 cm
+    title_en: Making Waves
+    medium_en: Pastel, colored pencil on paper
+    dimensions_de: 70,4 cm x 100 cm
     image: /images/uploads/action_drawing_making_waves_2011_1.webp
-    medium_de: Pastell, Farbstift auf Papier
+    dimensions_en: 70,4 cm x 100 cm
     year: "2011"
-    dimensions: 70,4 cm x 100 cm
-    medium_en: Pastel, colored pencil on paper
-  - title_en: From Within
-    year: "2014"
-    image: /images/uploads/action_drawing_from_within_2014_1.webp
-    medium_en: Pastel, colored pencil on paper
-    dimensions: 70 cm x 100 cm
-    title_de: Von Innen Heraus
+  - title_de: Von Innen Heraus
     medium_de: Pastell, Farbstift auf Papier
+    dimensions: 70 cm x 100 cm
+    title_en: From Within
+    medium_en: Pastel, colored pencil on paper
+    dimensions_de: 70 cm x 100 cm
+    image: /images/uploads/action_drawing_from_within_2014_1.webp
+    dimensions_en: 70 cm x 100 cm
+    year: "2014"
   - title_de: Kraftquelle
-    image: /images/uploads/action_drawing_source_2016_1.webp
-    title_en: Source
-    year: "2016"
     medium_de: Pastell auf Papier
     dimensions: 50 cm x 70 cm
+    title_en: Source
     medium_en: Pastel on paper
+    dimensions_de: 50 cm x 70 cm
+    image: /images/uploads/action_drawing_source_2016_1.webp
+    dimensions_en: 50 cm x 70 cm
+    year: "2016"
 ---
