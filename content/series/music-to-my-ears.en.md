@@ -16,178 +16,228 @@ description: >-
 
   Several years after the initial series was completed, I decided to revisit this theme. Utilising a number of songs as well as empty pages from a second notebook, my goal was to depart from the predominantly graphic character of the original works and achieve a more painterly effect. A major difference in the new works is also the complete incorporation of the background. In those pictures which don't adhere to a song as a starting point, gestural marks divide up the picture plane, leaving the lines of the staff to play an entirely subordinate role.
 gallery_images:
-  - image: /images/uploads/music_to_my_ears_tell_me_my_dear_1.webp
-    title_en: Pověz mě, má milá (Tell me, my dear)
-    year: "2014"
-    medium_en: Watercolor, colored pencil, graphite on manuscript paper
-    dimensions: 16,5 x 25,3 cm
-    title_de: Pověz mě, má milá (Sag es mir, meine Liebste)
+  - title_de: Pověz mě, má milá (Sag es mir, meine Liebste)
     medium_de: Aquarell, Farbstift, Graphit auf Notenpapier
-  - image: /images/uploads/music_to_my_ears_small_garden_1.webp
-    title_de: Před našim je zahrádečka (Vor unserem Haus ein Gärtlein)
+    dimensions: 16,5 x 25,3 cm
+    title_en: Pověz mě, má milá (Tell me, my dear)
+    medium_en: Watercolor, colored pencil, graphite on manuscript paper
+    dimensions_de: 16,5 x 25,3 cm
+    image: /images/uploads/music_to_my_ears_tell_me_my_dear_1.webp
+    dimensions_en: 16,5 x 25,3 cm
     year: "2014"
+  - title_de: Před našim je zahrádečka (Vor unserem Haus ein Gärtlein)
     medium_de: Aquarell, Graphit, Tusche auf Notenpapier
     dimensions: 16,5 x 25,3 cm
     title_en: Před našim je zahrádečka (In front of our house a small garden)
     medium_en: Watercolor, graphite, ink on manuscript paper
-  - image: /images/uploads/music_to_my_ears_plum_eyes_1.webp
-    title_en: Ocička má jako trnka (She has little eyes like plums)
+    dimensions_de: 16,5 x 25,3 cm
+    image: /images/uploads/music_to_my_ears_small_garden_1.webp
+    dimensions_en: 16,5 x 25,3 cm
     year: "2014"
-    medium_en: Watercolor, ink on manuscript paper
-    dimensions: 16,5 X 25,3 cm
-    title_de: Ocička má jako trnka (Äuglein hat sie wie Pflaumen)
+  - title_de: Ocička má jako trnka (Äuglein hat sie wie Pflaumen)
     medium_de: Aquarell, Tusche auf Notenpapier
-  - image: /images/uploads/music_to_my_ears_beautiful_woman_1.webp
-    title_de: Kdo chce peknů ženu mat... (Wer eine schöne Frau haben möchte...)
-    year: "2015"
+    dimensions: 16,5 X 25,3 cm
+    title_en: Ocička má jako trnka (She has little eyes like plums)
+    medium_en: Watercolor, ink on manuscript paper
+    dimensions_de: 16,5 x 25,3 cm
+    image: /images/uploads/music_to_my_ears_plum_eyes_1.webp
+    dimensions_en: 16,5 x 25,3 cm
+    year: "2014"
+  - title_de: Kdo chce peknů ženu mat... (Wer eine schöne Frau haben möchte...)
     medium_de: Aquarell, Tusche auf Notenpapier
     dimensions: 16,5 x 25,3 cm
     title_en: Kdo chce peknů ženu mat. (If you want a beautiful woman.)
     medium_en: Watercolor, ink on manuscript paper
-  - image: /images/uploads/music_to_my_ears_scrawl_1.webp
-    title_en: Scrawl
-    dimensions: 16,5 X 25,3 cm
-    year: "2014"
-    medium_en: Watercolor, graphite on manuscript paper
-    medium_de: Aquarell, Graphit auf Notenpapier
-    title_de: Scrawl
-  - image: /images/uploads/music_to_my_ears_lyrical_i_1.webp
-    title_en: The Lyrical I (Reprise)
-    year: "2014"
-    medium_en: Watercolor, graphite on manuscript paper
-    dimensions: 16,5 X 25,3 cm
-    medium_de: Aquarell, Graphit auf Notenpapier
-    title_de: The Lyrical I (Reprise)
-  - image: /images/uploads/music_to_my_ears_combined_forces_1.webp
-    title_en: Combined Forces I
+    dimensions_de: 16,5 x 25,3 cm
+    image: /images/uploads/music_to_my_ears_beautiful_woman_1.webp
+    dimensions_en: 16,5 x 25,3 cm
     year: "2015"
+  - title_de: Scrawl
+    medium_de: Aquarell, Graphit auf Notenpapier
+    dimensions: 16,5 X 25,3 cm
+    title_en: Scrawl
+    medium_en: Watercolor, graphite on manuscript paper
+    dimensions_de: 16,5 x 25,3 cm
+    image: /images/uploads/music_to_my_ears_scrawl_1.webp
+    dimensions_en: 16,5 x 25,3 cm
+    year: "2014"
+  - title_de: The Lyrical I (Reprise)
+    medium_de: Aquarell, Graphit auf Notenpapier
+    dimensions: 16,5 X 25,3 cm
+    title_en: The Lyrical I (Reprise)
+    medium_en: Watercolor, graphite on manuscript paper
+    dimensions_de: 16,5 x 25,3 cm
+    image: /images/uploads/music_to_my_ears_lyrical_i_1.webp
+    dimensions_en: 16,5 x 25,3 cm
+    year: "2014"
+  - title_de: Combined Forces I
     medium_de: Aquarell, Graphit auf Notenpapier1
     dimensions: 6,5 x 25,3 cm
+    title_en: Combined Forces I
     medium_en: Watercolor, graphite on manuscript paper
-    title_de: Combined Forces I
-  - image: /images/uploads/music_to_my_ears_combined_forces_ii_1.webp
+    dimensions_de: 6,5 x 25,3 cm
+    image: /images/uploads/music_to_my_ears_combined_forces_1.webp
+    dimensions_en: 6,5 x 25,3 cm
+    year: "2015"
+  - title_de: Combined Forces II
+    medium_de: Aquarell, Graphit auf Notenpapier
+    dimensions: 16,5 x 25,3 cm
     title_en: Combined Forces II
-    year: "2015"
-    medium_de: Aquarell, Graphit auf Notenpapier
-    dimensions: 16,5 x 25,3 cm
     medium_en: Watercolor, graphite on manuscript paper
-    title_de: Combined Forces II
-  - title_en: Fruition
-    image: /images/uploads/music_to_my_ears_fruition_1.webp
+    dimensions_de: 16,5 x 25,3 cm
+    image: /images/uploads/music_to_my_ears_combined_forces_ii_1.webp
+    dimensions_en: 16,5 x 25,3 cm
     year: "2015"
-    medium_en: Watercolor, graphite, ink on manuscript paper
-    dimensions: 16,5 X 25,3 cm
+  - title_de: Fruition
     medium_de: Aquarell, Graphit, Tinte auf Notenpapier
-    title_de: Fruition
-  - title_en: (Everything's) Coming Together
+    dimensions: 16,5 X 25,3 cm
+    title_en: Fruition
+    medium_en: Watercolor, graphite, ink on manuscript paper
+    dimensions_de: 16,5 x 25,3 cm
+    image: /images/uploads/music_to_my_ears_fruition_1.webp
+    dimensions_en: 16,5 x 25,3 cm
+    year: "2015"
+  - title_de: (Everything's) Coming Together
+    medium_de: Aquarell, Graphit auf Notenpapier
+    dimensions: 16,5 X 25,3 cm
+    title_en: (Everything's) Coming Together
+    medium_en: Watercolor, graphite on manuscript paper
+    dimensions_de: 16,5 x 25,3 cm
     image: /images/uploads/music_to_my_ears_coming_1.webp
+    dimensions_en: 16,5 x 25,3 cm
     year: "2014"
-    medium_en: Watercolor, graphite on manuscript paper
-    dimensions: 16,5 X 25,3 cm
+  - title_de: Healing Scars
     medium_de: Aquarell, Graphit auf Notenpapier
-    title_de: (Alles) Fügt sich zusammen
-  - image: /images/uploads/music_to_my_ears_healing_scars_1.webp
+    dimensions: 16,5 x 25,3 cm
     title_en: Healing Scars
+    medium_en: Watercolor, graphite on manuscript paper
+    dimensions_de: 16,5 x 25,3 cm
+    image: /images/uploads/music_to_my_ears_healing_scars_1.webp
+    dimensions_en: 16,5 x 25,3 cm
     year: "2015"
+  - title_de: Epiphany II
     medium_de: Aquarell, Graphit auf Notenpapier
     dimensions: 16,5 x 25,3 cm
-    medium_en: Watercolor, graphite on manuscript paper
-    title_de: Healing Scars
-  - image: /images/uploads/music_to_my_ears_ephiphany_ii_1.webp
     title_en: Epiphany II
+    medium_en: Watercolor, graphite on manuscript paper
+    dimensions_de: 16,5 x 25,3 cm
+    image: /images/uploads/music_to_my_ears_ephiphany_ii_1.webp
+    dimensions_en: 16,5 x 25,3 cm
     year: "2015"
+  - title_de: Spielwiese
     medium_de: Aquarell, Graphit auf Notenpapier
-    dimensions: 16,5 x 25,3 cm
-    medium_en: Watercolor, graphite on manuscript paper
-    title_de: Epiphany II
-  - image: /images/uploads/music_to_my_ears_playground_1.webp
-    title_en: Playground
-    year: "2015"
-    medium_en: Watercolor, graphite on manuscript paper
     dimensions: 16,5 X 25,3 cm
-    medium_de: Aquarell, Graphit auf Notenpapier
-    title_de: Spielwiese
-  - image: /images/uploads/music_to_my_ears_kindergarten_1.webp
+    title_en: Playground
+    medium_en: Watercolor, graphite on manuscript paper
+    dimensions_de: 16,5 x 25,3 cm
+    image: /images/uploads/music_to_my_ears_playground_1.webp
+    dimensions_en: 16,5 x 25,3 cm
+    year: "2015"
+  - title_de: Kindergarten
+    medium_de: Graphit, Aquarell auf Notenpapier
+    dimensions: 16,7 x 25,2 cm
     title_en: Kindergarten
-    year: "2015"
     medium_en: Graphite, watercolour on manuscript paper
-    dimensions: 16,7 x 25,2 cm
+    dimensions_de: 16,7 x 25,2 cm
+    image: /images/uploads/music_to_my_ears_kindergarten_1.webp
+    dimensions_en: 16,7 x 25,2 cm
+    year: "2015"
+  - title_de: Counterpoint
     medium_de: Graphit, Aquarell auf Notenpapier
-    title_de: Kindergarten
-  - image: /images/uploads/music_to_my_ears_counterpoint_1.webp
+    dimensions: 16,7 x 25,2 cm
     title_en: Counterpoint
-    year: "2015"
     medium_en: Graphite, watercolour on manuscript paper
-    medium_de: Graphit, Aquarell auf Notenpapier
-    dimensions: 16,7 x 25,2 cm
-    title_de: Counterpoint
-  - image: /images/uploads/music_to_my_ears_rada_rada_1.webp
-    title_en: Ráda Ráda
+    dimensions_de: 16,7 x 25,2 cm
+    image: /images/uploads/music_to_my_ears_counterpoint_1.webp
+    dimensions_en: 16,7 x 25,2 cm
     year: "2015"
+  - title_de: Ráda Ráda
     medium_de: Aquarell, Tusche auf Notenpapier
     dimensions: 16,7 x 25,2 cm
+    title_en: Ráda Ráda
     medium_en: Watercolour, ink on manuscript paper
-    title_de: Ráda Ráda
-  - image: /images/uploads/music_to_my_ears_boleraz_1.webp
-    title_en: Boleráz
-    title_de: Boleráz
-    year: "2022"
-    medium_en: Watercolour on manuscript paper
-    dimensions: 16,7 x 25,2 cm
+    dimensions_de: 16,7 x 25,2 cm
+    image: /images/uploads/music_to_my_ears_rada_rada_1.webp
+    dimensions_en: 16,7 x 25,2 cm
+    year: "2015"
+  - title_de: Boleráz
     medium_de: Aquarell auf Notenpapier
-  - image: /images/uploads/music_to_my_ears_moravska_1.webp
-    title_en: Moravská
-    year: "2022"
-    medium_en: Watercolour, ink on manuscript paper
     dimensions: 16,7 x 25,2 cm
+    title_en: Boleráz
+    medium_en: Watercolour on manuscript paper
+    dimensions_de: 16,7 x 25,2 cm
+    image: /images/uploads/music_to_my_ears_boleraz_1.webp
+    dimensions_en: 16,7 x 25,2 cm
+    year: "2022"
+  - title_de: Moravská
     medium_de: Aquarell, Tusche auf Notenpapier
-    title_de: Moravská
+    dimensions: 16,7 x 25,2 cm
+    title_en: Moravská
+    medium_en: Watercolour, ink on manuscript paper
+    dimensions_de: 16,7 x 25,2 cm
+    image: /images/uploads/music_to_my_ears_moravska_1.webp
+    dimensions_en: 16,7 x 25,2 cm
+    year: "2022"
   - title_en: Ol' Virginny
     image: /images/uploads/music_to_my_ears_virginny_1.webp
     year: "2022"
     medium_de: Aquarell auf Notenpapier
     dimensions: 16,7 x 25,2 cm
     medium_en: Watercolour on manuscript paper
-  - image: /images/uploads/music_to_my_ears_allegro_1.webp
+    dimensions_en: 16,7 x 25,2 cm
+    dimensions_de: 16,7 x 25,2 cm
+  - title_de: Allegro
+    medium_de: Aquarell auf Notenpapier
+    dimensions: 16,7 x 25,2 cm
     title_en: Allegro
-    title_de: Allegro
+    medium_en: Watercolour on manuscript paper
+    dimensions_de: 16,7 x 25,2 cm
+    image: /images/uploads/music_to_my_ears_allegro_1.webp
+    dimensions_en: 16,7 x 25,2 cm
     year: "2022"
+  - title_de: On an Impulse
     medium_de: Aquarell auf Notenpapier
     dimensions: 16,7 x 25,2 cm
-    medium_en: Watercolour on manuscript paper
-  - image: /images/uploads/music_to_my_ears_impulse_1.webp
     title_en: On an Impulse
-    year: "2022"
     medium_en: Watercolour on manuscript paper
-    dimensions: 16,7 x 25,2 cm
-    medium_de: Aquarell auf Notenpapier
-    title_de: On an Impulse
-  - image: /images/uploads/music_to_my_ears_something_1.webp
-    title_en: Something Old, Something New
-    year: "2023"
-    medium_en: Graphite, watercolour on manuscript paper
-    dimensions: 16,7 x 25,2 cm
-    medium_de: Graphit, Aquarell auf Notenpapier
-    title_de: Etwas Altes, etwas Neues
-  - image: /images/uploads/music_to_my_ears_state_flux_1.webp
-    medium_de: Graphit, Aquarell auf Notenpapier
-    year: "2023"
-    title_de: Im Fluss
-    dimensions: 16,7 x 25,2 cm
-    medium_en: Graphite, watercolour on manuscript paper
-    title_en: A State of Flux
-  - image: /images/uploads/music_to_my_ears_synthesis_1.webp
-    title_en: Synthesis
-    title_de: Synthese
+    dimensions_de: 16,7 x 25,2 cm
+    image: /images/uploads/music_to_my_ears_impulse_1.webp
+    dimensions_en: 16,7 x 25,2 cm
     year: "2022"
+  - title_de: Something Old, Something New
     medium_de: Graphit, Aquarell auf Notenpapier
     dimensions: 16,7 x 25,2 cm
+    title_en: Something Old, Something New
     medium_en: Graphite, watercolour on manuscript paper
-  - image: /images/uploads/music_to_my_ears_black_pastel_1.webp
+    dimensions_de: 16,7 x 25,2 cm
+    image: /images/uploads/music_to_my_ears_something_1.webp
+    dimensions_en: 16,7 x 25,2 cm
+    year: "2023"
+  - title_de: Im Fluss
+    medium_de: Graphit, Aquarell auf Notenpapier
+    dimensions: 16,7 x 25,2 cm
+    title_en: A State of Flux
+    medium_en: Graphite, watercolour on manuscript paper
+    dimensions_de: 16,7 x 25,2 cm
+    image: /images/uploads/music_to_my_ears_state_flux_1.webp
+    dimensions_en: 16,7 x 25,2 cm
+    year: "2023"
+  - title_de: Synthese
+    medium_de: Graphit, Aquarell auf Notenpapier
+    dimensions: 16,7 x 25,2 cm
+    title_en: Synthesis
+    medium_en: Graphite, watercolour on manuscript paper
+    dimensions_de: 16,7 x 25,2 cm
+    image: /images/uploads/music_to_my_ears_synthesis_1.webp
+    dimensions_en: 16,7 x 25,2 cm
+    year: "2022"
+  - title_de: Black Pastel
+    medium_de: Graphit, Aquarell auf Notenpapier
+    dimensions: 16,7 x 25,2 cm
     title_en: Black Pastel
     medium_en: Graphite, watercolour on manuscript paper
-    dimensions: 16,7 x 25,2 cm
+    dimensions_de: 16,7 x 25,2 cm
+    image: /images/uploads/music_to_my_ears_black_pastel_1.webp
+    dimensions_en: 16,7 x 25,2 cm
     year: "2023"
-    medium_de: Graphit, Aquarell auf Notenpapier
-    title_de: Schwarze Pastellkreide
 ---
