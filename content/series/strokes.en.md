@@ -15,67 +15,85 @@ description: Due to a hand injury in 2012 I was unable to draw for approximately
   terms of color and, in the course of the series, as increasingly planned in
   terms of placement of the strokes and their division of the picture plane.
 gallery_images:
-  - title_en: On My Way Again (At Last!)
-    year: "2012"
-    medium_en: Watercolor on paper
-    dimensions: 21 x 59 cm
-    title_de: Endlich wieder unterwegs!
+  - title_de: On My Way Again (At Last!)
     medium_de: Aquarell auf Papier
+    dimensions: 21 x 59 cm
+    title_en: On My Way Again (At Last!)
+    medium_en: Watercolor on paper
+    dimensions_de: 21 x 59 cm
     image: /images/uploads/strokes_on_way_again_1.webp
-  - title_en: Christmas
+    dimensions_en: 21 x 59 cm
     year: "2012"
-    medium_en: Watercolor on paper
-    dimensions: 21 x 59 cm
+  - title_de: Christmas
     medium_de: Aquarell auf Papier
-    title_de: Weihnachten
+    dimensions: 21 x 59 cm
+    title_en: Christmas
+    medium_en: Watercolor on paper
+    dimensions_de: 21 x 59 cm
     image: /images/uploads/strokes_xmas_1.webp
-  - title_en: On to Something
+    dimensions_en: 21 x 59 cm
     year: "2012"
-    medium_en: Watercolor on paper
-    dimensions: 21 x 59 cm
+  - title_de: On to Something
     medium_de: Aquarell auf Papier
-    title_de: Weiter zu etwas
+    dimensions: 21 x 59 cm
+    title_en: On to Something
+    medium_en: Watercolor on paper
+    dimensions_de: 21 x 59 cm
     image: /images/uploads/strokes_onto_something_1.webp
-  - title_en: Healing (New Year's Eve)
+    dimensions_en: 21 x 59 cm
     year: "2012"
-    medium_en: Watercolor on paper
+  - title_de: Die Heilung (New Year's Eve)
     medium_de: Aquarell auf Papier
     dimensions: 21 x 59 cm
-    title_de: Heilung (Silvester)
+    title_en: Healing (New Year's Eve)
+    medium_en: Watercolor on paper
+    dimensions_de: 21 x 59 cm
     image: /images/uploads/strokes_healing_1.webp
-  - title_en: Happy New Year!
-    year: "2013"
-    medium_en: Watercolor on paper
-    dimensions: 21 x 59 cm
+    dimensions_en: 21 x 59 cm
+    year: "2012"
+  - title_de: Happy New Year!
     medium_de: Aquarell auf Papier
-    title_de: Frohes Neues Jahr!
+    dimensions: 21 x 59 cm
+    title_en: Happy New Year!
+    medium_en: Watercolor on paper
+    dimensions_de: 21 x 59 cm
     image: /images/uploads/strokes_happy_new_year_1.webp
-  - title_en: Untitled
+    dimensions_en: 21 x 59 cm
     year: "2013"
-    medium_en: Watercolor on paper
-    dimensions: 21 x 59 cm
+  - title_de: Ohne Titel
     medium_de: Aquarell auf Papier
-    title_de: Ohne Titel
+    dimensions: 21 x 59 cm
+    title_en: Untitled
+    medium_en: Watercolor on paper
+    dimensions_de: 21 x 59 cm
     image: /images/uploads/strokes_untitled_1.webp
-  - title_en: Triad
+    dimensions_en: 21 x 59 cm
     year: "2013"
-    medium_en: Watercolor on paper
-    dimensions: 21 x 59 cm
+  - title_de: Dreiklang
     medium_de: Aquarell auf Papier
-    title_de: Dreiklang
+    dimensions: 21 x 59 cm
+    title_en: Triad
+    medium_en: Watercolor on paper
+    dimensions_de: 21 x 59 cm
     image: /images/uploads/strokes_triad_1.webp
-  - title_en: Variations in Green
+    dimensions_en: 21 x 59 cm
     year: "2013"
-    medium_en: Watercolor on paper
-    dimensions: 21 x 59 cm
+  - title_de: Variations in Green
     medium_de: Aquarell auf Papier
-    title_de: Variationen in Grün
+    dimensions: 21 x 59 cm
+    title_en: Variations in Green
+    medium_en: Watercolor on paper
+    dimensions_de: 21 x 59 cm
     image: /images/uploads/strokes_on_variations_1.webp
-  - title_en: Follow Through
+    dimensions_en: 21 x 59 cm
     year: "2013"
-    medium_en: Watercolor on paper
-    dimensions: 21 x 59 cm
+  - title_de: Follow Through
     medium_de: Aquarell auf Papier
-    title_de: Nachfassen
+    dimensions: 21 x 59 cm
+    title_en: Follow Through
+    medium_en: Watercolor on paper
+    dimensions_de: 21 x 59 cm
     image: /images/uploads/strokes_follow_1.webp
+    dimensions_en: 21 x 59 cm
+    year: "2013"
 ---
