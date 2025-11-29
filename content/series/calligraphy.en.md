@@ -57,16 +57,16 @@ gallery_images:
     year: "2005"
     medium_en: Watercolour, ink, gouache,  pastel on paper
     medium_de: Aquarell, Tusche, Gouache, Pastell auf Papier
-    dimensions: 212 cm x 90 cm (with “frame” / mit Aufhängevorrichtung)
-    dimensions_en: 212 cm x 90 cm (with “frame” / mit Aufhängevorrichtung)
-    dimensions_de: 212 cm x 90 cm (with “frame” / mit Aufhängevorrichtung)
+    dimensions: 212 cm x 90 cm (with "frame" / mit Aufhängevorrichtung)
+    dimensions_en: 212 cm x 90 cm (with frame)
+    dimensions_de: 212 cm x 90 cm (mit Aufhängevorrichtung)
   - image: /images/uploads/20251122_banner_2_2025__2.webp
     title_en: Banner II
     title_de: Banner II
     year: "2005"
     medium_en: Watercolour, Ink, Gouache, Pastel on Paper
-    dimensions: 183 cm  x 71 cm  - 212 cm x 90 cm (with “frame” / mit Aufhängevorrichtung)
-    dimensions_en: 183 cm  x 71 cm  - 212 cm x 90 cm (with “frame” / mit Aufhängevorrichtung)
-    dimensions_de: 183 cm  x 71 cm  - 212 cm x 90 cm (with “frame” / mit Aufhängevorrichtung)
+    dimensions: 183 cm  x 71 cm  - 212 cm x 90 cm (with "frame" / mit Aufhängevorrichtung)
+    dimensions_en: 183 cm x 71 cm - 212 cm x 90 cm (with frame)
+    dimensions_de: 183 cm x 71 cm - 212 cm x 90 cm (mit Aufhängevorrichtung)
     medium_de: Aquarell, Tusche, Gouache, Pastell auf Papier
 ---
