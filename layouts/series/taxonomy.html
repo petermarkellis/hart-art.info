@@ -161,9 +161,18 @@
                     {{ $mediumFormatted }}
                   </div>
                 {{ end }}
-              {{ if .dimensions }}
+              {{/* Get dimensions in current language - auto-copy from old dimensions field if new fields are empty */}}
+              {{ $dimensionsEn := .dimensions_en | default .dimensions | default "" }}
+              {{ $dimensionsDe := .dimensions_de | default .dimensions | default "" }}
+              {{ $dimensions := "" }}
+              {{ if eq $currentLang "de" }}
+                {{ $dimensions = $dimensionsDe | default $dimensionsEn | default "" }}
+              {{ else }}
+                {{ $dimensions = $dimensionsEn | default $dimensionsDe | default "" }}
+              {{ end }}
+              {{ if $dimensions }}
                 <div class="f6 black-70 mb1" style="font-family: 'Inter', sans-serif;">
-                  {{ .dimensions }}
+                  {{ $dimensions }}
                 </div>
               {{ end }}
               {{ if .year }}

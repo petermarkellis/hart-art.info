@@ -82,7 +82,8 @@
                   {{ $titleDe := $currentLangImage.title_de | default $galleryImage.title_de | default "" }}
                   {{ $mediumEn := $currentLangImage.medium_en | default $galleryImage.medium_en | default "" }}
                   {{ $mediumDe := $currentLangImage.medium_de | default $galleryImage.medium_de | default "" }}
-                  {{ $dimensions := $currentLangImage.dimensions | default $galleryImage.dimensions | default "" }}
+                  {{ $dimensionsEn := $currentLangImage.dimensions_en | default $galleryImage.dimensions_en | default ($currentLangImage.dimensions | default $galleryImage.dimensions | default "") }}
+                  {{ $dimensionsDe := $currentLangImage.dimensions_de | default $galleryImage.dimensions_de | default ($currentLangImage.dimensions | default $galleryImage.dimensions | default "") }}
                   {{ $year := $currentLangImage.year | default $galleryImage.year | default "" }}
                   <img 
                     src="{{ $galleryImage.image }}" 
@@ -96,7 +97,9 @@
                     data-title-de="{{ $titleDe }}"
                     data-medium-en="{{ $mediumEn }}"
                     data-medium-de="{{ $mediumDe }}"
-                    data-dimensions="{{ $dimensions }}"
+                    data-dimensions-en="{{ $dimensionsEn }}"
+                    data-dimensions-de="{{ $dimensionsDe }}"
+                    data-dimensions="{{ $currentLangImage.dimensions | default $galleryImage.dimensions | default "" }}"
                     data-year="{{ $year }}"
                     data-series-slug="{{ $seriesSlug }}"
                     data-series-title="{{ .Title }}"
@@ -148,7 +151,15 @@
                 {{ $mediumFormatted }}
               </div>
             {{ end }}
-            {{ $dimensions := $currentLangImage.dimensions | default $galleryImage.dimensions }}
+            {{/* Get dimensions in current language - auto-copy from old dimensions field if new fields are empty */}}
+            {{ $dimensionsEn := $currentLangImage.dimensions_en | default $galleryImage.dimensions_en | default ($currentLangImage.dimensions | default $galleryImage.dimensions | default "") }}
+            {{ $dimensionsDe := $currentLangImage.dimensions_de | default $galleryImage.dimensions_de | default ($currentLangImage.dimensions | default $galleryImage.dimensions | default "") }}
+            {{ $dimensions := "" }}
+            {{ if eq $currentLang "de" }}
+              {{ $dimensions = $dimensionsDe | default $dimensionsEn | default "" }}
+            {{ else }}
+              {{ $dimensions = $dimensionsEn | default $dimensionsDe | default "" }}
+            {{ end }}
             {{ if $dimensions }}
               <div class="f6 black-70 mb1" style="font-family: 'Inter', sans-serif;">
                 {{ $dimensions }}
