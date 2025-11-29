@@ -30,12 +30,16 @@ gallery_images:
     year: "2015"
     medium_en: Watercolour on wood
     dimensions: 13 x 36 x 4,5 cm (H/B/T)
+    dimensions_en: 13 x 36 x 4,5 cm (H/B/T)
+    dimensions_de: 13 x 36 x 4,5 cm (H/B/T)
     medium_de: Aquarellfarbe auf Holz
     title_de: Objet trouvé
   - image: /images/uploads/objects_and_assemblages_objet_trouve_2_1.webp
     title_en: Objet trouvé (Detail)
     year: "2015"
     dimensions: 13 x 36 x 4,5 cm (H/B/T)
+    dimensions_en: 13 x 36 x 4,5 cm (H/B/T)
+    dimensions_de: 13 x 36 x 4,5 cm (H/B/T)
     medium_en: Watercolour on wood
     medium_de: Aquarellfarbe auf Holz
     title_de: Objet trouvé (Detail)
@@ -45,6 +49,8 @@ gallery_images:
     year: "2015"
     medium_de: Aquarellfarbe auf Holz
     dimensions: 13 x 36 x 4,5 cm (H/B/T) = 2.106 cm
+    dimensions_en: 13 x 36 x 4,5 cm (H/B/T) = 2.106 cm
+    dimensions_de: 13 x 36 x 4,5 cm (H/B/T) = 2.106 cm
     medium_en: Watercolour on wood
   - image: /images/uploads/objects_and_assemblages_objet_trouve_4_1.webp
     title_en: Objet trouvé
@@ -52,16 +58,22 @@ gallery_images:
     year: "2015"
     medium_de: Aquarellfarbe auf Holz
     dimensions: 13 x 36 x 4,5 cm (H/B/T) = 2.106 cm
+    dimensions_en: 13 x 36 x 4,5 cm (H/B/T) = 2.106 cm
+    dimensions_de: 13 x 36 x 4,5 cm (H/B/T) = 2.106 cm
     medium_en: Watercolour on wood
   - image: /images/uploads/objects_and_assemblages_pencil_picture_1.webp
     title_en: Pencil Picture
     year: 2015/16
     medium_de: Mixed Media auf Holz
     dimensions: 23,8 x 33 x 3 cm (H/B/T)
+    dimensions_en: 23,8 x 33 x 3 cm (H/B/T)
+    dimensions_de: 23,8 x 33 x 3 cm (H/B/T)
     medium_en: mixed media on wood
     title_de: Pencil Picture
   - image: /images/uploads/objects_and_assemblages_pencil_picture_2.webp
     dimensions: 23,8 x 33 x 3 cm (H/B/T)
+    dimensions_en: 23,8 x 33 x 3 cm (H/B/T)
+    dimensions_de: 23,8 x 33 x 3 cm (H/B/T)
     medium_de: Mixed Media auf Holz
     title_en: Pencil Picture (Detail)
     year: 2015/16
@@ -73,11 +85,15 @@ gallery_images:
     year: "2016"
     medium_en: Watercolour on driftwood
     dimensions: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_en: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_de: 72cm (H), Plinthe 8 x 8 cm
     medium_de: Aquarellfarbe auf Treibholz
   - image: /images/uploads/objects_and_assemblages_totem_2.webp
     title_en: Totem I
     title_de: Totem I
     dimensions: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_en: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_de: 72cm (H), Plinthe 8 x 8 cm
     medium_de: Aquarellfarbe auf Treibholz
     medium_en: Watercolour on driftwood
     year: "2016"
@@ -86,6 +102,8 @@ gallery_images:
     title_de: Totem I (Detail)
     year: "2016"
     dimensions: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_en: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_de: 72cm (H), Plinthe 8 x 8 cm
     medium_de: Aquarellfarbe auf Treibholz
     medium_en: Watercolour on driftwood
   - image: /images/uploads/objects_and_assemblages_totem_4.webp
@@ -93,12 +111,16 @@ gallery_images:
     title_de: Totem I (Detail)
     year: "2016"
     dimensions: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_en: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_de: 72cm (H), Plinthe 8 x 8 cm
     medium_de: Aquarellfarbe auf Treibholz
     medium_en: Watercolour on driftwood
   - image: /images/uploads/objects_and_assemblages_totem_5.webp
     title_en: Totem I (Detail)
     title_de: Totem I (Detail)
     dimensions: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_en: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_de: 72cm (H), Plinthe 8 x 8 cm
     medium_de: Aquarellfarbe auf Treibholz
     medium_en: Watercolour on driftwood
     year: "2016"
@@ -106,6 +128,8 @@ gallery_images:
     title_en: Totem I (Detail)
     title_de: Totem I (Detail)
     dimensions: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_en: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_de: 72cm (H), Plinthe 8 x 8 cm
     medium_de: Aquarellfarbe auf Treibholz
     medium_en: Watercolour on driftwood
     year: "2016"
@@ -116,6 +140,8 @@ gallery_images:
     medium_en: Watercolour on driftwood
     medium_de: Aquarellfarbe auf Treibholz
     dimensions: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_en: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_de: 72cm (H), Plinthe 8 x 8 cm
   - image: /images/uploads/objects_and_assemblages_totem_8.webp
     title_en: Totem I (Detail)
     title_de: Totem I (Detail)
@@ -123,6 +149,8 @@ gallery_images:
     medium_en: Watercolour on driftwood
     medium_de: Aquarellfarbe auf Treibholz
     dimensions: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_en: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_de: 72cm (H), Plinthe 8 x 8 cm
   - image: /images/uploads/objects_and_assemblages_totem_10.webp
     title_en: Totem I (Detail)
     title_de: Totem I (Detail)
@@ -130,6 +158,8 @@ gallery_images:
     medium_en: Watercolour on driftwood
     medium_de: Aquarellfarbe auf Treibholz
     dimensions: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_en: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_de: 72cm (H), Plinthe 8 x 8 cm
   - image: /images/uploads/objects_and_assemblages_totem_11.webp
     title_en: Totem I (Detail)
     title_de: Totem I (Detail)
@@ -137,6 +167,8 @@ gallery_images:
     medium_en: Watercolour on driftwood
     medium_de: Aquarellfarbe auf Treibholz
     dimensions: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_en: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_de: 72cm (H), Plinthe 8 x 8 cm
   - image: /images/uploads/objects_and_assemblages_totem_12.webp
     title_en: Totem I (Detail)
     title_de: Totem I (Detail)
@@ -144,6 +176,8 @@ gallery_images:
     medium_en: Watercolour on driftwood
     medium_de: Aquarellfarbe auf Treibholz
     dimensions: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_en: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_de: 72cm (H), Plinthe 8 x 8 cm
   - image: /images/uploads/objects_and_assemblages_totem_13.webp
     title_en: Totem I (Detail)
     title_de: Totem I (Detail)
@@ -151,11 +185,15 @@ gallery_images:
     medium_en: Watercolour on driftwood
     medium_de: Aquarellfarbe auf Treibholz
     dimensions: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_en: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_de: 72cm (H), Plinthe 8 x 8 cm
   - image: /images/uploads/objects_and_assemblages_go_with_grain_1.webp
     title_en: Go with the Grain
     year: 2015/16, 2020
     title_de: Go with the Grain
     dimensions: 33 x 43 x 3 cm
+    dimensions_en: 33 x 43 x 3 cm
+    dimensions_de: 33 x 43 x 3 cm
     medium_de: Mixed Media auf Holz
     medium_en: Mixed media on wood
   - image: /images/uploads/objects_and_assemblages_go_with_grain_2.webp
@@ -163,6 +201,8 @@ gallery_images:
     year: 2015/16, 2020
     title_de: Go with the Grain (Detail)
     dimensions: 33 x 43 x 3 cm
+    dimensions_en: 33 x 43 x 3 cm
+    dimensions_de: 33 x 43 x 3 cm
     medium_de: Mixed Media auf Holz
     medium_en: Mixed media on wood
   - image: /images/uploads/objects_and_assemblages_go_with_grain_3.webp
@@ -170,6 +210,8 @@ gallery_images:
     year: 2015/16, 2020
     title_de: Go with the Grain (Detail)
     dimensions: 33 x 43 x 3 cm
+    dimensions_en: 33 x 43 x 3 cm
+    dimensions_de: 33 x 43 x 3 cm
     medium_de: Mixed Media auf Holz
     medium_en: Mixed media on wood
   - image: /images/uploads/objects_and_assemblages_go_with_grain_4.webp
@@ -177,6 +219,8 @@ gallery_images:
     year: 2015/16, 2020
     title_de: Go with the Grain (Detail)
     dimensions: 33 x 43 x 3 cm
+    dimensions_en: 33 x 43 x 3 cm
+    dimensions_de: 33 x 43 x 3 cm
     medium_de: Mixed Media auf Holz
     medium_en: Mixed media on wood
   - image: /images/uploads/objects_and_assemblages_tools_trade_1.webp
@@ -184,6 +228,8 @@ gallery_images:
     year: 2017, 2020
     medium_en: mixed media on wood
     dimensions: 35 x 43 x 3 cm
+    dimensions_en: 35 x 43 x 3 cm
+    dimensions_de: 35 x 43 x 3 cm
     medium_de: Mixed Media auf Holz
     title_de: Tools of the Trade
   - image: /images/uploads/objects_and_assemblages_tools_trade_2.webp
@@ -191,6 +237,8 @@ gallery_images:
     year: 2017, 2020
     medium_en: mixed media on wood
     dimensions: 35 x 43 x 3 cm
+    dimensions_en: 35 x 43 x 3 cm
+    dimensions_de: 35 x 43 x 3 cm
     medium_de: Mixed Media auf Holz
     title_de: Tools of the Trade (Details)
   - image: /images/uploads/objects_and_assemblages_tools_trade_3.webp
@@ -198,6 +246,8 @@ gallery_images:
     year: 2017, 2020
     medium_en: mixed media on wood
     dimensions: 35 x 43 x 3 cm
+    dimensions_en: 35 x 43 x 3 cm
+    dimensions_de: 35 x 43 x 3 cm
     medium_de: Mixed Media auf Holz
     title_de: Tools of the Trade (Details)
   - image: /images/uploads/objects_and_assemblages_picture_this_1.webp
@@ -207,6 +257,8 @@ gallery_images:
     medium_de: Mixed Media auf Holz
     medium_en: Mixed media on wood
     dimensions: 33 x 43 x 3 cm
+    dimensions_en: 33 x 43 x 3 cm
+    dimensions_de: 33 x 43 x 3 cm
   - image: /images/uploads/objects_and_assemblages_picture_this_2.webp
     title_en: Picture This!
     title_de: Picture This!
@@ -214,6 +266,8 @@ gallery_images:
     medium_de: Mixed Media auf Holz
     medium_en: Mixed media on wood
     dimensions: 33 x 43 x 3 cm
+    dimensions_en: 33 x 43 x 3 cm
+    dimensions_de: 33 x 43 x 3 cm
   - image: /images/uploads/objects_and_assemblages_picture_this_3.webp
     title_en: Picture This!
     title_de: Picture This!
@@ -221,6 +275,8 @@ gallery_images:
     medium_de: Mixed Media auf Holz
     medium_en: Mixed media on wood
     dimensions: 33 x 43 x 3 cm
+    dimensions_en: 33 x 43 x 3 cm
+    dimensions_de: 33 x 43 x 3 cm
   - image: /images/uploads/objects_and_assemblages_picture_this_4.webp
     title_en: Picture This!
     title_de: Picture This!
@@ -228,11 +284,15 @@ gallery_images:
     medium_de: Mixed Media auf Holz
     medium_en: Mixed media on wood
     dimensions: 33 x 43 x 3 cm
+    dimensions_en: 33 x 43 x 3 cm
+    dimensions_de: 33 x 43 x 3 cm
   - title_en: As Chance Would Have It
     year: "2023"
     medium_en: mixed media on wood
     title_de: Zugefallen
     dimensions: 40 x 30 x 3 cm
+    dimensions_en: 40 x 30 x 3 cm
+    dimensions_de: 40 x 30 x 3 cm
     medium_de: Mixed Media auf Holz
     image: /images/uploads/objects_and_assemblages_chance_would_1.webp
   - title_en: As Chance Would Have It (Details)
@@ -240,6 +300,8 @@ gallery_images:
     medium_en: mixed media on wood
     title_de: Zugefallen (Details)
     dimensions: 40 x 30 x 3 cm
+    dimensions_en: 40 x 30 x 3 cm
+    dimensions_de: 40 x 30 x 3 cm
     medium_de: Mixed Media auf Holz
     image: /images/uploads/objects_and_assemblages_chance_would_2.webp
   - title_en: As Chance Would Have It (Details)
@@ -247,6 +309,8 @@ gallery_images:
     medium_en: mixed media on wood
     title_de: Zugefallen (Details)
     dimensions: 40 x 30 x 3 cm
+    dimensions_en: 40 x 30 x 3 cm
+    dimensions_de: 40 x 30 x 3 cm
     medium_de: Mixed Media auf Holz
     image: /images/uploads/objects_and_assemblages_chance_would_3.webp
   - title_en: As Chance Would Have It (Details)
@@ -254,6 +318,8 @@ gallery_images:
     medium_en: mixed media on wood
     title_de: Zugefallen (Details)
     dimensions: 40 x 30 x 3 cm
+    dimensions_en: 40 x 30 x 3 cm
+    dimensions_de: 40 x 30 x 3 cm
     medium_de: Mixed Media auf Holz
     image: /images/uploads/objects_and_assemblages_chance_would_4.webp
   - title_en: As Chance Would Have It (Details)
@@ -261,6 +327,8 @@ gallery_images:
     medium_en: mixed media on wood
     title_de: Zugefallen (Details)
     dimensions: 40 x 30 x 3 cm
+    dimensions_en: 40 x 30 x 3 cm
+    dimensions_de: 40 x 30 x 3 cm
     medium_de: Mixed Media auf Holz
     image: /images/uploads/objects_and_assemblages_chance_would_5.webp
   - title_en: As Chance Would Have It (Details)
@@ -268,12 +336,16 @@ gallery_images:
     medium_en: mixed media on wood
     title_de: Zugefallen (Details)
     dimensions: 40 x 30 x 3 cm
+    dimensions_en: 40 x 30 x 3 cm
+    dimensions_de: 40 x 30 x 3 cm
     medium_de: Mixed Media auf Holz
     image: /images/uploads/objects_and_assemblages_chance_would_6.webp
   - title_en: A Blessing in Disguise
     year: "2023"
     medium_en: coloured pencil, ink on wood
     dimensions: 40 x 30 x 3 cm
+    dimensions_en: 40 x 30 x 3 cm
+    dimensions_de: 40 x 30 x 3 cm
     title_de: Ein Segen im Unglück
     medium_de: Farbstift, Tusche auf Holz
     image: /images/uploads/objects_and_assemblages_blessing_disguise_1.webp
@@ -281,6 +353,8 @@ gallery_images:
     year: "2023"
     medium_en: coloured pencil, ink on wood
     dimensions: 40 x 30 x 3 cm
+    dimensions_en: 40 x 30 x 3 cm
+    dimensions_de: 40 x 30 x 3 cm
     title_de: Ein Segen im Unglück (Details)
     medium_de: Farbstift, Tusche auf Holz
     image: /images/uploads/objects_and_assemblages_blessing_disguise_2.webp
@@ -288,6 +362,8 @@ gallery_images:
     year: "2023"
     medium_en: coloured pencil, ink on wood
     dimensions: 40 x 30 x 3 cm
+    dimensions_en: 40 x 30 x 3 cm
+    dimensions_de: 40 x 30 x 3 cm
     title_de: Ein Segen im Unglück (Details)
     medium_de: Farbstift, Tusche auf Holz
     image: /images/uploads/objects_and_assemblages_blessing_disguise_3.webp
@@ -295,6 +371,8 @@ gallery_images:
     year: "2023"
     medium_en: coloured pencil, ink on wood
     dimensions: 40 x 30 x 3 cm
+    dimensions_en: 40 x 30 x 3 cm
+    dimensions_de: 40 x 30 x 3 cm
     title_de: Ein Segen im Unglück (Details)
     medium_de: Farbstift, Tusche auf Holz
     image: /images/uploads/objects_and_assemblages_blessing_disguise_4.webp
@@ -302,6 +380,8 @@ gallery_images:
     year: "2023"
     medium_en: coloured pencil, ink on wood
     dimensions: 40 x 30 x 3 cm
+    dimensions_en: 40 x 30 x 3 cm
+    dimensions_de: 40 x 30 x 3 cm
     title_de: Ein Segen im Unglück (Details)
     medium_de: Farbstift, Tusche auf Holz
     image: /images/uploads/objects_and_assemblages_blessing_disguise_5.webp
@@ -310,6 +390,8 @@ gallery_images:
     year: 2023/24
     medium_de: Farbstift und -minen auf Holz
     dimensions: 40 x 30 x 3 cm
+    dimensions_en: 40 x 30 x 3 cm
+    dimensions_de: 40 x 30 x 3 cm
     medium_en: Coloured pencil and lead on wood
     image: /images/uploads/objects_and_assemblages_rise_fall_1.webp
   - title_en: Rise and Fall (Details)
@@ -317,6 +399,8 @@ gallery_images:
     year: 2023/24
     medium_de: Farbstift und -minen auf Holz
     dimensions: 40 x 30 x 3 cm
+    dimensions_en: 40 x 30 x 3 cm
+    dimensions_de: 40 x 30 x 3 cm
     medium_en: Coloured pencil and lead on wood
     image: /images/uploads/objects_and_assemblages_rise_fall_2.webp
   - title_en: Rise and Fall (Details)
@@ -324,6 +408,8 @@ gallery_images:
     year: 2023/24
     medium_de: Farbstift und -minen auf Holz
     dimensions: 40 x 30 x 3 cm
+    dimensions_en: 40 x 30 x 3 cm
+    dimensions_de: 40 x 30 x 3 cm
     medium_en: Coloured pencil and lead on wood
     image: /images/uploads/objects_and_assemblages_ride_fall_3.webp
   - title_en: Rise and Fall (Details)
@@ -331,6 +417,8 @@ gallery_images:
     year: 2023/24
     medium_de: Farbstift und -minen auf Holz
     dimensions: 40 x 30 x 3 cm
+    dimensions_en: 40 x 30 x 3 cm
+    dimensions_de: 40 x 30 x 3 cm
     medium_en: Coloured pencil and lead on wood
     image: /images/uploads/objects_and_assemblages_ride_fall_4.webp
   - title_en: Healing Wounds
@@ -338,6 +426,8 @@ gallery_images:
     year: "2024"
     medium_en: Coloured pencil on wood
     dimensions: 40 x 30 x 3 cm
+    dimensions_en: 40 x 30 x 3 cm
+    dimensions_de: 40 x 30 x 3 cm
     medium_de: Farbstift auf Holz
     image: /images/uploads/objects_and_assemblages_healing_wounds_1.webp
   - title_en: Healing Wounds (Details)
@@ -345,6 +435,8 @@ gallery_images:
     year: "2024"
     medium_en: Coloured pencil on wood
     dimensions: 40 x 30 x 3 cm
+    dimensions_en: 40 x 30 x 3 cm
+    dimensions_de: 40 x 30 x 3 cm
     medium_de: Farbstift auf Holz
     image: /images/uploads/objects_and_assemblages_healing_wounds_2.webp
   - title_en: Healing Wounds (Details)
@@ -352,6 +444,8 @@ gallery_images:
     year: "2024"
     medium_en: Coloured pencil on wood
     dimensions: 40 x 30 x 3 cm
+    dimensions_en: 40 x 30 x 3 cm
+    dimensions_de: 40 x 30 x 3 cm
     medium_de: Farbstift auf Holz
     image: /images/uploads/objects_and_assemblages_healing_wounds_3.webp
   - title_en: Healing Wounds (Details)
@@ -359,6 +453,8 @@ gallery_images:
     year: "2024"
     medium_en: Coloured pencil on wood
     dimensions: 40 x 30 x 3 cm
+    dimensions_en: 40 x 30 x 3 cm
+    dimensions_de: 40 x 30 x 3 cm
     medium_de: Farbstift auf Holz
     image: /images/uploads/objects_and_assemblages_healing_wounds_4.webp
   - title_en: Spoonful
@@ -366,6 +462,8 @@ gallery_images:
     year: "2024"
     medium_de: Farbstift auf Holz
     dimensions: 65 x 23 x 28 cm
+    dimensions_en: 65 x 23 x 28 cm
+    dimensions_de: 65 x 23 x 28 cm
     medium_en: coloured pencil on wood
     image: /images/uploads/objects_and_assemblages_spoon_1.webp
   - title_en: Spoonful (Details)
@@ -373,6 +471,8 @@ gallery_images:
     year: "2024"
     medium_de: Farbstift auf Holz
     dimensions: 65 x 23 x 28 cm
+    dimensions_en: 65 x 23 x 28 cm
+    dimensions_de: 65 x 23 x 28 cm
     medium_en: coloured pencil on wood
     image: /images/uploads/objects_and_assemblages_spoon_2.webp
   - title_en: Spoonful (Details)
@@ -380,6 +480,8 @@ gallery_images:
     year: "2024"
     medium_de: Farbstift auf Holz
     dimensions: 65 x 23 x 28 cm
+    dimensions_en: 65 x 23 x 28 cm
+    dimensions_de: 65 x 23 x 28 cm
     medium_en: coloured pencil on wood
     image: /images/uploads/objects_and_assemblages_spoon_3.webp
   - title_en: Spoonful (Details)
@@ -387,6 +489,8 @@ gallery_images:
     year: "2024"
     medium_de: Farbstift auf Holz
     dimensions: 65 x 23 x 28 cm
+    dimensions_en: 65 x 23 x 28 cm
+    dimensions_de: 65 x 23 x 28 cm
     medium_en: coloured pencil on wood
     image: /images/uploads/objects_and_assemblages_spoon_4.webp
   - title_en: Spoonful (Details)
@@ -394,6 +498,8 @@ gallery_images:
     year: "2024"
     medium_de: Farbstift auf Holz
     dimensions: 65 x 23 x 28 cm
+    dimensions_en: 65 x 23 x 28 cm
+    dimensions_de: 65 x 23 x 28 cm
     medium_en: coloured pencil on wood
     image: /images/uploads/objects_and_assemblages_spoon_5.webp
   - title_en: Spoonful (Details)
@@ -401,12 +507,16 @@ gallery_images:
     year: "2024"
     medium_de: Farbstift auf Holz
     dimensions: 65 x 23 x 28 cm
+    dimensions_en: 65 x 23 x 28 cm
+    dimensions_de: 65 x 23 x 28 cm
     medium_en: coloured pencil on wood
     image: /images/uploads/objects_and_assemblages_spoon_6.webp
   - title_en: Form Follows Form
     medium_en: Colored pencil, varnish on wood
     medium_de: Farbstift, Lack auf Holz
     dimensions: 29,3 cm x 12 cm x 3 cm
+    dimensions_en: 29,3 cm x 12 cm x 3 cm
+    dimensions_de: 29,3 cm x 12 cm x 3 cm
     year: "2024"
     title_de: Form Follows Form
     image: /images/uploads/20251122_form_follows_form_2024__1.webp
@@ -414,6 +524,8 @@ gallery_images:
     title_de: An die Natur (A)
     year: "2024"
     dimensions: 26,5 cm x 7 cm in Diameter/Durchmesser -  3 cm x 12 cm in diameter
+    dimensions_en: 26,5 cm x 7 cm in Diameter/Durchmesser -  3 cm x 12 cm in diameter
+    dimensions_de: 26,5 cm x 7 cm in Diameter/Durchmesser -  3 cm x 12 cm in diameter
       (Pedestal/Durchmesser der Plinthe)
     medium_en: Colored pencil on wood
     medium_de: Farbstift auf Holz
@@ -424,6 +536,8 @@ gallery_images:
     medium_en: Colored pencil on wood
     medium_de: Farbstift auf Holz
     dimensions: 26,5 cm x 7 cm in Diameter/Durchmesser -  3 cm x 12 cm in diameter
+    dimensions_en: 26,5 cm x 7 cm in Diameter/Durchmesser -  3 cm x 12 cm in diameter
+    dimensions_de: 26,5 cm x 7 cm in Diameter/Durchmesser -  3 cm x 12 cm in diameter
       (Pedestal/Durchmesser der Plinthe)
     image: /images/uploads/20251122_ode_to_nature_b_2025__1.webp
   - title_en: Ode to Nature (A)
@@ -432,6 +546,8 @@ gallery_images:
     medium_en: Colored pencil on wood
     medium_de: Farbstift auf Holz
     dimensions: 26,5 cm x 7 cm in Diameter/Durchmesser -  3 cm x 12 cm in diameter
+    dimensions_en: 26,5 cm x 7 cm in Diameter/Durchmesser -  3 cm x 12 cm in diameter
+    dimensions_de: 26,5 cm x 7 cm in Diameter/Durchmesser -  3 cm x 12 cm in diameter
       (Pedestal/Durchmesser der Plinthe)
     image: /images/uploads/20251122_ode_to_nature_c_2025__1.webp
   - title_en: Ode to Nature (A)
@@ -440,6 +556,8 @@ gallery_images:
     medium_en: Colored pencil on wood
     medium_de: Farbstift auf Holz
     dimensions: 26,5 cm x 7 cm in Diameter/Durchmesser -  3 cm x 12 cm in diameter
+    dimensions_en: 26,5 cm x 7 cm in Diameter/Durchmesser -  3 cm x 12 cm in diameter
+    dimensions_de: 26,5 cm x 7 cm in Diameter/Durchmesser -  3 cm x 12 cm in diameter
       (Pedestal/Durchmesser der Plinthe)
     image: /images/uploads/20251122_ode_to_nature_d_2025__1.webp
   - image: /images/uploads/20251122_emergence_2024__1.webp
@@ -449,6 +567,8 @@ gallery_images:
     medium_en: Colored pencil on wood
     medium_de: Farbstift auf Holz
     dimensions: "30 cm x 26,5 cm x 3 cm "
+    dimensions_en: "30 cm x 26,5 cm x 3 cm "
+    dimensions_de: "30 cm x 26,5 cm x 3 cm "
   - image: /images/uploads/20251122_the_four_corners_of_the_earth_2025__1.webp
     title_en: The Four Corners of the World (A)
     title_de: Les Quatre Coins du Mond (A)
@@ -456,6 +576,8 @@ gallery_images:
     medium_en: Mixed media on wood
     medium_de: Mixed Media auf Holz
     dimensions: "30 cm x 40 cm x 3 cm "
+    dimensions_en: "30 cm x 40 cm x 3 cm "
+    dimensions_de: "30 cm x 40 cm x 3 cm "
   - dimensions: "30 cm x 40 cm x 3 cm "
     title_en: The Four Corners of the World (B)
     title_de: Les Quatre Coins du Mond (B)

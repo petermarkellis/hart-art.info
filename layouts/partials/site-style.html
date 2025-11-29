@@ -15,6 +15,70 @@
 <style>
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+  }
+  
+  /* Prevent horizontal overflow on all containers */
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Ensure main content doesn't overflow */
+  main {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  /* Gallery grid styles - reusable class instead of inline styles */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem 3rem;
+    margin-bottom: 4rem;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Gallery image styles */
+  .gallery-image-clickable {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* Responsive gallery grid adjustments */
+  @media (max-width: 60em) {
+    .gallery-grid {
+      grid-template-columns: 1fr !important;
+      gap: 2rem 1rem !important;
+    }
+  }
+  
+  @media (max-width: 30em) {
+    .gallery-grid {
+      gap: 1.5rem 0.5rem !important;
+    }
+    
+    .gallery-item {
+      max-width: 100%;
+      overflow: hidden;
+    }
+    
+    .gallery-item img {
+      max-width: 100% !important;
+      width: 100% !important;
+      height: auto !important;
+    }
   }
   
   ::selection {

@@ -14,6 +14,8 @@ gallery_images:
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
     dimensions: 16,7 x 25,7 cm
+    dimensions_en: 16,7 x 25,7 cm
+    dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 1
     medium_de: Mischtechnik auf Notenheft
     title_de: Intime Kunstskizzen 1
@@ -21,6 +23,8 @@ gallery_images:
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
     dimensions: 16,7 x 25,7 cm
+    dimensions_en: 16,7 x 25,7 cm
+    dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 2
     medium_de: Mischtechnik auf Notenheft
     title_de: Intime Kunstskizzen 2
@@ -28,6 +32,8 @@ gallery_images:
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
     dimensions: 16,7 x 25,7 cm
+    dimensions_en: 16,7 x 25,7 cm
+    dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 3
     medium_de: Mischtechnik auf Notenheft
     title_de: Intime Kunstskizzen 3
@@ -35,6 +41,8 @@ gallery_images:
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
     dimensions: 16,7 x 25,7 cm
+    dimensions_en: 16,7 x 25,7 cm
+    dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 4
     medium_de: Mischtechnik auf Notenheft
     title_de: Intime Kunstskizzen 4
@@ -42,6 +50,8 @@ gallery_images:
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
     dimensions: 16,7 x 25,7 cm
+    dimensions_en: 16,7 x 25,7 cm
+    dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 5
     medium_de: Mischtechnik auf Notenheft
     title_de: Intime Kunstskizzen 5
@@ -49,6 +59,8 @@ gallery_images:
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
     dimensions: 16,7 x 25,7 cm
+    dimensions_en: 16,7 x 25,7 cm
+    dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 6
     medium_de: Mischtechnik auf Notenheft
     title_de: Intime Kunstskizzen 6
@@ -56,6 +68,8 @@ gallery_images:
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
     dimensions: 16,7 x 25,7 cm
+    dimensions_en: 16,7 x 25,7 cm
+    dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 7
     medium_de: Mischtechnik auf Notenheft
     title_de: Intime Kunstskizzen 7
@@ -63,6 +77,8 @@ gallery_images:
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
     dimensions: 16,7 x 25,7 cm
+    dimensions_en: 16,7 x 25,7 cm
+    dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 8
     medium_de: Mischtechnik auf Notenheft
     title_de: Intime Kunstskizzen 8
@@ -70,6 +86,8 @@ gallery_images:
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
     dimensions: 16,7 x 25,7 cm
+    dimensions_en: 16,7 x 25,7 cm
+    dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 9
     medium_de: Mischtechnik auf Notenheft
     title_de: Intime Kunstskizzen 9
@@ -77,6 +95,8 @@ gallery_images:
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
     dimensions: 16,7 x 25,7 cm
+    dimensions_en: 16,7 x 25,7 cm
+    dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 10
     medium_de: Mischtechnik auf Notenheft
     title_de: Intime Kunstskizzen 10
@@ -84,6 +104,8 @@ gallery_images:
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
     dimensions: 16,7 x 25,7 cm
+    dimensions_en: 16,7 x 25,7 cm
+    dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 11
     medium_de: Mischtechnik auf Notenheft
     title_de: Intime Kunstskizzen 11
@@ -91,6 +113,8 @@ gallery_images:
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
     dimensions: 16,7 x 25,7 cm
+    dimensions_en: 16,7 x 25,7 cm
+    dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 12
     medium_de: Mischtechnik auf Notenheft
     title_de: Intime Kunstskizzen 12
@@ -98,6 +122,8 @@ gallery_images:
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
     dimensions: 16,7 x 25,7 cm
+    dimensions_en: 16,7 x 25,7 cm
+    dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 13
     medium_de: Mischtechnik auf Notenheft
     title_de: Intime Kunstskizzen 13
@@ -105,6 +131,8 @@ gallery_images:
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
     dimensions: 16,7 x 25,7 cm
+    dimensions_en: 16,7 x 25,7 cm
+    dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 14
     medium_de: Mischtechnik auf Notenheft
     title_de: Intime Kunstskizzen 14
@@ -112,6 +140,8 @@ gallery_images:
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
     dimensions: 16,7 x 25,7 cm
+    dimensions_en: 16,7 x 25,7 cm
+    dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 15
     medium_de: Mischtechnik auf Notenheft
     title_de: Intime Kunstskizzen 15
@@ -119,6 +149,8 @@ gallery_images:
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
     dimensions: 16,7 x 25,7 cm
+    dimensions_en: 16,7 x 25,7 cm
+    dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 16
     medium_de: Mischtechnik auf Notenheft
     title_de: Intime Kunstskizzen 16
@@ -127,6 +159,8 @@ gallery_images:
     medium_de: Mischtechnik auf Notenheft
     medium_en: mixed media on notebook cover and pages
     dimensions: 16,7 x 25,7 cm
+    dimensions_en: 16,7 x 25,7 cm
+    dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 17
     title_de: Intime Kunstskizzen 17
     image: /images/uploads/intimate_sketches__17.webp
@@ -134,12 +168,16 @@ gallery_images:
     medium_de: Mischtechnik auf Notenheft
     medium_en: mixed media on notebook cover and pages
     dimensions: 16,7 x 25,7 cm
+    dimensions_en: 16,7 x 25,7 cm
+    dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 18
     title_de: Intime Kunstskizzen 18
     image: /images/uploads/intimate_sketches__18.webp
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
     dimensions: 16,7 x 25,7 cm
+    dimensions_en: 16,7 x 25,7 cm
+    dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 19
     medium_de: Mischtechnik auf Notenheft
     title_de: Intime Kunstskizzen 19
@@ -147,6 +185,8 @@ gallery_images:
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
     dimensions: 16,7 x 25,7 cm
+    dimensions_en: 16,7 x 25,7 cm
+    dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 20
     medium_de: Mischtechnik auf Notenheft
     title_de: Intime Kunstskizzen 20
@@ -154,6 +194,8 @@ gallery_images:
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
     dimensions: 16,7 x 25,7 cm
+    dimensions_en: 16,7 x 25,7 cm
+    dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 21
     medium_de: Mischtechnik auf Notenheft
     title_de: Intime Kunstskizzen 21

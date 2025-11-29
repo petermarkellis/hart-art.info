@@ -22,6 +22,8 @@ gallery_images:
     medium_en: Ink on score fragment
     medium_de: Tinte auf Partiturfragment
     dimensions: 25,8 x 19,7 cm
+    dimensions_en: 25,8 x 19,7 cm
+    dimensions_de: 25,8 x 19,7 cm
   - image: /images/uploads/janacek_projekt_2.webp
     title_en: In the Fog
     title_de: Im Nebel
@@ -29,6 +31,8 @@ gallery_images:
     medium_en: Watercolor on score fragment
     medium_de: Aquarell auf Partiturfragment
     dimensions: 29,6 x 20,2 cm
+    dimensions_en: 29,6 x 20,2 cm
+    dimensions_de: 29,6 x 20,2 cm
   - image: /images/uploads/janacek_projekt_3.webp
     title_en: A Recollection
     title_de: Eine Erinnerung
@@ -36,6 +40,8 @@ gallery_images:
     medium_en: Ink, colored pencil, graphite on score fragment
     medium_de: Tinte, Buntstift, Graphit auf Partiturfragment
     dimensions: 60 x 80 cm
+    dimensions_en: 60 x 80 cm
+    dimensions_de: 60 x 80 cm
   - image: /images/uploads/janacek_projekt_4.webp
     title_en: A Blown-Away Leaf
     title_de: Ein fortgewehtes Blatt
@@ -43,4 +49,6 @@ gallery_images:
     medium_en: Ink, watercolor, graphite on score fragment
     medium_de: Tinte, Aquarell, Graphit auf Partiturfragment
     dimensions: 60 x 80 cm
+    dimensions_en: 60 x 80 cm
+    dimensions_de: 60 x 80 cm
 ---

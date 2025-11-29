@@ -19,6 +19,8 @@ gallery_images:
     year: "2012"
     medium_en: Watercolor on paper
     dimensions: 21 x 59 cm
+    dimensions_en: 21 x 59 cm
+    dimensions_de: 21 x 59 cm
     title_de: Endlich wieder unterwegs!
     medium_de: Aquarell auf Papier
     image: /images/uploads/strokes_on_way_again_1.webp
@@ -26,6 +28,8 @@ gallery_images:
     year: "2012"
     medium_en: Watercolor on paper
     dimensions: 21 x 59 cm
+    dimensions_en: 21 x 59 cm
+    dimensions_de: 21 x 59 cm
     medium_de: Aquarell auf Papier
     title_de: Weihnachten
     image: /images/uploads/strokes_xmas_1.webp
@@ -33,6 +37,8 @@ gallery_images:
     year: "2012"
     medium_en: Watercolor on paper
     dimensions: 21 x 59 cm
+    dimensions_en: 21 x 59 cm
+    dimensions_de: 21 x 59 cm
     medium_de: Aquarell auf Papier
     title_de: Weiter zu etwas
     image: /images/uploads/strokes_onto_something_1.webp
@@ -41,12 +47,16 @@ gallery_images:
     medium_en: Watercolor on paper
     medium_de: Aquarell auf Papier
     dimensions: 21 x 59 cm
+    dimensions_en: 21 x 59 cm
+    dimensions_de: 21 x 59 cm
     title_de: Heilung (Silvester)
     image: /images/uploads/strokes_healing_1.webp
   - title_en: Happy New Year!
     year: "2013"
     medium_en: Watercolor on paper
     dimensions: 21 x 59 cm
+    dimensions_en: 21 x 59 cm
+    dimensions_de: 21 x 59 cm
     medium_de: Aquarell auf Papier
     title_de: Frohes Neues Jahr!
     image: /images/uploads/strokes_happy_new_year_1.webp
@@ -54,6 +64,8 @@ gallery_images:
     year: "2013"
     medium_en: Watercolor on paper
     dimensions: 21 x 59 cm
+    dimensions_en: 21 x 59 cm
+    dimensions_de: 21 x 59 cm
     medium_de: Aquarell auf Papier
     title_de: Ohne Titel
     image: /images/uploads/strokes_untitled_1.webp
@@ -61,6 +73,8 @@ gallery_images:
     year: "2013"
     medium_en: Watercolor on paper
     dimensions: 21 x 59 cm
+    dimensions_en: 21 x 59 cm
+    dimensions_de: 21 x 59 cm
     medium_de: Aquarell auf Papier
     title_de: Dreiklang
     image: /images/uploads/strokes_triad_1.webp
@@ -68,6 +82,8 @@ gallery_images:
     year: "2013"
     medium_en: Watercolor on paper
     dimensions: 21 x 59 cm
+    dimensions_en: 21 x 59 cm
+    dimensions_de: 21 x 59 cm
     medium_de: Aquarell auf Papier
     title_de: Variationen in Grün
     image: /images/uploads/strokes_on_variations_1.webp
@@ -75,6 +91,8 @@ gallery_images:
     year: "2013"
     medium_en: Watercolor on paper
     dimensions: 21 x 59 cm
+    dimensions_en: 21 x 59 cm
+    dimensions_de: 21 x 59 cm
     medium_de: Aquarell auf Papier
     title_de: Nachfassen
     image: /images/uploads/strokes_follow_1.webp

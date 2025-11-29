@@ -13,6 +13,8 @@ gallery_images:
     medium_en: Colored pencil, watercolor, collage on book cover
     year: "2007"
     dimensions: 21,4 cm x 30,7 cm
+    dimensions_en: 21,4 cm x 30,7 cm
+    dimensions_de: 21,4 cm x 30,7 cm
     medium_de: Farbstift, Aquarell, Collage auf Tagebuchdeckel
     title_de: Zerstörtes Tagebuch I
   - image: /images/uploads/destroyed_diaries_diary_2.webp
@@ -20,6 +22,8 @@ gallery_images:
     year: "2007"
     medium_en: Colored pencil, watercolor, collage on book cover
     dimensions: 21,4 cm x 30,7 cm
+    dimensions_en: 21,4 cm x 30,7 cm
+    dimensions_de: 21,4 cm x 30,7 cm
     medium_de: Farbstift, Aquarell, Collage auf Tagebuchdeckel
     title_de: Zerstörtes Tagebuch II
 ---

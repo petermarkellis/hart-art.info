@@ -68,7 +68,8 @@ collections:
           - {label: "Year", name: "year", widget: "string", required: false}
           - {label: "Medium (English)", name: "medium_en", widget: "string", required: false, hint: "English medium description"}
           - {label: "Medium (German)", name: "medium_de", widget: "string", required: false, hint: "German medium description"}
-          - {label: "Dimensions", name: "dimensions", widget: "string", required: false}
+          - {label: "Dimensions (English)", name: "dimensions_en", widget: "string", required: false, hint: "English dimensions description (e.g., '70 cm x 100 cm')"}
+          - {label: "Dimensions (German)", name: "dimensions_de", widget: "string", required: false, hint: "German dimensions description (e.g., '70 cm x 100 cm')"}
 
   - name: "latest"
     label: "Latest News"

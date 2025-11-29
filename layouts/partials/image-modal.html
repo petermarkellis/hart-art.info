@@ -1,0 +1,397 @@
+<!-- Image Modal -->
+<div id="imageModal" class="image-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: white; z-index: 9999; overflow-y: auto; overflow-x: hidden;">
+  <!-- Desktop Top Bar -->
+  <div class="image-modal-topbar-desktop" style="position: fixed; top: 0; left: 0; right: 0; background: white; border-bottom: 1px solid #e5e5e5; z-index: 10002; padding: 1rem 2rem; display: flex !important; justify-content: space-between; align-items: flex-start; gap: 2rem;">
+    <div class="image-modal-topbar-info" style="flex: 1; min-width: 0;">
+      <div id="modalSeriesTop" class="f7 f6-ns black-50 mb1" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; text-transform: uppercase; display: none;"></div>
+      <h2 id="modalTitleTop" class="f5 f4-ns fw6 mb2 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; margin: 0;"></h2>
+      <div id="modalDetailsTop" class="f7 f6-ns black-70" style="font-family: 'Inter', sans-serif; line-height: 1.5;">
+        <span id="modalMediumTop" style="display: none;"></span><span id="modalMediumTopSeparator" style="display: none;">, </span>
+        <span id="modalDimensionsTop" style="display: none;"></span><span id="modalDimensionsTopSeparator" style="display: none;"> </span>
+        <span id="modalYearTop" style="display: none;"></span>
+      </div>
+    </div>
+    <div class="image-modal-topbar-buttons" style="display: flex; gap: 0.25rem; align-items: center; flex-shrink: 0;">
+      <a id="modalEnquiryLink" href="mailto:hartzheimmark@gmail.com" class="image-modal-enquiry-btn" style="background: black; border: none; color: white; font-size: 0.875rem; font-weight: 600; padding: 0.75rem 1.5rem; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em; font-family: 'Inter', sans-serif; text-decoration: none; display: inline-block;">MAKE ENQUIRY</a>
+      <button class="image-modal-close-desktop" onclick="window.closeImageModal()" style="background: black; border: none; color: white; font-size: 0.875rem; font-weight: 600; padding: 0.75rem 1.5rem; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em; font-family: 'Inter', sans-serif;">CLOSE</button>
+    </div>
+  </div>
+  <!-- Mobile Close Button (unchanged) -->
+  <button class="image-modal-close" onclick="window.closeImageModal()" style="position: fixed; top: 1rem; right: 1rem; background: black; border: none; color: white; font-size: 1.5rem; width: 2.5rem; height: 2.5rem; cursor: pointer; border-radius: 50%; z-index: 10001; display: flex; align-items: center; justify-content: center; line-height: 1; padding: 0; margin: 0;">✕</button>
+  <div class="image-modal-content" style="width: 100vw; height: 100vh; max-width: 100vw; max-height: 100vh; margin: 0; position: relative; padding: 0; padding-top: 5rem;">
+    <button class="image-modal-prev image-modal-prev-side" onclick="window.navigateImage(-1)" style="position: absolute; left: 0.5rem; top: 50%; transform: translateY(-50%); background: black; border: none; color: white; font-size: 2rem; width: 3rem; height: 3rem; cursor: pointer; border-radius: 50%; z-index: 10000; display: none; align-items: center; justify-content: center; line-height: 1; padding: 0; margin: 0; text-align: center; vertical-align: middle;">‹</button>
+    <button class="image-modal-next image-modal-next-side" onclick="window.navigateImage(1)" style="position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%); background: black; border: none; color: white; font-size: 2rem; width: 3rem; height: 3rem; cursor: pointer; border-radius: 50%; z-index: 10000; display: none; align-items: center; justify-content: center; line-height: 1; padding: 0; margin: 0; text-align: center; vertical-align: middle;">›</button>
+    <div style="width: 100%; height: calc(100vh - 5rem); display: flex; align-items: center; justify-content: center; padding: 0 4rem; box-sizing: border-box;">
+      <img id="modalImage" src="" alt="" style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; display: block; flex-shrink: 0;" />
+      <!-- Mobile Info (unchanged) -->
+      <div class="image-modal-info" style="padding: 2rem 0; margin-top: 1rem; text-align: left;">
+      <div id="modalSeries" class="f7 f6-ns black-50 mb2" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; text-transform: uppercase;"></div>
+      <h2 id="modalTitle" class="f4 f3-ns fw6 mb3 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;"></h2>
+      <div id="modalMedium" class="f6 f5-ns black-70 mb2" style="font-family: 'Inter', sans-serif;"></div>
+      <div id="modalDimensions" class="f6 f5-ns black-70 mb2" style="font-family: 'Inter', sans-serif;"></div>
+      <div id="modalYear" class="f6 f5-ns black-70" style="font-family: 'Inter', sans-serif;"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Mobile Bottom Navigation -->
+  <div class="image-modal-nav-mobile" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: white; border-top: 1px solid #e5e5e5; z-index: 10001; padding: 1rem; gap: 0.5rem;">
+    <button class="image-modal-prev-mobile" onclick="window.navigateImage(-1)" style="flex: 1; background: black; border: none; color: white; font-size: 1rem; font-weight: 600; padding: 1rem; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em; font-family: 'Inter', sans-serif; display: none;">PREV</button>
+    <button class="image-modal-next-mobile" onclick="window.navigateImage(1)" style="flex: 1; background: black; border: none; color: white; font-size: 1rem; font-weight: 600; padding: 1rem; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em; font-family: 'Inter', sans-serif; display: none;">NEXT</button>
+  </div>
+</div>
+
+<style>
+  /* Ensure modal doesn't cause horizontal overflow when closed */
+  .image-modal {
+    overflow-x: hidden !important;
+  }
+  
+  @media (max-width: 30em) {
+    /* Hide modal entirely on mobile */
+    .image-modal {
+      display: none !important;
+    }
+  }
+  @media (min-width: 30.01em) {
+    .image-modal-nav-mobile {
+      display: none !important;
+    }
+    .image-modal-topbar-desktop {
+      display: flex !important;
+    }
+    .image-modal-close {
+      display: none !important;
+    }
+    .image-modal-close-desktop {
+      display: block !important;
+    }
+    .image-modal-content {
+      padding-top: 5rem !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      max-width: 100vw !important;
+      max-height: 100vh !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+    .image-modal-content > div {
+      width: 100% !important;
+      height: calc(100vh - 5rem) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 0 4rem !important;
+      box-sizing: border-box !important;
+      max-width: 100% !important;
+    }
+    .image-modal-info {
+      display: none !important;
+    }
+    #modalImage {
+      max-width: 100% !important;
+      max-height: 100% !important;
+      width: auto !important;
+      height: auto !important;
+      object-fit: contain !important;
+      display: block !important;
+      flex-shrink: 0 !important;
+      /* Ensure images scale to fill available space */
+      min-width: 0 !important;
+      min-height: 0 !important;
+    }
+    
+    /* Ensure container properly constrains images */
+    .image-modal-content > div {
+      min-width: 0 !important;
+      min-height: 0 !important;
+    }
+  }
+</style>
+
+<script>
+// Initialize modal - functions must be in global scope for onclick handlers
+let currentImageIndex = 0;
+let allImages = [];
+let currentSeriesSlug = '';
+
+// Ensure functions are in global scope
+window.openImageModal = function(index, seriesSlug) {
+  // Don't open modal on mobile devices (viewport width <= 30em / 480px)
+  if (window.innerWidth <= 480) {
+    return;
+  }
+  
+  // Populate allImages if not already done
+  if (allImages.length === 0) {
+    const images = document.querySelectorAll('.gallery-image-clickable');
+    allImages = Array.from(images).map(img => ({
+      src: img.dataset.imageSrc,
+      titleEn: img.dataset.titleEn || '',
+      titleDe: img.dataset.titleDe || '',
+      mediumEn: img.dataset.mediumEn || '',
+      mediumDe: img.dataset.mediumDe || '',
+      dimensionsEn: img.dataset.dimensionsEn || '',
+      dimensionsDe: img.dataset.dimensionsDe || '',
+      dimensions: img.dataset.dimensions || '', // Fallback for backward compatibility
+      year: img.dataset.year || '',
+      seriesSlug: img.dataset.seriesSlug || '',
+      seriesTitle: img.dataset.seriesTitle || ''
+    }));
+  }
+  
+  currentImageIndex = parseInt(index);
+  currentSeriesSlug = seriesSlug;
+  const image = allImages[currentImageIndex];
+  if (!image) return;
+  
+  const modal = document.getElementById('imageModal');
+  const modalImage = document.getElementById('modalImage');
+  
+  // Mobile elements
+  const modalSeries = document.getElementById('modalSeries');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalMedium = document.getElementById('modalMedium');
+  const modalDimensions = document.getElementById('modalDimensions');
+  const modalYear = document.getElementById('modalYear');
+  
+  // Desktop top bar elements
+  const modalSeriesTop = document.getElementById('modalSeriesTop');
+  const modalTitleTop = document.getElementById('modalTitleTop');
+  const modalMediumTop = document.getElementById('modalMediumTop');
+  const modalDimensionsTop = document.getElementById('modalDimensionsTop');
+  const modalYearTop = document.getElementById('modalYearTop');
+  const modalMediumTopSeparator = document.getElementById('modalMediumTopSeparator');
+  const modalDimensionsTopSeparator = document.getElementById('modalDimensionsTopSeparator');
+  const modalEnquiryLink = document.getElementById('modalEnquiryLink');
+  
+  // Get current language
+  const currentLang = document.documentElement.lang || 'en';
+  const isDe = currentLang === 'de' || window.location.pathname.startsWith('/de/');
+  
+  const titleText = (isDe ? (image.titleDe || image.titleEn) : (image.titleEn || image.titleDe)).toUpperCase();
+  const titleForEmail = isDe ? (image.titleDe || image.titleEn) : (image.titleEn || image.titleDe);
+  const medium = isDe ? (image.mediumDe || image.mediumEn) : (image.mediumEn || image.mediumDe);
+  const mediumText = medium ? medium.charAt(0).toUpperCase() + medium.slice(1) : '';
+  // Get dimensions in current language - auto-copy from old dimensions field if new fields are empty
+  const dimensionsEn = image.dimensionsEn || image.dimensions || '';
+  const dimensionsDe = image.dimensionsDe || image.dimensions || '';
+  const dimensions = isDe ? (dimensionsDe || dimensionsEn) : (dimensionsEn || dimensionsDe);
+  const dimensionsText = dimensions || '';
+  const yearText = image.year || '';
+  const seriesText = image.seriesTitle ? image.seriesTitle.toUpperCase() : '';
+  
+  // Set image
+  modalImage.src = image.src;
+  modalImage.alt = titleText;
+  
+  // Optimize image size to maximize space usage
+  modalImage.onload = function() {
+    const container = modalImage.parentElement;
+    // Get available space accounting for padding
+    const containerStyle = window.getComputedStyle(container);
+    const paddingLeft = parseFloat(containerStyle.paddingLeft) || 0;
+    const paddingRight = parseFloat(containerStyle.paddingRight) || 0;
+    const containerWidth = container.clientWidth - paddingLeft - paddingRight;
+    const containerHeight = container.clientHeight;
+    
+    const imageAspectRatio = modalImage.naturalWidth / modalImage.naturalHeight;
+    const containerAspectRatio = containerWidth / containerHeight;
+    
+    // If image is wider than container, maximize width
+    // If image is taller than container, maximize height
+    if (imageAspectRatio > containerAspectRatio) {
+      // Wide image - maximize width (fill available width)
+      modalImage.style.width = '100%';
+      modalImage.style.height = 'auto';
+      modalImage.style.maxWidth = '100%';
+      modalImage.style.maxHeight = 'none';
+    } else {
+      // Tall image - maximize height (fill available height)
+      modalImage.style.width = 'auto';
+      modalImage.style.height = '100%';
+      modalImage.style.maxWidth = 'none';
+      modalImage.style.maxHeight = '100%';
+    }
+  };
+  
+  // Mobile info (unchanged)
+  modalSeries.textContent = seriesText;
+  modalSeries.style.display = seriesText ? 'block' : 'none';
+  modalTitle.textContent = titleText;
+  modalMedium.textContent = mediumText;
+  modalMedium.style.display = mediumText ? 'block' : 'none';
+  modalDimensions.textContent = dimensionsText;
+  modalDimensions.style.display = dimensionsText ? 'block' : 'none';
+  modalYear.textContent = yearText;
+  modalYear.style.display = yearText ? 'block' : 'none';
+  
+  // Desktop top bar
+  modalSeriesTop.textContent = seriesText;
+  modalSeriesTop.style.display = seriesText ? 'block' : 'none';
+  modalTitleTop.textContent = titleText;
+  
+  // Build details string for desktop
+  const detailsParts = [];
+  if (mediumText) detailsParts.push(mediumText);
+  if (dimensionsText) detailsParts.push(dimensionsText);
+  if (yearText) detailsParts.push(yearText);
+  
+  modalMediumTop.textContent = mediumText;
+  modalMediumTop.style.display = mediumText ? 'inline' : 'none';
+  modalMediumTopSeparator.style.display = (mediumText && (dimensionsText || yearText)) ? 'inline' : 'none';
+  
+  modalDimensionsTop.textContent = dimensionsText;
+  modalDimensionsTop.style.display = dimensionsText ? 'inline' : 'none';
+  modalDimensionsTopSeparator.style.display = (dimensionsText && yearText) ? 'inline' : 'none';
+  
+  modalYearTop.textContent = yearText;
+  modalYearTop.style.display = yearText ? 'inline' : 'none';
+  
+  // Update enquiry link with subject
+  if (modalEnquiryLink && titleForEmail) {
+    const subject = encodeURIComponent(`Enquiry about Art Piece: ${titleForEmail}`);
+    modalEnquiryLink.href = `mailto:hartzheimmark@gmail.com?subject=${subject}`;
+  }
+  
+  modal.style.display = 'block';
+  document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  document.body.style.overflowX = 'hidden'; // Prevent horizontal scrolling
+  
+  // Navigation buttons are always visible when there are multiple images (looping enabled)
+};
+
+// Ensure function is available globally (both with and without window prefix)
+// This helps with inline onclick handlers that may not have window. prefix
+
+window.closeImageModal = function() {
+  const modal = document.getElementById('imageModal');
+  modal.style.display = 'none';
+  document.body.style.overflow = ''; // Restore scrolling
+  document.body.style.overflowX = ''; // Restore horizontal scrolling
+};
+
+window.navigateImage = function(direction) {
+  let newIndex = currentImageIndex + direction;
+  // Loop around: if going past the end, go to the beginning; if going before the start, go to the end
+  if (newIndex < 0) {
+    newIndex = allImages.length - 1;
+  } else if (newIndex >= allImages.length) {
+    newIndex = 0;
+  }
+  window.openImageModal(newIndex, currentSeriesSlug);
+};
+
+// Collect all images on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const images = document.querySelectorAll('.gallery-image-clickable');
+  allImages = Array.from(images).map(img => ({
+    src: img.dataset.imageSrc,
+    titleEn: img.dataset.titleEn || '',
+    titleDe: img.dataset.titleDe || '',
+    mediumEn: img.dataset.mediumEn || '',
+    mediumDe: img.dataset.mediumDe || '',
+    dimensionsEn: img.dataset.dimensionsEn || '',
+    dimensionsDe: img.dataset.dimensionsDe || '',
+    dimensions: img.dataset.dimensions || '', // Fallback for backward compatibility
+    year: img.dataset.year || '',
+    seriesSlug: img.dataset.seriesSlug || '',
+    seriesTitle: img.dataset.seriesTitle || ''
+  }));
+  
+  // Helper function to open modal (only works on tablets/desktop)
+  const createOpenModalHandler = function(imageIndex, seriesSlug) {
+    return function(e) {
+      // Check if we're on mobile - if so, don't open modal
+      if (window.innerWidth <= 480) {
+        return;
+      }
+      e.stopPropagation();
+      window.openImageModal(imageIndex, seriesSlug);
+    };
+  };
+  
+  // Check if we're on tablet/desktop for styling
+  const isTabletOrDesktop = window.innerWidth > 480;
+  
+  // Add click event listeners for images (only for tablets/desktop - modal disabled on mobile)
+  images.forEach((img, index) => {
+    const imageIndex = img.dataset.imageIndex || index;
+    const seriesSlug = img.dataset.seriesSlug || '';
+    
+    // Remove inline onclick handler since we're using event listeners
+    img.removeAttribute('onclick');
+    
+    // Add click event listener
+    img.addEventListener('click', createOpenModalHandler(imageIndex, seriesSlug));
+    
+    // Set cursor pointer style (only on tablets/desktop)
+    if (isTabletOrDesktop) {
+      img.style.cursor = 'pointer';
+    }
+  });
+  
+  // Handle title clicks (only for tablets/desktop)
+  const titleSpans = document.querySelectorAll('span[onclick*="openImageModal"]');
+  titleSpans.forEach(span => {
+    const onclickAttr = span.getAttribute('onclick');
+    if (onclickAttr) {
+      // Extract index and seriesSlug from onclick attribute
+      const match = onclickAttr.match(/openImageModal\((\d+),\s*['"]([^'"]+)['"]\)/);
+      if (match) {
+        const imageIndex = parseInt(match[1]);
+        const seriesSlug = match[2];
+        
+        // Remove inline onclick handler
+        span.removeAttribute('onclick');
+        
+        // Add click event listener
+        span.addEventListener('click', createOpenModalHandler(imageIndex, seriesSlug));
+        
+        // Set cursor pointer style (only on tablets/desktop)
+        if (isTabletOrDesktop) {
+          span.style.cursor = 'pointer';
+        }
+      }
+    }
+  });
+  
+  // Show navigation arrows if there are multiple images
+  if (allImages.length > 1) {
+    const prevBtn = document.querySelector('.image-modal-prev-side');
+    const nextBtn = document.querySelector('.image-modal-next-side');
+    const prevBtnMobile = document.querySelector('.image-modal-prev-mobile');
+    const nextBtnMobile = document.querySelector('.image-modal-next-mobile');
+    if (prevBtn) prevBtn.style.display = 'flex';
+    if (nextBtn) nextBtn.style.display = 'flex';
+    if (prevBtnMobile) prevBtnMobile.style.display = 'block';
+    if (nextBtnMobile) nextBtnMobile.style.display = 'block';
+  }
+  
+  // Add keyboard navigation
+  document.addEventListener('keydown', function(e) {
+    const modal = document.getElementById('imageModal');
+    if (modal && modal.style.display !== 'none') {
+      if (e.key === 'Escape') {
+        closeImageModal();
+      } else if (e.key === 'ArrowLeft') {
+        window.navigateImage(-1);
+      } else if (e.key === 'ArrowRight') {
+        window.navigateImage(1);
+      }
+    }
+  });
+  
+  // Close modal when clicking outside image
+  const modal = document.getElementById('imageModal');
+  if (modal) {
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        window.closeImageModal();
+      }
+    });
+  }
+});
+
+</script>
+

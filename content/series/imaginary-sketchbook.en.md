@@ -22,6 +22,8 @@ gallery_images:
     title_en: Terra Incognita
     medium_en: Pastel, colored pencil on paper
     dimensions: 22 x 60,7 cm
+    dimensions_en: 22 x 60,7 cm
+    dimensions_de: 22 x 60,7 cm
     medium_de: Pastell, Farbstift auf Papier
     title_de: Terra Incognita
   - image: /images/uploads/the_imaginary_sketchbook_trace_elements_1.webp
@@ -29,6 +31,8 @@ gallery_images:
     year: "2006"
     medium_en: Pastel, colored pencil on paper
     dimensions: 22 x 60,7 cm
+    dimensions_en: 22 x 60,7 cm
+    dimensions_de: 22 x 60,7 cm
     title_de: Spurenelemente
     medium_de: Pastell, Farbstift auf Papier
   - image: /images/uploads/the_imaginary_sketchbook_go_1.webp
@@ -36,6 +40,8 @@ gallery_images:
     year: "2007"
     medium_de: Pastell, Farbstift auf Papier
     dimensions: 22 x 60,7 cm
+    dimensions_en: 22 x 60,7 cm
+    dimensions_de: 22 x 60,7 cm
     title_en: Go!
     medium_en: Pastel, colored pencil on paper
   - image: /images/uploads/the_imaginary_sketchbook_microcosm_creation_1.webp
@@ -43,6 +49,8 @@ gallery_images:
     year: "2007"
     medium_en: Pastel, colored pencil on paper
     dimensions: 22 x 60,7 cm
+    dimensions_en: 22 x 60,7 cm
+    dimensions_de: 22 x 60,7 cm
     title_de: Microcosm (Creation)
     medium_de: Pastell, Farbstift auf Papier
   - image: /images/uploads/the_imaginary_sketchbook_tail_of_the_comet_1.webp
@@ -50,6 +58,8 @@ gallery_images:
     year: "2008"
     medium_de: Pastell, Farbstift auf Papier
     dimensions: 22 x 60,7 cm
+    dimensions_en: 22 x 60,7 cm
+    dimensions_de: 22 x 60,7 cm
     medium_en: Pastel, colored pencil on paper
     title_de: Schweif des Kometen
 ---

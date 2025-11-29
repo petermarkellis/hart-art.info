@@ -21,11 +21,15 @@ gallery_images:
     medium_en: Mixed media on hymnal cover and pages
     medium_de: Mixed Media auf Gesangbuchdeckel und -seiten
     dimensions: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_en: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_de: 18,5 cm x 11 cm x 3,3 cm
   - image: /images/uploads/hymnal_2.webp
     title_en: Hymnal Page 2
     title_de: Gesangbuch Seite 2
     year: "2002"
     dimensions: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_en: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_de: 18,5 cm x 11 cm x 3,3 cm
     medium_en: Mixed media on hymnal cover and pages
     medium_de: Mixed Media auf Gesangbuchdeckel und -seiten
   - image: /images/uploads/hymnal__3.webp
@@ -34,10 +38,14 @@ gallery_images:
     medium_en: Mixed media on hymnal cover and pages
     medium_de: Mischtechnik auf Buchdeckel und-seiten
     dimensions: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_en: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_de: 18,5 cm x 11 cm x 3,3 cm
     year: "2002"
   - image: /images/uploads/hymnal__4.webp
     title_en: Hymnal Page 4
     dimensions: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_en: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_de: 18,5 cm x 11 cm x 3,3 cm
     title_de: Gesangbuch Seite 4
     year: "2002"
     medium_en: Mixed media on hymnal cover and pages
@@ -49,6 +57,8 @@ gallery_images:
     medium_en: Mixed media on hymnal cover and pages
     medium_de: Mischtechnik auf Buchdeckel und-seiten
     dimensions: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_en: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_de: 18,5 cm x 11 cm x 3,3 cm
   - image: /images/uploads/hymnal__6.webp
     title_en: Hymnal Page 6
     title_de: Gesangbuch Seite 6
@@ -56,6 +66,8 @@ gallery_images:
     medium_en: Mixed media on hymnal cover and pages
     medium_de: Mischtechnik auf Buchdeckel und-seiten
     dimensions: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_en: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_de: 18,5 cm x 11 cm x 3,3 cm
   - image: /images/uploads/hymnal__7.webp
     title_en: Hymnal Page 7
     title_de: Gesangbuch Seite 7
@@ -63,6 +75,8 @@ gallery_images:
     medium_en: Mixed media on hymnal cover and pages
     medium_de: Mischtechnik auf Buchdeckel und-seiten
     dimensions: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_en: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_de: 18,5 cm x 11 cm x 3,3 cm
   - image: /images/uploads/hymnal__8.webp
     title_en: Hymnal Page 8
     title_de: Gesangbuch Seite 8
@@ -70,6 +84,8 @@ gallery_images:
     medium_en: Mixed media on hymnal cover and pages
     medium_de: Mischtechnik auf Buchdeckel und-seiten
     dimensions: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_en: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_de: 18,5 cm x 11 cm x 3,3 cm
   - image: /images/uploads/hymnal__9.webp
     title_en: Hymnal Page 9
     title_de: Gesangbuch Seite 9
@@ -77,6 +93,8 @@ gallery_images:
     medium_en: Mixed media on hymnal cover and pages
     medium_de: Mischtechnik auf Buchdeckel und-seiten
     dimensions: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_en: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_de: 18,5 cm x 11 cm x 3,3 cm
   - image: /images/uploads/hymnal__10.webp
     title_en: Hymnal Page 10
     title_de: Gesangbuch Seite 10
@@ -84,6 +102,8 @@ gallery_images:
     medium_en: Mixed media on hymnal cover and pages
     medium_de: Mischtechnik auf Buchdeckel und-seiten
     dimensions: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_en: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_de: 18,5 cm x 11 cm x 3,3 cm
   - image: /images/uploads/hymnal__11.webp
     title_en: Hymnal Page 11
     title_de: Gesangbuch Seite 11
@@ -91,6 +111,8 @@ gallery_images:
     medium_en: Mixed media on hymnal cover and pages
     medium_de: Mischtechnik auf Buchdeckel und-seiten
     dimensions: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_en: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_de: 18,5 cm x 11 cm x 3,3 cm
   - image: /images/uploads/hymnal__12.webp
     title_en: Hymnal Page 12
     title_de: Gesangbuch Seite 12
@@ -98,6 +120,8 @@ gallery_images:
     medium_en: Mixed media on hymnal cover and pages
     medium_de: Mischtechnik auf Buchdeckel und-seiten
     dimensions: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_en: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_de: 18,5 cm x 11 cm x 3,3 cm
   - image: /images/uploads/hymnal__13.webp
     title_en: Hymnal Page 13
     title_de: Gesangbuch Seite 13
@@ -105,6 +129,8 @@ gallery_images:
     medium_en: Mixed media on hymnal cover and pages
     medium_de: Mischtechnik auf Buchdeckel und-seiten
     dimensions: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_en: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_de: 18,5 cm x 11 cm x 3,3 cm
   - image: /images/uploads/hymnal__14.webp
     title_en: Hymnal Page 14
     title_de: Gesangbuch Seite 14
@@ -112,6 +138,8 @@ gallery_images:
     year: "2002"
     medium_de: Mischtechnik auf Buchdeckel und-seiten
     dimensions: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_en: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_de: 18,5 cm x 11 cm x 3,3 cm
   - image: /images/uploads/hymnal__15.webp
     title_en: Hymnal Page 15
     title_de: Gesangbuch Seite 15
@@ -119,6 +147,8 @@ gallery_images:
     medium_en: Mixed media on hymnal cover and pages
     medium_de: Mischtechnik auf Buchdeckel und-seiten
     dimensions: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_en: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_de: 18,5 cm x 11 cm x 3,3 cm
   - image: /images/uploads/hymnal__16.webp
     title_en: Hymnal Page 16
     title_de: Gesangbuch Seite 16
@@ -126,4 +156,6 @@ gallery_images:
     medium_en: Mixed media on hymnal cover and pages
     medium_de: Mischtechnik auf Buchdeckel und-seiten
     dimensions: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_en: 18,5 cm x 11 cm x 3,3 cm
+    dimensions_de: 18,5 cm x 11 cm x 3,3 cm
 ---

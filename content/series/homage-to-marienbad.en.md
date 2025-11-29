@@ -19,6 +19,8 @@ gallery_images:
     year: "2020"
     medium_en: Graphite, watercolor on papier
     dimensions: 17,5 x 24,5 cm
+    dimensions_en: 17,5 x 24,5 cm
+    dimensions_de: 17,5 x 24,5 cm
     title_de: Trotz aller Widrigkeiten
     medium_de: Grafit, Aquarell auf Papier
   - image: /images/uploads/homage_to_marienbad__freedom_1.webp
@@ -27,12 +29,16 @@ gallery_images:
     year: "2020"
     medium_en: Graphite, watercolor on papier
     dimensions: 17,5 x 24,5 cm
+    dimensions_en: 17,5 x 24,5 cm
+    dimensions_de: 17,5 x 24,5 cm
     medium_de: Grafit, Aquarell auf Papier
   - image: /images/uploads/homage_to_marienbad__novelty_1.webp
     title_en: Novelty
     year: "2020"
     title_de: Novum
     dimensions: 17,5 x 24,5 cm
+    dimensions_en: 17,5 x 24,5 cm
+    dimensions_de: 17,5 x 24,5 cm
     medium_en: Graphite, watercolor on papier
     medium_de: Grafit, Aquarell auf Papier
   - image: /images/uploads/homage_to_marienbad__revelation_1.webp
@@ -40,6 +46,8 @@ gallery_images:
     year: "2020"
     medium_en: Graphite, watercolor on papier
     dimensions: 17,5 x 24,5 cm
+    dimensions_en: 17,5 x 24,5 cm
+    dimensions_de: 17,5 x 24,5 cm
     medium_de: Grafit, Aquarell auf Papier
     title_de: Offenbarung
   - image: /images/uploads/homage_to_marienbad__whatever_it_takes_1.webp
@@ -47,6 +55,8 @@ gallery_images:
     year: "2020"
     medium_en: graphite, watercolor on papier
     dimensions: 17,5 x 24,5 cm
+    dimensions_en: 17,5 x 24,5 cm
+    dimensions_de: 17,5 x 24,5 cm
     medium_de: Grafit, Aquarell auf Papier
     title_de: Was immer es kostet
 ---
