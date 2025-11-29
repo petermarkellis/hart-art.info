@@ -39,7 +39,7 @@ gallery_images:
     title_en: Picture Logic
     medium_en: Pastel, colored pencil on paper
     dimensions_de: 70 cm x 100 cm
-    image: /images/uploads/action_drawing_picture_logic_2009_1.webp
+    image: /images/uploads/action_drawing_picture_logic_2009_1_v3.webp
     dimensions_en: 70 cm x 100 cm
     year: "2009"
   - title_de: Glücksfall
