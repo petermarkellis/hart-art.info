@@ -85,14 +85,14 @@ gallery_images:
     year: "2016"
     medium_en: Watercolour on driftwood
     dimensions: 72cm (H), Plinthe 8 x 8 cm
-    dimensions_en: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_en: 72cm (H), Pedestal 8 x 8 cm
     dimensions_de: 72cm (H), Plinthe 8 x 8 cm
     medium_de: Aquarellfarbe auf Treibholz
   - image: /images/uploads/objects_and_assemblages_totem_2.webp
     title_en: Totem I
     title_de: Totem I
     dimensions: 72cm (H), Plinthe 8 x 8 cm
-    dimensions_en: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_en: 72cm (H), Pedestal 8 x 8 cm
     dimensions_de: 72cm (H), Plinthe 8 x 8 cm
     medium_de: Aquarellfarbe auf Treibholz
     medium_en: Watercolour on driftwood
@@ -102,7 +102,7 @@ gallery_images:
     title_de: Totem I (Detail)
     year: "2016"
     dimensions: 72cm (H), Plinthe 8 x 8 cm
-    dimensions_en: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_en: 72cm (H), Pedestal 8 x 8 cm
     dimensions_de: 72cm (H), Plinthe 8 x 8 cm
     medium_de: Aquarellfarbe auf Treibholz
     medium_en: Watercolour on driftwood
@@ -111,7 +111,7 @@ gallery_images:
     title_de: Totem I (Detail)
     year: "2016"
     dimensions: 72cm (H), Plinthe 8 x 8 cm
-    dimensions_en: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_en: 72cm (H), Pedestal 8 x 8 cm
     dimensions_de: 72cm (H), Plinthe 8 x 8 cm
     medium_de: Aquarellfarbe auf Treibholz
     medium_en: Watercolour on driftwood
@@ -119,7 +119,7 @@ gallery_images:
     title_en: Totem I (Detail)
     title_de: Totem I (Detail)
     dimensions: 72cm (H), Plinthe 8 x 8 cm
-    dimensions_en: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_en: 72cm (H), Pedestal 8 x 8 cm
     dimensions_de: 72cm (H), Plinthe 8 x 8 cm
     medium_de: Aquarellfarbe auf Treibholz
     medium_en: Watercolour on driftwood
@@ -128,7 +128,7 @@ gallery_images:
     title_en: Totem I (Detail)
     title_de: Totem I (Detail)
     dimensions: 72cm (H), Plinthe 8 x 8 cm
-    dimensions_en: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_en: 72cm (H), Pedestal 8 x 8 cm
     dimensions_de: 72cm (H), Plinthe 8 x 8 cm
     medium_de: Aquarellfarbe auf Treibholz
     medium_en: Watercolour on driftwood
@@ -140,7 +140,7 @@ gallery_images:
     medium_en: Watercolour on driftwood
     medium_de: Aquarellfarbe auf Treibholz
     dimensions: 72cm (H), Plinthe 8 x 8 cm
-    dimensions_en: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_en: 72cm (H), Pedestal 8 x 8 cm
     dimensions_de: 72cm (H), Plinthe 8 x 8 cm
   - image: /images/uploads/objects_and_assemblages_totem_8.webp
     title_en: Totem I (Detail)
@@ -149,7 +149,7 @@ gallery_images:
     medium_en: Watercolour on driftwood
     medium_de: Aquarellfarbe auf Treibholz
     dimensions: 72cm (H), Plinthe 8 x 8 cm
-    dimensions_en: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_en: 72cm (H), Pedestal 8 x 8 cm
     dimensions_de: 72cm (H), Plinthe 8 x 8 cm
   - image: /images/uploads/objects_and_assemblages_totem_10.webp
     title_en: Totem I (Detail)
@@ -158,7 +158,7 @@ gallery_images:
     medium_en: Watercolour on driftwood
     medium_de: Aquarellfarbe auf Treibholz
     dimensions: 72cm (H), Plinthe 8 x 8 cm
-    dimensions_en: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_en: 72cm (H), Pedestal 8 x 8 cm
     dimensions_de: 72cm (H), Plinthe 8 x 8 cm
   - image: /images/uploads/objects_and_assemblages_totem_11.webp
     title_en: Totem I (Detail)
@@ -167,7 +167,7 @@ gallery_images:
     medium_en: Watercolour on driftwood
     medium_de: Aquarellfarbe auf Treibholz
     dimensions: 72cm (H), Plinthe 8 x 8 cm
-    dimensions_en: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_en: 72cm (H), Pedestal 8 x 8 cm
     dimensions_de: 72cm (H), Plinthe 8 x 8 cm
   - image: /images/uploads/objects_and_assemblages_totem_12.webp
     title_en: Totem I (Detail)
@@ -176,7 +176,7 @@ gallery_images:
     medium_en: Watercolour on driftwood
     medium_de: Aquarellfarbe auf Treibholz
     dimensions: 72cm (H), Plinthe 8 x 8 cm
-    dimensions_en: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_en: 72cm (H), Pedestal 8 x 8 cm
     dimensions_de: 72cm (H), Plinthe 8 x 8 cm
   - image: /images/uploads/objects_and_assemblages_totem_13.webp
     title_en: Totem I (Detail)
@@ -185,7 +185,7 @@ gallery_images:
     medium_en: Watercolour on driftwood
     medium_de: Aquarellfarbe auf Treibholz
     dimensions: 72cm (H), Plinthe 8 x 8 cm
-    dimensions_en: 72cm (H), Plinthe 8 x 8 cm
+    dimensions_en: 72cm (H), Pedestal 8 x 8 cm
     dimensions_de: 72cm (H), Plinthe 8 x 8 cm
   - image: /images/uploads/objects_and_assemblages_go_with_grain_1.webp
     title_en: Go with the Grain
@@ -524,9 +524,8 @@ gallery_images:
     title_de: An die Natur (A)
     year: "2024"
     dimensions: 26,5 cm x 7 cm in Diameter/Durchmesser -  3 cm x 12 cm in diameter
-    dimensions_en: 26,5 cm x 7 cm in Diameter/Durchmesser -  3 cm x 12 cm in diameter
-    dimensions_de: 26,5 cm x 7 cm in Diameter/Durchmesser -  3 cm x 12 cm in diameter
-      (Pedestal/Durchmesser der Plinthe)
+    dimensions_en: 26,5 cm x 7 cm in Diameter - 3 cm x 12 cm in diameter (Pedestal)
+    dimensions_de: 26,5 cm x 7 cm in Durchmesser - 3 cm x 12 cm in Durchmesser (Durchmesser der Plinthe)
     medium_en: Colored pencil on wood
     medium_de: Farbstift auf Holz
     image: /images/uploads/20251122_ode_to_nature_a_2025__1.webp
@@ -536,9 +535,8 @@ gallery_images:
     medium_en: Colored pencil on wood
     medium_de: Farbstift auf Holz
     dimensions: 26,5 cm x 7 cm in Diameter/Durchmesser -  3 cm x 12 cm in diameter
-    dimensions_en: 26,5 cm x 7 cm in Diameter/Durchmesser -  3 cm x 12 cm in diameter
-    dimensions_de: 26,5 cm x 7 cm in Diameter/Durchmesser -  3 cm x 12 cm in diameter
-      (Pedestal/Durchmesser der Plinthe)
+    dimensions_en: 26,5 cm x 7 cm in Diameter - 3 cm x 12 cm in diameter (Pedestal)
+    dimensions_de: 26,5 cm x 7 cm in Durchmesser - 3 cm x 12 cm in Durchmesser (Durchmesser der Plinthe)
     image: /images/uploads/20251122_ode_to_nature_b_2025__1.webp
   - title_en: Ode to Nature (A)
     title_de: An die Natur (A)
@@ -546,9 +544,8 @@ gallery_images:
     medium_en: Colored pencil on wood
     medium_de: Farbstift auf Holz
     dimensions: 26,5 cm x 7 cm in Diameter/Durchmesser -  3 cm x 12 cm in diameter
-    dimensions_en: 26,5 cm x 7 cm in Diameter/Durchmesser -  3 cm x 12 cm in diameter
-    dimensions_de: 26,5 cm x 7 cm in Diameter/Durchmesser -  3 cm x 12 cm in diameter
-      (Pedestal/Durchmesser der Plinthe)
+    dimensions_en: 26,5 cm x 7 cm in Diameter - 3 cm x 12 cm in diameter (Pedestal)
+    dimensions_de: 26,5 cm x 7 cm in Durchmesser - 3 cm x 12 cm in Durchmesser (Durchmesser der Plinthe)
     image: /images/uploads/20251122_ode_to_nature_c_2025__1.webp
   - title_en: Ode to Nature (A)
     title_de: An die Natur (A)
@@ -556,9 +553,8 @@ gallery_images:
     medium_en: Colored pencil on wood
     medium_de: Farbstift auf Holz
     dimensions: 26,5 cm x 7 cm in Diameter/Durchmesser -  3 cm x 12 cm in diameter
-    dimensions_en: 26,5 cm x 7 cm in Diameter/Durchmesser -  3 cm x 12 cm in diameter
-    dimensions_de: 26,5 cm x 7 cm in Diameter/Durchmesser -  3 cm x 12 cm in diameter
-      (Pedestal/Durchmesser der Plinthe)
+    dimensions_en: 26,5 cm x 7 cm in Diameter - 3 cm x 12 cm in diameter (Pedestal)
+    dimensions_de: 26,5 cm x 7 cm in Durchmesser - 3 cm x 12 cm in Durchmesser (Durchmesser der Plinthe)
     image: /images/uploads/20251122_ode_to_nature_d_2025__1.webp
   - image: /images/uploads/20251122_emergence_2024__1.webp
     title_en: Emergence
