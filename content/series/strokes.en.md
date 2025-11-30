@@ -20,7 +20,7 @@ gallery_images:
     medium_en: Watercolor on paper
     dimensions_en: 21 x 59 cm
     dimensions_de: 21 x 59 cm
-    title_de: Endlich wieder unterwegs!
+    title_de: On My Way Again (At Last!)
     medium_de: Aquarell auf Papier
     image: /images/uploads/strokes_on_way_again_1.webp
   - title_en: Christmas
@@ -29,7 +29,7 @@ gallery_images:
     dimensions_en: 21 x 59 cm
     dimensions_de: 21 x 59 cm
     medium_de: Aquarell auf Papier
-    title_de: Weihnachten
+    title_de: Christmas
     image: /images/uploads/strokes_xmas_1.webp
   - title_en: On to Something
     year: "2012"
@@ -37,7 +37,7 @@ gallery_images:
     dimensions_en: 21 x 59 cm
     dimensions_de: 21 x 59 cm
     medium_de: Aquarell auf Papier
-    title_de: Weiter zu etwas
+    title_de: On to Something
     image: /images/uploads/strokes_onto_something_1.webp
   - title_en: Healing (New Year's Eve)
     year: "2012"
@@ -45,7 +45,7 @@ gallery_images:
     medium_de: Aquarell auf Papier
     dimensions_en: 21 x 59 cm
     dimensions_de: 21 x 59 cm
-    title_de: Heilung (Silvester)
+    title_de: Healing (New Year's Eve)
     image: /images/uploads/strokes_healing_1.webp
   - title_en: Happy New Year!
     year: "2013"
@@ -53,7 +53,7 @@ gallery_images:
     dimensions_en: 21 x 59 cm
     dimensions_de: 21 x 59 cm
     medium_de: Aquarell auf Papier
-    title_de: Frohes Neues Jahr!
+    title_de: Happy New Year!
     image: /images/uploads/strokes_happy_new_year_1.webp
   - title_en: Untitled
     year: "2013"
@@ -69,7 +69,7 @@ gallery_images:
     dimensions_en: 21 x 59 cm
     dimensions_de: 21 x 59 cm
     medium_de: Aquarell auf Papier
-    title_de: Dreiklang
+    title_de: Triad
     image: /images/uploads/strokes_triad_1.webp
   - title_en: Variations in Green
     year: "2013"
@@ -77,7 +77,7 @@ gallery_images:
     dimensions_en: 21 x 59 cm
     dimensions_de: 21 x 59 cm
     medium_de: Aquarell auf Papier
-    title_de: Variationen in Grün
+    title_de: Variations in Green
     image: /images/uploads/strokes_on_variations_1.webp
   - title_en: Follow Through
     year: "2013"
@@ -85,6 +85,6 @@ gallery_images:
     dimensions_en: 21 x 59 cm
     dimensions_de: 21 x 59 cm
     medium_de: Aquarell auf Papier
-    title_de: Nachfassen
+    title_de: Follow Through
     image: /images/uploads/strokes_follow_1.webp
 ---
