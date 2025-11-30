@@ -1,11 +1,11 @@
-<div class="flex flex-column flex-row-l bg-white" style="min-height: 100vh; height: 100%; width: 100%;">
+<div class="flex flex-column flex-row-l bg-white series-layout-wrapper" style="min-height: 100vh; width: 100%; align-items: stretch;">
   <!-- Left Sidebar - Series Navigation -->
-  <aside class="w-100 w-25-l pa3 pa4-l bg-white dn db-l" style="border-right: 1px solid #e5e5e5; min-height: 100vh; position: sticky; top: 0; align-self: flex-start;">
+  <aside class="w-100 w-25-l pa3 pa4-l bg-white dn db-l aside-full-height" style="border-right: 1px solid #e5e5e5;">
     {{ partial "series-navigation.html" . }}
   </aside>
 
   <!-- Main Content Area - Show first series by default -->
-  <main class="w-100 w-75-l pa3 pa4-l bg-white" style="flex: 1; padding-bottom: 4rem !important;">
+  <div class="w-100 w-75-l pa3 pa4-l bg-white" style="flex: 1; padding-bottom: 4rem !important;">
     <!-- Mobile Series Menu - Only visible on mobile -->
     {{ partial "series-mobile-menu.html" . }}
     
@@ -170,7 +170,7 @@
       {{ end }}
     {{ end }}
     <div class="pb6"></div>
-  </main>
+  </div>
 </div>
 
 <style>

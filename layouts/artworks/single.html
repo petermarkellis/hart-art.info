@@ -1,7 +1,7 @@
 {{ define "main" }}
-<div class="flex flex-column flex-row-l bg-white" style="min-height: 100vh; height: 100%; width: 100%;">
+<div class="flex flex-column flex-row-l bg-white series-layout-wrapper" style="min-height: 100vh; width: 100%; align-items: stretch;">
   <!-- Left Sidebar - Series Navigation -->
-  <aside class="w-100 w-25-l pa3 pa4-l bg-white dn db-l" style="border-right: 1px solid #e5e5e5; min-height: 100vh; position: sticky; top: 0; align-self: flex-start;">
+  <aside class="w-100 w-25-l pa3 pa4-l bg-white dn db-l aside-full-height" style="border-right: 1px solid #e5e5e5;">
     <nav class="series-nav">
       <ul class="list pl0">
         {{ $seriesOrder := slice "drawings-and-watercolors" "hymnal" "janacek-project" "intimni-skici" "calligraphy" "imaginary-sketchbook" "destroyed-diaries" "action-drawing" "letters-home" "strokes" "music-to-my-ears" "objects-and-assemblages" "on-the-road-rhythms" "homage-to-marienbad" "inner-landscapes" }}
@@ -36,7 +36,7 @@
   </aside>
 
   <!-- Main Content Area -->
-  <main class="w-100 w-75-l pa3 pa4-l bg-white" style="flex: 1; padding-bottom: 4rem !important;">
+  <div class="w-100 w-75-l pa3 pa4-l bg-white" style="flex: 1; padding-bottom: 4rem !important;">
     <!-- Artwork Title -->
     <h1 class="f4 f3-ns fw6 mb4 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
       {{ .Title }}
@@ -92,7 +92,7 @@
       <!-- Add padding even if pricing section doesn't exist -->
       <div class="pb6"></div>
     {{ end }}
-  </main>
+  </div>
 </div>
 
 <style>
