@@ -56,5 +56,5 @@ gallery_images:
     dimensions_en: 22 x 60,7 cm
     dimensions_de: 22 x 60,7 cm
     medium_en: Pastel, colored pencil on paper
-    title_de: Schweif des Kometen
+    title_de: Tail of the Comet
 ---
