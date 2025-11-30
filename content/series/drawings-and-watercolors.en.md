@@ -12,7 +12,6 @@ gallery_images:
     title_en: Untitled
     year: "1998"
     medium_en: Graphite, colored pencil on paper
-    dimensions: 17,5 cm x 25,4 cm
     dimensions_en: 17,5 cm x 25,4 cm
     dimensions_de: 17,5 cm x 25,4 cm
     title_de: Ohne Titel
@@ -21,7 +20,6 @@ gallery_images:
     title_en: Outburst
     year: "2000"
     medium_de: Graphit auf Papier
-    dimensions: 17,5 cm x 25,9 cm
     dimensions_en: 17,5 cm x 25,9 cm
     dimensions_de: 17,5 cm x 25,9 cm
     medium_en: Graphite on paper
@@ -30,7 +28,6 @@ gallery_images:
     title_en: Frustrated Growth
     year: "1990"
     medium_en: Graphite on paper
-    dimensions: 14,7 x 19,5 cm
     dimensions_en: 14,7 x 19,5 cm
     dimensions_de: 14,7 x 19,5 cm
     medium_de: Graphit auf Papier
@@ -39,7 +36,6 @@ gallery_images:
     image: /images/uploads/drawingsandwatercolors_whirlwind_1995_1.webp
     title_en: Whirlwind
     medium_en: Graphite on paper
-    dimensions: 25,8 cm x 17,5 cm
     dimensions_en: 25,8 cm x 17,5 cm
     dimensions_de: 25,8 cm x 17,5 cm
     title_de: Wirbel
@@ -48,7 +44,6 @@ gallery_images:
     title_en: Confrontation
     year: "2005"
     medium_de: Graphit, Farbstift, Tusche auf Papier
-    dimensions: 17,5 cm x 24,7 cm
     dimensions_en: 17,5 cm x 24,7 cm
     dimensions_de: 17,5 cm x 24,7 cm
     medium_en: Graphite, colored pencil, ink on paper
@@ -57,7 +52,6 @@ gallery_images:
     image: /images/uploads/drawingsandwatercolors_getting_in_touch_2005_1.webp
     year: "2005"
     medium_en: Graphite on paper
-    dimensions: 17,5 cm x 24,5 cm
     dimensions_en: 17,5 cm x 24,5 cm
     dimensions_de: 17,5 cm x 24,5 cm
     title_de: Auf Tuchfühlung gehen
@@ -66,7 +60,6 @@ gallery_images:
     image: /images/uploads/drawingsandwatercolors_intermingling_2005_1.webp
     year: "2005"
     medium_de: Graphit, Farbstift auf Papier
-    dimensions: 17,5 cm x 24,5 cm
     dimensions_en: 17,5 cm x 24,5 cm
     dimensions_de: 17,5 cm x 24,5 cm
     medium_en: Graphite, colored pencil on paper
@@ -75,7 +68,6 @@ gallery_images:
     title_en: Go with the Flow,
     medium_en: Watercolor on paper
     year: "1997"
-    dimensions: 17,5 x 25,5 cm
     dimensions_en: 17,5 x 25,5 cm
     dimensions_de: 17,5 x 25,5 cm
     title_de: Go with the Flow
@@ -85,7 +77,6 @@ gallery_images:
     title_de: Ohne Titel
     year: "2004"
     medium_en: Watercolor, colored pencil on paper
-    dimensions: 27,8 cm x 19,5 cm
     dimensions_en: 27,8 cm x 19,5 cm
     dimensions_de: 27,8 cm x 19,5 cm
     medium_de: Aquarell, Farbstift auf Papier
@@ -94,14 +85,12 @@ gallery_images:
     image: /images/uploads/drawingsandwatercolors_untitled_2004_2.webp
     medium_en: Watercolor, colored pencil on paper
     year: "2004"
-    dimensions: 27,8 cm x 19,5 cm
     dimensions_en: 27,8 cm x 19,5 cm
     dimensions_de: 27,8 cm x 19,5 cm
     medium_de: Aquarell, Farbstift auf Papier
   - title_de: Es geschehen noch Zeichen und Wunder
     year: "2004"
     medium_de: Graphit, Tusche, Farbstift auf Papier
-    dimensions: 19,5 cm x 27,8 cm
     dimensions_en: 19,5 cm x 27,8 cm
     dimensions_de: 19,5 cm x 27,8 cm
     title_en: Pushing the Envelope
@@ -111,7 +100,6 @@ gallery_images:
     image: /images/uploads/drawingsandwatercolors_untitled_1997_1.webp
     year: "1997"
     medium_en: Colored pencil, graphite on paper
-    dimensions: 17,6 x 25,4 cm
     dimensions_en: 17,6 x 25,4 cm
     dimensions_de: 17,6 x 25,4 cm
     medium_de: Farbstift und Graphit auf Papier
@@ -120,7 +108,6 @@ gallery_images:
     image: /images/uploads/drawingsandwatercolors_imaginary_letter_to_a_friend_2001_1.webp
     year: "2001"
     medium_de: Tusche auf Papier
-    dimensions: 17,7 x 24,7 cm
     dimensions_en: 17,7 x 24,7 cm
     dimensions_de: 17,7 x 24,7 cm
     medium_en: Ink on paper
@@ -130,7 +117,6 @@ gallery_images:
     year: "2002"
     title_de: Volumes upon Volumes
     medium_de: Graphit, Tusche auf Papier
-    dimensions: 19,5 x 28 cm
     dimensions_en: 19,5 x 28 cm
     dimensions_de: 19,5 x 28 cm
     medium_en: Graphite, ink on paper
@@ -138,7 +124,6 @@ gallery_images:
     image: /images/uploads/drawingsandwatercolors_with_four_leeds_2000_1.webp
     year: "2000"
     medium_en: Graphite on paper
-    dimensions: 26 x 17,5 cm
     dimensions_en: 26 x 17,5 cm
     dimensions_de: 26 x 17,5 cm
     title_de: Vierstiftig
@@ -147,7 +132,6 @@ gallery_images:
     image: /images/uploads/drawingsandwatercolors_words_from_the_sky_2000_1.webp
     year: "2000"
     medium_de: Graphit auf Papier
-    dimensions: 26 x 17,5 cm
     dimensions_en: 26 x 17,5 cm
     dimensions_de: 26 x 17,5 cm
     medium_en: Graphite on paper

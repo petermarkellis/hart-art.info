@@ -1,6 +1,6 @@
 ---
 title: "Mark Hartzheim"
-image: /images/uploads/mark_hartzheim_photo.jpg
+image: /images/uploads/mark_hartzheim_photo.webp
 email: "mark@hart-art.info"
 address_line1: "95138 Bad Steben"
 address_line2: "Oberfranken"

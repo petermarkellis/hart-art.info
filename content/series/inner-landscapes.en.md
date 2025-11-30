@@ -19,7 +19,6 @@ gallery_images:
     year: "2013"
     medium_en: Pastel, watercolour on paper
     medium_de: Pastell, Aquarell auf Papier
-    dimensions: 70 cm x 100 cm
     dimensions_en: 70 cm x 100 cm
     dimensions_de: 70 cm x 100 cm
   - image: /images/uploads/inner-landscapes_2.webp
@@ -28,14 +27,12 @@ gallery_images:
     year: "2014"
     medium_en: pastel, watercolour on paper
     medium_de: Pastell, Aquarell auf Papier
-    dimensions: 70cm x 100cm
     dimensions_en: 70cm x 100cm
     dimensions_de: 70cm x 100cm
   - image: /images/uploads/inner_landscapes_enigma_1.webp
     title_en: Enigma
     year: "2014"
     medium_en: Pastel, watercolour on paper
-    dimensions: 70 cm x 100 cm
     dimensions_en: 70 cm x 100 cm
     dimensions_de: 70 cm x 100 cm
     medium_de: Pastell, Aquarell auf Papier
@@ -44,7 +41,6 @@ gallery_images:
     title_en: Rise and Release
     year: "2014"
     medium_en: Pastel, watercolour on paper
-    dimensions: 69,5 cm x 41,5 cm
     dimensions_en: 69,5 cm x 41,5 cm
     dimensions_de: 69,5 cm x 41,5 cm
     medium_de: Pastell, Aquarell auf Papier
@@ -53,7 +49,6 @@ gallery_images:
     title_en: Perennial Growth
     year: "2017"
     medium_en: Pastel, watercolour on paper
-    dimensions: 60,5 cm x 100 cm
     dimensions_en: 60,5 cm x 100 cm
     dimensions_de: 60,5 cm x 100 cm
     medium_de: Pastell, Aquarell auf Papier
@@ -62,7 +57,6 @@ gallery_images:
     title_en: Gestation
     year: "2017"
     medium_de: Pastell, Aquarell auf Papier
-    dimensions: 60 cm x 100 cm
     dimensions_en: 60 cm x 100 cm
     dimensions_de: 60 cm x 100 cm
     medium_en: Pastel, watercolour on paper
@@ -72,7 +66,6 @@ gallery_images:
     title_en: Kindred Spirits
     year: "2021"
     medium_de: Pastell auf Papier
-    dimensions: 100 cm x 70 cm
     dimensions_en: 100 cm x 70 cm
     dimensions_de: 100 cm x 70 cm
     medium_en: Pastell auf Papier
@@ -81,14 +74,12 @@ gallery_images:
     title_en: Awakening
     year: "2021"
     medium_de: Pastell, Aquarell auf Papier
-    dimensions: 75 x 110 cm
     dimensions_en: 75 x 110 cm
     dimensions_de: 75 x 110 cm
     medium_en: Pastel, watercolour on paper
   - image: /images/uploads/inner_landscapes_into_my_own_1.webp
     title_en: Into My Own
     year: "2021"
-    dimensions: 75 x 110 cm
     dimensions_en: 75 x 110 cm
     dimensions_de: 75 x 110 cm
     medium_en: Pastel, watercolour on paper
@@ -98,7 +89,6 @@ gallery_images:
     title_en: Unfolding
     medium_en: Pastel, watercolour on paper
     year: "2021"
-    dimensions: 70 x 100 cm
     dimensions_en: 70 x 100 cm
     dimensions_de: 70 x 100 cm
     medium_de: Pastell, Aquarell auf Papier
@@ -107,7 +97,6 @@ gallery_images:
     title_de: Ebbe und Flut
     year: "2021"
     medium_de: Pastell, Aquarell auf Papier
-    dimensions: 75 x 110 cm
     dimensions_en: 75 x 110 cm
     dimensions_de: 75 x 110 cm
     medium_en: Pastel, watercolour on paper
@@ -116,7 +105,6 @@ gallery_images:
     title_en: Parallel Worlds
     year: "2021"
     medium_en: Pastel, watercolour on paper
-    dimensions: 72 x 106 cm
     dimensions_en: 72 x 106 cm
     dimensions_de: 72 x 106 cm
     title_de: Parallelwelten
@@ -126,7 +114,6 @@ gallery_images:
     title_de: Verschmelzend
     medium_de: Pastell, Aquarell auf Papier
     year: "2021"
-    dimensions: 75 x 110 cm
     dimensions_en: 75 x 110 cm
     dimensions_de: 75 x 110 cm
     medium_en: Pastel, watercolour on paper
@@ -134,7 +121,6 @@ gallery_images:
     title_en: Crucible
     year: 2021/22
     medium_en: Pastel, watercolour on paper
-    dimensions: 75 x 110 cm
     dimensions_en: 75 x 110 cm
     dimensions_de: 75 x 110 cm
     medium_de: Pastell, Aquarell auf Papier
@@ -143,7 +129,6 @@ gallery_images:
     title_de: Entfesselt
     year: "2022"
     medium_de: Pastel, Aquarell auf Papier
-    dimensions: 106 x 71,4 cm
     dimensions_en: 106 x 71,4 cm
     dimensions_de: 106 x 71,4 cm
     title_en: Unleashed
@@ -152,7 +137,6 @@ gallery_images:
     title_en: Two Part Harmony
     year: "2023"
     medium_en: Pastel, watercolour on paper
-    dimensions: 29,5 x 42 cm
     dimensions_en: 29,5 x 42 cm
     dimensions_de: 29,5 x 42 cm
     title_de: Zweiklang
@@ -162,7 +146,6 @@ gallery_images:
     title_en: Eruption
     year: "2023"
     medium_de: Aquarell, Farbstift auf Papier
-    dimensions: 70 x 50 cm
     dimensions_en: 70 x 50 cm
     dimensions_de: 70 x 50 cm
     medium_en: Watercolour, coloured pencil on paper
@@ -170,7 +153,6 @@ gallery_images:
     title_en: Panta Rhei
     year: "2023"
     medium_en: Watercolour, pastel on paper
-    dimensions: 70 x 50 cm
     dimensions_en: 70 x 50 cm
     dimensions_de: 70 x 50 cm
     medium_de: Pastel, Aquarell auf Papier
@@ -179,7 +161,6 @@ gallery_images:
     title_de: Heilung
     year: "2023"
     medium_de: Pastel, Aquarell auf Papier
-    dimensions: 75 x 110 cm
     dimensions_en: 75 x 110 cm
     dimensions_de: 75 x 110 cm
     title_en: Healing
@@ -188,7 +169,6 @@ gallery_images:
     title_en: A Leap of Faith
     year: 2023/24
     medium_en: Pastel, watercolour on paper
-    dimensions: 75 x 110 cm
     dimensions_en: 75 x 110 cm
     dimensions_de: 75 x 110 cm
     medium_de: Pastel, Aquarell auf Papier
@@ -199,7 +179,6 @@ gallery_images:
     year: "2024"
     medium_en: Pastel and watercolor on paper
     medium_de: "Pastell und Aquarell auf Papier "
-    dimensions: 72,5 cm x 111 cm
     dimensions_en: 72,5 cm x 111 cm
     dimensions_de: 72,5 cm x 111 cm
   - title_en: Transformation
@@ -207,7 +186,6 @@ gallery_images:
     year: "2024"
     medium_en: Pastel and watercolor on paper
     medium_de: "Pastell und Aquarell auf Papier "
-    dimensions: 70,5 cm x 108 cm
     dimensions_en: 70,5 cm x 108 cm
     dimensions_de: 70,5 cm x 108 cm
     image: /images/uploads/20251122_transformation_2024__1.webp
@@ -216,7 +194,6 @@ gallery_images:
     year: "2025"
     medium_de: "Pastell und Aquarell auf Papier "
     medium_en: Pastel and watercolor on paper
-    dimensions: 73 cm x 111 cm
     dimensions_en: 73 cm x 111 cm
     dimensions_de: 73 cm x 111 cm
     image: /images/uploads/20251122_firm_and_flowing_2025__1.webp

@@ -18,7 +18,6 @@ gallery_images:
   - title_en: On My Way Again (At Last!)
     year: "2012"
     medium_en: Watercolor on paper
-    dimensions: 21 x 59 cm
     dimensions_en: 21 x 59 cm
     dimensions_de: 21 x 59 cm
     title_de: Endlich wieder unterwegs!
@@ -27,7 +26,6 @@ gallery_images:
   - title_en: Christmas
     year: "2012"
     medium_en: Watercolor on paper
-    dimensions: 21 x 59 cm
     dimensions_en: 21 x 59 cm
     dimensions_de: 21 x 59 cm
     medium_de: Aquarell auf Papier
@@ -36,7 +34,6 @@ gallery_images:
   - title_en: On to Something
     year: "2012"
     medium_en: Watercolor on paper
-    dimensions: 21 x 59 cm
     dimensions_en: 21 x 59 cm
     dimensions_de: 21 x 59 cm
     medium_de: Aquarell auf Papier
@@ -46,7 +43,6 @@ gallery_images:
     year: "2012"
     medium_en: Watercolor on paper
     medium_de: Aquarell auf Papier
-    dimensions: 21 x 59 cm
     dimensions_en: 21 x 59 cm
     dimensions_de: 21 x 59 cm
     title_de: Heilung (Silvester)
@@ -54,7 +50,6 @@ gallery_images:
   - title_en: Happy New Year!
     year: "2013"
     medium_en: Watercolor on paper
-    dimensions: 21 x 59 cm
     dimensions_en: 21 x 59 cm
     dimensions_de: 21 x 59 cm
     medium_de: Aquarell auf Papier
@@ -63,7 +58,6 @@ gallery_images:
   - title_en: Untitled
     year: "2013"
     medium_en: Watercolor on paper
-    dimensions: 21 x 59 cm
     dimensions_en: 21 x 59 cm
     dimensions_de: 21 x 59 cm
     medium_de: Aquarell auf Papier
@@ -72,7 +66,6 @@ gallery_images:
   - title_en: Triad
     year: "2013"
     medium_en: Watercolor on paper
-    dimensions: 21 x 59 cm
     dimensions_en: 21 x 59 cm
     dimensions_de: 21 x 59 cm
     medium_de: Aquarell auf Papier
@@ -81,7 +74,6 @@ gallery_images:
   - title_en: Variations in Green
     year: "2013"
     medium_en: Watercolor on paper
-    dimensions: 21 x 59 cm
     dimensions_en: 21 x 59 cm
     dimensions_de: 21 x 59 cm
     medium_de: Aquarell auf Papier
@@ -90,7 +82,6 @@ gallery_images:
   - title_en: Follow Through
     year: "2013"
     medium_en: Watercolor on paper
-    dimensions: 21 x 59 cm
     dimensions_en: 21 x 59 cm
     dimensions_de: 21 x 59 cm
     medium_de: Aquarell auf Papier

@@ -13,7 +13,6 @@ description: "*Intimni Skici* (Intimate Sketches) is the title of a collection
 gallery_images:
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
-    dimensions: 16,7 x 25,7 cm
     dimensions_en: 16,7 x 25,7 cm
     dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 1
@@ -22,7 +21,6 @@ gallery_images:
     image: /images/uploads/intimate_sketches__1.webp
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
-    dimensions: 16,7 x 25,7 cm
     dimensions_en: 16,7 x 25,7 cm
     dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 2
@@ -31,7 +29,6 @@ gallery_images:
     image: /images/uploads/intimate_sketches__2.webp
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
-    dimensions: 16,7 x 25,7 cm
     dimensions_en: 16,7 x 25,7 cm
     dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 3
@@ -40,7 +37,6 @@ gallery_images:
     image: /images/uploads/intimate_sketches__3.webp
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
-    dimensions: 16,7 x 25,7 cm
     dimensions_en: 16,7 x 25,7 cm
     dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 4
@@ -49,7 +45,6 @@ gallery_images:
     image: /images/uploads/intimate_sketches__4.webp
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
-    dimensions: 16,7 x 25,7 cm
     dimensions_en: 16,7 x 25,7 cm
     dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 5
@@ -58,7 +53,6 @@ gallery_images:
     image: /images/uploads/intimate_sketches__5.webp
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
-    dimensions: 16,7 x 25,7 cm
     dimensions_en: 16,7 x 25,7 cm
     dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 6
@@ -67,7 +61,6 @@ gallery_images:
     image: /images/uploads/intimate_sketches__6.webp
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
-    dimensions: 16,7 x 25,7 cm
     dimensions_en: 16,7 x 25,7 cm
     dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 7
@@ -76,7 +69,6 @@ gallery_images:
     image: /images/uploads/intimate_sketches__7.webp
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
-    dimensions: 16,7 x 25,7 cm
     dimensions_en: 16,7 x 25,7 cm
     dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 8
@@ -85,7 +77,6 @@ gallery_images:
     image: /images/uploads/intimate_sketches__8.webp
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
-    dimensions: 16,7 x 25,7 cm
     dimensions_en: 16,7 x 25,7 cm
     dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 9
@@ -94,7 +85,6 @@ gallery_images:
     image: /images/uploads/intimate_sketches__9.webp
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
-    dimensions: 16,7 x 25,7 cm
     dimensions_en: 16,7 x 25,7 cm
     dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 10
@@ -103,7 +93,6 @@ gallery_images:
     image: /images/uploads/intimate_sketches__10.webp
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
-    dimensions: 16,7 x 25,7 cm
     dimensions_en: 16,7 x 25,7 cm
     dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 11
@@ -112,7 +101,6 @@ gallery_images:
     image: /images/uploads/intimate_sketches__11.webp
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
-    dimensions: 16,7 x 25,7 cm
     dimensions_en: 16,7 x 25,7 cm
     dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 12
@@ -121,7 +109,6 @@ gallery_images:
     image: /images/uploads/intimate_sketches__12.webp
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
-    dimensions: 16,7 x 25,7 cm
     dimensions_en: 16,7 x 25,7 cm
     dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 13
@@ -130,7 +117,6 @@ gallery_images:
     image: /images/uploads/intimate_sketches__13.webp
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
-    dimensions: 16,7 x 25,7 cm
     dimensions_en: 16,7 x 25,7 cm
     dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 14
@@ -139,7 +125,6 @@ gallery_images:
     image: /images/uploads/intimate_sketches__14.webp
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
-    dimensions: 16,7 x 25,7 cm
     dimensions_en: 16,7 x 25,7 cm
     dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 15
@@ -148,7 +133,6 @@ gallery_images:
     image: /images/uploads/intimate_sketches__15.webp
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
-    dimensions: 16,7 x 25,7 cm
     dimensions_en: 16,7 x 25,7 cm
     dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 16
@@ -158,7 +142,6 @@ gallery_images:
   - year: "2003"
     medium_de: Mischtechnik auf Notenheft
     medium_en: mixed media on notebook cover and pages
-    dimensions: 16,7 x 25,7 cm
     dimensions_en: 16,7 x 25,7 cm
     dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 17
@@ -167,7 +150,6 @@ gallery_images:
   - year: "2003"
     medium_de: Mischtechnik auf Notenheft
     medium_en: mixed media on notebook cover and pages
-    dimensions: 16,7 x 25,7 cm
     dimensions_en: 16,7 x 25,7 cm
     dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 18
@@ -175,7 +157,6 @@ gallery_images:
     image: /images/uploads/intimate_sketches__18.webp
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
-    dimensions: 16,7 x 25,7 cm
     dimensions_en: 16,7 x 25,7 cm
     dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 19
@@ -184,7 +165,6 @@ gallery_images:
     image: /images/uploads/intimate_sketches__19.webp
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
-    dimensions: 16,7 x 25,7 cm
     dimensions_en: 16,7 x 25,7 cm
     dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 20
@@ -193,7 +173,6 @@ gallery_images:
     image: /images/uploads/intimate_sketches__20.webp
   - year: "2003"
     medium_en: mixed media on notebook cover and pages
-    dimensions: 16,7 x 25,7 cm
     dimensions_en: 16,7 x 25,7 cm
     dimensions_de: 16,7 x 25,7 cm
     title_en: Intimate Sketches 21

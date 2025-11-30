@@ -21,7 +21,6 @@ gallery_images:
     year: "2006"
     title_en: Terra Incognita
     medium_en: Pastel, colored pencil on paper
-    dimensions: 22 x 60,7 cm
     dimensions_en: 22 x 60,7 cm
     dimensions_de: 22 x 60,7 cm
     medium_de: Pastell, Farbstift auf Papier
@@ -30,7 +29,6 @@ gallery_images:
     title_en: Trace Elements
     year: "2006"
     medium_en: Pastel, colored pencil on paper
-    dimensions: 22 x 60,7 cm
     dimensions_en: 22 x 60,7 cm
     dimensions_de: 22 x 60,7 cm
     title_de: Spurenelemente
@@ -39,7 +37,6 @@ gallery_images:
     title_de: Los!
     year: "2007"
     medium_de: Pastell, Farbstift auf Papier
-    dimensions: 22 x 60,7 cm
     dimensions_en: 22 x 60,7 cm
     dimensions_de: 22 x 60,7 cm
     title_en: Go!
@@ -48,7 +45,6 @@ gallery_images:
     title_en: Microcosm (Creation)
     year: "2007"
     medium_en: Pastel, colored pencil on paper
-    dimensions: 22 x 60,7 cm
     dimensions_en: 22 x 60,7 cm
     dimensions_de: 22 x 60,7 cm
     title_de: Microcosm (Creation)
@@ -57,7 +53,6 @@ gallery_images:
     title_en: Tail of the Comet
     year: "2008"
     medium_de: Pastell, Farbstift auf Papier
-    dimensions: 22 x 60,7 cm
     dimensions_en: 22 x 60,7 cm
     dimensions_de: 22 x 60,7 cm
     medium_en: Pastel, colored pencil on paper

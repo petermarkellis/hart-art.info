@@ -21,7 +21,6 @@ gallery_images:
     title_en: Texas Turmoil
     year: "2018"
     medium_en: graphite on paper
-    dimensions: 15 x 10,5 cm
     dimensions_en: 15 x 10,5 cm
     dimensions_de: 15 x 10,5 cm
     medium_de: Grafit auf Papier
@@ -29,7 +28,6 @@ gallery_images:
   - image: /images/uploads/on_the_road_rhythms__peace_1.webp
     title_en: Peace at Last
     medium_en: graphite, coloured pencil on paper
-    dimensions: 15 x 10,5 cm
     dimensions_en: 15 x 10,5 cm
     dimensions_de: 15 x 10,5 cm
     year: "2018"
@@ -39,7 +37,6 @@ gallery_images:
     title_en: Sonoran Symphony
     year: "2018"
     medium_en: graphite, coloured pencil on paper
-    dimensions: 15 x 10,5 cm
     dimensions_en: 15 x 10,5 cm
     dimensions_de: 15 x 10,5 cm
     medium_de: Grafit, Farbstift auf Papier
@@ -48,7 +45,6 @@ gallery_images:
     title_en: All Vital Signs Are Good
     year: "2018"
     medium_en: graphite, coloured pencil on paper
-    dimensions: 15 x 10,5 cm
     dimensions_en: 15 x 10,5 cm
     dimensions_de: 15 x 10,5 cm
     medium_de: Grafit, Farbstift auf Papier
@@ -57,7 +53,6 @@ gallery_images:
     title_en: It's Comin' on Christmas
     year: "2018"
     medium_en: graphite, coloured pencil on paper
-    dimensions: 15 x 10,5 cm
     dimensions_en: 15 x 10,5 cm
     dimensions_de: 15 x 10,5 cm
     title_de: Bald ist Weihnachten
@@ -66,7 +61,6 @@ gallery_images:
     title_en: Song for the Inner Child
     year: "2018"
     medium_en: ink, graphite on paper
-    dimensions: 15 x 10,5 cm
     dimensions_en: 15 x 10,5 cm
     dimensions_de: 15 x 10,5 cm
     title_de: Lied für das innere Kind
@@ -75,7 +69,6 @@ gallery_images:
     title_en: Ring in the New Year
     year: "2018"
     medium_en: ink, graphite on paper
-    dimensions: 15 x 10,5 cm
     dimensions_en: 15 x 10,5 cm
     dimensions_de: 15 x 10,5 cm
     title_de: Läute das Neue Jahr hinein!
@@ -84,7 +77,6 @@ gallery_images:
     title_en: Carefree Highway
     year: "2018"
     medium_en: ink, coloured pencil on paper
-    dimensions: 15 x 10,5 cm
     dimensions_en: 15 x 10,5 cm
     dimensions_de: 15 x 10,5 cm
     title_de: Sorgloser Highway
@@ -92,7 +84,6 @@ gallery_images:
   - title_en: Turning Point
     year: 2018/19
     medium_en: graphite, coloured pencil on paper
-    dimensions: 15 x 10,5 cm
     dimensions_en: 15 x 10,5 cm
     dimensions_de: 15 x 10,5 cm
     title_de: Wendepunkt
@@ -101,7 +92,6 @@ gallery_images:
   - title_en: Survival Song
     year: "2019"
     medium_en: graphite, coloured pencil on paper
-    dimensions: 15 x 10,5 cm
     dimensions_en: 15 x 10,5 cm
     dimensions_de: 15 x 10,5 cm
     title_de: Überlebenslied
@@ -110,7 +100,6 @@ gallery_images:
   - title_en: Rorschach Rhythms
     year: "2019"
     medium_en: graphite, coloured pencil on paper
-    dimensions: 15 x 21 cm
     dimensions_en: 15 x 21 cm
     dimensions_de: 15 x 21 cm
     title_de: Rorschach Rhythmen
@@ -119,7 +108,6 @@ gallery_images:
   - title_en: Broken Lines
     year: "2019"
     medium_en: graphite, coloured pencil on paper
-    dimensions: 15 x 10,5 cm
     dimensions_en: 15 x 10,5 cm
     dimensions_de: 15 x 10,5 cm
     title_de: Gebrochene Linien
@@ -128,7 +116,6 @@ gallery_images:
   - title_en: Happy Travels?
     year: "2019"
     medium_en: graphite, coloured pencil on paper
-    dimensions: 15 x 10,5 cm
     dimensions_en: 15 x 10,5 cm
     dimensions_de: 15 x 10,5 cm
     title_de: Schöne Reise?
@@ -137,7 +124,6 @@ gallery_images:
   - title_en: The Scheme of Things
     year: "2019"
     medium_en: graphite, coloured pencil on paper
-    dimensions: 15 x 10,5 cm
     dimensions_en: 15 x 10,5 cm
     dimensions_de: 15 x 10,5 cm
     title_de: Der göttliche Plan
@@ -146,7 +132,6 @@ gallery_images:
   - title_en: Finale
     year: "2019"
     medium_en: graphite, coloured pencil on paper
-    dimensions: 15 x 10,5 cm
     dimensions_en: 15 x 10,5 cm
     dimensions_de: 15 x 10,5 cm
     title_de: Finale

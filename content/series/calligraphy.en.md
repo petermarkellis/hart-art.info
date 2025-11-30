@@ -19,7 +19,6 @@ gallery_images:
     title_en: Cosmic Dancer
     medium_en: Watercolor, ink, gouache, pastel on paper
     year: "2003"
-    dimensions: 100 cm x 71,5 cm
     dimensions_en: 100 cm x 71,5 cm
     dimensions_de: 100 cm x 71,5 cm
     medium_de: Aquarell, Tusche, Gouache, Pastell auf Papier
@@ -28,7 +27,6 @@ gallery_images:
     title_en: Ongoing Journey
     year: "2004"
     medium_en: Watercolor, ink, gouache, pastel on paper
-    dimensions: 100 cm x 71,5 cm
     dimensions_en: 100 cm x 71,5 cm
     dimensions_de: 100 cm x 71,5 cm
     medium_de: Aquarell, Tusche, Gouache, Pastell auf Papier
@@ -37,7 +35,6 @@ gallery_images:
     title_en: Making My Marks
     year: "2004"
     medium_en: Watercolor, ink, gouache, pastel on paper
-    dimensions: 72 cm x 44,4 cm
     dimensions_en: 72 cm x 44,4 cm
     dimensions_de: 72 cm x 44,4 cm
     medium_de: Aquarell, Tusche, Gouache, Pastell auf Papier
@@ -46,7 +43,6 @@ gallery_images:
     title_en: Sign of the Times
     year: "2004"
     medium_de: Aquarell, Tusche, Gouache, Pastell auf Papier
-    dimensions: 72 cm x 44 cm
     dimensions_en: 72 cm x 44 cm
     dimensions_de: 72 cm x 44 cm
     medium_en: Watercolor, ink, gouache, pastel on paper
@@ -57,7 +53,6 @@ gallery_images:
     year: "2005"
     medium_en: Watercolour, ink, gouache,  pastel on paper
     medium_de: Aquarell, Tusche, Gouache, Pastell auf Papier
-    dimensions: 212 cm x 90 cm (with "frame" / mit Aufhängevorrichtung)
     dimensions_en: 212 cm x 90 cm (with frame)
     dimensions_de: 212 cm x 90 cm (mit Aufhängevorrichtung)
   - image: /images/uploads/20251122_banner_2_2025__2.webp
@@ -65,7 +60,6 @@ gallery_images:
     title_de: Banner II
     year: "2005"
     medium_en: Watercolour, Ink, Gouache, Pastel on Paper
-    dimensions: 183 cm  x 71 cm  - 212 cm x 90 cm (with "frame" / mit Aufhängevorrichtung)
     dimensions_en: 183 cm x 71 cm - 212 cm x 90 cm (with frame)
     dimensions_de: 183 cm x 71 cm - 212 cm x 90 cm (mit Aufhängevorrichtung)
     medium_de: Aquarell, Tusche, Gouache, Pastell auf Papier

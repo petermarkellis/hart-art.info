@@ -151,33 +151,21 @@
                 {{ $mediumFormatted }}
               </div>
             {{ end }}
-            {{/* Get dimensions - show both EN and DE only if they differ, otherwise show one or fallback to legacy */}}
+            {{/* Get dimensions - show only the one matching current locale */}}
             {{ $dimensionsEn := $currentLangImage.dimensions_en | default $galleryImage.dimensions_en | default "" }}
             {{ $dimensionsDe := $currentLangImage.dimensions_de | default $galleryImage.dimensions_de | default "" }}
             {{ $dimensionsLegacy := $currentLangImage.dimensions | default $galleryImage.dimensions | default "" }}
             
-            {{ if and $dimensionsEn $dimensionsDe (ne $dimensionsEn $dimensionsDe) }}
-              {{/* Both exist and are different - show both */}}
+            {{ $dimensions := "" }}
+            {{ if eq $currentLang "de" }}
+              {{ $dimensions = $dimensionsDe | default $dimensionsEn | default $dimensionsLegacy | default "" }}
+            {{ else }}
+              {{ $dimensions = $dimensionsEn | default $dimensionsDe | default $dimensionsLegacy | default "" }}
+            {{ end }}
+            
+            {{ if $dimensions }}
               <div class="f6 black-70 mb1" style="font-family: 'Inter', sans-serif;">
-                {{ $dimensionsEn }}
-              </div>
-              <div class="f6 black-70 mb1" style="font-family: 'Inter', sans-serif;">
-                {{ $dimensionsDe }}
-              </div>
-            {{ else if $dimensionsEn }}
-              {{/* Only EN exists or both are the same - show EN */}}
-              <div class="f6 black-70 mb1" style="font-family: 'Inter', sans-serif;">
-                {{ $dimensionsEn }}
-              </div>
-            {{ else if $dimensionsDe }}
-              {{/* Only DE exists - show DE */}}
-              <div class="f6 black-70 mb1" style="font-family: 'Inter', sans-serif;">
-                {{ $dimensionsDe }}
-              </div>
-            {{ else if $dimensionsLegacy }}
-              {{/* Fallback to legacy dimensions */}}
-              <div class="f6 black-70 mb1" style="font-family: 'Inter', sans-serif;">
-                {{ $dimensionsLegacy }}
+                {{ $dimensions }}
               </div>
             {{ end }}
             {{ $year := $currentLangImage.year | default $galleryImage.year }}

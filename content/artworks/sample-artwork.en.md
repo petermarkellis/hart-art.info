@@ -2,7 +2,7 @@
 title: Abstract Landscape
 date: 2024-01-15
 series: ["inner-landscapes"]
-image: /images/uploads/hero_background.jpg
+image: /images/uploads/hero_background.webp
 medium: Oil on Canvas
 dimensions: 100 x 80 cm
 ---

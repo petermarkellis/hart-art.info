@@ -18,7 +18,6 @@ gallery_images:
     title_en: In the Face of Adversity
     year: "2020"
     medium_en: Graphite, watercolor on papier
-    dimensions: 17,5 x 24,5 cm
     dimensions_en: 17,5 x 24,5 cm
     dimensions_de: 17,5 x 24,5 cm
     title_de: Trotz aller Widrigkeiten
@@ -28,7 +27,6 @@ gallery_images:
     title_de: Svoboda
     year: "2020"
     medium_en: Graphite, watercolor on papier
-    dimensions: 17,5 x 24,5 cm
     dimensions_en: 17,5 x 24,5 cm
     dimensions_de: 17,5 x 24,5 cm
     medium_de: Grafit, Aquarell auf Papier
@@ -36,7 +34,6 @@ gallery_images:
     title_en: Novelty
     year: "2020"
     title_de: Novum
-    dimensions: 17,5 x 24,5 cm
     dimensions_en: 17,5 x 24,5 cm
     dimensions_de: 17,5 x 24,5 cm
     medium_en: Graphite, watercolor on papier
@@ -45,7 +42,6 @@ gallery_images:
     title_en: Revelation
     year: "2020"
     medium_en: Graphite, watercolor on papier
-    dimensions: 17,5 x 24,5 cm
     dimensions_en: 17,5 x 24,5 cm
     dimensions_de: 17,5 x 24,5 cm
     medium_de: Grafit, Aquarell auf Papier
@@ -54,7 +50,6 @@ gallery_images:
     title_en: Whatever it Takes
     year: "2020"
     medium_en: graphite, watercolor on papier
-    dimensions: 17,5 x 24,5 cm
     dimensions_en: 17,5 x 24,5 cm
     dimensions_de: 17,5 x 24,5 cm
     medium_de: Grafit, Aquarell auf Papier

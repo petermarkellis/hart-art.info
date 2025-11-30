@@ -17,7 +17,6 @@ description: >-
 gallery_images:
   - title_de: " Skizze für Jenufa"
     medium_de: Tinte auf Partiturfragment
-    dimensions: 25,8 x 19,7 cm
     title_en: " Sketch for Jenufa"
     medium_en: Ink on score fragment
     dimensions_de: 25,8 x 19,7 cm
@@ -26,7 +25,6 @@ gallery_images:
     year: "2003"
   - title_de: Im Nebel
     medium_de: Aquarell auf Partiturfragment
-    dimensions: 29,6 x 20,2 cm
     title_en: In the Fog
     medium_en: Watercolor on score fragment
     dimensions_de: 29,6 x 20,2 cm
@@ -35,7 +33,6 @@ gallery_images:
     year: "2003"
   - title_de: Eine Erinnerung
     medium_de: Tinte, Buntstift, Graphit auf Partiturfragment
-    dimensions: 60 x 80 cm
     title_en: A Recollection
     medium_en: Ink, colored pencil, graphite on score fragment
     dimensions_de: 60 x 80 cm
@@ -44,7 +41,6 @@ gallery_images:
     year: "2003"
   - title_de: Ein fortgewehtes Blatt
     medium_de: Tinte, Aquarell, Graphit auf Partiturfragment
-    dimensions: 60 x 80 cm
     title_en: A Blown-Away Leaf
     medium_en: Ink, watercolor, graphite on score fragment
     dimensions_de: 60 x 80 cm

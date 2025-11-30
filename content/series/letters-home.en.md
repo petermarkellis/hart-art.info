@@ -20,7 +20,6 @@ description: >-
 gallery_images:
   - title_de: Brief aus einem neuen Land
     medium_de: Graphit u. Kohle auf Luftpostpapier
-    dimensions: 9,1 x 21 cm
     title_en: Letter From a New Country
     medium_en: Graphite and charcoal on airmail paper
     dimensions_de: 9,1 x 21 cm
@@ -29,7 +28,6 @@ gallery_images:
     year: "2012"
   - title_de: The Language Barrier
     medium_de: Mischtechnik auf Luftpostpapier
-    dimensions: 28,5 x 18,2 cm
     title_en: The Language Barrier
     medium_en: Mixed media on airmail paper
     dimensions_de: 28,5 x 18,2 cm
@@ -38,7 +36,6 @@ gallery_images:
     year: "2012"
   - title_de: Geschriebene Rhythmen
     medium_de: Mischtechnik auf Luftpostpapier
-    dimensions: 29,1 x 21 cm
     title_en: Written Rhythms
     medium_en: Mixed media on airmail paper
     dimensions_de: 29,1 x 21 cm
@@ -47,7 +44,6 @@ gallery_images:
     year: "2012"
   - title_de: Es geht um Balance
     medium_de: Mischtechnik auf Luftpostpapier
-    dimensions: 29,1 x 21 cm
     title_en: It's All About Balance
     medium_en: Mixed media on airmail paper
     dimensions_de: 29,1 x 21 cm
@@ -56,7 +52,6 @@ gallery_images:
     year: "2012"
   - title_de: Giving Back
     medium_de: Mischtechnik auf Luftpostpapier
-    dimensions: 29,1 x 21 cm
     title_en: Giving Back
     medium_en: Mixed media on airmail paper
     dimensions_de: 29,1 x 21 cm
@@ -65,7 +60,6 @@ gallery_images:
     year: "2012"
   - title_de: Keine Regeln, keine Einschränkungen
     medium_de: Mischtechnik auf Luftpostpapier
-    dimensions: 29,1 x 21 cm
     title_en: No Rules, No Restraints
     medium_en: Mixed media on airmail paper
     dimensions_de: 29,1 x 21 cm
@@ -74,7 +68,6 @@ gallery_images:
     year: "2012"
   - title_de: Aus persönlichen Gründen
     medium_de: Farbstift a. Luftpostpapier u. -umschlag
-    dimensions: 25,1 x 23 cm
     title_en: For Reasons I'd Rather Not Disclose
     medium_en: Colored pencil on airmail paper & envelope
     dimensions_de: 25,1 x 23 cm
@@ -83,7 +76,6 @@ gallery_images:
     year: "2012"
   - title_de: An Inner Necessity
     medium_de: Mischtechnik a. Luftpostpapier u. -umschlag
-    dimensions: 29,4 x 22,5 cm
     title_en: An Inner Necessity
     medium_en: Mixed media on airmail paper & envelope
     dimensions_de: 29,4 x 22,5 cm
@@ -92,7 +84,6 @@ gallery_images:
     year: "2012"
   - title_de: Unverhofftes Glück
     medium_de: Farbstift a. Luftpostpapier u. -umschlag
-    dimensions: 29,3 x 29,4 cm
     title_en: Lady Luck
     medium_en: Colored pencil on airmail paper & envelope
     dimensions_de: 29,3 x 29,4 cm
@@ -101,7 +92,6 @@ gallery_images:
     year: "2012"
   - title_de: Und so schreibe ich (Union Mail)
     medium_de: Mischtechnik a. Luftpostpapier u. -umschlag
-    dimensions: 29,3 x 32 cm
     title_en: And so I write (Union Mail)
     medium_en: Mixed media on airmail paper & envelope
     dimensions_de: 29,3 x 32 cm
@@ -110,7 +100,6 @@ gallery_images:
     year: "2012"
   - title_de: Vertraulich
     medium_de: Mischtechnik a. Luftpostpapier u. -umschlag
-    dimensions: 17,5 x 14,5 cm
     title_en: Confidential
     medium_en: Mixed media on airmail paper & envelope
     dimensions_de: 17,5 x 14,5 cm
@@ -119,7 +108,6 @@ gallery_images:
     year: "2012"
   - title_de: Serendipität II
     medium_de: Mischtechnik auf Papier
-    dimensions: 20,5 x 29 cm
     title_en: Serendipity II
     medium_en: Mischtechnik auf Papier
     dimensions_de: 20,5 x 29 cm
@@ -128,7 +116,6 @@ gallery_images:
     year: "2012"
   - title_de: Innerlichkeit
     medium_de: Graphit und Farbstift a. Papier
-    dimensions: 23,3 x 31,5 cm
     title_en: Inwardness
     medium_en: Graphite and colored pencil on paper
     dimensions_de: 23,3 x 31,5 cm
@@ -137,7 +124,6 @@ gallery_images:
     year: "2012"
   - title_de: Eine neue Sprache
     medium_de: Graphit auf Papier
-    dimensions: 31 x 23,5 cm
     title_en: A New Language
     medium_en: Graphite on paper
     dimensions_de: 31 x 23,5 cm

@@ -18,7 +18,6 @@ description: >-
 gallery_images:
   - title_de: Pověz mě, má milá (Sag es mir, meine Liebste)
     medium_de: Aquarell, Farbstift, Graphit auf Notenpapier
-    dimensions: 16,5 x 25,3 cm
     title_en: Pověz mě, má milá (Tell me, my dear)
     medium_en: Watercolor, colored pencil, graphite on manuscript paper
     dimensions_de: 16,5 x 25,3 cm
@@ -27,7 +26,6 @@ gallery_images:
     year: "2014"
   - title_de: Před našim je zahrádečka (Vor unserem Haus ein Gärtlein)
     medium_de: Aquarell, Graphit, Tusche auf Notenpapier
-    dimensions: 16,5 x 25,3 cm
     title_en: Před našim je zahrádečka (In front of our house a small garden)
     medium_en: Watercolor, graphite, ink on manuscript paper
     dimensions_de: 16,5 x 25,3 cm
@@ -36,7 +34,6 @@ gallery_images:
     year: "2014"
   - title_de: Ocička má jako trnka (Äuglein hat sie wie Pflaumen)
     medium_de: Aquarell, Tusche auf Notenpapier
-    dimensions: 16,5 X 25,3 cm
     title_en: Ocička má jako trnka (She has little eyes like plums)
     medium_en: Watercolor, ink on manuscript paper
     dimensions_de: 16,5 X 25,3 cm
@@ -45,7 +42,6 @@ gallery_images:
     year: "2014"
   - title_de: Kdo chce peknů ženu mat... (Wer eine schöne Frau haben möchte...)
     medium_de: Aquarell, Tusche auf Notenpapier
-    dimensions: 16,5 x 25,3 cm
     title_en: Kdo chce peknů ženu mat. (If you want a beautiful woman.)
     medium_en: Watercolor, ink on manuscript paper
     dimensions_de: 16,5 x 25,3 cm
@@ -54,7 +50,6 @@ gallery_images:
     year: "2015"
   - title_de: Scrawl
     medium_de: Aquarell, Graphit auf Notenpapier
-    dimensions: 16,5 X 25,3 cm
     title_en: Scrawl
     medium_en: Watercolor, graphite on manuscript paper
     dimensions_de: 16,5 X 25,3 cm
@@ -63,7 +58,6 @@ gallery_images:
     year: "2014"
   - title_de: The Lyrical I (Reprise)
     medium_de: Aquarell, Graphit auf Notenpapier
-    dimensions: 16,5 X 25,3 cm
     title_en: The Lyrical I (Reprise)
     medium_en: Watercolor, graphite on manuscript paper
     dimensions_de: 16,5 X 25,3 cm
@@ -72,7 +66,6 @@ gallery_images:
     year: "2014"
   - title_de: Combined Forces I
     medium_de: Aquarell, Graphit auf Notenpapier1
-    dimensions: 6,5 x 25,3 cm
     title_en: Combined Forces I
     medium_en: Watercolor, graphite on manuscript paper
     dimensions_de: 6,5 x 25,3 cm
@@ -81,7 +74,6 @@ gallery_images:
     year: "2015"
   - title_de: Combined Forces II
     medium_de: Aquarell, Graphit auf Notenpapier
-    dimensions: 16,5 x 25,3 cm
     title_en: Combined Forces II
     medium_en: Watercolor, graphite on manuscript paper
     dimensions_de: 16,5 x 25,3 cm
@@ -90,7 +82,6 @@ gallery_images:
     year: "2015"
   - title_de: Fruition
     medium_de: Aquarell, Graphit, Tinte auf Notenpapier
-    dimensions: 16,5 X 25,3 cm
     title_en: Fruition
     medium_en: Watercolor, graphite, ink on manuscript paper
     dimensions_de: 16,5 X 25,3 cm
@@ -99,7 +90,6 @@ gallery_images:
     year: "2015"
   - title_de: (Alles) Fügt sich zusammen
     medium_de: Aquarell, Graphit auf Notenpapier
-    dimensions: 16,5 X 25,3 cm
     title_en: (Everything's) Coming Together
     medium_en: Watercolor, graphite on manuscript paper
     dimensions_de: 16,5 X 25,3 cm
@@ -108,7 +98,6 @@ gallery_images:
     year: "2014"
   - title_de: Healing Scars
     medium_de: Aquarell, Graphit auf Notenpapier
-    dimensions: 16,5 x 25,3 cm
     title_en: Healing Scars
     medium_en: Watercolor, graphite on manuscript paper
     dimensions_de: 16,5 x 25,3 cm
@@ -117,7 +106,6 @@ gallery_images:
     year: "2015"
   - title_de: Epiphany II
     medium_de: Aquarell, Graphit auf Notenpapier
-    dimensions: 16,5 x 25,3 cm
     title_en: Epiphany II
     medium_en: Watercolor, graphite on manuscript paper
     dimensions_de: 16,5 x 25,3 cm
@@ -126,7 +114,6 @@ gallery_images:
     year: "2015"
   - title_de: Spielwiese
     medium_de: Aquarell, Graphit auf Notenpapier
-    dimensions: 16,5 X 25,3 cm
     title_en: Playground
     medium_en: Watercolor, graphite on manuscript paper
     dimensions_de: 16,5 X 25,3 cm
@@ -135,7 +122,6 @@ gallery_images:
     year: "2015"
   - title_de: Kindergarten
     medium_de: Graphit, Aquarell auf Notenpapier
-    dimensions: 16,7 x 25,2 cm
     title_en: Kindergarten
     medium_en: Graphite, watercolour on manuscript paper
     dimensions_de: 16,7 x 25,2 cm
@@ -144,7 +130,6 @@ gallery_images:
     year: "2015"
   - title_de: Counterpoint
     medium_de: Graphit, Aquarell auf Notenpapier
-    dimensions: 16,7 x 25,2 cm
     title_en: Counterpoint
     medium_en: Graphite, watercolour on manuscript paper
     dimensions_de: 16,7 x 25,2 cm
@@ -153,7 +138,6 @@ gallery_images:
     year: "2015"
   - title_de: Ráda Ráda
     medium_de: Aquarell, Tusche auf Notenpapier
-    dimensions: 16,7 x 25,2 cm
     title_en: Ráda Ráda
     medium_en: Watercolour, ink on manuscript paper
     dimensions_de: 16,7 x 25,2 cm
@@ -162,7 +146,6 @@ gallery_images:
     year: "2015"
   - title_de: Boleráz
     medium_de: Aquarell auf Notenpapier
-    dimensions: 16,7 x 25,2 cm
     title_en: Boleráz
     medium_en: Watercolour on manuscript paper
     dimensions_de: 16,7 x 25,2 cm
@@ -171,7 +154,6 @@ gallery_images:
     year: "2022"
   - title_de: Moravská
     medium_de: Aquarell, Tusche auf Notenpapier
-    dimensions: 16,7 x 25,2 cm
     title_en: Moravská
     medium_en: Watercolour, ink on manuscript paper
     dimensions_de: 16,7 x 25,2 cm
@@ -182,13 +164,11 @@ gallery_images:
     image: /images/uploads/music_to_my_ears_virginny_1.webp
     year: "2022"
     medium_de: Aquarell auf Notenpapier
-    dimensions: 16,7 x 25,2 cm
     dimensions_en: 16,7 x 25,2 cm
     dimensions_de: 16,7 x 25,2 cm
     medium_en: Watercolour on manuscript paper
   - title_de: Allegro
     medium_de: Aquarell auf Notenpapier
-    dimensions: 16,7 x 25,2 cm
     title_en: Allegro
     medium_en: Watercolour on manuscript paper
     dimensions_de: 16,7 x 25,2 cm
@@ -197,7 +177,6 @@ gallery_images:
     year: "2022"
   - title_de: On an Impulse
     medium_de: Aquarell auf Notenpapier
-    dimensions: 16,7 x 25,2 cm
     title_en: On an Impulse
     medium_en: Watercolour on manuscript paper
     dimensions_de: 16,7 x 25,2 cm
@@ -206,7 +185,6 @@ gallery_images:
     year: "2022"
   - title_de: Etwas Altes, etwas Neues
     medium_de: Graphit, Aquarell auf Notenpapier
-    dimensions: 16,7 x 25,2 cm
     title_en: Something Old, Something New
     medium_en: Graphite, watercolour on manuscript paper
     dimensions_de: 16,7 x 25,2 cm
@@ -215,7 +193,6 @@ gallery_images:
     year: "2023"
   - title_de: Im Fluss
     medium_de: Graphit, Aquarell auf Notenpapier
-    dimensions: 16,7 x 25,2 cm
     title_en: A State of Flux
     medium_en: Graphite, watercolour on manuscript paper
     dimensions_de: 16,7 x 25,2 cm
@@ -224,7 +201,6 @@ gallery_images:
     year: "2023"
   - title_de: Synthese
     medium_de: Graphit, Aquarell auf Notenpapier
-    dimensions: 16,7 x 25,2 cm
     title_en: Synthesis
     medium_en: Graphite, watercolour on manuscript paper
     dimensions_de: 16,7 x 25,2 cm
@@ -233,7 +209,6 @@ gallery_images:
     year: "2022"
   - title_de: Schwarze Pastellkreide
     medium_de: Graphit, Aquarell auf Notenpapier
-    dimensions: 16,7 x 25,2 cm
     title_en: Black Pastel
     medium_en: Graphite, watercolour on manuscript paper
     dimensions_de: 16,7 x 25,2 cm

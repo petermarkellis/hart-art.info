@@ -17,7 +17,6 @@ description: >-
 gallery_images:
   - title_de: Alles Fließt!
     medium_de: Pastell, Farbstift auf Papier
-    dimensions: 70 cm x 100 cm
     title_en: Everything Flows!
     medium_en: Pastel, colored pencil on paper
     dimensions_de: 70 cm x 100 cm
@@ -26,7 +25,6 @@ gallery_images:
     year: "2009"
   - title_de: Flüchtige Begegnung
     medium_de: Pastell, Farbstift auf Papier
-    dimensions: 70 cm x 100 cm
     title_en: Fleeting Encounter
     medium_en: Pastel, colored pencil on paper
     dimensions_de: 70 cm x 100 cm
@@ -35,7 +33,6 @@ gallery_images:
     year: "2009"
   - title_de: Bildlogik
     medium_de: Pastell, Farbstift auf Papier
-    dimensions: 70 cm x 100 cm
     title_en: Picture Logic
     medium_en: Pastel, colored pencil on paper
     dimensions_de: 70 cm x 100 cm
@@ -44,7 +41,6 @@ gallery_images:
     year: "2009"
   - title_de: Glücksfall
     medium_de: Pastell, Farbstift auf Papier
-    dimensions: 73 cm x 102 cm
     title_en: Good Fortune
     medium_en: Pastel, colored pencil on paper
     dimensions_de: 73 cm x 102 cm
@@ -53,7 +49,6 @@ gallery_images:
     year: "2010"
   - title_de: Fusion
     medium_de: Pastell, Farbstift auf Papier
-    dimensions: 73 cm x 102 cm
     title_en: Fusion
     medium_en: Pastel, colored pencil on paper
     dimensions_de: 73 cm x 102 cm
@@ -62,7 +57,6 @@ gallery_images:
     year: "2010"
   - title_de: Metamorphose
     medium_de: Pastell, Farbstift auf Papier
-    dimensions: 61,4 cm x 100 cm
     title_en: Metamorphosis
     medium_en: Pastel, colored pencil on paper
     dimensions_de: 61,4 cm x 100 cm
@@ -71,7 +65,6 @@ gallery_images:
     year: "2010"
   - title_de: Libellenträume
     medium_de: Pastell, Farbstift auf Papier
-    dimensions: 73 cm x 102 cm
     title_en: Dragonfly Dreams
     medium_en: Pastel, colored pencil on paper
     dimensions_de: 73 cm x 102 cm
@@ -80,7 +73,6 @@ gallery_images:
     year: "2010"
   - title_de: Godsend
     medium_de: Pastell, Farbstift auf Papier
-    dimensions: 70,4 cm x 100 cm
     title_en: Godsend
     medium_en: Pastel, colored pencil on paper
     dimensions_de: 70,4 cm x 100 cm
@@ -89,7 +81,6 @@ gallery_images:
     year: "2011"
   - title_de: Making Waves
     medium_de: Pastell, Farbstift auf Papier
-    dimensions: 70,4 cm x 100 cm
     title_en: Making Waves
     medium_en: Pastel, colored pencil on paper
     dimensions_de: 70,4 cm x 100 cm
@@ -98,7 +89,6 @@ gallery_images:
     year: "2011"
   - title_de: Von Innen Heraus
     medium_de: Pastell, Farbstift auf Papier
-    dimensions: 70 cm x 100 cm
     title_en: From Within
     medium_en: Pastel, colored pencil on paper
     dimensions_de: 70 cm x 100 cm
@@ -107,7 +97,6 @@ gallery_images:
     year: "2014"
   - title_de: Kraftquelle
     medium_de: Pastell auf Papier
-    dimensions: 50 cm x 70 cm
     title_en: Source
     medium_en: Pastel on paper
     dimensions_de: 50 cm x 70 cm
