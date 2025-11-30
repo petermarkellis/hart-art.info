@@ -15,7 +15,7 @@ gallery_images:
     dimensions_en: 21,4 cm x 30,7 cm
     dimensions_de: 21,4 cm x 30,7 cm
     medium_de: Farbstift, Aquarell, Collage auf Tagebuchdeckel
-    title_de: Zerstörtes Tagebuch I
+    title_de: Destroyed Diary I
   - image: /images/uploads/destroyed_diaries_diary_2.webp
     title_en: Destroyed Diary II
     year: "2007"
@@ -23,5 +23,5 @@ gallery_images:
     dimensions_en: 21,4 cm x 30,7 cm
     dimensions_de: 21,4 cm x 30,7 cm
     medium_de: Farbstift, Aquarell, Collage auf Tagebuchdeckel
-    title_de: Zerstörtes Tagebuch II
+    title_de: Destroyed Diary II
 ---
