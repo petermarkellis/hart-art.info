@@ -111,7 +111,7 @@ gallery_images:
     dimensions_en: 17,7 x 24,7 cm
     dimensions_de: 17,7 x 24,7 cm
     medium_en: Ink on paper
-    title_de: Ein fiktiver Brief an einen Freund
+    title_de: Imaginary Letter to a Friend
   - image: /images/uploads/drawingsandwatercolors_volumes_upon_volumes_2002_1.webp
     title_en: Volumes upon Volumes
     year: "2002"
@@ -135,5 +135,5 @@ gallery_images:
     dimensions_en: 26 x 17,5 cm
     dimensions_de: 26 x 17,5 cm
     medium_en: Graphite on paper
-    title_de: Worte vom Himmel
+    title_de: Words from the Sky
 ---
