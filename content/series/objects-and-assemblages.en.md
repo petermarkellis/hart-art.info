@@ -468,34 +468,38 @@ gallery_images:
   - title_en: Ode to Nature (A)
     title_de: An die Natur (A)
     year: "2024"
+    medium_en: Colored pencil on wood
+    medium_de: Farbstift auf Holz
     dimensions_en: 26,5 cm x 7 cm in Diameter - 3 cm x 12 cm in diameter (Pedestal)
-    dimensions_de: 26,5 cm x 7 cm in Durchmesser - 3 cm x 12 cm in Durchmesser (Durchmesser der Plinthe)
+    dimensions_de: 26,5 cm x 7 cm in Durchmesser - 3 cm x 12 cm in Durchmesser
+      (Durchmesser der Plinthe)
+    image: /images/uploads/20251122_ode_to_nature_c_2025__1.webp
+  - title_en: Ode to Nature (B)
+    title_de: An die Natur (B)
+    year: "2024"
+    dimensions_en: 26,5 cm x 7 cm in Diameter - 3 cm x 12 cm in diameter (Pedestal)
+    dimensions_de: 26,5 cm x 7 cm in Durchmesser - 3 cm x 12 cm in Durchmesser
+      (Durchmesser der Plinthe)
     medium_en: Colored pencil on wood
     medium_de: Farbstift auf Holz
     image: /images/uploads/20251122_ode_to_nature_a_2025__1.webp
-  - title_en: Ode to Nature (A)
-    title_de: An die Natur (A)
+  - title_en: Ode to Nature (C)
+    title_de: An die Natur (C)
     year: "2024"
     medium_en: Colored pencil on wood
     medium_de: Farbstift auf Holz
     dimensions_en: 26,5 cm x 7 cm in Diameter - 3 cm x 12 cm in diameter (Pedestal)
-    dimensions_de: 26,5 cm x 7 cm in Durchmesser - 3 cm x 12 cm in Durchmesser (Durchmesser der Plinthe)
+    dimensions_de: 26,5 cm x 7 cm in Durchmesser - 3 cm x 12 cm in Durchmesser
+      (Durchmesser der Plinthe)
     image: /images/uploads/20251122_ode_to_nature_b_2025__1.webp
-  - title_en: Ode to Nature (A)
-    title_de: An die Natur (A)
+  - title_en: Ode to Nature (D)
+    title_de: An die Natur (D)
     year: "2024"
     medium_en: Colored pencil on wood
     medium_de: Farbstift auf Holz
     dimensions_en: 26,5 cm x 7 cm in Diameter - 3 cm x 12 cm in diameter (Pedestal)
-    dimensions_de: 26,5 cm x 7 cm in Durchmesser - 3 cm x 12 cm in Durchmesser (Durchmesser der Plinthe)
-    image: /images/uploads/20251122_ode_to_nature_c_2025__1.webp
-  - title_en: Ode to Nature (A)
-    title_de: An die Natur (A)
-    year: "2024"
-    medium_en: Colored pencil on wood
-    medium_de: Farbstift auf Holz
-    dimensions_en: 26,5 cm x 7 cm in Diameter - 3 cm x 12 cm in diameter (Pedestal)
-    dimensions_de: 26,5 cm x 7 cm in Durchmesser - 3 cm x 12 cm in Durchmesser (Durchmesser der Plinthe)
+    dimensions_de: 26,5 cm x 7 cm in Durchmesser - 3 cm x 12 cm in Durchmesser
+      (Durchmesser der Plinthe)
     image: /images/uploads/20251122_ode_to_nature_d_2025__1.webp
   - image: /images/uploads/20251122_emergence_2024__1.webp
     title_en: Emergence
