@@ -19,7 +19,7 @@ gallery_images:
     title_en: Hymnal Page 1
     medium_en: Mixed media on hymnal cover and pages
     dimensions_de: 18,5 cm x 11 cm x 3,3 cm
-    image: /images/uploads/hymnal_1_upscayl_2x_digital-art-4x.webp
+    image: /images/uploads/hymnal__1.webp
     dimensions_en: 18,5 cm x 11 cm x 3,3 cm
     year: "2022"
   - title_de: Gesangbuch Seite 2
@@ -27,7 +27,7 @@ gallery_images:
     title_en: Hymnal Page 2
     medium_en: Mixed media on hymnal cover and pages
     dimensions_de: 18,5 cm x 11 cm x 3,3 cm
-    image: /images/uploads/hymnal__2_upscayl_2x_digital-art-4x.webp
+    image: /images/uploads/hymnal__2.webp
     dimensions_en: 18,5 cm x 11 cm x 3,3 cm
     year: "2002"
   - title_de: Gesangbuch Seite 3
@@ -35,7 +35,7 @@ gallery_images:
     title_en: Hymnal Page 3
     medium_en: Mixed media on hymnal cover and pages
     dimensions_de: 18,5 cm x 11 cm x 3,3 cm
-    image: /images/uploads/hymnal__3_upscayl_2x_digital-art-4x.webp
+    image: /images/uploads/hymnal__3.webp
     dimensions_en: 18,5 cm x 11 cm x 3,3 cm
     year: "2002"
   - title_de: Gesangbuch Seite 4
@@ -43,7 +43,7 @@ gallery_images:
     title_en: Hymnal Page 4
     medium_en: Mixed media on hymnal cover and pages
     dimensions_de: 18,5 cm x 11 cm x 3,3 cm
-    image: /images/uploads/hymnal__4_upscayl_2x_digital-art-4x.webp
+    image: /images/uploads/hymnal__4.webp
     dimensions_en: 18,5 cm x 11 cm x 3,3 cm
     year: "2002"
   - title_de: Gesangbuch Seite 5
@@ -51,7 +51,7 @@ gallery_images:
     title_en: Hymnal Page 5
     medium_en: Mixed media on hymnal cover and pages
     dimensions_de: 18,5 cm x 11 cm x 3,3 cm
-    image: /images/uploads/hymnal__5_upscayl_2x_digital-art-4x.webp
+    image: /images/uploads/hymnal__5.webp
     dimensions_en: 18,5 cm x 11 cm x 3,3 cm
     year: "2002"
   - title_de: Gesangbuch Seite 6
@@ -59,7 +59,7 @@ gallery_images:
     title_en: Hymnal Page 6
     medium_en: Mixed media on hymnal cover and pages
     dimensions_de: 18,5 cm x 11 cm x 3,3 cm
-    image: /images/uploads/hymnal__6_upscayl_2x_digital-art-4x.webp
+    image: /images/uploads/hymnal__6.webp
     dimensions_en: 18,5 cm x 11 cm x 3,3 cm
     year: "2002"
   - title_de: Gesangbuch Seite 7
@@ -67,7 +67,7 @@ gallery_images:
     title_en: Hymnal Page 7
     medium_en: Mixed media on hymnal cover and pages
     dimensions_de: 18,5 cm x 11 cm x 3,3 cm
-    image: /images/uploads/hymnal__7_upscayl_2x_digital-art-4x.webp
+    image: /images/uploads/hymnal__7.webp
     dimensions_en: 18,5 cm x 11 cm x 3,3 cm
     year: "2002"
   - title_de: Gesangbuch Seite 8
@@ -75,7 +75,7 @@ gallery_images:
     title_en: Hymnal Page 8
     medium_en: Mixed media on hymnal cover and pages
     dimensions_de: 18,5 cm x 11 cm x 3,3 cm
-    image: /images/uploads/hymnal__8_upscayl_2x_digital-art-4x.webp
+    image: /images/uploads/hymnal__8.webp
     dimensions_en: 18,5 cm x 11 cm x 3,3 cm
     year: "2002"
   - title_de: Gesangbuch Seite 9
@@ -83,7 +83,7 @@ gallery_images:
     title_en: Hymnal Page 9
     medium_en: Mixed media on hymnal cover and pages
     dimensions_de: 18,5 cm x 11 cm x 3,3 cm
-    image: /images/uploads/hymnal__9_upscayl_2x_digital-art-4x.webp
+    image: /images/uploads/hymnal__9.webp
     dimensions_en: 18,5 cm x 11 cm x 3,3 cm
     year: "2002"
   - title_de: Gesangbuch Seite 10
@@ -91,7 +91,7 @@ gallery_images:
     title_en: Hymnal Page 10
     medium_en: Mixed media on hymnal cover and pages
     dimensions_de: 18,5 cm x 11 cm x 3,3 cm
-    image: /images/uploads/hymnal__10_upscayl_2x_digital-art-4x.webp
+    image: /images/uploads/hymnal__10.webp
     dimensions_en: 18,5 cm x 11 cm x 3,3 cm
     year: "2002"
   - title_de: Gesangbuch Seite 11
@@ -99,7 +99,7 @@ gallery_images:
     title_en: Hymnal Page 11
     medium_en: Mixed media on hymnal cover and pages
     dimensions_de: 18,5 cm x 11 cm x 3,3 cm
-    image: /images/uploads/hymnal__11_upscayl_2x_digital-art-4x.webp
+    image: /images/uploads/hymnal__11.webp
     dimensions_en: 18,5 cm x 11 cm x 3,3 cm
     year: "2002"
   - title_de: Gesangbuch Seite 12
@@ -107,7 +107,7 @@ gallery_images:
     title_en: Hymnal Page 12
     medium_en: Mixed media on hymnal cover and pages
     dimensions_de: 18,5 cm x 11 cm x 3,3 cm
-    image: /images/uploads/hymnal__12_upscayl_2x_digital-art-4x.webp
+    image: /images/uploads/hymnal__12.webp
     dimensions_en: 18,5 cm x 11 cm x 3,3 cm
     year: "2002"
   - title_de: Gesangbuch Seite 13
@@ -115,7 +115,7 @@ gallery_images:
     title_en: Hymnal Page 13
     medium_en: Mixed media on hymnal cover and pages
     dimensions_de: 18,5 cm x 11 cm x 3,3 cm
-    image: /images/uploads/hymnal__13_upscayl_2x_digital-art-4x.webp
+    image: /images/uploads/hymnal__13.webp
     dimensions_en: 18,5 cm x 11 cm x 3,3 cm
     year: "2002"
   - title_de: Gesangbuch Seite 14
@@ -123,7 +123,7 @@ gallery_images:
     title_en: Hymnal Page 14
     medium_en: Mixed media on hymnal cover and pages
     dimensions_de: 18,5 cm x 11 cm x 3,3 cm
-    image: /images/uploads/hymnal__14_upscayl_2x_digital-art-4x.webp
+    image: /images/uploads/hymnal__14.webp
     dimensions_en: 18,5 cm x 11 cm x 3,3 cm
     year: "2002"
   - title_de: Gesangbuch Seite 15
@@ -131,7 +131,7 @@ gallery_images:
     title_en: Hymnal Page 15
     medium_en: Mixed media on hymnal cover and pages
     dimensions_de: 18,5 cm x 11 cm x 3,3 cm
-    image: /images/uploads/hymnal__15_upscayl_2x_digital-art-4x.webp
+    image: /images/uploads/hymnal__15.webp
     dimensions_en: 18,5 cm x 11 cm x 3,3 cm
     year: "2002"
   - title_de: Gesangbuch Seite 16
@@ -139,7 +139,7 @@ gallery_images:
     title_en: Hymnal Page 16
     medium_en: Mixed media on hymnal cover and pages
     dimensions_de: 18,5 cm x 11 cm x 3,3 cm
-    image: /images/uploads/hymnal__16_upscayl_2x_digital-art-4x.webp
+    image: /images/uploads/hymnal__16.webp
     dimensions_en: 18,5 cm x 11 cm x 3,3 cm
     year: "2002"
 ---
