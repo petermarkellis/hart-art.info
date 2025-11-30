@@ -22,7 +22,7 @@ gallery_images:
     dimensions_en: 100 cm x 71,5 cm
     dimensions_de: 100 cm x 71,5 cm
     medium_de: Aquarell, Tusche, Gouache, Pastell auf Papier
-    title_de: Kosmischer Tänzer
+    title_de: Cosmic Dancer
   - image: /images/uploads/calligraphy_ongoing_journey_1.webp
     title_en: Ongoing Journey
     year: "2004"
@@ -30,7 +30,7 @@ gallery_images:
     dimensions_en: 100 cm x 71,5 cm
     dimensions_de: 100 cm x 71,5 cm
     medium_de: Aquarell, Tusche, Gouache, Pastell auf Papier
-    title_de: Andauernde Reise
+    title_de: Ongoing Journey
   - image: /images/uploads/calligraphy_making_my_marks_1.webp
     title_en: Making My Marks
     year: "2004"
@@ -38,7 +38,7 @@ gallery_images:
     dimensions_en: 72 cm x 44,4 cm
     dimensions_de: 72 cm x 44,4 cm
     medium_de: Aquarell, Tusche, Gouache, Pastell auf Papier
-    title_de: Meine Spuren
+    title_de: Making My Marks
   - image: /images/uploads/calligraphy_sign_of_the_times_1.webp
     title_en: Sign of the Times
     year: "2004"
@@ -46,7 +46,7 @@ gallery_images:
     dimensions_en: 72 cm x 44 cm
     dimensions_de: 72 cm x 44 cm
     medium_en: Watercolor, ink, gouache, pastel on paper
-    title_de: Zeichen der Zeit
+    title_de: Sign of the Times
   - image: /images/uploads/20251122_banner_1_2025__1.webp
     title_en: Banner I
     title_de: Banner I
