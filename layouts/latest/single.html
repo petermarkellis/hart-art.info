@@ -432,11 +432,13 @@
   <!-- Back to Latest News Link -->
   <div class="mt4 pt4" style="border-top: 1px solid #e5e5e5;">
     {{ $latestURL := "/latest/" }}
+    {{ $backText := "← Back to Latest News" }}
     {{ if eq .Site.Language.Lang "de" }}
       {{ $latestURL = "/de/latest/" }}
+      {{ $backText = "← Zurück zu Neueste" }}
     {{ end }}
     <a href="{{ $latestURL }}" class="f6 f5-ns black-90 hover-black no-underline" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
-      ← Back to Latest News
+      {{ $backText }}
     </a>
   </div>
 
