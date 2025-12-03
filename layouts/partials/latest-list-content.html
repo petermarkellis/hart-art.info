@@ -1,11 +1,59 @@
 <section class="ph2 pv4 ph4-ns pv5-ns bg-white">
-  <h1 class="f6 f5-ns fw6 mb4 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">LATEST NEWS</h1>
+  <h1 class="f6 f5-ns fw6 mb4 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">{{ if eq .Language.Lang "de" }}NEUESTE{{ else }}LATEST NEWS{{ end }}</h1>
   <div class="news-list">
     {{/* Get latest news pages for current language */}}
     {{ $currentLang := .Site.Language.Lang }}
-    {{ $latestNews := where .Site.RegularPages "Section" "latest" }}
-    {{ $latestNews = where $latestNews "Lang" $currentLang }}
-    {{ $latestNews = where $latestNews "IsNode" false }}
+    {{/* Also check page language as fallback */}}
+    {{ if not $currentLang }}
+      {{ $currentLang = .Language.Lang }}
+    {{ end }}
+    {{/* If still not set, check URL path */}}
+    {{ if not $currentLang }}
+      {{ if hasPrefix .RelPermalink "/de/" }}
+        {{ $currentLang = "de" }}
+      {{ else }}
+        {{ $currentLang = "en" }}
+      {{ end }}
+    {{ end }}
+    
+    {{ $latestNews := slice }}
+    
+    {{/* Get latest section and filter pages by current language */}}
+    {{ $latestSection := .Site.GetPage "section" "latest" }}
+    {{ if $latestSection }}
+      {{ range $latestSection.Pages }}
+        {{ $pageLang := .Lang }}
+        {{ if not $pageLang }}
+          {{ if and .File (hasSuffix .File.LogicalName ".de.md") }}
+            {{ $pageLang = "de" }}
+          {{ else if and .File (hasSuffix .File.LogicalName ".en.md") }}
+            {{ $pageLang = "en" }}
+          {{ end }}
+        {{ end }}
+        {{ if and (eq $pageLang $currentLang) (ne .Kind "section") (not .IsNode) }}
+          {{ $latestNews = $latestNews | append . }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    
+    {{/* Fallback: Use AllPages if section pages didn't work */}}
+    {{ if not $latestNews }}
+      {{ $latestNews = where .Site.AllPages "Section" "latest" }}
+      {{ range $latestNews }}
+        {{ $pageLang := .Lang }}
+        {{ if not $pageLang }}
+          {{ if and .File (hasSuffix .File.LogicalName ".de.md") }}
+            {{ $pageLang = "de" }}
+          {{ else if and .File (hasSuffix .File.LogicalName ".en.md") }}
+            {{ $pageLang = "en" }}
+          {{ end }}
+        {{ end }}
+        {{ if and (eq $pageLang $currentLang) (ne .Kind "section") (not .IsNode) }}
+          {{ $latestNews = $latestNews | append . }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    
     {{ $latestNews = $latestNews.ByDate.Reverse }}
     {{ range $latestNews }}
       {{ $newsItem := . }}

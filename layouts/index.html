@@ -139,24 +139,29 @@
   {{ if $showLatestNews }}
   <!-- Latest News Section -->
   <section class="ph2 pv4 ph4-ns pv5-ns bg-white">
-    <h2 class="f6 f5-ns fw6 mb4 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">LATEST NEWS</h2>
+    <h2 class="f6 f5-ns fw6 mb4 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">{{ if eq .Language.Lang "de" }}NEUESTE{{ else }}LATEST NEWS{{ end }}</h2>
     <div class="news-list">
       {{/* Get latest news pages for current language */}}
-      {{ $currentLang := .Site.Language.Lang }}
-      {{ $latestNews := where .Site.RegularPages "Section" "latest" }}
-      {{ $latestNews = where $latestNews "Lang" $currentLang }}
+      {{ $currentLang := .Language.Lang }}
+      {{ $latestNews := slice }}
       
-      {{/* Fallback: Try AllPages if RegularPages doesn't have enough (for future-dated pages) */}}
-      {{ $allLatestNews := where .Site.AllPages "Section" "latest" }}
-      {{ $allLatestNews = where $allLatestNews "Lang" $currentLang }}
-      {{ if gt (len $allLatestNews) (len $latestNews) }}
-        {{ $latestNews = $allLatestNews }}
+      {{/* Get latest section and filter pages by current language */}}
+      {{ $latestSection := .Site.GetPage "section" "latest" }}
+      {{ if $latestSection }}
+        {{ range $latestSection.Pages }}
+          {{ if and (eq .Lang $currentLang) (ne .Kind "section") (not .IsNode) }}
+            {{ $latestNews = $latestNews | append . }}
+          {{ end }}
+        {{ end }}
       {{ end }}
       
-      {{/* Filter out the section index page (the /latest/ listing page itself) */}}
-      {{/* Use where filters to maintain page collection type */}}
-      {{ $latestNews = where $latestNews "IsNode" false }}
-      {{ $latestNews = where $latestNews "Kind" "!=" "section" }}
+      {{/* Fallback: Use AllPages if section pages didn't work */}}
+      {{ if not $latestNews }}
+        {{ $latestNews = where .Site.AllPages "Section" "latest" }}
+        {{ $latestNews = where $latestNews "Lang" $currentLang }}
+        {{ $latestNews = where $latestNews "IsNode" false }}
+        {{ $latestNews = where $latestNews "Kind" "!=" "section" }}
+      {{ end }}
       
       {{/* Sort by date (newest first) and limit to 10 */}}
       {{ if $latestNews }}
@@ -166,14 +171,65 @@
         {{ $latestNews = slice }}
       {{ end }}
       {{ range $latestNews }}
+        {{ $newsItem := . }}
+        {{/* Get date: exhibition_start_date (preferred), then exhibition_end_date, then date from current file */}}
+        {{ $displayDate := "" }}
+        {{/* Check exhibition_start_date in current file first - if it exists and is valid, use it */}}
+        {{ if isset $newsItem.Params "exhibition_start_date" }}
+          {{ if $newsItem.Params.exhibition_start_date }}
+            {{ $parsedExhibitionStartDate := time $newsItem.Params.exhibition_start_date }}
+            {{/* Only use if successfully parsed (not zero date) */}}
+            {{ if and $parsedExhibitionStartDate (not $parsedExhibitionStartDate.IsZero) }}
+              {{ $displayDate = $parsedExhibitionStartDate }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+        {{/* If no exhibition_start_date, try exhibition_end_date */}}
+        {{ if or (not $displayDate) $displayDate.IsZero }}
+          {{ if isset $newsItem.Params "exhibition_end_date" }}
+            {{ if $newsItem.Params.exhibition_end_date }}
+              {{ $parsedExhibitionEndDate := time $newsItem.Params.exhibition_end_date }}
+              {{/* Only use if successfully parsed (not zero date) */}}
+              {{ if and $parsedExhibitionEndDate (not $parsedExhibitionEndDate.IsZero) }}
+                {{ $displayDate = $parsedExhibitionEndDate }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+        {{/* Legacy support: check old exhibition_date field */}}
+        {{ if or (not $displayDate) $displayDate.IsZero }}
+          {{ if isset $newsItem.Params "exhibition_date" }}
+            {{ if $newsItem.Params.exhibition_date }}
+              {{ $parsedExhibitionDate := time $newsItem.Params.exhibition_date }}
+              {{/* Only use if successfully parsed (not zero date) */}}
+              {{ if and $parsedExhibitionDate (not $parsedExhibitionDate.IsZero) }}
+                {{ $displayDate = $parsedExhibitionDate }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+        {{/* If no exhibition dates or they're invalid, use date from current file */}}
+        {{ if or (not $displayDate) $displayDate.IsZero }}
+          {{ if isset $newsItem.Params "date" }}
+            {{ if $newsItem.Params.date }}
+              {{ $displayDate = time $newsItem.Params.date }}
+            {{ end }}
+          {{ end }}
+          {{/* Final fallback to Hugo's Date field */}}
+          {{ if or (not $displayDate) $displayDate.IsZero }}
+            {{ if not $newsItem.Date.IsZero }}
+              {{ $displayDate = $newsItem.Date }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
         <a href="{{ .RelPermalink }}" class="db no-underline news-item" style="border-bottom: 1px solid #e5e5e5; padding: 1rem; display: flex; justify-content: space-between; align-items: center;">
           <div class="flex-auto">
             <h3 class="f6 f5-ns fw4 black-90 mb0" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; margin: 0;">{{ .Title }}</h3>
           </div>
-          {{ if not .Date.IsZero }}
+          {{ if and $displayDate (not $displayDate.IsZero) }}
             <div class="ml3 ml4-ns" style="flex-shrink: 0;">
               <span class="f7 f6-ns black-60" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; white-space: nowrap;">
-                {{ .Date.Format "2 January 2006" | upper }}
+                {{ $displayDate.Format "2 January 2006" | upper }}
               </span>
             </div>
           {{ end }}
