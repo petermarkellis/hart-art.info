@@ -31,6 +31,19 @@
     /* Prevent double-tap zoom on mobile */
     touch-action: manipulation;
     -ms-touch-action: manipulation;
+    /* Smooth scroll behavior */
+    scroll-behavior: smooth;
+  }
+  
+  /* Smooth scroll for anchor links */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    * {
+      scroll-behavior: inherit;
+    }
   }
   
   /* Prevent horizontal overflow on all containers */
