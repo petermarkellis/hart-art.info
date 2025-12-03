@@ -8,6 +8,6 @@ description: |-
   Open Studios
   Bad Steben, Germany
 description_en: "New Exhibition to be shown at: Open Studios Bad Steben, Germany"
-description_de: ""
+description_de: "Neue Ausstellung zu sehen bei: Open Studios Bad Steben, Deutschland"
 link_type: internal
 ---
