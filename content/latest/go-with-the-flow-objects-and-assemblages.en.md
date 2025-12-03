@@ -7,7 +7,8 @@ description_en: |-
   Go with the Flow - Objects and Assemblages 
   Exhibition at Konsum 36, 
   Norhalben, Germany
-description: Go with the Flow - Objects and Assemblages Exhibition at Konsum 36,
-  Norhalben, Germany
+description: |-
+  Go with the Flow - Objects and Assemblages 
+  Exhibition at Konsum 36, Norhalben, Germany
 link_type: internal
 ---
