@@ -82,7 +82,12 @@ collections:
       - {label: "Date Created", name: "date", widget: "datetime", default: "", required: true, hint: "Creation date (used for sorting and display). Set to current date when creating."}
       - {label: "Exhibition Start Date", name: "exhibition_start_date", widget: "datetime", required: false, hint: "Optional start date for exhibitions or events"}
       - {label: "Exhibition End Date", name: "exhibition_end_date", widget: "datetime", required: false, hint: "Optional end date for exhibitions or events (leave empty for single-day events)"}
-      - {label: "Show Add to Calendar", name: "show_calendar", widget: "boolean", default: true, required: false, hint: "Show 'Add to Calendar' buttons (visible by default)"}
+      - label: "Show Add to Calendar"
+        name: "show_calendar"
+        widget: "boolean"
+        default: true
+        required: false
+        hint: "Show 'Add to Calendar' buttons (visible by default)"
       - {label: "Description", name: "description", widget: "markdown", i18n: true, required: false}
       - {label: "Image (Optional)", name: "image", widget: "image", required: false, hint: "Optional image to display at the bottom of the description"}
       - {label: "Link Type", name: "link_type", widget: "select", options: ["internal", "external"], default: "internal", required: true}
