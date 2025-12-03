@@ -212,13 +212,13 @@
 
   <!-- News Description -->
   {{ $description := "" }}
-  {{/* Always prioritize current language's description field */}}
+  {{/* Use description field (with i18n: true, Hugo automatically provides the correct language) */}}
   {{ if isset .Params "description" }}
     {{ if and .Params.description (ne .Params.description "") }}
       {{ $description = .Params.description }}
     {{ end }}
   {{ end }}
-  {{/* Fallback: try separate fields (description_en, description_de) for backward compatibility */}}
+  {{/* Fallback: try separate fields (description_en, description_de) for backward compatibility with old files */}}
   {{ if or (not $description) (eq $description "") }}
     {{ $currentLang := .Site.Language.Lang }}
     {{ if eq $currentLang "de" }}
@@ -227,26 +227,10 @@
           {{ $description = .Params.description_de }}
         {{ end }}
       {{ end }}
-      {{/* Fallback to English if German not available */}}
-      {{ if or (not $description) (eq $description "") }}
-        {{ if isset .Params "description_en" }}
-          {{ if and .Params.description_en (ne .Params.description_en "") }}
-            {{ $description = .Params.description_en }}
-          {{ end }}
-        {{ end }}
-      {{ end }}
     {{ else }}
       {{ if isset .Params "description_en" }}
         {{ if and .Params.description_en (ne .Params.description_en "") }}
           {{ $description = .Params.description_en }}
-        {{ end }}
-      {{ end }}
-      {{/* Fallback to German if English not available */}}
-      {{ if or (not $description) (eq $description "") }}
-        {{ if isset .Params "description_de" }}
-          {{ if and .Params.description_de (ne .Params.description_de "") }}
-            {{ $description = .Params.description_de }}
-          {{ end }}
         {{ end }}
       {{ end }}
     {{ end }}
