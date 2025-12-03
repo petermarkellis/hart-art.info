@@ -210,21 +210,63 @@
     </div>
     
     {{/* Location / Google Maps Link */}}
+    {{ $googleMapsLink := "" }}
+    {{/* Get Google Maps link from current language first */}}
     {{ if isset .Params "google_maps_link" }}
       {{ if and .Params.google_maps_link (ne .Params.google_maps_link "") }}
-        {{ $locationLabel := "LOCATION:" }}
-        {{ $locationLinkText := "Open in Google Maps" }}
-        {{ if eq .Site.Language.Lang "de" }}
-          {{ $locationLabel = "ORT:" }}
-          {{ $locationLinkText = "In Google Maps öffnen" }}
-        {{ end }}
-        <div class="f7 f6-ns mb4 black-60" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
-          <strong>{{ $locationLabel }}</strong> 
-          <a href="{{ .Params.google_maps_link }}" target="_blank" rel="noopener noreferrer" class="black-60 hover-black no-underline" style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;" onmouseover="this.style.borderBottomColor='#1a1a1a'" onmouseout="this.style.borderBottomColor='transparent'">
-            {{ $locationLinkText }}
-          </a>
-        </div>
+        {{ $googleMapsLink = .Params.google_maps_link }}
       {{ end }}
+    {{ end }}
+    {{/* Fallback to translation if not found in current language */}}
+    {{ if or (not $googleMapsLink) (eq $googleMapsLink "") }}
+      {{ range .Translations }}
+        {{ if isset .Params "google_maps_link" }}
+          {{ if and .Params.google_maps_link (ne .Params.google_maps_link "") }}
+            {{ $googleMapsLink = .Params.google_maps_link }}
+            {{ break }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{/* Fallback to manual filename matching if still missing */}}
+    {{ if or (not $googleMapsLink) (eq $googleMapsLink "") }}
+      {{ $otherLang := "en" }}
+      {{ if eq .Site.Language.Lang "en" }}
+        {{ $otherLang = "de" }}
+      {{ end }}
+      {{ if and $.File $.File.LogicalName }}
+        {{ $baseName := strings.TrimSuffix (printf ".%s" .Lang) $.File.LogicalName }}
+        {{ $baseName = strings.TrimSuffix ".md" $baseName }}
+        {{ range where $.Site.AllPages "Section" "latest" }}
+          {{ if and .File (eq .Lang $otherLang) }}
+            {{ $otherBaseName := strings.TrimSuffix (printf ".%s" $otherLang) .File.LogicalName }}
+            {{ $otherBaseName = strings.TrimSuffix ".md" $otherBaseName }}
+            {{ if eq $otherBaseName $baseName }}
+              {{ if isset .Params "google_maps_link" }}
+                {{ if and .Params.google_maps_link (ne .Params.google_maps_link "") }}
+                  {{ $googleMapsLink = .Params.google_maps_link }}
+                  {{ break }}
+                {{ end }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    
+    {{ if and $googleMapsLink (ne $googleMapsLink "") }}
+      {{ $locationLabel := "LOCATION:" }}
+      {{ $locationLinkText := "Open in Google Maps" }}
+      {{ if eq .Site.Language.Lang "de" }}
+        {{ $locationLabel = "ORT:" }}
+        {{ $locationLinkText = "In Google Maps öffnen" }}
+      {{ end }}
+      <div class="f7 f6-ns mb4 black-60" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
+        <strong>{{ $locationLabel }}</strong> 
+        <a href="{{ $googleMapsLink }}" target="_blank" rel="noopener noreferrer" class="black-60 hover-black no-underline" style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;" onmouseover="this.style.borderBottomColor='#1a1a1a'" onmouseout="this.style.borderBottomColor='transparent'">
+          {{ $locationLinkText }}
+        </a>
+      </div>
     {{ end }}
     
     {{/* Add to Calendar Buttons - only show if show_calendar is not false */}}
@@ -241,12 +283,8 @@
         {{ $calendarDescription = .Params.description | transform.Plainify | htmlEscape }}
       {{ end }}
     {{ end }}
-    {{ $calendarLocation := "" }}
-    {{ if isset .Params "google_maps_link" }}
-      {{ if and .Params.google_maps_link (ne .Params.google_maps_link "") }}
-        {{ $calendarLocation = .Params.google_maps_link | htmlEscape }}
-      {{ end }}
-    {{ end }}
+    {{/* Use the same google_maps_link we found above (with fallbacks) */}}
+    {{ $calendarLocation := $googleMapsLink | htmlEscape }}
     {{/* Fallback to old location field if google_maps_link not available */}}
     {{ if or (not $calendarLocation) (eq $calendarLocation "") }}
       {{ if isset .Params "location" }}
