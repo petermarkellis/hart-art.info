@@ -1,5 +1,5 @@
 {{ if gt (len .Site.Languages) 1 }}
-  <div class="flex items-center">
+  <div class="flex items-center" style="display: inline-flex;">
     {{ range $index, $lang := .Site.Languages }}
       {{ if $index }}<span class="mh2 black-50">|</span>{{ end }}
       {{ $langURL := "" }}

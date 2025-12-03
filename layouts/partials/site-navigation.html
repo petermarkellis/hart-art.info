@@ -4,13 +4,31 @@
     HARTZHEIM
   </a>
   <div class="flex items-center">
-    <a href="mailto:hartzheimmark@gmail.com?subject=HARTZHEIM ART" class="f6 f5-ns black-90 no-underline mr3 mr4-ns" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">CONTACT</a>
-    {{ partials.Include "i18nlist.html" . }}
+    <!-- Desktop: Show CONTACT and language selector (hidden on mobile) -->
+    <div class="dn db-l flex items-center top-bar-contact-lang">
+      <a href="mailto:hartzheimmark@gmail.com" class="f6 f5-ns black-90 no-underline mr4" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">CONTACT</a>
+      {{ partials.Include "i18nlist.html" . }}
+    </div>
+    <!-- Mobile: Show hamburger menu button (hidden on desktop) -->
+    <button id="mobile-menu-toggle" class="db dn-l bg-transparent bn pa0 pointer" aria-label="Open menu" style="cursor: pointer;">
+      <svg class="w2 h2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 1.5rem; height: 1.5rem; color: #1a1a1a;">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
   </div>
+  
+  <style>
+    /* Ensure CONTACT and language selector are hidden on mobile */
+    @media (max-width: 60em) {
+      .top-bar-contact-lang {
+        display: none !important;
+      }
+    }
+  </style>
 </div>
 
-<!-- Main Navigation -->
-<nav class="bg-white ph2 ph4-ns pv2 bb b--black-10" role="navigation">
+<!-- Main Navigation - Desktop Only -->
+<nav class="bg-white ph2 ph4-ns pv2 bb b--black-10 dn db-l" role="navigation">
   <div class="flex items-center justify-between">
     <div class="flex items-center">
       {{ if .Site.Menus.main }}
@@ -52,4 +70,176 @@
     </div>
   </div>
 </nav>
+
+<!-- Mobile Full-Screen Menu Overlay -->
+<div id="mobile-menu-overlay" class="fixed top-0 left-0 w-100 h-100 bg-white z-999" style="display: none; z-index: 9999;">
+  <div class="flex flex-column h-100 ph2 pv2" style="position: relative;">
+    <!-- Close Button -->
+    <button id="mobile-menu-close" class="absolute top-0 right-0 pa0 bg-transparent bn pointer black-90" aria-label="Close menu" style="cursor: pointer; top: 0.5rem; right: 0.5rem;">
+      <svg class="w2 h2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 2rem; height: 2rem;">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+    
+    <!-- Menu Links -->
+    <div class="flex flex-column justify-center flex-auto" style="min-height: 0;">
+      <ul class="list pl0 ml0 mt0" style="list-style: none;">
+        {{ if .Site.Menus.main }}
+          {{ range sort .Site.Menus.main "Weight" }}
+          {{ $isActive := false }}
+          {{ $menuURL := .URL }}
+          {{ $currentURL := $.RelPermalink }}
+          {{/* Check if current page matches menu URL */}}
+          {{ if eq $menuURL "/" }}
+            {{ if $.IsHome }}
+              {{ $isActive = true }}
+            {{ end }}
+          {{ else }}
+            {{ if hasPrefix $currentURL $menuURL }}
+              {{ $isActive = true }}
+            {{ end }}
+          {{ end }}
+          <li class="mb4">
+            <a class="black-90 no-underline {{ if $isActive }}fw6{{ else }}fw4{{ end }}" href="{{ .URL }}" title="{{ lang.Translate "pageTitle" . }}" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; font-size: 2.25rem; display: block;">
+              {{ .Name | upper }}
+            </a>
+          </li>
+          {{ end }}
+        {{ end }}
+        <!-- CONTACT Link -->
+        <li class="mb4">
+          <a href="mailto:hartzheimmark@gmail.com" class="black-90 no-underline fw4" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; font-size: 2.25rem; display: block;">
+            CONTACT
+          </a>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Language Selector at Bottom -->
+    <div class="mt-auto pt4" style="margin-top: auto; padding-top: 2rem;">
+      {{ if gt (len .Site.Languages) 1 }}
+        <div class="flex items-center">
+          {{ range $index, $lang := .Site.Languages }}
+            {{ if $index }}<span class="mh2 black-50" style="color: rgba(0, 0, 0, 0.5);">|</span>{{ end }}
+            {{ $langURL := "" }}
+            {{ if eq $lang.Lang $.Site.Language.Lang }}
+              {{ $langURL = $.RelPermalink }}
+            {{ else }}
+              {{ $is404 := false }}
+              {{ if or (eq $.RelPermalink "/404.html") (eq $.RelPermalink "/de/404.html") (hasSuffix $.RelPermalink "/404.html") }}
+                {{ $is404 = true }}
+              {{ end }}
+              
+              {{ if $is404 }}
+                {{ $langURL = printf "/%s/" $lang.Lang }}
+              {{ else }}
+                {{ range $.Translations }}
+                  {{ if eq .Lang $lang.Lang }}
+                    {{ $langURL = .RelPermalink }}
+                  {{ end }}
+                {{ end }}
+                {{ if not $langURL }}
+                  {{ if $.IsHome }}
+                    {{ $langURL = printf "/%s/" $lang.Lang }}
+                  {{ else }}
+                    {{ if $.File }}
+                      {{ $baseName := strings.TrimSuffix (printf ".%s" $.Lang) $.File.LogicalName }}
+                      {{ $baseName = strings.TrimSuffix ".md" $baseName }}
+                      {{ range where $.Site.AllPages "Section" $.Section }}
+                        {{ if and .File (eq .Lang $lang.Lang) }}
+                          {{ $otherBaseName := strings.TrimSuffix (printf ".%s" $lang.Lang) .File.LogicalName }}
+                          {{ $otherBaseName = strings.TrimSuffix ".md" $otherBaseName }}
+                          {{ if eq $otherBaseName $baseName }}
+                            {{ $langURL = .RelPermalink }}
+                            {{ break }}
+                          {{ end }}
+                        {{ end }}
+                      {{ end }}
+                    {{ end }}
+                    {{ if not $langURL }}
+                      {{ $currentPath := $.RelPermalink }}
+                      {{ $pathWithoutLang := $currentPath }}
+                      {{ if hasPrefix $currentPath "/en/" }}
+                        {{ $pathWithoutLang = strings.TrimPrefix "/en" $currentPath }}
+                      {{ else if hasPrefix $currentPath "/de/" }}
+                        {{ $pathWithoutLang = strings.TrimPrefix "/de" $currentPath }}
+                      {{ end }}
+                      {{ if not (hasSuffix $pathWithoutLang "404.html") }}
+                        {{ if eq $lang.Lang "en" }}
+                          {{ if hasPrefix $pathWithoutLang "/" }}
+                            {{ $langURL = $pathWithoutLang }}
+                          {{ else }}
+                            {{ $langURL = printf "/%s" $pathWithoutLang }}
+                          {{ end }}
+                        {{ else }}
+                          {{ $langURL = printf "/%s%s" $lang.Lang $pathWithoutLang }}
+                        {{ end }}
+                      {{ else }}
+                        {{ $langURL = printf "/%s/" $lang.Lang }}
+                      {{ end }}
+                    {{ end }}
+                  {{ end }}
+                {{ end }}
+              {{ end }}
+              {{ if not $langURL }}
+                {{ $langURL = printf "/%s/" $lang.Lang }}
+              {{ end }}
+            {{ end }}
+            <a class="black-90 no-underline fw4" href="{{ $langURL }}" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; font-size: 1.875rem;">
+              {{ upper $lang.Lang }}
+            </a>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</div>
+
+<script>
+  // Mobile menu toggle functionality
+  (function() {
+    const menuToggle = document.getElementById('mobile-menu-toggle');
+    const menuOverlay = document.getElementById('mobile-menu-overlay');
+    const menuClose = document.getElementById('mobile-menu-close');
+    
+    function openMenu() {
+      if (menuOverlay) {
+        menuOverlay.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      }
+    }
+    
+    function closeMenu() {
+      if (menuOverlay) {
+        menuOverlay.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    }
+    
+    if (menuToggle) {
+      menuToggle.addEventListener('click', openMenu);
+    }
+    
+    if (menuClose) {
+      menuClose.addEventListener('click', closeMenu);
+    }
+    
+    // Close menu when clicking on a link
+    if (menuOverlay) {
+      const menuLinks = menuOverlay.querySelectorAll('a');
+      menuLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          closeMenu();
+        });
+      });
+    }
+    
+    // Close menu on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && menuOverlay && menuOverlay.style.display === 'block') {
+        closeMenu();
+      }
+    });
+  })();
+</script>
 

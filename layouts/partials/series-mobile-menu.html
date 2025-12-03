@@ -48,9 +48,9 @@
 {{ $firstSeriesSlug := "" }}
 
 {{/* Mobile Series Menu - Only visible on mobile */}}
-<div class="db dn-l mb3 ph2" style="border-bottom: 1px solid #e5e5e5; padding-bottom: 1rem;">
+<div class="db dn-l mb3 ph0" style="border-bottom: 1px solid #e5e5e5; padding-bottom: 1rem;">
   <label for="series-mobile-select" class="f6 f5-ns fw6 black-90 db mb2" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">SERIES</label>
-  <select id="series-mobile-select" class="w-100 pa2 ba b--black-20 bg-white" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; font-size: 0.875rem;" onchange="window.location.href = this.value;">
+  <select id="series-mobile-select" class="w-100 pa2 ba b--black-20 bg-white" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; font-size: 0.875rem; color: #1a1a1a;" onchange="window.location.href = this.value;">
     {{ range $sortedSeries }}
       {{ $seriesSlug := .slug }}
       {{/* Get the series name from the actual content file for current language */}}
@@ -89,6 +89,41 @@
     {{ end }}
   </select>
 </div>
+
+<style>
+  /* Style select element to show black text for selected option */
+  #series-mobile-select {
+    color: #1a1a1a !important;
+  }
+  
+  /* Style the selected option text color */
+  #series-mobile-select option {
+    color: #1a1a1a;
+  }
+  
+  /* Style when select is focused/active */
+  #series-mobile-select:focus,
+  #series-mobile-select:active {
+    color: #1a1a1a !important;
+    outline: none;
+  }
+  
+  /* For WebKit browsers (Safari, Chrome) */
+  #series-mobile-select option:checked {
+    color: #1a1a1a;
+    background-color: white;
+  }
+  
+  /* For Firefox */
+  @-moz-document url-prefix() {
+    #series-mobile-select {
+      color: #1a1a1a !important;
+    }
+    #series-mobile-select option:checked {
+      color: #1a1a1a !important;
+    }
+  }
+</style>
 
 <script>
   // Update selected option based on current URL - set selected attribute directly

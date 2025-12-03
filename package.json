@@ -7,7 +7,7 @@
     "dev:netlify": "netlify dev",
     "build": "hugo --minify",
     "build:production": "hugo --minify --environment production",
-    "clean": "rm -rf public resources .hugo_build.lock",
+    "clean": "rm -rf public resources .hugo_build.lock && hugo --cleanDestinationDir",
     "rebuild": "npm run clean && npm run build",
     "serve": "hugo server --disableFastRender",
     "deploy": "npm run build && git add . && git commit -m 'Build and deploy' && git push",
