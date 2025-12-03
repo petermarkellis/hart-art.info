@@ -185,7 +185,7 @@
                 {{ $langURL = printf "/%s/" $lang.Lang }}
               {{ end }}
             {{ end }}
-            <a class="black-90 no-underline fw4" href="{{ $langURL }}" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; font-size: 1.875rem;">
+            <a class="{{ if eq $lang.Lang $.Site.Language.Lang }}black-90 fw6{{ else }}black-50 fw4{{ end }} no-underline" href="{{ $langURL }}" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; font-size: 1.875rem;">
               {{ upper $lang.Lang }}
             </a>
           {{ end }}
