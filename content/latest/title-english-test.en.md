@@ -7,5 +7,9 @@ description_en: |-
   a description for
 
   english test
+description_de: |-
+  a description for
+
+  german test
 link_type: internal
 ---
