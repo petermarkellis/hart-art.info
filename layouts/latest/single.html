@@ -209,7 +209,13 @@
       {{ end }}
     </div>
     
-    {{/* Add to Calendar Buttons */}}
+    {{/* Add to Calendar Buttons - only show if show_calendar is not false */}}
+    {{ $showCalendar := true }}
+    {{ if isset .Params "show_calendar" }}
+      {{ $showCalendar = .Params.show_calendar }}
+    {{ end }}
+    
+    {{ if $showCalendar }}
     {{ $calendarTitle := .Title | htmlEscape }}
     {{ $calendarDescription := "" }}
     {{ if isset .Params "description" }}
@@ -335,6 +341,7 @@
         </a>
       </div>
     </div>
+    {{ end }}
   {{ end }}
 
   <!-- News Description -->
