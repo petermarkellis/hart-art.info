@@ -126,7 +126,7 @@
           {{ end }}
           {{ if $medium }}
             {{ $mediumFormatted := strings.FirstUpper $medium }}
-            <div class="f6 black-70 mb1" style="font-family: 'Inter', sans-serif;">
+            <div class="f7 f6-ns black-70 mb1" style="font-family: 'Inter', sans-serif;">
               {{ $mediumFormatted }}
             </div>
           {{ end }}
@@ -143,12 +143,12 @@
           {{ end }}
           
           {{ if $dimensions }}
-            <div class="f6 black-70 mb1" style="font-family: 'Inter', sans-serif;">
+            <div class="f7 f6-ns black-70 mb1" style="font-family: 'Inter', sans-serif;">
               {{ $dimensions }}
             </div>
           {{ end }}
           {{ if .year }}
-            <div class="f6 black-70" style="font-family: 'Inter', sans-serif;">
+            <div class="f7 f6-ns black-70" style="font-family: 'Inter', sans-serif;">
               {{ .year }}
             </div>
           {{ end }}
@@ -196,7 +196,7 @@
             </a>
           </div>
           {{ if or .Params.medium .Params.dimensions }}
-            <div class="f6 black-70" style="font-family: 'Inter', sans-serif;">
+            <div class="f7 f6-ns black-70" style="font-family: 'Inter', sans-serif;">
               {{ if .Params.medium }}{{ .Params.medium }}{{ end }}{{ if and .Params.medium .Params.dimensions }}, {{ end }}{{ if .Params.dimensions }}{{ .Params.dimensions }}{{ end }}
             </div>
           {{ end }}
