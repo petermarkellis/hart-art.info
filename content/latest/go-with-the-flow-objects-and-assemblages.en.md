@@ -9,6 +9,7 @@ description: |-
   Norhalben, Germany
 description_en: Go with the Flow - Objects and Assemblages Exhibition at Konsum
   36, Norhalben, Germany
-description_de: ""
+description_de: Mit dem Strom schwimmen – Ausstellung „Objekte und Assemblagen“
+  im Konsum 36, Norhalben, Deutschland
 link_type: internal
 ---
