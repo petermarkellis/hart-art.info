@@ -212,45 +212,52 @@
 
   <!-- News Description -->
   {{ $description := "" }}
-  {{/* Always prioritize current language's content first */}}
+  {{/* Always prioritize current language's description field */}}
   {{ if isset .Params "description" }}
     {{ if and .Params.description (ne .Params.description "") }}
       {{ $description = .Params.description }}
     {{ end }}
   {{ end }}
-  {{/* Only fallback to other language if current language has no description */}}
+  {{/* Fallback: try separate fields (description_en, description_de) for backward compatibility */}}
   {{ if or (not $description) (eq $description "") }}
-    {{/* Try using Hugo's Translations feature first */}}
+    {{ $currentLang := .Site.Language.Lang }}
+    {{ if eq $currentLang "de" }}
+      {{ if isset .Params "description_de" }}
+        {{ if and .Params.description_de (ne .Params.description_de "") }}
+          {{ $description = .Params.description_de }}
+        {{ end }}
+      {{ end }}
+      {{/* Fallback to English if German not available */}}
+      {{ if or (not $description) (eq $description "") }}
+        {{ if isset .Params "description_en" }}
+          {{ if and .Params.description_en (ne .Params.description_en "") }}
+            {{ $description = .Params.description_en }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ else }}
+      {{ if isset .Params "description_en" }}
+        {{ if and .Params.description_en (ne .Params.description_en "") }}
+          {{ $description = .Params.description_en }}
+        {{ end }}
+      {{ end }}
+      {{/* Fallback to German if English not available */}}
+      {{ if or (not $description) (eq $description "") }}
+        {{ if isset .Params "description_de" }}
+          {{ if and .Params.description_de (ne .Params.description_de "") }}
+            {{ $description = .Params.description_de }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  {{/* Final fallback: try to get from translation */}}
+  {{ if or (not $description) (eq $description "") }}
     {{ range .Translations }}
       {{ if isset .Params "description" }}
         {{ if and .Params.description (ne .Params.description "") }}
           {{ $description = .Params.description }}
           {{ break }}
-        {{ end }}
-      {{ end }}
-    {{ end }}
-    {{/* Fallback: manually find by matching filename */}}
-    {{ if or (not $description) (eq $description "") }}
-      {{ $otherLang := "en" }}
-      {{ if eq .Site.Language.Lang "en" }}
-        {{ $otherLang = "de" }}
-      {{ end }}
-      {{/* Extract base filename without language suffix */}}
-      {{ $baseName := strings.TrimSuffix (printf ".%s" .Lang) .File.LogicalName }}
-      {{ $baseName = strings.TrimSuffix ".md" $baseName }}
-      {{/* Find the other language version by matching base filename */}}
-      {{ range where $.Site.AllPages "Section" "latest" }}
-        {{ if and .File (eq .Lang $otherLang) }}
-          {{ $otherBaseName := strings.TrimSuffix (printf ".%s" $otherLang) .File.LogicalName }}
-          {{ $otherBaseName = strings.TrimSuffix ".md" $otherBaseName }}
-          {{ if eq $otherBaseName $baseName }}
-            {{ if isset .Params "description" }}
-              {{ if and .Params.description (ne .Params.description "") }}
-                {{ $description = .Params.description }}
-                {{ break }}
-              {{ end }}
-            {{ end }}
-          {{ end }}
         {{ end }}
       {{ end }}
     {{ end }}
