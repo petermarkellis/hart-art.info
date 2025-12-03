@@ -421,7 +421,16 @@
       {{ $latestURL = "/de/latest/" }}
       {{ $backText = "Zurück zu Neueste" }}
     {{ end }}
-    <a href="{{ $latestURL }}" class="f6 f5-ns black-90 hover-black no-underline flex items-center" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
+    <style>
+      .back-to-latest-link {
+        text-decoration: none;
+        transition: text-decoration 0.2s;
+      }
+      .back-to-latest-link:hover {
+        text-decoration: underline;
+      }
+    </style>
+    <a href="{{ $latestURL }}" class="f6 f5-ns black-90 hover-black no-underline flex items-center back-to-latest-link" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
       <svg class="mr2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 1rem; height: 1rem; vertical-align: middle;">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
       </svg>
