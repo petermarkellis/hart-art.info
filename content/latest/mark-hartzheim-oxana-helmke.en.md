@@ -7,5 +7,7 @@ description: |-
   New Exhibition to be shown at:
   Open Studios
   Bad Steben, Germany
+description_en: "New Exhibition to be shown at: Open Studios Bad Steben, Germany"
+description_de: ""
 link_type: internal
 ---
