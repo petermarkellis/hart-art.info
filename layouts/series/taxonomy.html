@@ -14,44 +14,20 @@
     {{ $firstSeriesSlug := "drawings-and-watercolors" }}
     {{ $firstSeriesPage := false }}
     
-    {{/* Try multiple methods to get the series page */}}
+    {{/* Get the series page for current language */}}
     {{ $lang := .Site.Language.Lang }}
     
-    {{/* Method 1: Try GetPage with various path formats */}}
-    {{ $paths := slice 
-      (printf "series/%s.%s" $firstSeriesSlug $lang)
-      (printf "series/%s" $firstSeriesSlug)
-      (printf "/series/%s.%s" $firstSeriesSlug $lang)
-      (printf "/series/%s" $firstSeriesSlug)
-    }}
-    {{ range $paths }}
-      {{ if not $firstSeriesPage }}
-        {{ $firstSeriesPage = $.Site.GetPage . }}
-      {{ end }}
-    {{ end }}
-    
-    {{/* Method 2: Try getting from section pages - filter by language */}}
-    {{ if not $firstSeriesPage }}
-      {{ $seriesSection := .Site.GetPage "section" "series" }}
-      {{ if $seriesSection }}
-        {{ range $seriesSection.Pages }}
-          {{ if and .Params.series_slug (eq .Params.series_slug $firstSeriesSlug) (eq .Lang $lang) }}
-            {{ $firstSeriesPage = . }}
-          {{ end }}
-        {{ end }}
-      {{ end }}
-    {{ end }}
-    
-    {{/* Method 3: Try AllPages with language filter */}}
-    {{ if not $firstSeriesPage }}
-      {{ range where .Site.AllPages "Section" "series" }}
+    {{/* Try getting from section pages first - most reliable */}}
+    {{ $seriesSection := .Site.GetPage "section" "series" }}
+    {{ if $seriesSection }}
+      {{ range $seriesSection.Pages }}
         {{ if and .Params.series_slug (eq .Params.series_slug $firstSeriesSlug) (eq .Lang $lang) }}
           {{ $firstSeriesPage = . }}
         {{ end }}
       {{ end }}
     {{ end }}
     
-    {{/* Method 4: Try RegularPages with language filter */}}
+    {{/* Fallback: Try RegularPages if section pages didn't work */}}
     {{ if not $firstSeriesPage }}
       {{ range where .Site.RegularPages "Section" "series" }}
         {{ if and .Params.series_slug (eq .Params.series_slug $firstSeriesSlug) (eq .Lang $lang) }}

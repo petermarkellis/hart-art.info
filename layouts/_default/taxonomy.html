@@ -16,8 +16,7 @@
     {{ $seriesPage := false }}
     {{ $lang := .Site.Language.Lang }}
     
-    {{/* Try multiple methods to get the series page */}}
-    {{/* Method 1: Try getting from section pages first - most reliable */}}
+    {{/* Get the series page for current language */}}
     {{ $seriesSection := .Site.GetPage "section" "series" }}
     {{ if $seriesSection }}
       {{ range $seriesSection.Pages }}
@@ -27,7 +26,7 @@
       {{ end }}
     {{ end }}
     
-    {{/* Method 2: Try RegularPages with language filter - should work now that _build is removed */}}
+    {{/* Fallback: Try RegularPages if section pages didn't work */}}
     {{ if not $seriesPage }}
       {{ range where .Site.RegularPages "Section" "series" }}
         {{ if and .Params.series_slug (eq .Params.series_slug $seriesSlug) (eq .Lang $lang) }}
@@ -36,16 +35,7 @@
       {{ end }}
     {{ end }}
     
-    {{/* Method 3: Try AllPages with language filter */}}
-    {{ if not $seriesPage }}
-      {{ range where .Site.AllPages "Section" "series" }}
-        {{ if and .Params.series_slug (eq .Params.series_slug $seriesSlug) (eq .Lang $lang) }}
-          {{ $seriesPage = . }}
-        {{ end }}
-      {{ end }}
-    {{ end }}
-    
-    {{/* Method 4: Try GetPage with various path formats as fallback */}}
+    {{/* Final fallback: Try GetPage with path format */}}
     {{ if not $seriesPage }}
       {{ $paths := slice 
         (printf "series/%s.%s" $seriesSlug $lang)

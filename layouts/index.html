@@ -141,30 +141,17 @@
   <section class="ph2 pv4 ph4-ns pv5-ns bg-white">
     <h2 class="f6 f5-ns fw6 mb4 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">LATEST NEWS</h2>
     <div class="news-list">
-      {{/* Try multiple methods to get latest news pages - filtered by current language */}}
+      {{/* Get latest news pages for current language */}}
       {{ $currentLang := .Site.Language.Lang }}
-      {{ $latestNews := slice }}
+      {{ $latestNews := where .Site.RegularPages "Section" "latest" }}
+      {{ $latestNews = where $latestNews "Lang" $currentLang }}
       
-      {{/* Method 1: Try RegularPages (already filtered by language) */}}
-      {{ $latestNews = where .Site.RegularPages "Section" "latest" }}
-      
-      {{/* Method 2: Try AllPages and filter by language to include future-dated pages */}}
+      {{/* Fallback: Try AllPages if RegularPages doesn't have enough (for future-dated pages) */}}
       {{ $allLatestNews := where .Site.AllPages "Section" "latest" }}
       {{ $allLatestNews = where $allLatestNews "Lang" $currentLang }}
       {{ if gt (len $allLatestNews) (len $latestNews) }}
         {{ $latestNews = $allLatestNews }}
       {{ end }}
-      
-      {{/* Method 3: Try section pages */}}
-      {{ if not $latestNews }}
-        {{ $latestSection := .Site.GetPage "section" "latest" }}
-        {{ if $latestSection }}
-          {{ $latestNews = where $latestSection.Pages "Lang" $currentLang }}
-        {{ end }}
-      {{ end }}
-      
-      {{/* Ensure all items are in the current language */}}
-      {{ $latestNews = where $latestNews "Lang" $currentLang }}
       
       {{/* Filter out the section index page (the /latest/ listing page itself) */}}
       {{/* Use where filters to maintain page collection type */}}

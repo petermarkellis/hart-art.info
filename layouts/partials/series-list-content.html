@@ -13,10 +13,10 @@
     {{ $firstSeriesSlug := "drawings-and-watercolors" }}
     {{ $firstSeriesPage := false }}
     
-    {{/* Try multiple methods to get the series page */}}
+    {{/* Get the series page for current language */}}
     {{ $lang := .Site.Language.Lang }}
     
-    {{/* Method 1: Try getting from section pages first - most reliable */}}
+    {{/* Try getting from section pages first - most reliable */}}
     {{ $seriesSection := .Site.GetPage "section" "series" }}
     {{ if $seriesSection }}
       {{ range $seriesSection.Pages }}
@@ -26,18 +26,9 @@
       {{ end }}
     {{ end }}
     
-    {{/* Method 2: Try RegularPages with language filter */}}
+    {{/* Fallback: Try RegularPages if section pages didn't work */}}
     {{ if not $firstSeriesPage }}
       {{ range where .Site.RegularPages "Section" "series" }}
-        {{ if and .Params.series_slug (eq .Params.series_slug $firstSeriesSlug) (eq .Lang $lang) }}
-          {{ $firstSeriesPage = . }}
-        {{ end }}
-      {{ end }}
-    {{ end }}
-    
-    {{/* Method 3: Try AllPages with language filter */}}
-    {{ if not $firstSeriesPage }}
-      {{ range where .Site.AllPages "Section" "series" }}
         {{ if and .Params.series_slug (eq .Params.series_slug $firstSeriesSlug) (eq .Lang $lang) }}
           {{ $firstSeriesPage = . }}
         {{ end }}

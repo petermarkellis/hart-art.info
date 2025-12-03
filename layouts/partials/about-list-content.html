@@ -1,37 +1,21 @@
-{{/* Get the about page explicitly - try multiple methods for i18n compatibility */}}
+{{/* Get the about page for current language */}}
 {{ $aboutPage := false }}
 {{ $lang := .Site.Language.Lang }}
 
-{{/* Method 1: Try GetPage with various path formats */}}
-{{ $paths := slice 
-  (printf "about/_index.%s" $lang)
-  (printf "about/_index")
-  (printf "/about/_index.%s" $lang)
-  (printf "/about/_index")
-}}
-{{ range $paths }}
-  {{ if not $aboutPage }}
-    {{ $aboutPage = $.Site.GetPage . }}
-  {{ end }}
-{{ end }}
-
-{{/* Method 2: Try getting from section pages */}}
-{{ if not $aboutPage }}
-  {{ $aboutSection := .Site.GetPage "section" "about" }}
-  {{ if $aboutSection }}
-    {{ range $aboutSection.Pages }}
-      {{ if and (eq .Kind "page") (eq .Lang $lang) }}
-        {{ $aboutPage = . }}
-      {{ end }}
+{{/* Get about section and find the page for current language */}}
+{{ $aboutSection := .Site.GetPage "section" "about" }}
+{{ if $aboutSection }}
+  {{ range $aboutSection.Pages }}
+    {{ if and (eq .Kind "page") (eq .Lang $lang) (not $aboutPage) }}
+      {{ $aboutPage = . }}
     {{ end }}
   {{ end }}
-{{ end }}
-
-{{/* Method 3: Try AllPages with language filter */}}
-{{ if not $aboutPage }}
-  {{ range where .Site.AllPages "Section" "about" }}
-    {{ if and (eq .Kind "page") (eq .Lang $lang) }}
-      {{ $aboutPage = . }}
+  {{/* Fallback: if no language-specific page found, use any page from section */}}
+  {{ if not $aboutPage }}
+    {{ range $aboutSection.Pages }}
+      {{ if and (eq .Kind "page") (not $aboutPage) }}
+        {{ $aboutPage = . }}
+      {{ end }}
     {{ end }}
   {{ end }}
 {{ end }}
