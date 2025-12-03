@@ -8,5 +8,11 @@ description_en: |-
   Open Studios
   Bad Steben, Germany
 description_de: ""
+description: |-
+  New Exhibition to be shown at:
+
+  Open Studios
+
+  Bad Steben, Germany
 link_type: internal
 ---
