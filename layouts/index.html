@@ -77,36 +77,20 @@
   {{ $homepagePage := false }}
   {{ $lang := .Site.Language.Lang }}
   
-  {{/* Try multiple methods to get the homepage page */}}
-  {{ $paths := slice 
-    (printf "homepage/index.%s" $lang)
-    (printf "homepage/index")
-    (printf "/homepage/index.%s" $lang)
-    (printf "/homepage/index")
-  }}
-  {{ range $paths }}
-    {{ if not $homepagePage }}
-      {{ $homepagePage = $.Site.GetPage . }}
+  {{/* Get homepage section and find the page for current language */}}
+  {{ $homepageSection := .Site.GetPage "section" "homepage" }}
+  {{ if $homepageSection }}
+    {{ range $homepageSection.Pages }}
+      {{ if and (not $homepagePage) (eq .Lang $lang) }}
+        {{ $homepagePage = . }}
+      {{ end }}
     {{ end }}
-  {{ end }}
-  
-  {{/* Method 2: Try getting from section pages */}}
-  {{ if not $homepagePage }}
-    {{ $homepageSection := .Site.GetPage "section" "homepage" }}
-    {{ if $homepageSection }}
+    {{/* Fallback: if no language-specific page found, use any page from section */}}
+    {{ if not $homepagePage }}
       {{ range $homepageSection.Pages }}
         {{ if not $homepagePage }}
           {{ $homepagePage = . }}
         {{ end }}
-      {{ end }}
-    {{ end }}
-  {{ end }}
-  
-  {{/* Method 3: Try AllPages */}}
-  {{ if not $homepagePage }}
-    {{ range where .Site.AllPages "Section" "homepage" }}
-      {{ if not $homepagePage }}
-        {{ $homepagePage = . }}
       {{ end }}
     {{ end }}
   {{ end }}

@@ -30,31 +30,44 @@
       {{ end }}
     {{ end }}
     
-    {{/* Method 2: Try getting from section pages (even with _build: never, they might be accessible) */}}
+    {{/* Method 2: Try getting from section pages - filter by language */}}
     {{ if not $firstSeriesPage }}
       {{ $seriesSection := .Site.GetPage "section" "series" }}
       {{ if $seriesSection }}
         {{ range $seriesSection.Pages }}
-          {{ if and .Params.series_slug (eq .Params.series_slug $firstSeriesSlug) (not $firstSeriesPage) }}
+          {{ if and .Params.series_slug (eq .Params.series_slug $firstSeriesSlug) (eq .Lang $lang) }}
             {{ $firstSeriesPage = . }}
           {{ end }}
         {{ end }}
       {{ end }}
     {{ end }}
     
-    {{/* Method 3: Try AllPages */}}
+    {{/* Method 3: Try AllPages with language filter */}}
     {{ if not $firstSeriesPage }}
       {{ range where .Site.AllPages "Section" "series" }}
-        {{ if and .Params.series_slug (eq .Params.series_slug $firstSeriesSlug) (not $firstSeriesPage) }}
+        {{ if and .Params.series_slug (eq .Params.series_slug $firstSeriesSlug) (eq .Lang $lang) }}
           {{ $firstSeriesPage = . }}
         {{ end }}
       {{ end }}
     {{ end }}
     
-    {{/* Method 4: Try RegularPages */}}
+    {{/* Method 4: Try RegularPages with language filter */}}
     {{ if not $firstSeriesPage }}
       {{ range where .Site.RegularPages "Section" "series" }}
-        {{ if and .Params.series_slug (eq .Params.series_slug $firstSeriesSlug) (not $firstSeriesPage) }}
+        {{ if and .Params.series_slug (eq .Params.series_slug $firstSeriesSlug) (eq .Lang $lang) }}
+          {{ $firstSeriesPage = . }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    
+    {{/* Fallback: If no language-specific page found, try to get from other language and use its gallery images */}}
+    {{ if not $firstSeriesPage }}
+      {{ $otherLang := "en" }}
+      {{ if eq $lang "en" }}
+        {{ $otherLang = "de" }}
+      {{ end }}
+      {{ range where .Site.AllPages "Section" "series" }}
+        {{ if and .Params.series_slug (eq .Params.series_slug $firstSeriesSlug) (eq .Lang $otherLang) }}
           {{ $firstSeriesPage = . }}
         {{ end }}
       {{ end }}
@@ -77,10 +90,28 @@
       {{ end }}
 
       <!-- Gallery Images -->
-      {{ if $seriesPage.Params.gallery_images }}
+      {{ $galleryImages := $seriesPage.Params.gallery_images }}
+      {{/* If current language has no gallery images, try to get from the other language version */}}
+      {{ if not $galleryImages }}
+        {{ $otherLang := "en" }}
+        {{ if eq .Site.Language.Lang "en" }}
+          {{ $otherLang = "de" }}
+        {{ end }}
+        {{ $otherLangPage := false }}
+        {{ range where .Site.AllPages "Section" "series" }}
+          {{ if and .Params.series_slug (eq .Params.series_slug $firstSeriesSlug) (eq .Lang $otherLang) }}
+            {{ $otherLangPage = . }}
+          {{ end }}
+        {{ end }}
+        {{ if and $otherLangPage $otherLangPage.Params.gallery_images }}
+          {{ $galleryImages = $otherLangPage.Params.gallery_images }}
+        {{ end }}
+      {{ end }}
+      
+      {{ if $galleryImages }}
         <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem 3rem; margin-bottom: 4rem;">
           {{ $seriesSlug := $seriesPage.Params.series_slug }}
-          {{ range $index, $galleryImage := $seriesPage.Params.gallery_images }}
+          {{ range $index, $galleryImage := $galleryImages }}
             <div class="gallery-item">
               {{ if .image }}
                 <div class="mb3" style="width: 100%;">
