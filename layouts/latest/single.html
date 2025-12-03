@@ -209,6 +209,24 @@
       {{ end }}
     </div>
     
+    {{/* Location / Google Maps Link */}}
+    {{ if isset .Params "google_maps_link" }}
+      {{ if and .Params.google_maps_link (ne .Params.google_maps_link "") }}
+        {{ $locationLabel := "LOCATION:" }}
+        {{ $locationLinkText := "Open in Google Maps" }}
+        {{ if eq .Site.Language.Lang "de" }}
+          {{ $locationLabel = "ORT:" }}
+          {{ $locationLinkText = "In Google Maps öffnen" }}
+        {{ end }}
+        <div class="f7 f6-ns mb4 black-60" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
+          <strong>{{ $locationLabel }}</strong> 
+          <a href="{{ .Params.google_maps_link }}" target="_blank" rel="noopener noreferrer" class="black-60 hover-black no-underline" style="text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;" onmouseover="this.style.borderBottomColor='#1a1a1a'" onmouseout="this.style.borderBottomColor='transparent'">
+            {{ $locationLinkText }}
+          </a>
+        </div>
+      {{ end }}
+    {{ end }}
+    
     {{/* Add to Calendar Buttons - only show if show_calendar is not false */}}
     {{ $showCalendar := true }}
     {{ if isset .Params "show_calendar" }}
@@ -224,8 +242,16 @@
       {{ end }}
     {{ end }}
     {{ $calendarLocation := "" }}
-    {{ if isset .Params "location" }}
-      {{ $calendarLocation = .Params.location | htmlEscape }}
+    {{ if isset .Params "google_maps_link" }}
+      {{ if and .Params.google_maps_link (ne .Params.google_maps_link "") }}
+        {{ $calendarLocation = .Params.google_maps_link | htmlEscape }}
+      {{ end }}
+    {{ end }}
+    {{/* Fallback to old location field if google_maps_link not available */}}
+    {{ if or (not $calendarLocation) (eq $calendarLocation "") }}
+      {{ if isset .Params "location" }}
+        {{ $calendarLocation = .Params.location | htmlEscape }}
+      {{ end }}
     {{ end }}
     
     {{/* Format dates for calendar services */}}

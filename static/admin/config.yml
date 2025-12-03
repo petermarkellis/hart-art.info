@@ -88,6 +88,7 @@ collections:
         default: true
         required: false
         hint: "Show 'Add to Calendar' buttons (visible by default)"
+      - {label: "Google Maps Link", name: "google_maps_link", widget: "string", required: false, hint: "Optional Google Maps URL (e.g., https://maps.google.com/...). If provided, will display 'Location: Open in Google Maps' link."}
       - {label: "Description", name: "description", widget: "markdown", i18n: true, required: false}
       - {label: "Image (Optional)", name: "image", widget: "image", required: false, hint: "Optional image to display at the bottom of the description"}
       - {label: "Link Type", name: "link_type", widget: "select", options: ["internal", "external"], default: "internal", required: true}
