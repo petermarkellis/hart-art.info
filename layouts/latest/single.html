@@ -290,15 +290,48 @@
     {{ end }}
     
     <div class="mt3 mb4">
+      <style>
+        .calendar-button {
+          font-family: 'Inter', sans-serif;
+          letter-spacing: 0.05em;
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0.5rem;
+          width: 4rem;
+          height: 4rem;
+          border: 1px solid #d0d0d0;
+          background-color: white;
+          color: #1a1a1a;
+          transition: all 0.2s;
+          text-align: center;
+          border-radius: 0;
+          font-size: 0.75rem;
+          line-height: 1.2;
+        }
+        .calendar-button:hover {
+          background-color: #1a1a1a;
+          color: white;
+          border-color: #1a1a1a;
+        }
+        @media (min-width: 30em) {
+          .calendar-button {
+            width: 5rem;
+            height: 5rem;
+            font-size: 0.875rem;
+          }
+        }
+      </style>
       <div class="flex flex-wrap items-center" style="gap: 0.5rem;">
-        <a href="{{ $googleCalendarURL }}" target="_blank" rel="noopener noreferrer" class="f7 f6-ns black-90 hover-black no-underline pa2 ba b--black-20 hover-bg-black-10" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; border-radius: 4px; transition: background-color 0.2s; text-decoration: none;">
-          {{ $addToCalendarLabel }} (Google)
+        <a href="{{ $googleCalendarURL }}" target="_blank" rel="noopener noreferrer" class="f7 f6-ns calendar-button" title="Add to Google Calendar">
+          Google
         </a>
-        <a href="{{ $outlookCalendarURL }}" target="_blank" rel="noopener noreferrer" class="f7 f6-ns black-90 hover-black no-underline pa2 ba b--black-20 hover-bg-black-10" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; border-radius: 4px; transition: background-color 0.2s; text-decoration: none;">
-          {{ $addToCalendarLabel }} (Outlook)
+        <a href="{{ $outlookCalendarURL }}" target="_blank" rel="noopener noreferrer" class="f7 f6-ns calendar-button" title="Add to Outlook">
+          Outlook
         </a>
-        <a href="{{ $icsDataURI }}" download="{{ .File.BaseFileName | default "event" }}.ics" class="f7 f6-ns black-90 hover-black no-underline pa2 ba b--black-20 hover-bg-black-10" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; border-radius: 4px; transition: background-color 0.2s; text-decoration: none;">
-          {{ $addToCalendarLabel }} (.ics)
+        <a href="{{ $icsDataURI }}" download="{{ .File.BaseFileName | default "event" }}.ics" class="f7 f6-ns calendar-button" title="Download .ics file">
+          .ics
         </a>
       </div>
     </div>
