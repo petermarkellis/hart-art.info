@@ -78,7 +78,9 @@ enFiles.forEach(({ enPath, dePath, baseName }) => {
     if (titleMatch) {
       // Find the end of the title block (next field or end of front matter)
       const titleEnd = titleMatch.index + titleMatch[0].length;
-      frontMatter = frontMatter.slice(0, titleEnd) + `date: ${dateValue}\n` + frontMatter.slice(titleEnd);
+      // Ensure we have a newline before inserting the date field
+      const needsNewline = frontMatter[titleEnd - 1] !== '\n';
+      frontMatter = frontMatter.slice(0, titleEnd) + (needsNewline ? '\n' : '') + `date: ${dateValue}\n` + frontMatter.slice(titleEnd);
       updated = true;
     } else {
       frontMatter = `date: ${dateValue}\n${frontMatter}`;
@@ -105,7 +107,9 @@ enFiles.forEach(({ enPath, dePath, baseName }) => {
       const titleMatch = frontMatter.match(/^(title:\s*.*(?:\n\s+[^:]+)*?)(\n|$)/m);
       if (titleMatch) {
         const titleEnd = titleMatch.index + titleMatch[0].length;
-        frontMatter = frontMatter.slice(0, titleEnd) + `\nexhibition_start_date: ${exhibitionStartDateValue}\n` + frontMatter.slice(titleEnd);
+        // Ensure we have a newline before inserting the date field
+        const needsNewline = frontMatter[titleEnd - 1] !== '\n';
+        frontMatter = frontMatter.slice(0, titleEnd) + (needsNewline ? '\n' : '') + `exhibition_start_date: ${exhibitionStartDateValue}\n` + frontMatter.slice(titleEnd);
         updated = true;
       } else {
         frontMatter = `exhibition_start_date: ${exhibitionStartDateValue}\n${frontMatter}`;
@@ -139,7 +143,9 @@ enFiles.forEach(({ enPath, dePath, baseName }) => {
         const titleMatch = frontMatter.match(/^(title:\s*.*(?:\n\s+[^:]+)*?)(\n|$)/m);
         if (titleMatch) {
           const titleEnd = titleMatch.index + titleMatch[0].length;
-          frontMatter = frontMatter.slice(0, titleEnd) + `\nexhibition_end_date: ${exhibitionEndDateValue}\n` + frontMatter.slice(titleEnd);
+          // Ensure we have a newline before inserting the date field
+          const needsNewline = frontMatter[titleEnd - 1] !== '\n';
+          frontMatter = frontMatter.slice(0, titleEnd) + (needsNewline ? '\n' : '') + `exhibition_end_date: ${exhibitionEndDateValue}\n` + frontMatter.slice(titleEnd);
           updated = true;
         } else {
           frontMatter = `exhibition_end_date: ${exhibitionEndDateValue}\n${frontMatter}`;
@@ -165,11 +171,13 @@ enFiles.forEach(({ enPath, dePath, baseName }) => {
       frontMatter = frontMatter.slice(0, dateEnd) + `exhibition_date: ${exhibitionDateValue}\n` + frontMatter.slice(dateEnd);
       updated = true;
     } else {
-      const titleMatch = frontMatter.match(/^(title:\s*.*(?:\n\s+[^:]+)*?)(\n|$)/m);
-      if (titleMatch) {
-        const titleEnd = titleMatch.index + titleMatch[0].length;
-        frontMatter = frontMatter.slice(0, titleEnd) + `\nexhibition_date: ${exhibitionDateValue}\n` + frontMatter.slice(titleEnd);
-        updated = true;
+        const titleMatch = frontMatter.match(/^(title:\s*.*(?:\n\s+[^:]+)*?)(\n|$)/m);
+        if (titleMatch) {
+          const titleEnd = titleMatch.index + titleMatch[0].length;
+          // Ensure we have a newline before inserting the date field
+          const needsNewline = frontMatter[titleEnd - 1] !== '\n';
+          frontMatter = frontMatter.slice(0, titleEnd) + (needsNewline ? '\n' : '') + `exhibition_date: ${exhibitionDateValue}\n` + frontMatter.slice(titleEnd);
+          updated = true;
       } else {
         frontMatter = `exhibition_date: ${exhibitionDateValue}\n${frontMatter}`;
         updated = true;
