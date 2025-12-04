@@ -30,11 +30,6 @@
       display: none !important;
     }
     
-    /* Custom logo container */
-    #custom-cms-logo {
-      display: block !important;
-    }
-    
     /* Style Netlify Identity login button */
     .netlify-identity-button,
     .netlify-identity-widget button,
@@ -63,21 +58,6 @@
       background-color: #000000 !important;
     }
     
-    /* Add text above login button */
-    .netlify-identity-widget::before,
-    .netlify-identity-button::before,
-    button[data-netlify-identity-button]::before {
-      content: 'Login to Mark Hartzheim Art CMS';
-      display: block;
-      text-align: center;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: 14px;
-      font-weight: 400;
-      color: #1a1a1a;
-      letter-spacing: 0.05em;
-      margin-bottom: 16px;
-    }
-    
     /* Apply Inter font to CMS preview - target all possible selectors */
     .nc-previewPane-frameBody,
     .nc-previewPane-frameBody *,
@@ -102,10 +82,6 @@
   </style>
 </head>
 <body>
-  <!-- Custom Logo -->
-  <div id="custom-cms-logo" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 10000; text-align: center;">
-    <img src="/web-app-manifest-192x192.png" alt="Hart Art" style="width: 120px; height: 120px; display: block; margin: 0 auto;">
-  </div>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script>
     if (window.netlifyIdentity) {
@@ -118,7 +94,7 @@
       });
     }
     
-    // Style Netlify Identity button dynamically and add text
+    // Style Netlify Identity button dynamically
     function styleLoginButton() {
       const buttons = document.querySelectorAll('.netlify-identity-button, .netlify-identity-widget button, button[data-netlify-identity-button], .netlify-identity-widget a, a[data-netlify-identity-button]');
       buttons.forEach(function(button) {
@@ -134,95 +110,22 @@
         button.style.textTransform = 'uppercase';
         button.style.cursor = 'pointer';
         button.style.transition = 'background-color 0.2s';
-        
-        // Add text above button if not already present
-        const parent = button.parentElement;
-        if (parent && !parent.querySelector('.cms-login-text')) {
-          const loginText = document.createElement('div');
-          loginText.className = 'cms-login-text';
-          loginText.textContent = 'Login to Mark Hartzheim Art CMS';
-          loginText.style.cssText = 'text-align: center; font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 14px; font-weight: 400; color: #1a1a1a; letter-spacing: 0.05em; margin-bottom: 16px; display: block;';
-          parent.insertBefore(loginText, button);
-        }
       });
-      
-      // Also check for widget container
-      const widget = document.querySelector('.netlify-identity-widget');
-      if (widget && !widget.querySelector('.cms-login-text')) {
-        const loginText = document.createElement('div');
-        loginText.className = 'cms-login-text';
-        loginText.textContent = 'Login to Mark Hartzheim Art CMS';
-        loginText.style.cssText = 'text-align: center; font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 14px; font-weight: 400; color: #1a1a1a; letter-spacing: 0.05em; margin-bottom: 16px; display: block;';
-        const firstButton = widget.querySelector('button, a');
-        if (firstButton) {
-          widget.insertBefore(loginText, firstButton);
-        } else {
-          widget.insertBefore(loginText, widget.firstChild);
-        }
-      }
-    }
-    
-    // Replace logo dynamically when CMS loads
-    function replaceLogo() {
-      // Find and replace any logo images
-      const logoImages = document.querySelectorAll('img[src*="decap"], img[src*="netlify"], img[alt*="Decap"], img[alt*="Netlify"], img[alt*="CMS"]');
-      logoImages.forEach(function(img) {
-        img.src = '/web-app-manifest-192x192.png';
-        img.alt = 'Hart Art';
-        img.style.display = 'block';
-        img.style.width = '120px';
-        img.style.height = '120px';
-        img.style.margin = '20px auto';
-      });
-      
-      // Also try to find logo containers and replace
-      const logoContainers = document.querySelectorAll('[class*="logo"], [class*="Logo"]');
-      logoContainers.forEach(function(container) {
-        if (container.querySelector('img')) {
-          const img = container.querySelector('img');
-          img.src = '/web-app-manifest-192x192.png';
-          img.alt = 'Hart Art';
-          img.style.width = '120px';
-          img.style.height = '120px';
-        } else {
-          container.innerHTML = '<img src="/web-app-manifest-192x192.png" alt="Hart Art" style="width: 120px; height: 120px; display: block; margin: 20px auto;">';
-        }
-      });
-      
-      // Ensure custom logo is visible
-      const customLogo = document.getElementById('custom-cms-logo');
-      if (customLogo) {
-        customLogo.style.display = 'block';
-      }
     }
     
     // Run immediately and on various events
     document.addEventListener('DOMContentLoaded', function() {
-      replaceLogo();
       styleLoginButton();
     });
     window.addEventListener('load', function() {
-      setTimeout(function() {
-        replaceLogo();
-        styleLoginButton();
-      }, 100);
-      setTimeout(function() {
-        replaceLogo();
-        styleLoginButton();
-      }, 500);
-      setTimeout(function() {
-        replaceLogo();
-        styleLoginButton();
-      }, 1000);
-      setTimeout(function() {
-        replaceLogo();
-        styleLoginButton();
-      }, 2000);
+      setTimeout(styleLoginButton, 100);
+      setTimeout(styleLoginButton, 500);
+      setTimeout(styleLoginButton, 1000);
+      setTimeout(styleLoginButton, 2000);
     });
     
     // Watch for DOM changes
     const observer = new MutationObserver(function(mutations) {
-      replaceLogo();
       styleLoginButton();
     });
     
