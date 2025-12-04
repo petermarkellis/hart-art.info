@@ -35,6 +35,34 @@
       display: block !important;
     }
     
+    /* Style Netlify Identity login button */
+    .netlify-identity-button,
+    .netlify-identity-widget button,
+    button[data-netlify-identity-button],
+    .netlify-identity-widget a,
+    a[data-netlify-identity-button] {
+      background-color: #1a1a1a !important;
+      color: white !important;
+      border: none !important;
+      border-radius: 0 !important;
+      padding: 16px 32px !important;
+      font-size: 16px !important;
+      font-weight: 500 !important;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+      letter-spacing: 0.05em !important;
+      text-transform: uppercase !important;
+      cursor: pointer !important;
+      transition: background-color 0.2s !important;
+    }
+    
+    .netlify-identity-button:hover,
+    .netlify-identity-widget button:hover,
+    button[data-netlify-identity-button]:hover,
+    .netlify-identity-widget a:hover,
+    a[data-netlify-identity-button]:hover {
+      background-color: #000000 !important;
+    }
+    
     /* Apply Inter font to CMS preview - target all possible selectors */
     .nc-previewPane-frameBody,
     .nc-previewPane-frameBody *,
@@ -75,6 +103,25 @@
       });
     }
     
+    // Style Netlify Identity button dynamically
+    function styleLoginButton() {
+      const buttons = document.querySelectorAll('.netlify-identity-button, .netlify-identity-widget button, button[data-netlify-identity-button], .netlify-identity-widget a, a[data-netlify-identity-button]');
+      buttons.forEach(function(button) {
+        button.style.backgroundColor = '#1a1a1a';
+        button.style.color = 'white';
+        button.style.border = 'none';
+        button.style.borderRadius = '0';
+        button.style.padding = '16px 32px';
+        button.style.fontSize = '16px';
+        button.style.fontWeight = '500';
+        button.style.fontFamily = "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
+        button.style.letterSpacing = '0.05em';
+        button.style.textTransform = 'uppercase';
+        button.style.cursor = 'pointer';
+        button.style.transition = 'background-color 0.2s';
+      });
+    }
+    
     // Replace logo dynamically when CMS loads
     function replaceLogo() {
       // Find and replace any logo images
@@ -110,17 +157,33 @@
     }
     
     // Run immediately and on various events
-    document.addEventListener('DOMContentLoaded', replaceLogo);
+    document.addEventListener('DOMContentLoaded', function() {
+      replaceLogo();
+      styleLoginButton();
+    });
     window.addEventListener('load', function() {
-      setTimeout(replaceLogo, 100);
-      setTimeout(replaceLogo, 500);
-      setTimeout(replaceLogo, 1000);
-      setTimeout(replaceLogo, 2000);
+      setTimeout(function() {
+        replaceLogo();
+        styleLoginButton();
+      }, 100);
+      setTimeout(function() {
+        replaceLogo();
+        styleLoginButton();
+      }, 500);
+      setTimeout(function() {
+        replaceLogo();
+        styleLoginButton();
+      }, 1000);
+      setTimeout(function() {
+        replaceLogo();
+        styleLoginButton();
+      }, 2000);
     });
     
     // Watch for DOM changes
     const observer = new MutationObserver(function(mutations) {
       replaceLogo();
+      styleLoginButton();
     });
     
     observer.observe(document.body, {
