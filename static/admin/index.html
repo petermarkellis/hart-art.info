@@ -63,6 +63,21 @@
       background-color: #000000 !important;
     }
     
+    /* Add text above login button */
+    .netlify-identity-widget::before,
+    .netlify-identity-button::before,
+    button[data-netlify-identity-button]::before {
+      content: 'Login to Mark Hartzheim Art CMS';
+      display: block;
+      text-align: center;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: #1a1a1a;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+    
     /* Apply Inter font to CMS preview - target all possible selectors */
     .nc-previewPane-frameBody,
     .nc-previewPane-frameBody *,
@@ -103,7 +118,7 @@
       });
     }
     
-    // Style Netlify Identity button dynamically
+    // Style Netlify Identity button dynamically and add text
     function styleLoginButton() {
       const buttons = document.querySelectorAll('.netlify-identity-button, .netlify-identity-widget button, button[data-netlify-identity-button], .netlify-identity-widget a, a[data-netlify-identity-button]');
       buttons.forEach(function(button) {
@@ -119,7 +134,32 @@
         button.style.textTransform = 'uppercase';
         button.style.cursor = 'pointer';
         button.style.transition = 'background-color 0.2s';
+        
+        // Add text above button if not already present
+        const parent = button.parentElement;
+        if (parent && !parent.querySelector('.cms-login-text')) {
+          const loginText = document.createElement('div');
+          loginText.className = 'cms-login-text';
+          loginText.textContent = 'Login to Mark Hartzheim Art CMS';
+          loginText.style.cssText = 'text-align: center; font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 14px; font-weight: 400; color: #1a1a1a; letter-spacing: 0.05em; margin-bottom: 16px; display: block;';
+          parent.insertBefore(loginText, button);
+        }
       });
+      
+      // Also check for widget container
+      const widget = document.querySelector('.netlify-identity-widget');
+      if (widget && !widget.querySelector('.cms-login-text')) {
+        const loginText = document.createElement('div');
+        loginText.className = 'cms-login-text';
+        loginText.textContent = 'Login to Mark Hartzheim Art CMS';
+        loginText.style.cssText = 'text-align: center; font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 14px; font-weight: 400; color: #1a1a1a; letter-spacing: 0.05em; margin-bottom: 16px; display: block;';
+        const firstButton = widget.querySelector('button, a');
+        if (firstButton) {
+          widget.insertBefore(loginText, firstButton);
+        } else {
+          widget.insertBefore(loginText, widget.firstChild);
+        }
+      }
     }
     
     // Replace logo dynamically when CMS loads
