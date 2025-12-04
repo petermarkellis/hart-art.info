@@ -278,9 +278,40 @@
     {{ if $showCalendar }}
     {{ $calendarTitle := .Title | htmlEscape }}
     {{ $calendarDescription := "" }}
-    {{ if isset .Params "description" }}
-      {{ if and .Params.description (ne .Params.description "") }}
-        {{ $calendarDescription = .Params.description | transform.Plainify | htmlEscape }}
+    {{/* Use same description logic as display */}}
+    {{ if eq .Site.Language.Lang "de" }}
+      {{ if isset .Params "description_de" }}
+        {{ if and .Params.description_de (ne .Params.description_de "") }}
+          {{ $calendarDescription = .Params.description_de | transform.Plainify | htmlEscape }}
+        {{ end }}
+      {{ end }}
+      {{ if or (not $calendarDescription) (eq $calendarDescription "") }}
+        {{ if isset .Params "description_en" }}
+          {{ if and .Params.description_en (ne .Params.description_en "") }}
+            {{ $calendarDescription = .Params.description_en | transform.Plainify | htmlEscape }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ else }}
+      {{ if isset .Params "description_en" }}
+        {{ if and .Params.description_en (ne .Params.description_en "") }}
+          {{ $calendarDescription = .Params.description_en | transform.Plainify | htmlEscape }}
+        {{ end }}
+      {{ end }}
+      {{ if or (not $calendarDescription) (eq $calendarDescription "") }}
+        {{ if isset .Params "description_de" }}
+          {{ if and .Params.description_de (ne .Params.description_de "") }}
+            {{ $calendarDescription = .Params.description_de | transform.Plainify | htmlEscape }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{/* Legacy fallback */}}
+    {{ if or (not $calendarDescription) (eq $calendarDescription "") }}
+      {{ if isset .Params "description" }}
+        {{ if and .Params.description (ne .Params.description "") }}
+          {{ $calendarDescription = .Params.description | transform.Plainify | htmlEscape }}
+        {{ end }}
       {{ end }}
     {{ end }}
     {{/* Use the same google_maps_link we found above (with fallbacks) */}}
@@ -410,32 +441,64 @@
 
   <!-- News Description -->
   {{ $description := "" }}
-  {{/* Use description field (with i18n: true, Hugo automatically provides the correct language) */}}
-  {{ if isset .Params "description" }}
-    {{ if and .Params.description (ne .Params.description "") }}
-      {{ $description = .Params.description }}
-    {{ end }}
-  {{ end }}
-  {{/* Fallback: try separate fields (description_en, description_de) for backward compatibility with old files */}}
-  {{ if or (not $description) (eq $description "") }}
-    {{ $currentLang := .Site.Language.Lang }}
-    {{ if eq $currentLang "de" }}
-      {{ if isset .Params "description_de" }}
-        {{ if and .Params.description_de (ne .Params.description_de "") }}
-          {{ $description = .Params.description_de }}
-        {{ end }}
+  {{ $currentLang := .Site.Language.Lang }}
+  {{/* Prioritize separate language fields (description_en, description_de) */}}
+  {{ if eq $currentLang "de" }}
+    {{ if isset .Params "description_de" }}
+      {{ if and .Params.description_de (ne .Params.description_de "") }}
+        {{ $description = .Params.description_de }}
       {{ end }}
-    {{ else }}
+    {{ end }}
+    {{/* Fallback to English if German not available */}}
+    {{ if or (not $description) (eq $description "") }}
       {{ if isset .Params "description_en" }}
         {{ if and .Params.description_en (ne .Params.description_en "") }}
           {{ $description = .Params.description_en }}
         {{ end }}
       {{ end }}
     {{ end }}
+  {{ else }}
+    {{ if isset .Params "description_en" }}
+      {{ if and .Params.description_en (ne .Params.description_en "") }}
+        {{ $description = .Params.description_en }}
+      {{ end }}
+    {{ end }}
+    {{/* Fallback to German if English not available */}}
+    {{ if or (not $description) (eq $description "") }}
+      {{ if isset .Params "description_de" }}
+        {{ if and .Params.description_de (ne .Params.description_de "") }}
+          {{ $description = .Params.description_de }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  {{/* Legacy fallback: try old description field for backward compatibility */}}
+  {{ if or (not $description) (eq $description "") }}
+    {{ if isset .Params "description" }}
+      {{ if and .Params.description (ne .Params.description "") }}
+        {{ $description = .Params.description }}
+      {{ end }}
+    {{ end }}
   {{ end }}
   {{/* Final fallback: try to get from translation */}}
   {{ if or (not $description) (eq $description "") }}
     {{ range .Translations }}
+      {{ if eq $currentLang "de" }}
+        {{ if isset .Params "description_de" }}
+          {{ if and .Params.description_de (ne .Params.description_de "") }}
+            {{ $description = .Params.description_de }}
+            {{ break }}
+          {{ end }}
+        {{ end }}
+      {{ else }}
+        {{ if isset .Params "description_en" }}
+          {{ if and .Params.description_en (ne .Params.description_en "") }}
+            {{ $description = .Params.description_en }}
+            {{ break }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{/* Also check old description field in translations */}}
       {{ if isset .Params "description" }}
         {{ if and .Params.description (ne .Params.description "") }}
           {{ $description = .Params.description }}
