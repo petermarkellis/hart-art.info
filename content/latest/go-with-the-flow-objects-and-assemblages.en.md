@@ -11,6 +11,7 @@ description_en: |-
 google_maps_link: https://maps.app.goo.gl/fW8jn37Gwy7XBeaQ7
 description: |-
   Go with the Flow - Objects and Assemblages 
+
   Exhibition at Konsum 36, Norhalben, Germany
 link_type: internal
 ---
