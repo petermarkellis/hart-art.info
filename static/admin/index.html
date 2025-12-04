@@ -11,6 +11,40 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    /* White background for admin page */
+    html, body {
+      background-color: white !important;
+    }
+    
+    /* Hide Decap/Netlify logo */
+    .nc-logo,
+    [class*="nc-logo"],
+    [class*="logo"],
+    [class*="Logo"],
+    .netlify-identity-widget .logo,
+    img[src*="decap"],
+    img[src*="netlify"],
+    img[alt*="Decap"],
+    img[alt*="Netlify"],
+    img[alt*="CMS"] {
+      display: none !important;
+    }
+    
+    /* Add custom logo */
+    .nc-githubAuthenticationPage::before,
+    .netlify-identity-widget::before,
+    body > div:first-child::before {
+      content: '';
+      display: block;
+      width: 192px;
+      height: 192px;
+      background-image: url('/web-app-manifest-192x192.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin: 40px auto 30px;
+    }
+    
     /* Apply Inter font to CMS preview - target all possible selectors */
     .nc-previewPane-frameBody,
     .nc-previewPane-frameBody *,
@@ -46,6 +80,36 @@
         }
       });
     }
+    
+    // Replace logo dynamically when CMS loads
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        // Find and replace any logo images
+        const logoImages = document.querySelectorAll('img[src*="decap"], img[src*="netlify"], img[alt*="Decap"], img[alt*="Netlify"], img[alt*="CMS"]');
+        logoImages.forEach(function(img) {
+          img.src = '/web-app-manifest-192x192.png';
+          img.alt = 'Hart Art';
+          img.style.display = 'block';
+          img.style.width = '192px';
+          img.style.height = '192px';
+          img.style.margin = '40px auto 30px';
+        });
+        
+        // Also try to find logo containers and replace
+        const logoContainers = document.querySelectorAll('[class*="logo"], [class*="Logo"]');
+        logoContainers.forEach(function(container) {
+          if (container.querySelector('img')) {
+            const img = container.querySelector('img');
+            img.src = '/web-app-manifest-192x192.png';
+            img.alt = 'Hart Art';
+            img.style.width = '192px';
+            img.style.height = '192px';
+          } else {
+            container.innerHTML = '<img src="/web-app-manifest-192x192.png" alt="Hart Art" style="width: 192px; height: 192px; display: block; margin: 40px auto 30px;">';
+          }
+        });
+      }, 500);
+    });
     
     // Additional script to ensure Inter font is applied to preview iframe after CMS loads
     document.addEventListener('DOMContentLoaded', function() {
