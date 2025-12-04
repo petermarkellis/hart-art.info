@@ -30,19 +30,24 @@
       display: none !important;
     }
     
-    /* Add custom logo */
+    /* Custom logo container */
+    #custom-cms-logo {
+      display: block !important;
+    }
+    
+    /* Add custom logo via CSS as fallback */
     .nc-githubAuthenticationPage::before,
     .netlify-identity-widget::before,
     body > div:first-child::before {
       content: '';
       display: block;
-      width: 192px;
-      height: 192px;
+      width: 120px;
+      height: 120px;
       background-image: url('/web-app-manifest-192x192.png');
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
-      margin: 40px auto 30px;
+      margin: 20px auto;
     }
     
     /* Apply Inter font to CMS preview - target all possible selectors */
@@ -69,6 +74,10 @@
   </style>
 </head>
 <body>
+  <!-- Custom Logo -->
+  <div id="custom-cms-logo" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 10000; text-align: center;">
+    <img src="/web-app-manifest-192x192.png" alt="Hart Art" style="width: 120px; height: 120px; display: block; margin: 0 auto;">
+  </div>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script>
     if (window.netlifyIdentity) {
@@ -82,33 +91,56 @@
     }
     
     // Replace logo dynamically when CMS loads
-    window.addEventListener('load', function() {
-      setTimeout(function() {
-        // Find and replace any logo images
-        const logoImages = document.querySelectorAll('img[src*="decap"], img[src*="netlify"], img[alt*="Decap"], img[alt*="Netlify"], img[alt*="CMS"]');
-        logoImages.forEach(function(img) {
+    function replaceLogo() {
+      // Find and replace any logo images
+      const logoImages = document.querySelectorAll('img[src*="decap"], img[src*="netlify"], img[alt*="Decap"], img[alt*="Netlify"], img[alt*="CMS"]');
+      logoImages.forEach(function(img) {
+        img.src = '/web-app-manifest-192x192.png';
+        img.alt = 'Hart Art';
+        img.style.display = 'block';
+        img.style.width = '120px';
+        img.style.height = '120px';
+        img.style.margin = '20px auto';
+      });
+      
+      // Also try to find logo containers and replace
+      const logoContainers = document.querySelectorAll('[class*="logo"], [class*="Logo"]');
+      logoContainers.forEach(function(container) {
+        if (container.querySelector('img')) {
+          const img = container.querySelector('img');
           img.src = '/web-app-manifest-192x192.png';
           img.alt = 'Hart Art';
-          img.style.display = 'block';
-          img.style.width = '192px';
-          img.style.height = '192px';
-          img.style.margin = '40px auto 30px';
-        });
-        
-        // Also try to find logo containers and replace
-        const logoContainers = document.querySelectorAll('[class*="logo"], [class*="Logo"]');
-        logoContainers.forEach(function(container) {
-          if (container.querySelector('img')) {
-            const img = container.querySelector('img');
-            img.src = '/web-app-manifest-192x192.png';
-            img.alt = 'Hart Art';
-            img.style.width = '192px';
-            img.style.height = '192px';
-          } else {
-            container.innerHTML = '<img src="/web-app-manifest-192x192.png" alt="Hart Art" style="width: 192px; height: 192px; display: block; margin: 40px auto 30px;">';
-          }
-        });
-      }, 500);
+          img.style.width = '120px';
+          img.style.height = '120px';
+        } else {
+          container.innerHTML = '<img src="/web-app-manifest-192x192.png" alt="Hart Art" style="width: 120px; height: 120px; display: block; margin: 20px auto;">';
+        }
+      });
+      
+      // Ensure custom logo is visible
+      const customLogo = document.getElementById('custom-cms-logo');
+      if (customLogo) {
+        customLogo.style.display = 'block';
+      }
+    }
+    
+    // Run immediately and on various events
+    document.addEventListener('DOMContentLoaded', replaceLogo);
+    window.addEventListener('load', function() {
+      setTimeout(replaceLogo, 100);
+      setTimeout(replaceLogo, 500);
+      setTimeout(replaceLogo, 1000);
+      setTimeout(replaceLogo, 2000);
+    });
+    
+    // Watch for DOM changes
+    const observer = new MutationObserver(function(mutations) {
+      replaceLogo();
+    });
+    
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
     });
     
     // Additional script to ensure Inter font is applied to preview iframe after CMS loads
