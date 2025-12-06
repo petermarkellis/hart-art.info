@@ -143,17 +143,21 @@
     <div class="hero-slideshow" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
       {{ range $index, $imageItem := $heroImages }}
         {{ $imagePath := "" }}
-        {{/* Handle different data formats from CMS */}}
+        {{/* Handle different data formats from CMS - try multiple approaches */}}
         {{ if reflect.IsMap $imageItem }}
           {{/* CMS list widget with nested field stores as map with 'image' key */}}
           {{ $imagePath = $imageItem.image | default "" }}
         {{ else if reflect.IsSlice $imageItem }}
           {{ $imagePath = index $imageItem 0 }}
         {{ else }}
-          {{/* Direct string path - CMS may save as simple array of strings */}}
+          {{/* Direct string path */}}
           {{ $imagePath = $imageItem }}
         {{ end }}
-        {{/* Render slide - always render if we have a path */}}
+        {{/* Try accessing .image directly if $imagePath is still empty */}}
+        {{ if not $imagePath }}
+          {{ $imagePath = $imageItem.image | default "" }}
+        {{ end }}
+        {{/* Render slide if we have a valid path */}}
         {{ if $imagePath }}
         <div class="hero-slide {{ if eq $index 0 }}active{{ end }}" 
              data-slide-index="{{ $index }}"
