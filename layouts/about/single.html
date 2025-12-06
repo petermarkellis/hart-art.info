@@ -214,6 +214,20 @@
     overflow: visible !important;
   }
   
+  /* Override main overflow for about page to allow sticky */
+  main:has(.about-page-container) {
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+  }
+  
+  /* Fallback for browsers that don't support :has() */
+  @supports not selector(:has(*)) {
+    main {
+      overflow-x: visible !important;
+      overflow-y: visible !important;
+    }
+  }
+  
   /* Responsive layout for about page */
   @media (max-width: 60em) {
     aside {
