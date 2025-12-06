@@ -1,0 +1,27 @@
+{{/* Custom Schema.org structured data using seo.yml values */}}
+{{ $seo := site.Data.seo }}
+{{ $siteTitle := $seo.site_title | default .Site.Title }}
+{{ $siteDescription := $seo.site_description | default .Site.Params.description | default "" }}
+{{ $author := $seo.author | default .Site.Params.author | default "" }}
+
+{{/* Use page-specific values if available, otherwise use site defaults */}}
+{{ $itemName := .Title | default $siteTitle }}
+{{ $itemDescription := .Description | default .Summary | default $siteDescription }}
+{{ $itemAuthor := .Params.author | default $author }}
+
+<meta itemprop="name" content="{{ $itemName }}">
+{{ if $itemDescription }}
+  <meta itemprop="description" content="{{ $itemDescription | transform.Plainify }}">
+{{ end }}
+{{ if $itemAuthor }}
+  <meta itemprop="author" content="{{ $itemAuthor }}">
+{{ end }}
+{{ if .Date }}
+  <meta itemprop="datePublished" content="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}">
+{{ end }}
+{{ if .Lastmod }}
+  <meta itemprop="dateModified" content="{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" }}">
+{{ else if .Date }}
+  <meta itemprop="dateModified" content="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}">
+{{ end }}
+
