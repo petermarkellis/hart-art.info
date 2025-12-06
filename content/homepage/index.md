@@ -4,6 +4,7 @@ quote_text: THE SUBCONSCIOUS DICTATES!
 quote_author: ANDRÉ MASSON
 show_quote: true
 show_latest_news: true
+html_title: Mark Hartzheim, Contemporary Abstract Artist
 meta_description: >-
   Discover the contemporary abstract art of Mark Hartzheim, an American artist
   based in Germany.
