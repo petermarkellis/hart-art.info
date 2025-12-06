@@ -113,11 +113,14 @@
       {{ $heroImages = $homepagePage.Params.hero_images }}
     {{ else }}
       {{/* If language-specific page doesn't have hero_images, check base index.md */}}
-      {{ $baseIndex := $homepageSection.GetPage "index.md" }}
-      {{ if and $baseIndex $baseIndex.Params.hero_images }}
-        {{ $heroImages = $baseIndex.Params.hero_images }}
-      {{ else if $homepagePage.Params.hero_image }}
-        {{/* Fallback: convert single image to array for backward compatibility */}}
+      {{ if $homepageSection }}
+        {{ $baseIndex := $homepageSection.GetPage "index.md" }}
+        {{ if and $baseIndex $baseIndex.Params.hero_images }}
+          {{ $heroImages = $baseIndex.Params.hero_images }}
+        {{ end }}
+      {{ end }}
+      {{/* Final fallback: use single hero_image */}}
+      {{ if and (not $heroImages) $homepagePage.Params.hero_image }}
         {{ $heroImages = slice $homepagePage.Params.hero_image }}
       {{ end }}
     {{ end }}
@@ -147,11 +150,11 @@
         {{ else if reflect.IsSlice $imageItem }}
           {{ $imagePath = index $imageItem 0 }}
         {{ else }}
-          {{/* Direct string path - CMS may save as simple array of strings */}}
+          {{/* Direct string path - CMS saves as simple array of strings */}}
           {{ $imagePath = $imageItem | string }}
         {{ end }}
-        {{/* Only render if we have a valid path */}}
-        {{ if and $imagePath (ne $imagePath "") }}
+        {{/* Render slide - $imagePath should always be set for valid array items */}}
+        {{ if $imagePath }}
         <div class="hero-slide {{ if eq $index 0 }}active{{ end }}" 
              data-slide-index="{{ $index }}"
              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('{{ $imagePath }}'); background-size: cover; background-position: center; opacity: {{ if eq $index 0 }}1{{ else }}0{{ end }}; transition: opacity 1s ease-in-out; z-index: 1;">
