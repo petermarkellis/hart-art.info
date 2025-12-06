@@ -101,7 +101,7 @@
   </aside>
 
   <!-- Right Column - About Content -->
-  <main class="w-100 w-60-l pa3 pa4-l bg-white pb6" style="flex: 1; min-height: 100vh;">
+  <div class="w-100 w-60-l pa3 pa4-l bg-white pb6 about-content" style="flex: 1;">
     <h1 class="f4 f3-ns fw6 mb4 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
       {{ $aboutPage.Title }}
     </h1>
@@ -205,15 +205,10 @@
         </div>
       {{ end }}
     {{ end }}
-  </main>
+  </div>
 </div>
 
 <style>
-  /* Ensure about page container doesn't interfere with sticky */
-  .about-page-container {
-    overflow: visible !important;
-  }
-  
   /* Override main overflow for about page to allow sticky */
   main:has(.about-page-container) {
     overflow: visible !important;
@@ -239,7 +234,6 @@
       align-self: flex-start !important;
       max-height: 100vh !important;
       overflow-y: auto !important;
-      will-change: transform !important;
     }
   }
   
