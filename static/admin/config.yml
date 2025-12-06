@@ -56,6 +56,7 @@ collections:
             fields:
               - {label: "OG Title", name: "og_title", widget: "string", i18n: true, required: false, hint: "Open Graph title (for social media sharing)"}
               - {label: "OG Description", name: "og_description", widget: "text", i18n: true, required: false, hint: "Open Graph description (for social media sharing)"}
+              - {label: "OG Site Name", name: "og_site_name", widget: "string", i18n: true, required: false, hint: "Open Graph site name (e.g., 'Mark Hartzheim – Contemporary American Artist in Germany | Hart Art')"}
 
   - name: "series"
     label: "Series"

@@ -57,12 +57,16 @@
   {{/* Get Open Graph values from homepage if available */}}
   {{ $homepageOgTitle := "" }}
   {{ $homepageOgDescription := "" }}
+  {{ $homepageOgSiteName := "" }}
   {{ if and $homepagePage $homepagePage.Params.open_graph }}
     {{ if $homepagePage.Params.open_graph.og_title }}
       {{ $homepageOgTitle = $homepagePage.Params.open_graph.og_title }}
     {{ end }}
     {{ if $homepagePage.Params.open_graph.og_description }}
       {{ $homepageOgDescription = $homepagePage.Params.open_graph.og_description }}
+    {{ end }}
+    {{ if $homepagePage.Params.open_graph.og_site_name }}
+      {{ $homepageOgSiteName = $homepagePage.Params.open_graph.og_site_name }}
     {{ end }}
   {{ end }}
   
@@ -145,7 +149,11 @@
     {{ if $ogImageUrl }}
       <meta property="og:image" content="{{ $ogImageUrl }}">
     {{ end }}
-    <meta property="og:site_name" content="{{ $siteTitle }}">
+    {{ $ogSiteName := $siteTitle }}
+    {{ if $homepageOgSiteName }}
+      {{ $ogSiteName = $homepageOgSiteName }}
+    {{ end }}
+    <meta property="og:site_name" content="{{ $ogSiteName }}">
     
     {{/* Twitter Card tags */}}
     <meta name="twitter:card" content="{{ $twitterCard }}">
