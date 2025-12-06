@@ -763,22 +763,16 @@
 </div>
 
 <style>
-  /* Override main overflow for about page to allow sticky */
-  main:has(.about-page-container) {
+  /* Force main to not have overflow on about page */
+  body main {
     overflow: visible !important;
-  }
-  
-  /* Fallback for browsers that don't support :has() */
-  @supports not selector(:has(*)) {
-    main {
-      overflow: visible !important;
-    }
   }
   
   /* Sticky sidebar on desktop */
   @media (min-width: 60em) {
     .about-page-container {
       align-items: flex-start !important;
+      display: flex !important;
     }
     
     .about-sidebar {
@@ -788,6 +782,7 @@
       align-self: flex-start !important;
       max-height: 100vh !important;
       overflow-y: auto !important;
+      height: fit-content !important;
     }
   }
   
