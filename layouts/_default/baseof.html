@@ -8,6 +8,7 @@
   {{ $keywords := $seo.keywords | default "" }}
   {{ $ogImage := $seo.og_image | default .Site.Params.featured_image | default "" }}
   {{ $ogType := $seo.og_type | default "website" }}
+  {{ $ogSiteName := $seo.og_site_name | default $siteTitle }}
   {{ $twitterCard := $seo.twitter_card | default "summary" }}
   {{ $twitterSite := $seo.twitter_site | default "" }}
   {{ $twitterCreator := $seo.twitter_creator | default "" }}
@@ -82,7 +83,7 @@
     {{ if $ogImageUrl }}
       <meta property="og:image" content="{{ $ogImageUrl }}">
     {{ end }}
-    <meta property="og:site_name" content="{{ $siteTitle }}">
+    <meta property="og:site_name" content="{{ $ogSiteName }}">
     
     {{/* Twitter Card tags */}}
     <meta name="twitter:card" content="{{ $twitterCard }}">
