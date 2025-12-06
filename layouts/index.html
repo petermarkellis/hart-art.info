@@ -148,15 +148,22 @@
   <section class="hero-banner relative" style="min-height: 80vh; position: relative; overflow: hidden;">
     <div class="hero-slideshow" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
       {{ if $heroImages }}
-        {{ range $index, $imageItem := $heroImages }}
+        {{/* Try accessing by index to ensure we get all items */}}
+        {{ $heroImagesSlice := $heroImages }}
+        {{ if not (reflect.IsSlice $heroImagesSlice) }}
+          {{ $heroImagesSlice = slice $heroImagesSlice }}
+        {{ end }}
+        {{ range $index, $imageItem := $heroImagesSlice }}
           {{ $imagePath := "" }}
           {{/* Check if it's a map/object first, then try string */}}
           {{ if reflect.IsMap $imageItem }}
+            {{/* Object format: access .image key */}}
             {{ $imagePath = $imageItem.image | default "" }}
           {{ else }}
-            {{/* If not a map, treat as string directly */}}
-            {{ $imagePath = $imageItem }}
+            {{/* String format: use directly */}}
+            {{ $imagePath = $imageItem | string }}
           {{ end }}
+          {{/* Render slide if we have a path */}}
           {{ if $imagePath }}
           <div class="hero-slide {{ if eq $index 0 }}active{{ end }}" 
                data-slide-index="{{ $index }}"
