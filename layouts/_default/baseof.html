@@ -40,7 +40,13 @@
   {{ end }}
   
   {{ $siteTitle := $seo.site_title | default .Site.Title }}
-  {{ $keywords := $seo.keywords | default "" }}
+  {{/* Get keywords - prioritize homepage, then data file */}}
+  {{ $keywords := "" }}
+  {{ if and $homepagePage $homepagePage.Params.keywords }}
+    {{ $keywords = $homepagePage.Params.keywords }}
+  {{ else }}
+    {{ $keywords = $seo.keywords | default "" }}
+  {{ end }}
   {{ $ogImage := $seo.og_image | default .Site.Params.featured_image | default "" }}
   {{ $ogType := $seo.og_type | default "website" }}
   {{ $twitterCard := $seo.twitter_card | default "summary" }}
