@@ -150,13 +150,14 @@
       {{ if $heroImages }}
         {{ range $index, $imageItem := $heroImages }}
           {{ $imagePath := "" }}
-          {{/* Handle both object format (with .image key) and string format */}}
+          {{/* Try object format first (with .image key), then fallback to string */}}
           {{ if reflect.IsMap $imageItem }}
             {{ $imagePath = $imageItem.image | default "" }}
           {{ else }}
-            {{/* If it's a string, use it directly */}}
-            {{ $imagePath = $imageItem }}
+            {{/* If not a map, treat as string */}}
+            {{ $imagePath = $imageItem | string }}
           {{ end }}
+          {{/* Render slide if we have a path */}}
           {{ if $imagePath }}
           <div class="hero-slide {{ if eq $index 0 }}active{{ end }}" 
                data-slide-index="{{ $index }}"
