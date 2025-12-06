@@ -216,15 +216,13 @@
   
   /* Override main overflow for about page to allow sticky */
   main:has(.about-page-container) {
-    overflow-x: visible !important;
-    overflow-y: visible !important;
+    overflow: visible !important;
   }
   
   /* Fallback for browsers that don't support :has() */
   @supports not selector(:has(*)) {
     main {
-      overflow-x: visible !important;
-      overflow-y: visible !important;
+      overflow: visible !important;
     }
   }
   
@@ -241,6 +239,7 @@
       align-self: flex-start !important;
       max-height: 100vh !important;
       overflow-y: auto !important;
+      will-change: transform !important;
     }
   }
   
