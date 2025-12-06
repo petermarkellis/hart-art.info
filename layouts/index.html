@@ -149,11 +149,18 @@
     <div class="hero-slideshow" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
       {{ if $heroImages }}
         {{ range $index, $imageItem := $heroImages }}
-          {{/* Access .image directly - same pattern as gallery_images in series */}}
-          {{ if .image }}
+          {{ $imagePath := "" }}
+          {{/* Check if it's a map/object first, then try string */}}
+          {{ if reflect.IsMap $imageItem }}
+            {{ $imagePath = $imageItem.image | default "" }}
+          {{ else }}
+            {{/* If not a map, treat as string directly */}}
+            {{ $imagePath = $imageItem }}
+          {{ end }}
+          {{ if $imagePath }}
           <div class="hero-slide {{ if eq $index 0 }}active{{ end }}" 
                data-slide-index="{{ $index }}"
-               style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('{{ .image }}'); background-size: cover; background-position: center; opacity: {{ if eq $index 0 }}1{{ else }}0{{ end }}; transition: opacity 1s ease-in-out; z-index: 1;">
+               style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('{{ $imagePath }}'); background-size: cover; background-position: center; opacity: {{ if eq $index 0 }}1{{ else }}0{{ end }}; transition: opacity 1s ease-in-out; z-index: 1;">
           </div>
           {{ end }}
         {{ end }}
