@@ -115,11 +115,21 @@
     color: #fff;
   }
   
-  /* Override main overflow for series pages to allow sticky */
-  body main[role="main"]:has(.series-layout-wrapper) {
+  /* Override main overflow for series pages to allow sticky - use multiple selectors for better browser support */
+  body main[role="main"]:has(.series-layout-wrapper),
+  body main[role="main"] .series-layout-wrapper {
     overflow: visible !important;
     overflow-x: visible !important;
     overflow-y: visible !important;
+  }
+  
+  /* Fallback for browsers without :has() support */
+  @supports not selector(:has(*)) {
+    body main[role="main"] {
+      overflow: visible !important;
+      overflow-x: visible !important;
+      overflow-y: visible !important;
+    }
   }
   
   /* Ensure aside navigation extends to full height and is sticky */
@@ -128,6 +138,7 @@
       display: flex !important;
       align-items: flex-start !important;
       min-height: 100vh;
+      overflow: visible !important;
     }
     
     .aside-full-height {
