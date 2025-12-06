@@ -5,6 +5,7 @@
   
   {{/* Check if we're on homepage and get homepage content for SEO overrides */}}
   {{ $homepagePage := false }}
+  {{ $homepageBasePage := false }}
   {{ if .IsHome }}
     {{ $homepageSection := .Site.GetPage "section" "homepage" }}
     {{ if $homepageSection }}
@@ -13,13 +14,24 @@
         {{ if and (not $homepagePage) (eq .Lang .Site.Language.Lang) }}
           {{ $homepagePage = . }}
         {{ end }}
-      {{ end }}
-      {{/* If no language-specific page found, try base index.md file */}}
-      {{ if not $homepagePage }}
-        {{ range $homepageSection.Pages }}
-          {{ if and (not $homepagePage) (or (not .Lang) (eq .Lang "")) }}
-            {{ $homepagePage = . }}
+        {{/* Also track base index.md file (no language suffix) */}}
+        {{ if and .File (not $homepageBasePage) }}
+          {{ $baseName := .File.BaseFileName }}
+          {{ if eq $baseName "index" }}
+            {{ $homepageBasePage = . }}
           {{ end }}
+        {{ end }}
+      {{ end }}
+      {{/* If language-specific page doesn't have SEO fields, use base file */}}
+      {{ if and $homepagePage (not $homepagePage.Params.html_title) (not $homepagePage.Params.meta_description) }}
+        {{ if $homepageBasePage }}
+          {{ $homepagePage = $homepageBasePage }}
+        {{ end }}
+      {{ end }}
+      {{/* If no language-specific page found, use base file */}}
+      {{ if not $homepagePage }}
+        {{ if $homepageBasePage }}
+          {{ $homepagePage = $homepageBasePage }}
         {{ end }}
       {{ end }}
       {{/* Final fallback: any page from section */}}
