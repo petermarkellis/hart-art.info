@@ -90,9 +90,9 @@
   {{ end }}
 {{ end }}
 
-<div class="flex flex-column flex-row-l bg-white about-page-container" style="width: 100%;">
+<div class="flex flex-column flex-row-l bg-white about-page-container" style="width: 100%; align-items: flex-start;">
   <!-- Left Column - Portrait and Contact Info -->
-  <aside class="w-100 w-40-l pa3 pa4-l bg-white about-sidebar" style="border-right: 1px solid #e5e5e5; align-self: flex-start;">
+  <aside class="w-100 w-40-l pa3 pa4-l bg-white about-sidebar" style="border-right: 1px solid #e5e5e5;">
     {{ if $profileImage }}
       <div class="mb4">
         <img src="{{ $profileImage }}" alt="{{ $aboutPage.Title }}" class="w-100" style="max-width: 100%; height: auto; display: block;" />
@@ -174,7 +174,7 @@
   </aside>
 
   <!-- Right Column - About Content -->
-  <main class="w-100 w-60-l pa3 pa4-l bg-white pb6" style="flex: 1;">
+  <main class="w-100 w-60-l pa3 pa4-l bg-white pb6" style="flex: 1; min-height: 100vh;">
     <h1 class="f4 f3-ns fw6 mb4 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
       {{ $aboutPage.Title | upper }}
     </h1>
@@ -784,14 +784,17 @@
   
   /* Sticky sidebar on desktop */
   @media (min-width: 60em) {
+    .about-page-container {
+      align-items: flex-start !important;
+    }
+    
     .about-sidebar {
       position: -webkit-sticky !important;
       position: sticky !important;
       top: 0 !important;
-      height: fit-content !important;
-      max-height: calc(100vh - 0px) !important;
-      overflow-y: auto !important;
       align-self: flex-start !important;
+      max-height: 100vh !important;
+      overflow-y: auto !important;
     }
   }
   
