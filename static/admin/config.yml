@@ -48,10 +48,8 @@ collections:
             required: false
             min: 1
             hint: "Add multiple images to create a slideshow. Images will cycle automatically every 5 seconds. If empty, will use the single Hero Image field below."
-            field:
-              label: "Hero Image"
-              name: "image"
-              widget: "image"
+            fields:
+              - {label: "Hero Image", name: "image", widget: "image"}
           - {label: "Hero Image (Single - for backward compatibility)", name: "hero_image", widget: "image", required: false, hint: "Single hero image. Used if Hero Images list is empty."}
           - {label: "Quote Text", name: "quote_text", widget: "string", i18n: true, required: true, hint: "e.g., 'THE SUBCONSCIOUS DICTATES!'"}
           - {label: "Quote Author", name: "quote_author", widget: "string", i18n: true, required: true, hint: "e.g., 'ANDRÉ MASSON'"}

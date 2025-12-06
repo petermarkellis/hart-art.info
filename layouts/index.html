@@ -145,15 +145,15 @@
         {{ $imagePath := "" }}
         {{/* Handle different data formats from CMS */}}
         {{ if reflect.IsMap $imageItem }}
-          {{/* CMS list widget stores as map with 'image' key */}}
+          {{/* CMS list widget with nested field stores as map with 'image' key */}}
           {{ $imagePath = $imageItem.image | default "" }}
         {{ else if reflect.IsSlice $imageItem }}
           {{ $imagePath = index $imageItem 0 }}
         {{ else }}
-          {{/* Direct string path - CMS saves as simple array of strings */}}
-          {{ $imagePath = $imageItem | string }}
+          {{/* Direct string path - CMS may save as simple array of strings */}}
+          {{ $imagePath = $imageItem }}
         {{ end }}
-        {{/* Render slide - $imagePath should always be set for valid array items */}}
+        {{/* Render slide - always render if we have a path */}}
         {{ if $imagePath }}
         <div class="hero-slide {{ if eq $index 0 }}active{{ end }}" 
              data-slide-index="{{ $index }}"
