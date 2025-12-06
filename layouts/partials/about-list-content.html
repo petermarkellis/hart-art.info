@@ -90,9 +90,9 @@
   {{ end }}
 {{ end }}
 
-<div class="flex flex-column flex-row-l bg-white" style="width: 100%;">
+<div class="flex flex-column flex-row-l bg-white about-page-container" style="width: 100%; position: relative;">
   <!-- Left Column - Portrait and Contact Info -->
-  <aside class="w-100 w-40-l pa3 pa4-l bg-white" style="border-right: 1px solid #e5e5e5; position: sticky; top: 0; align-self: flex-start; max-height: 100vh; overflow-y: auto;">
+  <aside class="w-100 w-40-l pa3 pa4-l bg-white" style="border-right: 1px solid #e5e5e5; position: -webkit-sticky; position: sticky; top: 0; align-self: flex-start; max-height: 100vh; overflow-y: auto; z-index: 10;">
     {{ if $profileImage }}
       <div class="mb4">
         <img src="{{ $profileImage }}" alt="{{ $aboutPage.Title }}" class="w-100" style="max-width: 100%; height: auto; display: block;" />
@@ -763,6 +763,11 @@
 </div>
 
 <style>
+  /* Ensure about page container doesn't interfere with sticky */
+  .about-page-container {
+    overflow: visible !important;
+  }
+  
   /* Responsive layout for about page */
   @media (max-width: 60em) {
     aside {
@@ -773,6 +778,16 @@
       max-height: none !important;
       overflow-y: visible !important;
     }
+  }
+  
+  @media (min-width: 60em) {
+    /* Ensure sticky works on desktop */
+    .about-page-container > aside {
+      position: -webkit-sticky !important;
+      position: sticky !important;
+      top: 0 !important;
+    }
+  }
 
     .cv-entry,
     .exhibit-entry {
