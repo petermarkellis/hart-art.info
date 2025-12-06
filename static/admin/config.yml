@@ -27,6 +27,8 @@ collections:
           - {label: "Keywords", name: "keywords", widget: "string", required: false, hint: "Comma-separated keywords for SEO"}
           - {label: "Open Graph Image", name: "og_image", widget: "image", required: false, hint: "Default image for social media sharing (1200x630px recommended)"}
           - {label: "Open Graph Type", name: "og_type", widget: "string", default: "website", required: false, hint: "Usually 'website' or 'article'"}
+          - {label: "Open Graph Site Name", name: "og_site_name", widget: "string", required: false, hint: "Open Graph site name (for social media sharing)"}
+          - {label: "Open Graph Description", name: "og_description", widget: "text", required: false, hint: "Open Graph description (for social media sharing)"}
           - {label: "Twitter Card Type", name: "twitter_card", widget: "select", options: ["summary", "summary_large_image"], default: "summary", required: false}
           - {label: "Twitter Site", name: "twitter_site", widget: "string", required: false, hint: "Twitter username (e.g., @username) without @"}
           - {label: "Twitter Creator", name: "twitter_creator", widget: "string", required: false, hint: "Twitter creator username (e.g., @username) without @"}
