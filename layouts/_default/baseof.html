@@ -8,11 +8,21 @@
   {{ if .IsHome }}
     {{ $homepageSection := .Site.GetPage "section" "homepage" }}
     {{ if $homepageSection }}
+      {{/* First, try to find language-specific page */}}
       {{ range $homepageSection.Pages }}
         {{ if and (not $homepagePage) (eq .Lang .Site.Language.Lang) }}
           {{ $homepagePage = . }}
         {{ end }}
       {{ end }}
+      {{/* If no language-specific page found, try base index.md file */}}
+      {{ if not $homepagePage }}
+        {{ range $homepageSection.Pages }}
+          {{ if and (not $homepagePage) (or (not .Lang) (eq .Lang "")) }}
+            {{ $homepagePage = . }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{/* Final fallback: any page from section */}}
       {{ if not $homepagePage }}
         {{ range $homepageSection.Pages }}
           {{ if not $homepagePage }}
