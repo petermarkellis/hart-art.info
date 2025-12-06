@@ -1,30 +1,18 @@
 {{ define "title" }}
   {{/* Get homepage content for title */}}
   {{ $homepagePage := false }}
-  {{ $homepagePageWithSEO := false }}
-  {{ $lang := .Site.Language.Lang }}
   {{ $homepageSection := .Site.GetPage "section" "homepage" }}
   {{ if $homepageSection }}
-    {{/* First, try to find language-specific page with html_title */}}
+    {{/* First priority: Find any page with html_title (regardless of language) */}}
     {{ range $homepageSection.Pages }}
-      {{ if eq .Lang $lang }}
-        {{ if not $homepagePage }}
-          {{ $homepagePage = . }}
-        {{ end }}
-        {{/* Prioritize page with html_title */}}
-        {{ if and (not $homepagePageWithSEO) .Params.html_title }}
-          {{ $homepagePageWithSEO = . }}
-        {{ end }}
+      {{ if and (not $homepagePage) .Params.html_title }}
+        {{ $homepagePage = . }}
       {{ end }}
     {{ end }}
-    {{/* If found page with html_title, use it; otherwise use language-specific page */}}
-    {{ if $homepagePageWithSEO }}
-      {{ $homepagePage = $homepagePageWithSEO }}
-    {{ end }}
-    {{/* If no language-specific page found, look for any page with html_title */}}
+    {{/* Second priority: Find language-specific page */}}
     {{ if not $homepagePage }}
       {{ range $homepageSection.Pages }}
-        {{ if and (not $homepagePage) .Params.html_title }}
+        {{ if and (not $homepagePage) (eq .Lang .Site.Language.Lang) }}
           {{ $homepagePage = . }}
         {{ end }}
       {{ end }}

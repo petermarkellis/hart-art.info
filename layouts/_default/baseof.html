@@ -5,30 +5,19 @@
   
   {{/* Check if we're on homepage and get homepage content for SEO overrides */}}
   {{ $homepagePage := false }}
-  {{ $homepagePageWithSEO := false }}
   {{ if .IsHome }}
     {{ $homepageSection := .Site.GetPage "section" "homepage" }}
     {{ if $homepageSection }}
-      {{/* First, try to find language-specific page with SEO fields */}}
+      {{/* First priority: Find any page with SEO fields (regardless of language) */}}
       {{ range $homepageSection.Pages }}
-        {{ if eq .Lang .Site.Language.Lang }}
-          {{ if not $homepagePage }}
-            {{ $homepagePage = . }}
-          {{ end }}
-          {{/* Prioritize page with SEO fields */}}
-          {{ if and (not $homepagePageWithSEO) (or .Params.html_title .Params.meta_description .Params.keywords .Params.author .Params.open_graph) }}
-            {{ $homepagePageWithSEO = . }}
-          {{ end }}
+        {{ if and (not $homepagePage) (or .Params.html_title .Params.meta_description .Params.keywords .Params.author .Params.open_graph) }}
+          {{ $homepagePage = . }}
         {{ end }}
       {{ end }}
-      {{/* If found page with SEO fields, use it; otherwise use language-specific page */}}
-      {{ if $homepagePageWithSEO }}
-        {{ $homepagePage = $homepagePageWithSEO }}
-      {{ end }}
-      {{/* If no language-specific page found, look for any page with SEO fields */}}
+      {{/* Second priority: Find language-specific page */}}
       {{ if not $homepagePage }}
         {{ range $homepageSection.Pages }}
-          {{ if and (not $homepagePage) (or .Params.html_title .Params.meta_description .Params.keywords .Params.author .Params.open_graph) }}
+          {{ if and (not $homepagePage) (eq .Lang .Site.Language.Lang) }}
             {{ $homepagePage = . }}
           {{ end }}
         {{ end }}
