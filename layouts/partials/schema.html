@@ -5,7 +5,12 @@
 {{ $author := $seo.author | default .Site.Params.author | default "" }}
 
 {{/* Use page-specific values if available, otherwise use site defaults */}}
-{{ $itemName := .Title | default $siteTitle }}
+{{ $itemName := "" }}
+{{ if .IsHome }}
+  {{ $itemName = $siteTitle }}
+{{ else }}
+  {{ $itemName = .Title | default $siteTitle }}
+{{ end }}
 {{ $itemDescription := .Description | default .Summary | default $siteDescription }}
 {{ $itemAuthor := .Params.author | default $author }}
 
