@@ -10,7 +10,7 @@ html_title: Mark Hartzheim, Contemporary Abstract Artist
 hero_images:
   - image: /images/uploads/hero.webp
   - image: /images/uploads/drawingsandwatercolors_go_with_the_flow_1997_1.webp
-  - image: /images/uploads/objects_and_assemblages_objet_trouve_4_1.webp
+  - image: /images/uploads/objects_and_assemblages_object_troube_3_1.webp
 show_latest_news: true
 keywords: Mark Hartzheim, Contemporary Abstract Artist, Modern Mixed-Media Art,
   Abstract Paintings, Expressionist Art, European Art Exhibitions, Original
