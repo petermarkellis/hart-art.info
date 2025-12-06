@@ -763,9 +763,11 @@
 </div>
 
 <style>
-  /* Force main to not have overflow on about page */
-  body main {
+  /* Force main to not have overflow on about page - use highest specificity */
+  body main[role="main"] {
     overflow: visible !important;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
   }
   
   /* Sticky sidebar on desktop */
