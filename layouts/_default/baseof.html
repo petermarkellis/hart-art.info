@@ -9,6 +9,7 @@
   {{ $ogImage := $seo.og_image | default .Site.Params.featured_image | default "" }}
   {{ $ogType := $seo.og_type | default "website" }}
   {{ $ogSiteName := $seo.og_site_name | default $siteTitle }}
+  {{ $ogDescription := $seo.og_description | default "" }}
   {{ $twitterCard := $seo.twitter_card | default "summary" }}
   {{ $twitterSite := $seo.twitter_site | default "" }}
   {{ $twitterCreator := $seo.twitter_creator | default "" }}
@@ -67,7 +68,9 @@
 
     {{/* Enhanced Open Graph tags */}}
     {{ $ogTitle := .Title | default $siteTitle }}
-    {{ $ogDescription := .Description | default .Summary | default $siteDescription }}
+    {{ if not $ogDescription }}
+      {{ $ogDescription = .Description | default .Summary | default $siteDescription }}
+    {{ end }}
     {{ $ogUrl := .Permalink | absURL }}
     {{ $ogImageUrl := "" }}
     {{ if .Params.image }}
