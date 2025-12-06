@@ -115,23 +115,22 @@
     color: #fff;
   }
   
-  /* Ensure aside navigation extends to full height */
+  /* Ensure aside navigation extends to full height and is sticky */
   @media (min-width: 60em) {
     .series-layout-wrapper {
       display: flex !important;
-      align-items: stretch !important;
+      align-items: flex-start !important;
       min-height: 100vh;
     }
     
     .aside-full-height {
-      align-self: stretch !important;
-      min-height: 100%;
-      height: auto;
-    }
-    
-    /* Ensure both children stretch to match tallest */
-    .series-layout-wrapper > * {
-      align-self: stretch;
+      position: -webkit-sticky !important;
+      position: sticky !important;
+      top: 0 !important;
+      align-self: flex-start !important;
+      max-height: 100vh !important;
+      overflow-y: auto !important;
+      height: fit-content !important;
     }
   }
   
