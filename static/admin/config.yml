@@ -78,6 +78,12 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string", required: true}
+      - label: "Draft"
+        name: "draft"
+        widget: "boolean"
+        default: false
+        required: false
+        hint: "Mark as draft to hide from public view (draft items won't appear on the site)"
       - {label: "Date Created", name: "date", widget: "datetime", default: "", required: true, hint: "Creation date (used for sorting and display). Set to current date when creating."}
       - {label: "Exhibition Start Date", name: "exhibition_start_date", widget: "datetime", required: false, hint: "Optional start date for exhibitions or events"}
       - {label: "Exhibition End Date", name: "exhibition_end_date", widget: "datetime", required: false, hint: "Optional end date for exhibitions or events (leave empty for single-day events)"}

@@ -18,7 +18,7 @@
     
     {{ $latestNews := slice }}
     
-    {{/* Get latest section and filter pages by current language */}}
+    {{/* Get latest section and filter pages by current language, excluding drafts */}}
     {{ $latestSection := .Site.GetPage "section" "latest" }}
     {{ if $latestSection }}
       {{ range $latestSection.Pages }}
@@ -30,7 +30,15 @@
             {{ $pageLang = "en" }}
           {{ end }}
         {{ end }}
-        {{ if and (eq $pageLang $currentLang) (ne .Kind "section") (not .IsNode) }}
+        {{ $isDraft := false }}
+        {{ if .Draft }}
+          {{ $isDraft = true }}
+        {{ else if isset .Params "draft" }}
+          {{ if .Params.draft }}
+            {{ $isDraft = true }}
+          {{ end }}
+        {{ end }}
+        {{ if and (eq $pageLang $currentLang) (ne .Kind "section") (not .IsNode) (not $isDraft) }}
           {{ $latestNews = $latestNews | append . }}
         {{ end }}
       {{ end }}
@@ -39,6 +47,7 @@
     {{/* Fallback: Use AllPages if section pages didn't work */}}
     {{ if not $latestNews }}
       {{ $latestNews = where .Site.AllPages "Section" "latest" }}
+      {{ $filteredNews := slice }}
       {{ range $latestNews }}
         {{ $pageLang := .Lang }}
         {{ if not $pageLang }}
@@ -48,10 +57,19 @@
             {{ $pageLang = "en" }}
           {{ end }}
         {{ end }}
-        {{ if and (eq $pageLang $currentLang) (ne .Kind "section") (not .IsNode) }}
-          {{ $latestNews = $latestNews | append . }}
+        {{ $isDraft := false }}
+        {{ if .Draft }}
+          {{ $isDraft = true }}
+        {{ else if isset .Params "draft" }}
+          {{ if .Params.draft }}
+            {{ $isDraft = true }}
+          {{ end }}
+        {{ end }}
+        {{ if and (eq $pageLang $currentLang) (ne .Kind "section") (not .IsNode) (not $isDraft) }}
+          {{ $filteredNews = $filteredNews | append . }}
         {{ end }}
       {{ end }}
+      {{ $latestNews = $filteredNews }}
     {{ end }}
     
     {{ $latestNews = $latestNews.ByDate.Reverse }}

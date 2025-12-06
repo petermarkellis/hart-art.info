@@ -6,6 +6,21 @@
 {{ end }}
 
 {{ define "main" }}
+{{/* Check if this is a draft and hide it in production */}}
+{{ $isDraft := false }}
+{{ if .Draft }}
+  {{ $isDraft = true }}
+{{ else if isset .Params "draft" }}
+  {{ if .Params.draft }}
+    {{ $isDraft = true }}
+  {{ end }}
+{{ end }}
+{{ if and $isDraft hugo.IsProduction }}
+  <div class="ph2 pv4 ph4-ns pv5-ns bg-white" style="max-width: 800px; margin: 0 auto;">
+    <h1 class="f4 f3-ns fw6 mb4 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">{{ if eq .Site.Language.Lang "de" }}ENTWURF{{ else }}DRAFT{{ end }}</h1>
+    <p class="f6 f5-ns black-70" style="font-family: 'Inter', sans-serif;">{{ if eq .Site.Language.Lang "de" }}Dieser Beitrag ist noch nicht veröffentlicht.{{ else }}This post is not yet published.{{ end }}</p>
+  </div>
+{{ else }}
 <div class="ph2 pv4 ph4-ns pv5-ns bg-white" style="max-width: 800px; margin: 0 auto;">
   <!-- News Title -->
   <h1 class="f4 f3-ns fw6 mb4 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
@@ -655,6 +670,7 @@
   <!-- Add padding at bottom -->
   <div class="pb6"></div>
 </div>
+{{ end }}
 
 <style>
   .news-item:hover {

@@ -142,11 +142,19 @@
       {{ $currentLang := .Language.Lang }}
       {{ $latestNews := slice }}
       
-      {{/* Get latest section and filter pages by current language */}}
+      {{/* Get latest section and filter pages by current language, excluding drafts */}}
       {{ $latestSection := .Site.GetPage "section" "latest" }}
       {{ if $latestSection }}
         {{ range $latestSection.Pages }}
-          {{ if and (eq .Lang $currentLang) (ne .Kind "section") (not .IsNode) }}
+          {{ $isDraft := false }}
+          {{ if .Draft }}
+            {{ $isDraft = true }}
+          {{ else if isset .Params "draft" }}
+            {{ if .Params.draft }}
+              {{ $isDraft = true }}
+            {{ end }}
+          {{ end }}
+          {{ if and (eq .Lang $currentLang) (ne .Kind "section") (not .IsNode) (not $isDraft) }}
             {{ $latestNews = $latestNews | append . }}
           {{ end }}
         {{ end }}
@@ -158,6 +166,22 @@
         {{ $latestNews = where $latestNews "Lang" $currentLang }}
         {{ $latestNews = where $latestNews "IsNode" false }}
         {{ $latestNews = where $latestNews "Kind" "!=" "section" }}
+        {{/* Filter out drafts */}}
+        {{ $filteredNews := slice }}
+        {{ range $latestNews }}
+          {{ $isDraft := false }}
+          {{ if .Draft }}
+            {{ $isDraft = true }}
+          {{ else if isset .Params "draft" }}
+            {{ if .Params.draft }}
+              {{ $isDraft = true }}
+            {{ end }}
+          {{ end }}
+          {{ if not $isDraft }}
+            {{ $filteredNews = $filteredNews | append . }}
+          {{ end }}
+        {{ end }}
+        {{ $latestNews = $filteredNews }}
       {{ end }}
       
       {{/* Sort by date (newest first) and limit to 10 */}}
