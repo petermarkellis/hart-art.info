@@ -11,12 +11,16 @@ meta_description: >-
   Explore expressive drawings, pastels and watercolour paintings, as well as wooden objects and assemblages.
 
   View original artwork for sale and upcoming exhibitions.
-author: Mark Hatzheim
+keywords: Mark Hartzheim, Contemporary Abstract Artist, Modern Mixed-Media Art,
+  Abstract Paintings, Expressionist Art, European Art Exhibitions, Original
+  Artwork for Sale, Fine Art Prints
+author: Mark Hartzheim
 open_graph:
   og_description: >-
     Discover the contemporary abstract art of Mark Hartzheim, an American artist
     based in Germany.
 
     Explore expressive drawings, pastels and watercolour paintings, as well as wooden objects and assemblages. View original artwork for sale and upcoming exhibitions.
-  og_title: Mark Hatzheim - Contemporary Abstract Artist
+  og_title: Mark Hartzheim - Contemporary Abstract Artist
+  og_site_name: Mark Hartzheim - Contemporary Abstract Artist
 ---
