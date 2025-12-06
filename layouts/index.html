@@ -288,38 +288,38 @@
     </div>
   </section>
   {{ end }}
-{{ end }}
 
-{{/* Hero Slideshow JavaScript */}}
-<script>
-  (function() {
-    const slides = document.querySelectorAll('.hero-slide');
-    if (slides.length <= 1) return; // No slideshow needed if only one image
-    
-    let currentSlide = 0;
-    const slideInterval = 5000; // 5 seconds
-    
-    function nextSlide() {
-      // Fade out current slide
-      if (slides[currentSlide]) {
-        slides[currentSlide].classList.remove('active');
-        slides[currentSlide].style.opacity = '0';
+  {{/* Hero Slideshow JavaScript */}}
+  <script>
+    (function() {
+      const slides = document.querySelectorAll('.hero-slide');
+      if (slides.length <= 1) return; // No slideshow needed if only one image
+      
+      let currentSlide = 0;
+      const slideInterval = 5000; // 5 seconds
+      
+      function nextSlide() {
+        // Fade out current slide
+        if (slides[currentSlide]) {
+          slides[currentSlide].classList.remove('active');
+          slides[currentSlide].style.opacity = '0';
+        }
+        
+        // Move to next slide
+        currentSlide = (currentSlide + 1) % slides.length;
+        
+        // Fade in next slide
+        if (slides[currentSlide]) {
+          slides[currentSlide].classList.add('active');
+          slides[currentSlide].style.opacity = '1';
+        }
       }
       
-      // Move to next slide
-      currentSlide = (currentSlide + 1) % slides.length;
-      
-      // Fade in next slide
-      if (slides[currentSlide]) {
-        slides[currentSlide].classList.add('active');
-        slides[currentSlide].style.opacity = '1';
-      }
-    }
-    
-    // Start slideshow after a short delay to ensure images are loaded
-    setTimeout(function() {
-      setInterval(nextSlide, slideInterval);
-    }, 1000);
-  })();
-</script>
+      // Start slideshow after a short delay to ensure images are loaded
+      setTimeout(function() {
+        setInterval(nextSlide, slideInterval);
+      }, 1000);
+    })();
+  </script>
+{{ end }}
 
