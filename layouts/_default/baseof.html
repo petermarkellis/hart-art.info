@@ -2,9 +2,44 @@
 <html lang="{{ site.Language.LanguageCode }}" {{- if eq site.Language.LanguageDirection "rtl" }} dir="rtl" {{- end }}>
   {{/* Load SEO data from data file with fallbacks - define at top level for all blocks */}}
   {{ $seo := site.Data.seo }}
+  
+  {{/* Check if we're on homepage and get homepage content for SEO overrides */}}
+  {{ $homepagePage := false }}
+  {{ if .IsHome }}
+    {{ $homepageSection := .Site.GetPage "section" "homepage" }}
+    {{ if $homepageSection }}
+      {{ range $homepageSection.Pages }}
+        {{ if and (not $homepagePage) (eq .Lang .Site.Language.Lang) }}
+          {{ $homepagePage = . }}
+        {{ end }}
+      {{ end }}
+      {{ if not $homepagePage }}
+        {{ range $homepageSection.Pages }}
+          {{ if not $homepagePage }}
+            {{ $homepagePage = . }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  
+  {{/* Get meta description - prioritize homepage, then data file, then site params */}}
+  {{ $siteDescription := "" }}
+  {{ if and $homepagePage $homepagePage.Params.meta_description }}
+    {{ $siteDescription = $homepagePage.Params.meta_description }}
+  {{ else }}
+    {{ $siteDescription = $seo.site_description | default .Site.Params.description | default "" }}
+  {{ end }}
+  
+  {{/* Get author - prioritize homepage, then data file, then site params */}}
+  {{ $author := "" }}
+  {{ if and $homepagePage $homepagePage.Params.author }}
+    {{ $author = $homepagePage.Params.author }}
+  {{ else }}
+    {{ $author = $seo.author | default .Site.Params.author | default "" }}
+  {{ end }}
+  
   {{ $siteTitle := $seo.site_title | default .Site.Title }}
-  {{ $siteDescription := $seo.site_description | default .Site.Params.description | default "" }}
-  {{ $author := $seo.author | default .Site.Params.author | default "" }}
   {{ $keywords := $seo.keywords | default "" }}
   {{ $ogImage := $seo.og_image | default .Site.Params.featured_image | default "" }}
   {{ $ogType := $seo.og_type | default "website" }}
@@ -13,6 +48,18 @@
   {{ $twitterCreator := $seo.twitter_creator | default "" }}
   {{ $googleVerification := $seo.google_site_verification | default "" }}
   
+  {{/* Get Open Graph values from homepage if available */}}
+  {{ $homepageOgTitle := "" }}
+  {{ $homepageOgDescription := "" }}
+  {{ if and $homepagePage $homepagePage.Params.open_graph }}
+    {{ if $homepagePage.Params.open_graph.og_title }}
+      {{ $homepageOgTitle = $homepagePage.Params.open_graph.og_title }}
+    {{ end }}
+    {{ if $homepagePage.Params.open_graph.og_description }}
+      {{ $homepageOgDescription = $homepagePage.Params.open_graph.og_description }}
+    {{ end }}
+  {{ end }}
+  
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -20,7 +67,7 @@
     {{/* Use .Site.Title in title block to avoid scope issues, $siteTitle for meta tags */}}
     <title>{{ block "title" . }}{{ with .Params.Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ $siteDescription }}{{ end }}{{ end }}">
+    <meta name="description" content="{{ if .IsHome }}{{ $siteDescription }}{{ else }}{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ $siteDescription }}{{ end }}{{ end }}{{ end }}">
     {{ if $keywords }}
       <meta name="keywords" content="{{ $keywords }}">
     {{ end }}
@@ -65,8 +112,18 @@
     {{ end }}
 
     {{/* Enhanced Open Graph tags */}}
-    {{ $ogTitle := .Title | default $siteTitle }}
-    {{ $ogDescription := .Description | default .Summary | default $siteDescription }}
+    {{ $ogTitle := "" }}
+    {{ if $homepageOgTitle }}
+      {{ $ogTitle = $homepageOgTitle }}
+    {{ else }}
+      {{ $ogTitle = .Title | default $siteTitle }}
+    {{ end }}
+    {{ $ogDescription := "" }}
+    {{ if $homepageOgDescription }}
+      {{ $ogDescription = $homepageOgDescription }}
+    {{ else }}
+      {{ $ogDescription = .Description | default .Summary | default $siteDescription }}
+    {{ end }}
     {{ $ogUrl := .Permalink | absURL }}
     {{ $ogImageUrl := "" }}
     {{ if .Params.image }}
