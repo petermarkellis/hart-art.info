@@ -20,7 +20,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     {{/* NOTE: the Site's title, and if there is a page title, that is set too */}}
     {{/* Use .Site.Title in title block to avoid scope issues, $siteTitle for meta tags */}}
-    <title>{{ block "title" . }}{{ with .Params.Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
+    <title>{{ block "title" . }}{{ $seo := .Site.Data.seo }}{{ $title := $seo.site_title | default .Site.Title }}{{ with .Params.Title }}{{ . }} | {{ end }}{{ $title }}{{ end }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="{{ if .IsHome }}{{ $siteDescription }}{{ else }}{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ $siteDescription }}{{ end }}{{ end }}{{ end }}">
     {{ if $keywords }}
