@@ -1,38 +1,5 @@
 {{ define "title" }}
-  {{/* Get homepage content for title */}}
-  {{ $homepagePage := false }}
-  {{ $homepageSection := .Site.GetPage "section" "homepage" }}
-  {{ if $homepageSection }}
-    {{/* First priority: Find any page with html_title (regardless of language) */}}
-    {{ range $homepageSection.Pages }}
-      {{ if and (not $homepagePage) .Params.html_title }}
-        {{ $homepagePage = . }}
-      {{ end }}
-    {{ end }}
-    {{/* Second priority: Find language-specific page */}}
-    {{ if not $homepagePage }}
-      {{ range $homepageSection.Pages }}
-        {{ if and (not $homepagePage) (eq .Lang .Site.Language.Lang) }}
-          {{ $homepagePage = . }}
-        {{ end }}
-      {{ end }}
-    {{ end }}
-    {{/* Final fallback: any page from section */}}
-    {{ if not $homepagePage }}
-      {{ range $homepageSection.Pages }}
-        {{ if not $homepagePage }}
-          {{ $homepagePage = . }}
-        {{ end }}
-      {{ end }}
-    {{ end }}
-  {{ end }}
-  
-  {{/* Use homepage html_title if available, otherwise use default */}}
-  {{ if and $homepagePage $homepagePage.Params.html_title }}
-    {{ $homepagePage.Params.html_title }}
-  {{ else }}
-    Mark Hartzheim - Artist
-  {{ end }}
+  Mark Hartzheim - Artist
 {{ end }}
 
 {{ define "head" }}

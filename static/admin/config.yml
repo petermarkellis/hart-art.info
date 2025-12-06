@@ -45,19 +45,6 @@ collections:
           - {label: "Quote Author", name: "quote_author", widget: "string", i18n: true, required: true, hint: "e.g., 'ANDRÉ MASSON'"}
           - {label: "Show Quote Section", name: "show_quote", widget: "boolean", default: true, required: false, hint: "Toggle to display or hide the hero quote text and author"}
           - {label: "Show Latest News Section", name: "show_latest_news", widget: "boolean", default: true, required: false, hint: "Toggle to display or hide the Latest News section on the homepage"}
-          - {label: "HTML Title", name: "html_title", widget: "string", i18n: true, required: false, hint: "HTML page title (appears in browser tab, e.g., 'Mark Hartzheim - Artist')"}
-          - {label: "Meta Description", name: "meta_description", widget: "text", i18n: true, required: false, hint: "SEO meta description for the homepage (appears in search results)"}
-          - {label: "Keywords", name: "keywords", widget: "string", i18n: true, required: false, hint: "SEO keywords (comma-separated, e.g., 'art, painting, contemporary')"}
-          - {label: "Author Name", name: "author", widget: "string", i18n: true, required: false, hint: "Author name for meta tags"}
-          - label: "Open Graph Settings"
-            name: "open_graph"
-            widget: "object"
-            required: false
-            collapsed: false
-            fields:
-              - {label: "OG Title", name: "og_title", widget: "string", i18n: true, required: false, hint: "Open Graph title (for social media sharing)"}
-              - {label: "OG Description", name: "og_description", widget: "text", i18n: true, required: false, hint: "Open Graph description (for social media sharing)"}
-              - {label: "OG Site Name", name: "og_site_name", widget: "string", i18n: true, required: false, hint: "Open Graph site name (e.g., 'Mark Hartzheim – Contemporary American Artist in Germany | Hart Art')"}
 
   - name: "series"
     label: "Series"
