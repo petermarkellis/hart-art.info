@@ -58,10 +58,10 @@
     max-width: 100%;
   }
   
-  /* Exception for about page to allow sticky positioning */
-  main:has(.about-page-container) {
-    overflow-x: visible !important;
-    overflow-y: visible !important;
+  /* Exception for about page to allow sticky positioning - use more specific selector */
+  body main:has(.about-page-container),
+  body main .about-page-container {
+    overflow: visible !important;
   }
   
   /* Gallery grid styles - reusable class instead of inline styles */
