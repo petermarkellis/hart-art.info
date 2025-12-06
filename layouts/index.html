@@ -110,7 +110,13 @@
   {{ if $homepagePage }}
     {{/* Check for multiple hero images first, then fallback to single image */}}
     {{ if $homepagePage.Params.hero_images }}
-      {{ $heroImages = $homepagePage.Params.hero_images }}
+      {{/* Ensure hero_images is treated as a slice/array */}}
+      {{ $heroImagesRaw := $homepagePage.Params.hero_images }}
+      {{ if reflect.IsSlice $heroImagesRaw }}
+        {{ $heroImages = $heroImagesRaw }}
+      {{ else }}
+        {{ $heroImages = slice $heroImagesRaw }}
+      {{ end }}
     {{ else }}
       {{/* If language-specific page doesn't have hero_images, check base index.md */}}
       {{ if $homepageSection }}
