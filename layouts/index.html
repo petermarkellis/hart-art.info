@@ -1,33 +1,32 @@
 {{ define "title" }}
   {{/* Get homepage content for title */}}
   {{ $homepagePage := false }}
-  {{ $homepageBasePage := false }}
+  {{ $homepagePageWithSEO := false }}
   {{ $lang := .Site.Language.Lang }}
   {{ $homepageSection := .Site.GetPage "section" "homepage" }}
   {{ if $homepageSection }}
-    {{/* First, try to find language-specific page */}}
+    {{/* First, try to find language-specific page with html_title */}}
     {{ range $homepageSection.Pages }}
-      {{ if and (not $homepagePage) (eq .Lang $lang) }}
-        {{ $homepagePage = . }}
-      {{ end }}
-      {{/* Also track base index.md file (no language suffix) */}}
-      {{ if and .File (not $homepageBasePage) }}
-        {{ $baseName := .File.BaseFileName }}
-        {{ if eq $baseName "index" }}
-          {{ $homepageBasePage = . }}
+      {{ if eq .Lang $lang }}
+        {{ if not $homepagePage }}
+          {{ $homepagePage = . }}
+        {{ end }}
+        {{/* Prioritize page with html_title */}}
+        {{ if and (not $homepagePageWithSEO) .Params.html_title }}
+          {{ $homepagePageWithSEO = . }}
         {{ end }}
       {{ end }}
     {{ end }}
-    {{/* If language-specific page doesn't have html_title, use base file */}}
-    {{ if and $homepagePage (not $homepagePage.Params.html_title) }}
-      {{ if $homepageBasePage }}
-        {{ $homepagePage = $homepageBasePage }}
-      {{ end }}
+    {{/* If found page with html_title, use it; otherwise use language-specific page */}}
+    {{ if $homepagePageWithSEO }}
+      {{ $homepagePage = $homepagePageWithSEO }}
     {{ end }}
-    {{/* If no language-specific page found, use base file */}}
+    {{/* If no language-specific page found, look for any page with html_title */}}
     {{ if not $homepagePage }}
-      {{ if $homepageBasePage }}
-        {{ $homepagePage = $homepageBasePage }}
+      {{ range $homepageSection.Pages }}
+        {{ if and (not $homepagePage) .Params.html_title }}
+          {{ $homepagePage = . }}
+        {{ end }}
       {{ end }}
     {{ end }}
     {{/* Final fallback: any page from section */}}
