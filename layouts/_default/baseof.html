@@ -67,7 +67,14 @@
     {{ end }}
 
     {{/* Enhanced Open Graph tags */}}
-    {{ $ogTitle := .Title | default $siteTitle }}
+    {{ $ogTitle := "" }}
+    {{ if .IsHome }}
+      {{/* On homepage, use site_title from seo.yml */}}
+      {{ $ogTitle = $siteTitle }}
+    {{ else }}
+      {{/* On other pages, use page title or fallback to site_title */}}
+      {{ $ogTitle = .Title | default $siteTitle }}
+    {{ end }}
     {{ if not $ogDescription }}
       {{ $ogDescription = .Description | default .Summary | default $siteDescription }}
     {{ end }}
@@ -103,9 +110,8 @@
     {{ end }}
 
     {{/* NOTE: These Hugo Internal Templates can be found starting at https://github.com/gohugoio/hugo/tree/master/tpl/tplimpl/embedded/templates */}}
-    {{- template "_internal/opengraph.html" . -}}
+    {{/* Removed _internal/opengraph.html and _internal/twitter_cards.html - we're using custom Open Graph and Twitter Card tags above */}}
     {{- template "_internal/schema.html" . -}}
-    {{- template "_internal/twitter_cards.html" . -}}
 
     {{ if hugo.IsProduction }}
       {{ template "_internal/google_analytics.html" . }}
