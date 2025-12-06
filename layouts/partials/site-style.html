@@ -115,6 +115,13 @@
     color: #fff;
   }
   
+  /* Override main overflow for series pages to allow sticky */
+  body main[role="main"]:has(.series-layout-wrapper) {
+    overflow: visible !important;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+  }
+  
   /* Ensure aside navigation extends to full height and is sticky */
   @media (min-width: 60em) {
     .series-layout-wrapper {
