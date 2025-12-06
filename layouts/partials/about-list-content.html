@@ -90,9 +90,9 @@
   {{ end }}
 {{ end }}
 
-<div class="flex flex-column flex-row-l bg-white" style="min-height: 100vh; height: 100%; width: 100%;">
+<div class="flex flex-column flex-row-l bg-white" style="width: 100%;">
   <!-- Left Column - Portrait and Contact Info -->
-  <aside class="w-100 w-40-l pa3 pa4-l bg-white" style="border-right: 1px solid #e5e5e5; height: 100vh; position: sticky; top: 0; align-self: flex-start;">
+  <aside class="w-100 w-40-l pa3 pa4-l bg-white" style="border-right: 1px solid #e5e5e5; position: sticky; top: 0; align-self: flex-start; max-height: 100vh; overflow-y: auto;">
     {{ if $profileImage }}
       <div class="mb4">
         <img src="{{ $profileImage }}" alt="{{ $aboutPage.Title }}" class="w-100" style="max-width: 100%; height: auto; display: block;" />
@@ -768,9 +768,10 @@
     aside {
       border-right: none !important;
       border-bottom: 1px solid #e5e5e5;
-      min-height: auto !important;
       position: relative !important;
       align-self: stretch !important;
+      max-height: none !important;
+      overflow-y: visible !important;
     }
 
     .cv-entry,
