@@ -77,17 +77,25 @@
   {{/* Get homepage section and find the page for current language */}}
   {{ $homepageSection := .Site.GetPage "section" "homepage" }}
   {{ if $homepageSection }}
+    {{/* First try to find language-specific page */}}
     {{ range $homepageSection.Pages }}
       {{ if and (not $homepagePage) (eq .Lang $lang) }}
         {{ $homepagePage = . }}
       {{ end }}
     {{ end }}
-    {{/* Fallback: if no language-specific page found, use any page from section */}}
+    {{/* Fallback: if no language-specific page found, use base index.md (which has hero_images) */}}
     {{ if not $homepagePage }}
       {{ range $homepageSection.Pages }}
         {{ if not $homepagePage }}
           {{ $homepagePage = . }}
         {{ end }}
+      {{ end }}
+    {{ end }}
+    {{/* If still no page, try to get the base index.md file directly */}}
+    {{ if not $homepagePage }}
+      {{ $baseIndex := $homepageSection.GetPage "index.md" }}
+      {{ if $baseIndex }}
+        {{ $homepagePage = $baseIndex }}
       {{ end }}
     {{ end }}
   {{ end }}
@@ -103,9 +111,15 @@
     {{/* Check for multiple hero images first, then fallback to single image */}}
     {{ if $homepagePage.Params.hero_images }}
       {{ $heroImages = $homepagePage.Params.hero_images }}
-    {{ else if $homepagePage.Params.hero_image }}
-      {{/* Fallback: convert single image to array for backward compatibility */}}
-      {{ $heroImages = slice $homepagePage.Params.hero_image }}
+    {{ else }}
+      {{/* If language-specific page doesn't have hero_images, check base index.md */}}
+      {{ $baseIndex := $homepageSection.GetPage "index.md" }}
+      {{ if and $baseIndex $baseIndex.Params.hero_images }}
+        {{ $heroImages = $baseIndex.Params.hero_images }}
+      {{ else if $homepagePage.Params.hero_image }}
+        {{/* Fallback: convert single image to array for backward compatibility */}}
+        {{ $heroImages = slice $homepagePage.Params.hero_image }}
+      {{ end }}
     {{ end }}
     {{ if $homepagePage.Params.quote_text }}
       {{ $quoteText = $homepagePage.Params.quote_text }}
@@ -133,7 +147,7 @@
         {{ else if reflect.IsSlice $imageItem }}
           {{ $imagePath = index $imageItem 0 }}
         {{ else }}
-          {{/* Direct string path (backward compatibility with single hero_image) */}}
+          {{/* Direct string path - CMS may save as simple array of strings */}}
           {{ $imagePath = $imageItem | string }}
         {{ end }}
         {{/* Only render if we have a valid path */}}
