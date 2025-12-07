@@ -71,12 +71,25 @@
   {{ end }}
   
   {{ if $copyrightText }}
-    <div class="f6 f5-ns lh-copy black-80" style="font-family: 'Inter', sans-serif;">
+    <div class="f6 f5-ns lh-copy black-80 copyright-content" style="font-family: 'Inter', sans-serif;">
       {{ $copyrightText | markdownify }}
     </div>
   {{ else }}
     <p class="f6 f5-ns black-70" style="font-family: 'Inter', sans-serif;">{{ if eq $currentLang "de" }}Kein Text verfügbar.{{ else }}No text available.{{ end }}</p>
   {{ end }}
 </div>
+
+<style>
+  /* Style links within copyright content to be black */
+  .copyright-content a {
+    color: #000;
+    text-decoration: underline;
+  }
+  
+  .copyright-content a:hover {
+    color: #000;
+    text-decoration: underline;
+  }
+</style>
 {{ end }}
 
