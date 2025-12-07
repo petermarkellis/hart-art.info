@@ -127,7 +127,7 @@
     <main class="pb0" role="main" style="min-height: 100vh;">
       {{ block "main" . }}{{ end }}
     </main>
-    {{/* Footer removed - no longer displayed */}}
+    {{ block "footer" . }}{{ partials.Include "site-footer.html" . }}{{ end }}
   </body>
 </html>
 
