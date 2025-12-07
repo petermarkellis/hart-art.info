@@ -43,8 +43,10 @@ collections:
         i18n: true
         fields:
           - {label: "Hero Image", name: "hero_image", widget: "image", required: false, hint: "Hero image displayed on the homepage"}
-          - {label: "Quote Text", name: "quote_text", widget: "string", i18n: true, required: true, hint: "e.g., 'THE SUBCONSCIOUS DICTATES!'"}
-          - {label: "Quote Author", name: "quote_author", widget: "string", i18n: true, required: true, hint: "e.g., 'ANDRÉ MASSON'"}
+          - {label: "Quote Text (English)", name: "quote_text", widget: "string", required: true, hint: "e.g., 'THE SUBCONSCIOUS DICTATES!'"}
+          - {label: "Quote Text (German)", name: "quote_text_de", widget: "string", required: false, hint: "German version of the quote text"}
+          - {label: "Quote Author (English)", name: "quote_author", widget: "string", required: true, hint: "e.g., 'ANDRÉ MASSON'"}
+          - {label: "Quote Author (German)", name: "quote_author_de", widget: "string", required: false, hint: "German version of the quote author"}
           - {label: "Show Quote Section", name: "show_quote", widget: "boolean", default: true, required: false, hint: "Toggle to display or hide the hero quote text and author"}
           - {label: "Show Latest News Section", name: "show_latest_news", widget: "boolean", default: true, required: false, hint: "Toggle to display or hide the Latest News section on the homepage"}
 

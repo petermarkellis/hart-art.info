@@ -111,11 +111,33 @@
     {{ if $homepagePage.Params.hero_image }}
       {{ $heroImage = $homepagePage.Params.hero_image }}
     {{ end }}
-    {{ if $homepagePage.Params.quote_text }}
-      {{ $quoteText = $homepagePage.Params.quote_text }}
+    {{/* Get quote text in current language */}}
+    {{ if eq $lang "de" }}
+      {{ if $homepagePage.Params.quote_text_de }}
+        {{ $quoteText = $homepagePage.Params.quote_text_de }}
+      {{ else if $homepagePage.Params.quote_text }}
+        {{ $quoteText = $homepagePage.Params.quote_text }}
+      {{ end }}
+    {{ else }}
+      {{ if $homepagePage.Params.quote_text }}
+        {{ $quoteText = $homepagePage.Params.quote_text }}
+      {{ else if $homepagePage.Params.quote_text_de }}
+        {{ $quoteText = $homepagePage.Params.quote_text_de }}
+      {{ end }}
     {{ end }}
-    {{ if $homepagePage.Params.quote_author }}
-      {{ $quoteAuthor = $homepagePage.Params.quote_author }}
+    {{/* Get quote author in current language */}}
+    {{ if eq $lang "de" }}
+      {{ if $homepagePage.Params.quote_author_de }}
+        {{ $quoteAuthor = $homepagePage.Params.quote_author_de }}
+      {{ else if $homepagePage.Params.quote_author }}
+        {{ $quoteAuthor = $homepagePage.Params.quote_author }}
+      {{ end }}
+    {{ else }}
+      {{ if $homepagePage.Params.quote_author }}
+        {{ $quoteAuthor = $homepagePage.Params.quote_author }}
+      {{ else if $homepagePage.Params.quote_author_de }}
+        {{ $quoteAuthor = $homepagePage.Params.quote_author_de }}
+      {{ end }}
     {{ end }}
     {{ if isset $homepagePage.Params "show_latest_news" }}
       {{ $showLatestNews = $homepagePage.Params.show_latest_news }}
