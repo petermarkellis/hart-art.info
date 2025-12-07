@@ -6,51 +6,47 @@
 {{ end }}
 
 {{ define "main" }}
-{{ $copyrightPage := .Page }}
 {{ $currentLang := .Site.Language.Lang }}
+
+{{/* Get the copyright page for current language */}}
+{{ $copyrightPage := .Page }}
+{{ if not $copyrightPage }}
+  {{ $copyrightPage = .Site.GetPage "section" "copyright-and-terms" }}
+{{ end }}
+{{ if not $copyrightPage }}
+  {{ $copyrightPage = .Site.GetPage "page" "copyright-and-terms/_index.md" }}
+{{ end }}
+{{ if not $copyrightPage }}
+  {{ range where .Site.AllPages "Section" "copyright-and-terms" }}
+    {{ if and (eq .Kind "page") (not $copyrightPage) }}
+      {{ $copyrightPage = . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* Read the base _index.md file directly to get all params */}}
+{{ $defaultCopyrightParams := dict }}
+{{ $defaultFrontPath := "content/copyright-and-terms/_index.md" }}
+{{ if fileExists $defaultFrontPath }}
+  {{ $raw := readFile $defaultFrontPath }}
+  {{ $front := replaceRE `(?s)^---\s*\n(.*?)\n---.*$` "$1" $raw }}
+  {{ $defaultCopyrightParams = $front | transform.Unmarshal }}
+{{ end }}
 
 {{/* Get title in current language */}}
 {{ $copyrightTitle := "" }}
 {{ if eq $currentLang "de" }}
-  {{ $copyrightTitle = $copyrightPage.Params.title_de | default $copyrightPage.Params.title_en | default $copyrightPage.Title | default "" }}
+  {{ $copyrightTitle = $copyrightPage.Params.title_de | default $defaultCopyrightParams.title_de | default $copyrightPage.Params.title_en | default $defaultCopyrightParams.title_en | default $copyrightPage.Title | default "" }}
 {{ else }}
-  {{ $copyrightTitle = $copyrightPage.Params.title_en | default $copyrightPage.Params.title_de | default $copyrightPage.Title | default "" }}
-{{ end }}
-
-{{/* Fallback to translations if current language doesn't have title */}}
-{{ if not $copyrightTitle }}
-  {{ range .Translations }}
-    {{ if eq $currentLang "de" }}
-      {{ $copyrightTitle = .Params.title_de | default .Params.title_en | default .Title | default "" }}
-    {{ else }}
-      {{ $copyrightTitle = .Params.title_en | default .Params.title_de | default .Title | default "" }}
-    {{ end }}
-    {{ if $copyrightTitle }}
-      {{ break }}
-    {{ end }}
-  {{ end }}
+  {{ $copyrightTitle = $copyrightPage.Params.title_en | default $defaultCopyrightParams.title_en | default $copyrightPage.Params.title_de | default $defaultCopyrightParams.title_de | default $copyrightPage.Title | default "" }}
 {{ end }}
 
 {{/* Get copyright text in current language */}}
 {{ $copyrightText := "" }}
 {{ if eq $currentLang "de" }}
-  {{ $copyrightText = $copyrightPage.Params.disclaimer_text_de | default $copyrightPage.Params.disclaimer_text_en | default "" }}
+  {{ $copyrightText = $copyrightPage.Params.disclaimer_text_de | default $defaultCopyrightParams.disclaimer_text_de | default $copyrightPage.Params.disclaimer_text_en | default $defaultCopyrightParams.disclaimer_text_en | default "" }}
 {{ else }}
-  {{ $copyrightText = $copyrightPage.Params.disclaimer_text_en | default $copyrightPage.Params.disclaimer_text_de | default "" }}
-{{ end }}
-
-{{/* Fallback to translations if current language doesn't have text */}}
-{{ if not $copyrightText }}
-  {{ range .Translations }}
-    {{ if eq $currentLang "de" }}
-      {{ $copyrightText = .Params.disclaimer_text_de | default .Params.disclaimer_text_en | default "" }}
-    {{ else }}
-      {{ $copyrightText = .Params.disclaimer_text_en | default .Params.disclaimer_text_de | default "" }}
-    {{ end }}
-    {{ if $copyrightText }}
-      {{ break }}
-    {{ end }}
-  {{ end }}
+  {{ $copyrightText = $copyrightPage.Params.disclaimer_text_en | default $defaultCopyrightParams.disclaimer_text_en | default $copyrightPage.Params.disclaimer_text_de | default $defaultCopyrightParams.disclaimer_text_de | default "" }}
 {{ end }}
 
 <div class="ph2 pv4 ph4-ns pv5-ns bg-white" style="max-width: 800px; margin: 0 auto;">
@@ -67,4 +63,5 @@
   {{ end }}
 </div>
 {{ end }}
+
 
