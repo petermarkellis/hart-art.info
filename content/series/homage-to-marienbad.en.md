@@ -53,5 +53,5 @@ gallery_images:
     dimensions_en: 17,5 x 24,5 cm
     dimensions_de: 17,5 x 24,5 cm
     medium_de: Grafit, Aquarell auf Papier
-    title_de: Was immer es kostet
+    title_de: Whatever it Takes
 ---
