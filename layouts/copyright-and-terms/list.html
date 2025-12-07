@@ -39,10 +39,36 @@
   {{ end }}
 {{ end }}
 
+{{/* Get last updated date - try manual date first, then page Lastmod, then file modification */}}
+{{ $lastUpdated := "" }}
+{{ $lastUpdatedRaw := index $defaultCopyrightParams "last_updated" }}
+{{ if $lastUpdatedRaw }}
+  {{ $parsedDate := time $lastUpdatedRaw }}
+  {{ if and $parsedDate (not $parsedDate.IsZero) }}
+    {{ $lastUpdated = $parsedDate }}
+  {{ end }}
+{{ end }}
+{{/* Fallback to page Lastmod if available */}}
+{{ if or (not $lastUpdated) $lastUpdated.IsZero }}
+  {{ if and .Lastmod (not .Lastmod.IsZero) }}
+    {{ $lastUpdated = .Lastmod }}
+  {{ end }}
+{{ end }}
+
 <div class="ph2 pv4 ph4-ns pv5-ns bg-white" style="max-width: 800px; margin: 0 auto;">
   <h1 class="f4 f3-ns fw6 mb4 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
     {{ $copyrightTitle | upper }}
   </h1>
+  
+  {{ if and $lastUpdated (not $lastUpdated.IsZero) }}
+    {{ $lastUpdatedLabel := "LAST UPDATED:" }}
+    {{ if eq $currentLang "de" }}
+      {{ $lastUpdatedLabel = "ZULETZT AKTUALISIERT:" }}
+    {{ end }}
+    <div class="f7 f6-ns mb4 black-60" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
+      <strong>{{ $lastUpdatedLabel }}</strong> {{ $lastUpdated.Format "2 January 2006" | upper }}
+    </div>
+  {{ end }}
   
   {{ if $copyrightText }}
     <div class="f6 f5-ns lh-copy black-80" style="font-family: 'Inter', sans-serif;">

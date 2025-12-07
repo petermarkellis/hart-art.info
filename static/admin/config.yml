@@ -124,6 +124,7 @@ collections:
             required: false
             hint: "Disclaimer text in German"
             buttons: ["bold", "italic", "link", "heading-three", "quote", "bulleted-list", "numbered-list"]
+          - {label: "Last Updated Date", name: "last_updated", widget: "datetime", required: false, hint: "Optional: Date when this page was last updated (leave empty to use file modification date)"}
 
   - name: "about"
     label: "About"
