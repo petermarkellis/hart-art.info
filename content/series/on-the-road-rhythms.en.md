@@ -34,13 +34,13 @@ gallery_images:
     medium_de: Grafit, Farbstift auf Papier
     title_de: Endlich Frieden
   - image: /images/uploads/on_the_road_rhythms__sonoran_1.webp
-    title_en: Sonoran Symphony
+    title_en: Sonoran Song
     year: "2018"
     medium_en: graphite, coloured pencil on paper
     dimensions_en: 15 x 10,5 cm
     dimensions_de: 15 x 10,5 cm
     medium_de: Grafit, Farbstift auf Papier
-    title_de: Sonora Symphonie
+    title_de: Sonora Lied
   - image: /images/uploads/on_the_road_rhythms__vital_signs_1.webp
     title_en: All Vital Signs Are Good
     year: "2018"
@@ -71,7 +71,7 @@ gallery_images:
     medium_en: ink, graphite on paper
     dimensions_en: 15 x 10,5 cm
     dimensions_de: 15 x 10,5 cm
-    title_de: Läute das Neue Jahr hinein!
+    title_de: Ring in the New Year
     medium_de: Tinte, Grafit auf Papier
   - image: /images/uploads/on_the_road_rhythms__carefree_1.webp
     title_en: Carefree Highway
@@ -118,7 +118,7 @@ gallery_images:
     medium_en: graphite, coloured pencil on paper
     dimensions_en: 15 x 10,5 cm
     dimensions_de: 15 x 10,5 cm
-    title_de: Schöne Reise?
+    title_de: Happy Travels?
     medium_de: Grafit, Farbstift auf Papier
     image: /images/uploads/on_the_road_rhythms__happy_1.webp
   - title_en: The Scheme of Things
