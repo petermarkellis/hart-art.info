@@ -112,14 +112,55 @@
     }
   }
   
-  ::selection {
-    background-color: #000;
-    color: #fff;
-  }
-  ::-moz-selection {
-    background-color: #000;
-    color: #fff;
-  }
+          ::selection {
+            background-color: #000;
+            color: #fff;
+          }
+          ::-moz-selection {
+            background-color: #000;
+            color: #fff;
+          }
+          
+          /* Global link styles */
+          a {
+            color: #000;
+            text-decoration: none;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            padding: 0.1em 0.2em;
+            margin: -0.1em -0.2em;
+            border-radius: 2px;
+          }
+          
+          a:hover {
+            background-color: #000;
+            color: #fff;
+          }
+          
+          /* Ensure links in specific contexts maintain their styling */
+          a.no-underline {
+            text-decoration: none;
+          }
+          
+          /* Override for links that already have specific hover styles */
+          a.hover-black:hover {
+            color: #fff;
+            background-color: #000;
+          }
+          
+          a.black-90,
+          a.black-80,
+          a.black-70,
+          a.black-60 {
+            color: #000;
+          }
+          
+          a.black-90:hover,
+          a.black-80:hover,
+          a.black-70:hover,
+          a.black-60:hover {
+            color: #fff;
+            background-color: #000;
+          }
   
   /* Override main overflow for series pages to allow sticky - use multiple selectors for better browser support */
   body main[role="main"]:has(.series-layout-wrapper) {
