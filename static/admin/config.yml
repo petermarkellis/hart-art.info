@@ -103,6 +103,18 @@ collections:
       - {label: "Internal Link", name: "internal_link", widget: "string", required: false, hint: "Relative path (e.g., /series/hymnal/)"}
       - {label: "External Link", name: "external_link", widget: "string", required: false, hint: "Full URL (e.g., https://example.com)"}
 
+  - name: "disclaimer"
+    label: "Disclaimer"
+    files:
+      - label: "Disclaimer Page"
+        name: "_index"
+        file: "content/disclaimer/_index.md"
+        i18n: true
+        fields:
+          - {label: "Title", name: "title", widget: "string", i18n: true, required: true, default: "Disclaimer"}
+          - {label: "Disclaimer Text (English)", name: "disclaimer_text_en", widget: "markdown", required: true, hint: "Disclaimer text in English"}
+          - {label: "Disclaimer Text (German)", name: "disclaimer_text_de", widget: "markdown", required: false, hint: "Disclaimer text in German"}
+
   - name: "about"
     label: "About"
     files:

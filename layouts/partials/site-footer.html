@@ -1,8 +1,28 @@
 <footer class="bg-white ph2 ph4-ns" style="border-top: 1px solid #e5e5e5; padding-top: 0.8rem; padding-bottom: 0.8rem;">
-  <div class="flex items-center justify-start">
+  <div class="flex items-center justify-between flex-column flex-row-ns" style="gap: 1rem;">
+    <!-- Left: Logo and Copyright -->
     <div class="flex items-center" style="gap: 0.75rem;">
       <img src="{{ "favicon.svg" | relURL }}" alt="Hartzheim" style="width: 1.6rem; height: 1.6rem; display: block;" />
       <span class="f6 black-60" style="font-family: 'Inter', sans-serif;">Hartzheim © {{ now.Year }}</span>
     </div>
+    <!-- Right: Disclaimer Link (Desktop) / Left-aligned (Mobile) -->
+    {{ $disclaimerPage := .Site.GetPage "section" "disclaimer" }}
+    {{ if not $disclaimerPage }}
+      {{ $disclaimerPage = .Site.GetPage "page" "disclaimer/_index.md" }}
+    {{ end }}
+    {{ if not $disclaimerPage }}
+      {{ range where .Site.AllPages "Section" "disclaimer" }}
+        {{ if and (eq .Kind "page") (not $disclaimerPage) }}
+          {{ $disclaimerPage = . }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{ if $disclaimerPage }}
+      <div>
+        <a href="{{ $disclaimerPage.RelPermalink }}" class="f6 black-60 hover-black no-underline" style="font-family: 'Inter', sans-serif;">
+          {{ if eq .Site.Language.Lang "de" }}Haftungsausschluss{{ else }}Disclaimer{{ end }}
+        </a>
+      </div>
+    {{ end }}
   </div>
 </footer>
