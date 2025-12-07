@@ -111,7 +111,8 @@ collections:
         file: "content/disclaimer/_index.md"
         i18n: true
         fields:
-          - {label: "Title", name: "title", widget: "string", i18n: true, required: true, hint: "Disclaimer page title (editable in both English and German using language tabs)"}
+          - {label: "Title (English)", name: "title_en", widget: "string", required: true, hint: "Disclaimer page title in English"}
+          - {label: "Title (German)", name: "title_de", widget: "string", required: false, hint: "Disclaimer page title in German"}
           - {label: "Disclaimer Text (English)", name: "disclaimer_text_en", widget: "markdown", required: true, hint: "Disclaimer text in English"}
           - {label: "Disclaimer Text (German)", name: "disclaimer_text_de", widget: "markdown", required: false, hint: "Disclaimer text in German"}
 
