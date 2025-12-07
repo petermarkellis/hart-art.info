@@ -65,7 +65,7 @@
 
       <!-- Gallery Images -->
       {{ if $seriesPage.Params.gallery_images }}
-        <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem 3rem; margin-bottom: 4rem; max-width: 100%; overflow-x: hidden;">
+        <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem 3rem; margin-bottom: 4rem; max-width: 100%;">
           {{ range $index, $galleryImage := $seriesPage.Params.gallery_images }}
             <div class="gallery-item">
               {{ if .image }}
