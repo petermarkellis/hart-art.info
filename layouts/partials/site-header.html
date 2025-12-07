@@ -3,7 +3,7 @@
   <header class="bg-white">
     {{ partials.Include "site-navigation.html" . }}
   </header>
-{{ else if or (eq .Section "series") (eq .Section "latest") (eq .Section "about") (eq .Section "disclaimer") }}
+{{ else if or (eq .Section "series") (eq .Section "latest") (eq .Section "about") (eq .Section "copyright-and-terms") }}
   <!-- Series, Latest News, About, and Disclaimer pages - white background, no large header -->
   <header class="bg-white">
     {{ partials.Include "site-navigation.html" . }}

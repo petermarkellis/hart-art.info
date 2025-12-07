@@ -5,22 +5,50 @@
       <img src="{{ "favicon.svg" | relURL }}" alt="Hartzheim" style="width: 1.6rem; height: 1.6rem; display: block;" />
       <span class="f6 black-60" style="font-family: 'Inter', sans-serif;">Hartzheim © {{ now.Year }}</span>
     </div>
-    <!-- Right: Disclaimer Link (Desktop) / Left-aligned (Mobile) -->
-    {{ $disclaimerPage := .Site.GetPage "section" "disclaimer" }}
-    {{ if not $disclaimerPage }}
-      {{ $disclaimerPage = .Site.GetPage "page" "disclaimer/_index.md" }}
+    <!-- Right: Copyright & Terms Link (Desktop) / Left-aligned (Mobile) -->
+    {{ $copyrightPage := .Site.GetPage "section" "copyright-and-terms" }}
+    {{ if not $copyrightPage }}
+      {{ $copyrightPage = .Site.GetPage "page" "copyright-and-terms/_index.md" }}
     {{ end }}
-    {{ if not $disclaimerPage }}
-      {{ range where .Site.AllPages "Section" "disclaimer" }}
-        {{ if and (eq .Kind "page") (not $disclaimerPage) }}
-          {{ $disclaimerPage = . }}
+    {{ if not $copyrightPage }}
+      {{ range where .Site.AllPages "Section" "copyright-and-terms" }}
+        {{ if and (eq .Kind "page") (not $copyrightPage) }}
+          {{ $copyrightPage = . }}
         {{ end }}
       {{ end }}
     {{ end }}
-    {{ if $disclaimerPage }}
+    {{ if $copyrightPage }}
+      {{/* Get title in current language */}}
+      {{ $currentLang := .Site.Language.Lang }}
+      {{ $linkTitle := "" }}
+      {{ if eq $currentLang "de" }}
+        {{ $linkTitle = $copyrightPage.Params.title_de | default $copyrightPage.Params.title_en | default $copyrightPage.Title | default "" }}
+      {{ else }}
+        {{ $linkTitle = $copyrightPage.Params.title_en | default $copyrightPage.Params.title_de | default $copyrightPage.Title | default "" }}
+      {{ end }}
+      {{/* Fallback to translations if needed */}}
+      {{ if not $linkTitle }}
+        {{ range $copyrightPage.Translations }}
+          {{ if eq $currentLang "de" }}
+            {{ $linkTitle = .Params.title_de | default .Params.title_en | default .Title | default "" }}
+          {{ else }}
+            {{ $linkTitle = .Params.title_en | default .Params.title_de | default .Title | default "" }}
+          {{ end }}
+          {{ if $linkTitle }}
+            {{ break }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{/* Final fallback to hardcoded text */}}
+      {{ if not $linkTitle }}
+        {{ $linkTitle = "Copyright & Terms" }}
+        {{ if eq $currentLang "de" }}
+          {{ $linkTitle = "Urheberrecht & Nutzungsbedingungen" }}
+        {{ end }}
+      {{ end }}
       <div>
-        <a href="{{ $disclaimerPage.RelPermalink }}" class="f6 black-60 hover-black no-underline" style="font-family: 'Inter', sans-serif;">
-          {{ if eq .Site.Language.Lang "de" }}Haftungsausschluss{{ else }}Disclaimer{{ end }}
+        <a href="{{ $copyrightPage.RelPermalink }}" class="f6 black-60 hover-black no-underline" style="font-family: 'Inter', sans-serif;">
+          {{ $linkTitle }}
         </a>
       </div>
     {{ end }}

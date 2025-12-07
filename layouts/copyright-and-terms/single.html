@@ -1,0 +1,70 @@
+{{ define "header" }}
+  <!-- Copyright & Terms page - white background, no large header -->
+  <header class="bg-white">
+    {{ partial "site-navigation.html" . }}
+  </header>
+{{ end }}
+
+{{ define "main" }}
+{{ $copyrightPage := .Page }}
+{{ $currentLang := .Site.Language.Lang }}
+
+{{/* Get title in current language */}}
+{{ $copyrightTitle := "" }}
+{{ if eq $currentLang "de" }}
+  {{ $copyrightTitle = $copyrightPage.Params.title_de | default $copyrightPage.Params.title_en | default $copyrightPage.Title | default "" }}
+{{ else }}
+  {{ $copyrightTitle = $copyrightPage.Params.title_en | default $copyrightPage.Params.title_de | default $copyrightPage.Title | default "" }}
+{{ end }}
+
+{{/* Fallback to translations if current language doesn't have title */}}
+{{ if not $copyrightTitle }}
+  {{ range .Translations }}
+    {{ if eq $currentLang "de" }}
+      {{ $copyrightTitle = .Params.title_de | default .Params.title_en | default .Title | default "" }}
+    {{ else }}
+      {{ $copyrightTitle = .Params.title_en | default .Params.title_de | default .Title | default "" }}
+    {{ end }}
+    {{ if $copyrightTitle }}
+      {{ break }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* Get copyright text in current language */}}
+{{ $copyrightText := "" }}
+{{ if eq $currentLang "de" }}
+  {{ $copyrightText = $copyrightPage.Params.disclaimer_text_de | default $copyrightPage.Params.disclaimer_text_en | default "" }}
+{{ else }}
+  {{ $copyrightText = $copyrightPage.Params.disclaimer_text_en | default $copyrightPage.Params.disclaimer_text_de | default "" }}
+{{ end }}
+
+{{/* Fallback to translations if current language doesn't have text */}}
+{{ if not $copyrightText }}
+  {{ range .Translations }}
+    {{ if eq $currentLang "de" }}
+      {{ $copyrightText = .Params.disclaimer_text_de | default .Params.disclaimer_text_en | default "" }}
+    {{ else }}
+      {{ $copyrightText = .Params.disclaimer_text_en | default .Params.disclaimer_text_de | default "" }}
+    {{ end }}
+    {{ if $copyrightText }}
+      {{ break }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+<div class="ph2 pv4 ph4-ns pv5-ns bg-white" style="max-width: 800px; margin: 0 auto;">
+  <h1 class="f4 f3-ns fw6 mb4 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
+    {{ $copyrightTitle | upper }}
+  </h1>
+  
+  {{ if $copyrightText }}
+    <div class="f6 f5-ns lh-copy black-80" style="font-family: 'Inter', sans-serif;">
+      {{ $copyrightText | markdownify }}
+    </div>
+  {{ else }}
+    <p class="f6 f5-ns black-70" style="font-family: 'Inter', sans-serif;">{{ if eq $currentLang "de" }}Kein Text verfügbar.{{ else }}No text available.{{ end }}</p>
+  {{ end }}
+</div>
+{{ end }}
+

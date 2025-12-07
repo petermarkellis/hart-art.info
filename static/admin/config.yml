@@ -103,12 +103,12 @@ collections:
       - {label: "Internal Link", name: "internal_link", widget: "string", required: false, hint: "Relative path (e.g., /series/hymnal/)"}
       - {label: "External Link", name: "external_link", widget: "string", required: false, hint: "Full URL (e.g., https://example.com)"}
 
-  - name: "disclaimer"
-    label: "Disclaimer"
+  - name: "copyright-and-terms"
+    label: "Copyright & Terms"
     files:
-      - label: "Disclaimer Page"
+      - label: "Copyright & Terms Page"
         name: "_index"
-        file: "content/disclaimer/_index.md"
+        file: "content/copyright-and-terms/_index.md"
         fields:
           - {label: "Title (English)", name: "title_en", widget: "string", required: true, hint: "Disclaimer page title in English"}
           - {label: "Title (German)", name: "title_de", widget: "string", required: false, hint: "Disclaimer page title in German"}
