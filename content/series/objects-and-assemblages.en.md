@@ -225,6 +225,14 @@ gallery_images:
     dimensions_de: 35 x 43 x 3 cm
     medium_de: Mixed Media auf Holz
     title_de: Tools of the Trade (Detail)
+  - image: /images/uploads/objects_picture_this_full_1.webp
+    title_en: Picture This!
+    title_de: Picture This!
+    medium_en: Mixed media on wood
+    year: "2017"
+    medium_de: Mixed Media auf Holz
+    dimensions_de: 33 x 43 x 3 cm
+    dimensions_en: 33 x 43 x 3 cm
   - image: /images/uploads/objects_and_assemblages_picture_this_1.webp
     title_en: Picture This!
     title_de: Picture This!
