@@ -50,10 +50,6 @@
     </div>
   {{ else }}
     <p class="f6 f5-ns black-70" style="font-family: 'Inter', sans-serif;">{{ if eq $currentLang "de" }}Kein Text verfügbar.{{ else }}No text available.{{ end }}</p>
-    <p class="f6 f5-ns black-70" style="font-family: 'Inter', sans-serif;">Debug: File exists: {{ fileExists $defaultFrontPath }}</p>
-    <p class="f6 f5-ns black-70" style="font-family: 'Inter', sans-serif;">Debug: Has params: {{ if $defaultCopyrightParams }}yes{{ else }}no{{ end }}</p>
-    <p class="f6 f5-ns black-70" style="font-family: 'Inter', sans-serif;">Debug: disclaimer_text_en exists: {{ if (index $defaultCopyrightParams "disclaimer_text_en") }}yes (length: {{ len (index $defaultCopyrightParams "disclaimer_text_en") }}){{ else }}no{{ end }}</p>
-    <p class="f6 f5-ns black-70" style="font-family: 'Inter', sans-serif;">Debug: Current lang: {{ $currentLang }}</p>
   {{ end }}
 </div>
 {{ end }}
