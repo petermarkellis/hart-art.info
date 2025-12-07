@@ -7,18 +7,16 @@ meta_description: >-
 
   View original artwork for sale and upcoming exhibitions.
 html_title: Mark Hartzheim, Contemporary Abstract Artist
-hero_images:
-  - image: /images/uploads/hero.webp
-  - image: /images/uploads/drawingsandwatercolors_go_with_the_flow_1997_1.webp
-  - image: /images/uploads/objects_and_assemblages_object_troube_3_1.webp
 show_latest_news: true
 keywords: Mark Hartzheim, Contemporary Abstract Artist, Modern Mixed-Media Art,
   Abstract Paintings, Expressionist Art, European Art Exhibitions, Original
   Artwork for Sale, Fine Art Prints
 author: Mark Hartzheim
 hero_image: /images/uploads/hero.webp
-quote_text: THE SUBCONSCIOUS DICTATES!
-quote_author: ANDRÉ MASSON
+quote_text: The Subconscious Dictates!
+quote_text_de: Das Unbewußte diktiert!
+quote_author: André Masson
+quote_author_de: André Masson
 open_graph:
   og_description: >-
     Discover the contemporary abstract art of Mark Hartzheim, an American artist
@@ -28,4 +26,8 @@ open_graph:
   og_title: Mark Hartzheim - Contemporary Abstract Artist
   og_site_name: Mark Hartzheim - Contemporary Abstract Artist
 show_quote: true
+hero_images:
+  - image: /images/uploads/hero.webp
+  - image: /images/uploads/drawingsandwatercolors_go_with_the_flow_1997_1.webp
+  - image: /images/uploads/objects_and_assemblages_object_troube_3_1.webp
 ---
