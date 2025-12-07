@@ -265,42 +265,42 @@ gallery_images:
     dimensions_de: 40 x 30 x 3 cm
     medium_de: Mixed Media auf Holz
     image: /images/uploads/objects_and_assemblages_chance_would_1.webp
-  - title_en: As Chance Would Have It (Details)
+  - title_en: As Chance Would Have It (Detail)
     year: "2023"
     medium_en: mixed media on wood
-    title_de: Zugefallen (Details)
+    title_de: Zugefallen (Detail)
     dimensions_en: 40 x 30 x 3 cm
     dimensions_de: 40 x 30 x 3 cm
     medium_de: Mixed Media auf Holz
     image: /images/uploads/objects_and_assemblages_chance_would_2.webp
-  - title_en: As Chance Would Have It (Details)
+  - title_en: As Chance Would Have It (Detail)
     year: "2023"
     medium_en: mixed media on wood
-    title_de: Zugefallen (Details)
+    title_de: Zugefallen (Detail)
     dimensions_en: 40 x 30 x 3 cm
     dimensions_de: 40 x 30 x 3 cm
     medium_de: Mixed Media auf Holz
     image: /images/uploads/objects_and_assemblages_chance_would_3.webp
-  - title_en: As Chance Would Have It (Details)
+  - title_en: As Chance Would Have It (Detail)
     year: "2023"
     medium_en: mixed media on wood
-    title_de: Zugefallen (Details)
+    title_de: Zugefallen (Detail)
     dimensions_en: 40 x 30 x 3 cm
     dimensions_de: 40 x 30 x 3 cm
     medium_de: Mixed Media auf Holz
     image: /images/uploads/objects_and_assemblages_chance_would_4.webp
-  - title_en: As Chance Would Have It (Details)
+  - title_en: As Chance Would Have It (Detail)
     year: "2023"
     medium_en: mixed media on wood
-    title_de: Zugefallen (Details)
+    title_de: Zugefallen (Detail)
     dimensions_en: 40 x 30 x 3 cm
     dimensions_de: 40 x 30 x 3 cm
     medium_de: Mixed Media auf Holz
     image: /images/uploads/objects_and_assemblages_chance_would_5.webp
-  - title_en: As Chance Would Have It (Details)
+  - title_en: As Chance Would Have It (Detail)
     year: "2023"
     medium_en: mixed media on wood
-    title_de: Zugefallen (Details)
+    title_de: Zugefallen (Detail)
     dimensions_en: 40 x 30 x 3 cm
     dimensions_de: 40 x 30 x 3 cm
     medium_de: Mixed Media auf Holz
@@ -313,36 +313,36 @@ gallery_images:
     title_de: Ein Segen im Unglück
     medium_de: Farbstift, Tusche auf Holz
     image: /images/uploads/objects_and_assemblages_blessing_disguise_1.webp
-  - title_en: A Blessing in Disguise (Details)
+  - title_en: A Blessing in Disguise (Detail)
     year: "2023"
     medium_en: coloured pencil, ink on wood
     dimensions_en: 40 x 30 x 3 cm
     dimensions_de: 40 x 30 x 3 cm
-    title_de: Ein Segen im Unglück (Details)
+    title_de: Ein Segen im Unglück (Detail)
     medium_de: Farbstift, Tusche auf Holz
     image: /images/uploads/objects_and_assemblages_blessing_disguise_2.webp
-  - title_en: A Blessing in Disguise (Details)
+  - title_en: A Blessing in Disguise (Detail)
     year: "2023"
     medium_en: coloured pencil, ink on wood
     dimensions_en: 40 x 30 x 3 cm
     dimensions_de: 40 x 30 x 3 cm
-    title_de: Ein Segen im Unglück (Details)
+    title_de: Ein Segen im Unglück (Detail)
     medium_de: Farbstift, Tusche auf Holz
     image: /images/uploads/objects_and_assemblages_blessing_disguise_3.webp
-  - title_en: A Blessing in Disguise (Details)
+  - title_en: A Blessing in Disguise (Detail)
     year: "2023"
     medium_en: coloured pencil, ink on wood
     dimensions_en: 40 x 30 x 3 cm
     dimensions_de: 40 x 30 x 3 cm
-    title_de: Ein Segen im Unglück (Details)
+    title_de: Ein Segen im Unglück (Detail)
     medium_de: Farbstift, Tusche auf Holz
     image: /images/uploads/objects_and_assemblages_blessing_disguise_4.webp
-  - title_en: A Blessing in Disguise (Details)
+  - title_en: A Blessing in Disguise (Detail)
     year: "2023"
     medium_en: coloured pencil, ink on wood
     dimensions_en: 40 x 30 x 3 cm
     dimensions_de: 40 x 30 x 3 cm
-    title_de: Ein Segen im Unglück (Details)
+    title_de: Ein Segen im Unglück (Detail)
     medium_de: Farbstift, Tusche auf Holz
     image: /images/uploads/objects_and_assemblages_blessing_disguise_5.webp
   - title_en: Rise and Fall
@@ -353,24 +353,24 @@ gallery_images:
     dimensions_de: 40 x 30 x 3 cm
     medium_en: Coloured pencil and lead on wood
     image: /images/uploads/objects_and_assemblages_rise_fall_1.webp
-  - title_en: Rise and Fall (Details)
-    title_de: Rise and Fall (Details)
+  - title_en: Rise and Fall (Detail)
+    title_de: Rise and Fall (Detail)
     year: 2023/24
     medium_de: Farbstift und -minen auf Holz
     dimensions_en: 40 x 30 x 3 cm
     dimensions_de: 40 x 30 x 3 cm
     medium_en: Coloured pencil and lead on wood
     image: /images/uploads/objects_and_assemblages_rise_fall_2.webp
-  - title_en: Rise and Fall (Details)
-    title_de: Rise and Fall (Details)
+  - title_en: Rise and Fall (Detail)
+    title_de: Rise and Fall (Detail)
     year: 2023/24
     medium_de: Farbstift und -minen auf Holz
     dimensions_en: 40 x 30 x 3 cm
     dimensions_de: 40 x 30 x 3 cm
     medium_en: Coloured pencil and lead on wood
     image: /images/uploads/objects_and_assemblages_ride_fall_3.webp
-  - title_en: Rise and Fall (Details)
-    title_de: Rise and Fall (Details)
+  - title_en: Rise and Fall (Detail)
+    title_de: Rise and Fall (Detail)
     year: 2023/24
     medium_de: Farbstift und -minen auf Holz
     dimensions_en: 40 x 30 x 3 cm
@@ -385,24 +385,24 @@ gallery_images:
     dimensions_de: 40 x 30 x 3 cm
     medium_de: Farbstift auf Holz
     image: /images/uploads/objects_and_assemblages_healing_wounds_1.webp
-  - title_en: Healing Wounds (Details)
-    title_de: Healing Wounds (Details)
+  - title_en: Healing Wounds (Detail)
+    title_de: Healing Wounds (Detail)
     year: "2024"
     medium_en: Coloured pencil on wood
     dimensions_en: 40 x 30 x 3 cm
     dimensions_de: 40 x 30 x 3 cm
     medium_de: Farbstift auf Holz
     image: /images/uploads/objects_and_assemblages_healing_wounds_2.webp
-  - title_en: Healing Wounds (Details)
-    title_de: Healing Wounds (Details)
+  - title_en: Healing Wounds (Detail)
+    title_de: Healing Wounds (Detail)
     year: "2024"
     medium_en: Coloured pencil on wood
     dimensions_en: 40 x 30 x 3 cm
     dimensions_de: 40 x 30 x 3 cm
     medium_de: Farbstift auf Holz
     image: /images/uploads/objects_and_assemblages_healing_wounds_3.webp
-  - title_en: Healing Wounds (Details)
-    title_de: Healing Wounds (Details)
+  - title_en: Healing Wounds (Detail)
+    title_de: Healing Wounds (Detail)
     year: "2024"
     medium_en: Coloured pencil on wood
     dimensions_en: 40 x 30 x 3 cm
@@ -417,40 +417,40 @@ gallery_images:
     dimensions_de: 65 x 23 x 28 cm
     medium_en: coloured pencil on wood
     image: /images/uploads/objects_and_assemblages_spoon_1.webp
-  - title_en: Spoonful (Details)
-    title_de: Spoonful (Details)
+  - title_en: Spoonful (Detail)
+    title_de: Spoonful (Detail)
     year: "2024"
     medium_de: Farbstift auf Holz
     dimensions_en: 65 x 23 x 28 cm
     dimensions_de: 65 x 23 x 28 cm
     medium_en: coloured pencil on wood
     image: /images/uploads/objects_and_assemblages_spoon_2.webp
-  - title_en: Spoonful (Details)
-    title_de: Spoonful (Details)
+  - title_en: Spoonful (Detail)
+    title_de: Spoonful (Detail)
     year: "2024"
     medium_de: Farbstift auf Holz
     dimensions_en: 65 x 23 x 28 cm
     dimensions_de: 65 x 23 x 28 cm
     medium_en: coloured pencil on wood
     image: /images/uploads/objects_and_assemblages_spoon_3.webp
-  - title_en: Spoonful (Details)
-    title_de: Spoonful (Details)
+  - title_en: Spoonful (Detail)
+    title_de: Spoonful (Detail)
     year: "2024"
     medium_de: Farbstift auf Holz
     dimensions_en: 65 x 23 x 28 cm
     dimensions_de: 65 x 23 x 28 cm
     medium_en: coloured pencil on wood
     image: /images/uploads/objects_and_assemblages_spoon_4.webp
-  - title_en: Spoonful (Details)
-    title_de: Spoonful (Details)
+  - title_en: Spoonful (Detail)
+    title_de: Spoonful (Detail)
     year: "2024"
     medium_de: Farbstift auf Holz
     dimensions_en: 65 x 23 x 28 cm
     dimensions_de: 65 x 23 x 28 cm
     medium_en: coloured pencil on wood
     image: /images/uploads/objects_and_assemblages_spoon_5.webp
-  - title_en: Spoonful (Details)
-    title_de: Spoonful (Details)
+  - title_en: Spoonful (Detail)
+    title_de: Spoonful (Detail)
     year: "2024"
     medium_de: Farbstift auf Holz
     dimensions_en: 65 x 23 x 28 cm
@@ -535,19 +535,19 @@ gallery_images:
     image: /images/uploads/20251122_the_four_corners_of_the_earth_2025__3.webp
     dimensions_en: "30 cm x 40 cm x 3 cm "
     year: "2025"
-  - title_de: Les Quatre Coins du Monde (Details)
+  - title_de: Les Quatre Coins du Monde (Detail)
     medium_de: Mixed Media auf Holz
     dimensions: "30 cm x 40 cm x 3 cm "
-    title_en: The Four Corners of the World (Details)
+    title_en: The Four Corners of the World (Detail)
     medium_en: Mixed media on wood
     dimensions_de: "30 cm x 40 cm x 3 cm "
     image: /images/uploads/20251122_the_four_corners_of_the_earth_2025__4.webp
     dimensions_en: "30 cm x 40 cm x 3 cm "
     year: "2025"
-  - title_de: Les Quatre Coins du Monde (Details)
+  - title_de: Les Quatre Coins du Monde (Detail)
     medium_de: Mixed Media auf Holz
     dimensions: "30 cm x 40 cm x 3 cm "
-    title_en: The Four Corners of the World (Details)
+    title_en: The Four Corners of the World (Detail)
     medium_en: Mixed media on wood
     dimensions_de: "30 cm x 40 cm x 3 cm "
     image: /images/uploads/20251122_the_four_corners_of_the_earth_20025__5.webp
