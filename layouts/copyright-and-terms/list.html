@@ -1,3 +1,10 @@
+{{ define "header" }}
+  <!-- Copyright & Terms page - white background, no large header -->
+  <header class="bg-white">
+    {{ partial "site-navigation.html" . }}
+  </header>
+{{ end }}
+
 {{ define "main" }}
 {{/* For sections with _index.md, Hugo uses list.html, so we redirect to single.html logic */}}
 {{ $currentLang := .Site.Language.Lang }}
