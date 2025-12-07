@@ -107,43 +107,108 @@
   {{ $showLatestNews := true }}
   {{ $showQuote := true }}
   
+  {{/* Read the base index.md file directly to get all fields including German ones */}}
+  {{ $defaultHomepageParams := dict }}
+  {{ $defaultFrontPath := "content/homepage/index.md" }}
+  {{ if fileExists $defaultFrontPath }}
+    {{ $raw := readFile $defaultFrontPath }}
+    {{ $front := replaceRE `(?s)^---\s*\n(.*?)\n---.*$` "$1" $raw }}
+    {{ $defaultHomepageParams = $front | transform.Unmarshal }}
+  {{ end }}
+
   {{ if $homepagePage }}
     {{ if $homepagePage.Params.hero_image }}
       {{ $heroImage = $homepagePage.Params.hero_image }}
+    {{ else if (index $defaultHomepageParams "hero_image") }}
+      {{ $heroImage = index $defaultHomepageParams "hero_image" }}
     {{ end }}
-    {{/* Get quote text in current language */}}
+    {{/* Get quote text in current language - prioritize page params, then file params */}}
     {{ if eq $lang "de" }}
       {{ if $homepagePage.Params.quote_text_de }}
         {{ $quoteText = $homepagePage.Params.quote_text_de }}
+      {{ else if (index $defaultHomepageParams "quote_text_de") }}
+        {{ $quoteText = index $defaultHomepageParams "quote_text_de" }}
       {{ else if $homepagePage.Params.quote_text }}
         {{ $quoteText = $homepagePage.Params.quote_text }}
+      {{ else if (index $defaultHomepageParams "quote_text") }}
+        {{ $quoteText = index $defaultHomepageParams "quote_text" }}
       {{ end }}
     {{ else }}
       {{ if $homepagePage.Params.quote_text }}
         {{ $quoteText = $homepagePage.Params.quote_text }}
+      {{ else if (index $defaultHomepageParams "quote_text") }}
+        {{ $quoteText = index $defaultHomepageParams "quote_text" }}
       {{ else if $homepagePage.Params.quote_text_de }}
         {{ $quoteText = $homepagePage.Params.quote_text_de }}
+      {{ else if (index $defaultHomepageParams "quote_text_de") }}
+        {{ $quoteText = index $defaultHomepageParams "quote_text_de" }}
       {{ end }}
     {{ end }}
-    {{/* Get quote author in current language */}}
+    {{/* Get quote author in current language - prioritize page params, then file params */}}
     {{ if eq $lang "de" }}
       {{ if $homepagePage.Params.quote_author_de }}
         {{ $quoteAuthor = $homepagePage.Params.quote_author_de }}
+      {{ else if (index $defaultHomepageParams "quote_author_de") }}
+        {{ $quoteAuthor = index $defaultHomepageParams "quote_author_de" }}
       {{ else if $homepagePage.Params.quote_author }}
         {{ $quoteAuthor = $homepagePage.Params.quote_author }}
+      {{ else if (index $defaultHomepageParams "quote_author") }}
+        {{ $quoteAuthor = index $defaultHomepageParams "quote_author" }}
       {{ end }}
     {{ else }}
       {{ if $homepagePage.Params.quote_author }}
         {{ $quoteAuthor = $homepagePage.Params.quote_author }}
+      {{ else if (index $defaultHomepageParams "quote_author") }}
+        {{ $quoteAuthor = index $defaultHomepageParams "quote_author" }}
       {{ else if $homepagePage.Params.quote_author_de }}
         {{ $quoteAuthor = $homepagePage.Params.quote_author_de }}
+      {{ else if (index $defaultHomepageParams "quote_author_de") }}
+        {{ $quoteAuthor = index $defaultHomepageParams "quote_author_de" }}
       {{ end }}
     {{ end }}
     {{ if isset $homepagePage.Params "show_latest_news" }}
       {{ $showLatestNews = $homepagePage.Params.show_latest_news }}
+    {{ else if (index $defaultHomepageParams "show_latest_news") }}
+      {{ $showLatestNews = index $defaultHomepageParams "show_latest_news" }}
     {{ end }}
     {{ if isset $homepagePage.Params "show_quote" }}
       {{ $showQuote = $homepagePage.Params.show_quote }}
+    {{ else if (index $defaultHomepageParams "show_quote") }}
+      {{ $showQuote = index $defaultHomepageParams "show_quote" }}
+    {{ end }}
+  {{ else }}
+    {{/* If no page found, use file params directly */}}
+    {{ if (index $defaultHomepageParams "hero_image") }}
+      {{ $heroImage = index $defaultHomepageParams "hero_image" }}
+    {{ end }}
+    {{ if eq $lang "de" }}
+      {{ if (index $defaultHomepageParams "quote_text_de") }}
+        {{ $quoteText = index $defaultHomepageParams "quote_text_de" }}
+      {{ else if (index $defaultHomepageParams "quote_text") }}
+        {{ $quoteText = index $defaultHomepageParams "quote_text" }}
+      {{ end }}
+      {{ if (index $defaultHomepageParams "quote_author_de") }}
+        {{ $quoteAuthor = index $defaultHomepageParams "quote_author_de" }}
+      {{ else if (index $defaultHomepageParams "quote_author") }}
+        {{ $quoteAuthor = index $defaultHomepageParams "quote_author" }}
+      {{ end }}
+    {{ else }}
+      {{ if (index $defaultHomepageParams "quote_text") }}
+        {{ $quoteText = index $defaultHomepageParams "quote_text" }}
+      {{ else if (index $defaultHomepageParams "quote_text_de") }}
+        {{ $quoteText = index $defaultHomepageParams "quote_text_de" }}
+      {{ end }}
+      {{ if (index $defaultHomepageParams "quote_author") }}
+        {{ $quoteAuthor = index $defaultHomepageParams "quote_author" }}
+      {{ else if (index $defaultHomepageParams "quote_author_de") }}
+        {{ $quoteAuthor = index $defaultHomepageParams "quote_author_de" }}
+      {{ end }}
+    {{ end }}
+    {{ if (index $defaultHomepageParams "show_latest_news") }}
+      {{ $showLatestNews = index $defaultHomepageParams "show_latest_news" }}
+    {{ end }}
+    {{ if (index $defaultHomepageParams "show_quote") }}
+      {{ $showQuote = index $defaultHomepageParams "show_quote" }}
     {{ end }}
   {{ end }}
 
