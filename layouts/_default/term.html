@@ -90,7 +90,6 @@
                       alt="{{ $imgAlt }}" 
                       class="w-100 gallery-image-clickable" 
                       style="max-width: 100%; height: auto; display: block; cursor: pointer;" 
-                      onclick="openImageModal({{ $index }}, '{{ $seriesSlug }}')"
                       data-image-index="{{ $index }}"
                       data-image-src="{{ .image }}"
                       data-title-en="{{ .title_en | default "" }}"
@@ -124,7 +123,7 @@
               {{ end }}
               {{ if $title }}
                 <div class="f6 f5-ns fw4 black-90 mb1" style="font-family: 'Inter', sans-serif;">
-                  <span class="black-90" onclick="openImageModal({{ $index }}, '{{ $seriesSlug }}')" style="cursor: pointer;">
+                  <span class="black-90 gallery-title-clickable" data-image-index="{{ $index }}" data-series-slug="{{ $seriesSlug }}" style="cursor: pointer;">
                     {{ $title | upper }}
                   </span>
                 </div>

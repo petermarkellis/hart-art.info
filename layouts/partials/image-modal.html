@@ -297,8 +297,9 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   // Handle title clicks (only for tablets/desktop)
-  const titleSpans = document.querySelectorAll('span[onclick*="openImageModal"]');
-  titleSpans.forEach(span => {
+  // First, handle spans with onclick attributes (legacy support)
+  const titleSpansWithOnclick = document.querySelectorAll('span[onclick*="openImageModal"]');
+  titleSpansWithOnclick.forEach(span => {
     const onclickAttr = span.getAttribute('onclick');
     if (onclickAttr) {
       // Extract index and seriesSlug from onclick attribute
@@ -317,6 +318,23 @@ document.addEventListener('DOMContentLoaded', function() {
         if (isTabletOrDesktop) {
           span.style.cursor = 'pointer';
         }
+      }
+    }
+  });
+  
+  // Handle title clicks using data attributes (new approach)
+  const titleSpans = document.querySelectorAll('.gallery-title-clickable');
+  titleSpans.forEach(span => {
+    const imageIndex = span.dataset.imageIndex || span.getAttribute('data-image-index');
+    const seriesSlug = span.dataset.seriesSlug || span.getAttribute('data-series-slug');
+    
+    if (imageIndex !== undefined && seriesSlug) {
+      // Add click event listener
+      span.addEventListener('click', createOpenModalHandler(parseInt(imageIndex), seriesSlug));
+      
+      // Set cursor pointer style (only on tablets/desktop)
+      if (isTabletOrDesktop) {
+        span.style.cursor = 'pointer';
       }
     }
   });
