@@ -210,21 +210,21 @@ gallery_images:
     medium_de: Mixed Media auf Holz
     title_de: Tools of the Trade
   - image: /images/uploads/objects_and_assemblages_tools_trade_2.webp
-    title_en: Tools of the Trade (Details)
+    title_en: Tools of the Trade (Detail)
     year: 2017, 2020
     medium_en: mixed media on wood
     dimensions_en: 35 x 43 x 3 cm
     dimensions_de: 35 x 43 x 3 cm
     medium_de: Mixed Media auf Holz
-    title_de: Tools of the Trade (Details)
+    title_de: Tools of the Trade (Detail)
   - image: /images/uploads/objects_and_assemblages_tools_trade_3.webp
-    title_en: Tools of the Trade (Details)
+    title_en: Tools of the Trade (Detail)
     year: 2017, 2020
     medium_en: mixed media on wood
     dimensions_en: 35 x 43 x 3 cm
     dimensions_de: 35 x 43 x 3 cm
     medium_de: Mixed Media auf Holz
-    title_de: Tools of the Trade (Details)
+    title_de: Tools of the Trade (Detail)
   - image: /images/uploads/objects_and_assemblages_picture_this_1.webp
     title_en: Picture This!
     title_de: Picture This!
@@ -510,39 +510,47 @@ gallery_images:
     dimensions_en: "30 cm x 26,5 cm x 3 cm "
     dimensions_de: "30 cm x 26,5 cm x 3 cm "
   - image: /images/uploads/20251122_the_four_corners_of_the_earth_2025__1.webp
-    title_en: The Four Corners of the World (A)
-    title_de: Les Quatre Coins du Mond (A)
+    title_en: The Four Corners of the World
+    title_de: Les Quatre Coins du Monde
     year: "2025"
     medium_en: Mixed media on wood
     medium_de: Mixed Media auf Holz
     dimensions_en: "30 cm x 40 cm x 3 cm "
     dimensions_de: "30 cm x 40 cm x 3 cm "
-  - dimensions: "30 cm x 40 cm x 3 cm "
-    title_en: The Four Corners of the World (B)
-    title_de: Les Quatre Coins du Mond (B)
-    year: "2025"
-    medium_en: Mixed media on wood
+  - title_de: Les Quatre Coins du Monde (Detail)
     medium_de: Mixed Media auf Holz
+    dimensions: "30 cm x 40 cm x 3 cm "
+    title_en: The Four Corners of the World (Detail)
+    medium_en: Mixed media on wood
+    dimensions_de: "30 cm x 40 cm x 3 cm "
     image: /images/uploads/20251122_the_four_corners_of_the_earth_2025__2.webp
-  - dimensions: "30 cm x 40 cm x 3 cm "
-    title_en: The Four Corners of the World (C)
-    title_de: Les Quatre Coins du Mond (C)
+    dimensions_en: "30 cm x 40 cm x 3 cm "
     year: "2025"
-    medium_en: Mixed media on wood
+  - title_de: Les Quatre Coins du Monde (Detail)
     medium_de: Mixed Media auf Holz
+    dimensions: "30 cm x 40 cm x 3 cm "
+    title_en: The Four Corners of the World (Detail)
+    medium_en: Mixed media on wood
+    dimensions_de: "30 cm x 40 cm x 3 cm "
     image: /images/uploads/20251122_the_four_corners_of_the_earth_2025__3.webp
-  - dimensions: "30 cm x 40 cm x 3 cm "
-    title_en: The Four Corners of the World (D)
-    title_de: Les Quatre Coins du Mond (D)
+    dimensions_en: "30 cm x 40 cm x 3 cm "
     year: "2025"
-    medium_en: Mixed media on wood
+  - title_de: Les Quatre Coins du Monde (Details)
     medium_de: Mixed Media auf Holz
+    dimensions: "30 cm x 40 cm x 3 cm "
+    title_en: The Four Corners of the World (Details)
+    medium_en: Mixed media on wood
+    dimensions_de: "30 cm x 40 cm x 3 cm "
     image: /images/uploads/20251122_the_four_corners_of_the_earth_2025__4.webp
-  - dimensions: "30 cm x 40 cm x 3 cm "
-    title_en: The Four Corners of the World (E)
-    title_de: Les Quatre Coins du Mond (E)
+    dimensions_en: "30 cm x 40 cm x 3 cm "
     year: "2025"
-    medium_en: Mixed media on wood
+  - title_de: Les Quatre Coins du Monde (Details)
     medium_de: Mixed Media auf Holz
+    dimensions: "30 cm x 40 cm x 3 cm "
+    title_en: The Four Corners of the World (Details)
+    medium_en: Mixed media on wood
+    dimensions_de: "30 cm x 40 cm x 3 cm "
     image: /images/uploads/20251122_the_four_corners_of_the_earth_20025__5.webp
+    dimensions_en: "30 cm x 40 cm x 3 cm "
+    year: "2025"
 ---
