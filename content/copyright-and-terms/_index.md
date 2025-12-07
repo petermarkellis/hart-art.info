@@ -164,5 +164,6 @@ disclaimer_text_de: >-
 
   Bei Fragen zu diesen Bedingungen, Lizenzanfragen, Anfragen zu Kunstwerken oder anderen Angelegenheiten wenden Sie sich bitte an:
 
-  hartzheimmark@gmail.com
+
+  [hartzheimmark@gmail.com](hartzheimmark@gmail.com)
 ---
