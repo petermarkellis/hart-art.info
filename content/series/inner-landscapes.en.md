@@ -44,7 +44,7 @@ gallery_images:
     dimensions_en: 69,5 cm x 41,5 cm
     dimensions_de: 69,5 cm x 41,5 cm
     medium_de: Pastell, Aquarell auf Papier
-    title_de: Aufstieg und Loslassen
+    title_de: Rise and Release
   - image: /images/uploads/inner_landscapes_perenial_growth_1.webp
     title_en: Perennial Growth
     year: "2017"
@@ -52,7 +52,7 @@ gallery_images:
     dimensions_en: 60,5 cm x 100 cm
     dimensions_de: 60,5 cm x 100 cm
     medium_de: Pastell, Aquarell auf Papier
-    title_de: Beständiges Wachstum
+    title_de: Perennial Growth
   - image: /images/uploads/inner_landscapes_gestation_1.webp
     title_en: Gestation
     year: "2017"
@@ -84,7 +84,7 @@ gallery_images:
     dimensions_de: 75 x 110 cm
     medium_en: Pastel, watercolour on paper
     medium_de: Pastell, Aquarell auf Papier
-    title_de: Zu Mir Selbst
+    title_de: Into My Own
   - image: /images/uploads/inner_landscapes_unfolding_1.webp
     title_en: Unfolding
     medium_en: Pastel, watercolour on paper
@@ -111,7 +111,7 @@ gallery_images:
     medium_de: Pastell, Aquarell auf Papier
   - image: /images/uploads/inner_landscapes_coalescing_1.webp
     title_en: Coalescing
-    title_de: Verschmelzend
+    title_de: Coalescing
     medium_de: Pastell, Aquarell auf Papier
     year: "2021"
     dimensions_en: 75 x 110 cm
@@ -124,7 +124,7 @@ gallery_images:
     dimensions_en: 75 x 110 cm
     dimensions_de: 75 x 110 cm
     medium_de: Pastell, Aquarell auf Papier
-    title_de: Der Tiegel
+    title_de: Crucible
   - image: /images/uploads/inner_landscapes_unleashed_1.webp
     title_de: Entfesselt
     year: "2022"
@@ -172,7 +172,7 @@ gallery_images:
     dimensions_en: 75 x 110 cm
     dimensions_de: 75 x 110 cm
     medium_de: Pastel, Aquarell auf Papier
-    title_de: Ein Vertrauenssprung
+    title_de: A Leap of Faith
   - title_en: Between Heaven and Earth
     image: /images/uploads/20251122_between_heaven_and_earth_2024__1.webp
     title_de: Zwischen Himmel und Erde
