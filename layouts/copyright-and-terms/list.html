@@ -1,0 +1,50 @@
+{{ define "main" }}
+{{/* For sections with _index.md, Hugo uses list.html, so we redirect to single.html logic */}}
+{{ $currentLang := .Site.Language.Lang }}
+
+{{/* Read the base _index.md file directly - same method as about page */}}
+{{ $defaultCopyrightParams := dict }}
+{{ $defaultFrontPath := "content/copyright-and-terms/_index.md" }}
+{{ if fileExists $defaultFrontPath }}
+  {{ $raw := readFile $defaultFrontPath }}
+  {{ $front := replaceRE `(?s)^---\s*\n(.*?)\n---.*$` "$1" $raw }}
+  {{ $defaultCopyrightParams = $front | transform.Unmarshal }}
+{{ end }}
+
+{{/* Get title in current language */}}
+{{ $copyrightTitle := "" }}
+{{ if eq $currentLang "de" }}
+  {{ $copyrightTitle = (index $defaultCopyrightParams "title_de") | default (index $defaultCopyrightParams "title_en") | default "Copyright & Terms of Use" }}
+{{ else }}
+  {{ $copyrightTitle = (index $defaultCopyrightParams "title_en") | default (index $defaultCopyrightParams "title_de") | default "Copyright & Terms of Use" }}
+{{ end }}
+
+{{/* Get copyright text in current language - access the unmarshaled params directly */}}
+{{ $copyrightText := "" }}
+{{ if eq $currentLang "de" }}
+  {{ $copyrightText = index $defaultCopyrightParams "disclaimer_text_de" }}
+  {{ if not $copyrightText }}
+    {{ $copyrightText = index $defaultCopyrightParams "disclaimer_text_en" }}
+  {{ end }}
+{{ else }}
+  {{ $copyrightText = index $defaultCopyrightParams "disclaimer_text_en" }}
+  {{ if not $copyrightText }}
+    {{ $copyrightText = index $defaultCopyrightParams "disclaimer_text_de" }}
+  {{ end }}
+{{ end }}
+
+<div class="ph2 pv4 ph4-ns pv5-ns bg-white" style="max-width: 800px; margin: 0 auto;">
+  <h1 class="f4 f3-ns fw6 mb4 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
+    {{ $copyrightTitle | upper }}
+  </h1>
+  
+  {{ if $copyrightText }}
+    <div class="f6 f5-ns lh-copy black-80" style="font-family: 'Inter', sans-serif;">
+      {{ $copyrightText | markdownify }}
+    </div>
+  {{ else }}
+    <p class="f6 f5-ns black-70" style="font-family: 'Inter', sans-serif;">{{ if eq $currentLang "de" }}Kein Text verfügbar.{{ else }}No text available.{{ end }}</p>
+  {{ end }}
+</div>
+{{ end }}
+
