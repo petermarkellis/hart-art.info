@@ -109,7 +109,6 @@ collections:
       - label: "Disclaimer Page"
         name: "_index"
         file: "content/disclaimer/_index.md"
-        i18n: true
         fields:
           - {label: "Title (English)", name: "title_en", widget: "string", required: true, hint: "Disclaimer page title in English"}
           - {label: "Title (German)", name: "title_de", widget: "string", required: false, hint: "Disclaimer page title in German"}
