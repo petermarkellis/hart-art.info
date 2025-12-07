@@ -6,10 +6,9 @@
 {{ end }}
 
 {{ define "main" }}
-{{/* For sections with _index.md, Hugo uses list.html, so we redirect to single.html logic */}}
 {{ $currentLang := .Site.Language.Lang }}
 
-{{/* Read the base _index.md file directly - same method as about page */}}
+{{/* Read the base _index.md file directly */}}
 {{ $defaultCopyrightParams := dict }}
 {{ $defaultFrontPath := "content/copyright-and-terms/_index.md" }}
 {{ if fileExists $defaultFrontPath }}
@@ -26,7 +25,7 @@
   {{ $copyrightTitle = (index $defaultCopyrightParams "title_en") | default (index $defaultCopyrightParams "title_de") | default "Copyright & Terms of Use" }}
 {{ end }}
 
-{{/* Get copyright text in current language - access the unmarshaled params directly */}}
+{{/* Get copyright text in current language */}}
 {{ $copyrightText := "" }}
 {{ if eq $currentLang "de" }}
   {{ $copyrightText = index $defaultCopyrightParams "disclaimer_text_de" }}
