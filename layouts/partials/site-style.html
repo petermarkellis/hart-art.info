@@ -142,17 +142,31 @@
     }
   }
   
-  /* Ensure aside navigation extends to full height */
+  /* Ensure aside navigation extends to full height and is sticky on desktop */
   @media (min-width: 60em) {
     .series-layout-wrapper {
       display: flex !important;
-      align-items: stretch !important;
+      align-items: flex-start !important; /* Change from stretch to flex-start for sticky to work */
       min-height: 100vh;
     }
     
     .aside-full-height {
-      align-self: stretch !important;
+      position: -webkit-sticky; /* Safari */
+      position: sticky;
+      top: 0;
+      align-self: flex-start !important;
+      max-height: 100vh;
+      overflow-y: auto;
       /* Remove height constraints - let flexbox stretch it to match sibling */
+    }
+  }
+  
+  /* Reset sticky on mobile */
+  @media (max-width: 60em) {
+    .aside-full-height {
+      position: relative !important;
+      max-height: none !important;
+      overflow-y: visible !important;
     }
   }
   
