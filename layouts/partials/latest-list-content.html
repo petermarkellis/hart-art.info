@@ -30,14 +30,7 @@
             {{ $pageLang = "en" }}
           {{ end }}
         {{ end }}
-        {{ $isDraft := false }}
-        {{ if .Draft }}
-          {{ $isDraft = true }}
-        {{ else if isset .Params "draft" }}
-          {{ if .Params.draft }}
-            {{ $isDraft = true }}
-          {{ end }}
-        {{ end }}
+        {{ $isDraft := partial "func/is-draft.html" . }}
         {{ if and (eq $pageLang $currentLang) (ne .Kind "section") (not .IsNode) (not $isDraft) }}
           {{ $latestNews = $latestNews | append . }}
         {{ end }}
@@ -57,14 +50,7 @@
             {{ $pageLang = "en" }}
           {{ end }}
         {{ end }}
-        {{ $isDraft := false }}
-        {{ if .Draft }}
-          {{ $isDraft = true }}
-        {{ else if isset .Params "draft" }}
-          {{ if .Params.draft }}
-            {{ $isDraft = true }}
-          {{ end }}
-        {{ end }}
+        {{ $isDraft := partial "func/is-draft.html" . }}
         {{ if and (eq $pageLang $currentLang) (ne .Kind "section") (not .IsNode) (not $isDraft) }}
           {{ $filteredNews = $filteredNews | append . }}
         {{ end }}
