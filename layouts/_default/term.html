@@ -6,7 +6,7 @@
   </aside>
 
   <!-- Main Content Area -->
-  <div class="w-100 w-75-l ph2 pv3 pa4-l bg-white" style="flex: 1; padding-bottom: 4rem !important; max-width: 100%; overflow-x: hidden; box-sizing: border-box;">
+  <div class="w-100 w-75-l ph2 pv3 pa4-l bg-white" style="flex: 1; padding-bottom: 4rem !important; max-width: 100%; box-sizing: border-box;">
     <!-- Mobile Series Menu - Only visible on mobile -->
     {{ partial "series-mobile-menu.html" . }}
 
@@ -197,7 +197,7 @@
         {{ end }}
         
         {{ if $seriesArtworks }}
-          <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem 3rem; margin-bottom: 4rem; max-width: 100%; overflow-x: hidden;">
+          <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem 3rem; margin-bottom: 4rem; max-width: 100%;">
             {{ range $seriesArtworks }}
               <div class="gallery-item">
                 {{ if .Params.image }}
