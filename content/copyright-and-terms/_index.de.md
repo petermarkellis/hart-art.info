@@ -1,8 +1,8 @@
 ---
-title: "Disclaimer"
-title_en: ""
-title_de: "Haftungsausschluss"
+title: "Copyright & Terms of Use"
+title_en: "Copyright & Terms of Use"
+title_de: "Urheberrecht & Nutzungsbedingungen"
 disclaimer_text_en: ""
-disclaimer_text_de: "Disclaimer-Text auf Deutsch"
+disclaimer_text_de: ""
 ---
 
