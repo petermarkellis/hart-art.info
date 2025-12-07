@@ -8,13 +8,7 @@
 {{ define "main" }}
 {{ $currentLang := .Site.Language.Lang }}
 
-{{/* Try to get page from Hugo's page context first */}}
-{{ $copyrightPage := .Page }}
-{{ if not $copyrightPage.Params.disclaimer_text_en }}
-  {{ $copyrightPage = .Site.GetPage "page" "copyright-and-terms/_index.md" }}
-{{ end }}
-
-{{/* Read the base _index.md file directly as fallback - this ensures we get the content */}}
+{{/* Read the base _index.md file directly - same method as about page */}}
 {{ $defaultCopyrightParams := dict }}
 {{ $defaultFrontPath := "content/copyright-and-terms/_index.md" }}
 {{ if fileExists $defaultFrontPath }}
@@ -23,20 +17,26 @@
   {{ $defaultCopyrightParams = $front | transform.Unmarshal }}
 {{ end }}
 
-{{/* Get title in current language - try page params first, then file params */}}
+{{/* Get title in current language */}}
 {{ $copyrightTitle := "" }}
 {{ if eq $currentLang "de" }}
-  {{ $copyrightTitle = $copyrightPage.Params.title_de | default (index $defaultCopyrightParams "title_de") | default $copyrightPage.Params.title_en | default (index $defaultCopyrightParams "title_en") | default $copyrightPage.Title | default "Copyright & Terms of Use" }}
+  {{ $copyrightTitle = (index $defaultCopyrightParams "title_de") | default (index $defaultCopyrightParams "title_en") | default "Copyright & Terms of Use" }}
 {{ else }}
-  {{ $copyrightTitle = $copyrightPage.Params.title_en | default (index $defaultCopyrightParams "title_en") | default $copyrightPage.Params.title_de | default (index $defaultCopyrightParams "title_de") | default $copyrightPage.Title | default "Copyright & Terms of Use" }}
+  {{ $copyrightTitle = (index $defaultCopyrightParams "title_en") | default (index $defaultCopyrightParams "title_de") | default "Copyright & Terms of Use" }}
 {{ end }}
 
-{{/* Get copyright text in current language - prioritize file params since page params might not load correctly */}}
+{{/* Get copyright text in current language - access the unmarshaled params directly */}}
 {{ $copyrightText := "" }}
 {{ if eq $currentLang "de" }}
-  {{ $copyrightText = (index $defaultCopyrightParams "disclaimer_text_de") | default $copyrightPage.Params.disclaimer_text_de | default (index $defaultCopyrightParams "disclaimer_text_en") | default $copyrightPage.Params.disclaimer_text_en | default "" }}
+  {{ $copyrightText = index $defaultCopyrightParams "disclaimer_text_de" }}
+  {{ if not $copyrightText }}
+    {{ $copyrightText = index $defaultCopyrightParams "disclaimer_text_en" }}
+  {{ end }}
 {{ else }}
-  {{ $copyrightText = (index $defaultCopyrightParams "disclaimer_text_en") | default $copyrightPage.Params.disclaimer_text_en | default (index $defaultCopyrightParams "disclaimer_text_de") | default $copyrightPage.Params.disclaimer_text_de | default "" }}
+  {{ $copyrightText = index $defaultCopyrightParams "disclaimer_text_en" }}
+  {{ if not $copyrightText }}
+    {{ $copyrightText = index $defaultCopyrightParams "disclaimer_text_de" }}
+  {{ end }}
 {{ end }}
 
 <div class="ph2 pv4 ph4-ns pv5-ns bg-white" style="max-width: 800px; margin: 0 auto;">
@@ -50,6 +50,10 @@
     </div>
   {{ else }}
     <p class="f6 f5-ns black-70" style="font-family: 'Inter', sans-serif;">{{ if eq $currentLang "de" }}Kein Text verfügbar.{{ else }}No text available.{{ end }}</p>
+    <p class="f6 f5-ns black-70" style="font-family: 'Inter', sans-serif;">Debug: File exists: {{ fileExists $defaultFrontPath }}</p>
+    <p class="f6 f5-ns black-70" style="font-family: 'Inter', sans-serif;">Debug: Has params: {{ if $defaultCopyrightParams }}yes{{ else }}no{{ end }}</p>
+    <p class="f6 f5-ns black-70" style="font-family: 'Inter', sans-serif;">Debug: disclaimer_text_en exists: {{ if (index $defaultCopyrightParams "disclaimer_text_en") }}yes (length: {{ len (index $defaultCopyrightParams "disclaimer_text_en") }}){{ else }}no{{ end }}</p>
+    <p class="f6 f5-ns black-70" style="font-family: 'Inter', sans-serif;">Debug: Current lang: {{ $currentLang }}</p>
   {{ end }}
 </div>
 {{ end }}
