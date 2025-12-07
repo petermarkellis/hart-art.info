@@ -154,14 +154,7 @@
       {{ $latestSection := .Site.GetPage "section" "latest" }}
       {{ if $latestSection }}
         {{ range $latestSection.Pages }}
-          {{ $isDraft := false }}
-          {{ if .Draft }}
-            {{ $isDraft = true }}
-          {{ else if isset .Params "draft" }}
-            {{ if .Params.draft }}
-              {{ $isDraft = true }}
-            {{ end }}
-          {{ end }}
+          {{ $isDraft := partial "func/is-draft.html" . }}
           {{ if and (eq .Lang $currentLang) (ne .Kind "section") (not .IsNode) (not $isDraft) }}
             {{ $latestNews = $latestNews | append . }}
           {{ end }}
@@ -177,14 +170,7 @@
         {{/* Filter out drafts */}}
         {{ $filteredNews := slice }}
         {{ range $latestNews }}
-          {{ $isDraft := false }}
-          {{ if .Draft }}
-            {{ $isDraft = true }}
-          {{ else if isset .Params "draft" }}
-            {{ if .Params.draft }}
-              {{ $isDraft = true }}
-            {{ end }}
-          {{ end }}
+          {{ $isDraft := partial "func/is-draft.html" . }}
           {{ if not $isDraft }}
             {{ $filteredNews = $filteredNews | append . }}
           {{ end }}
@@ -251,7 +237,7 @@
             {{ end }}
           {{ end }}
         {{ end }}
-        <a href="{{ .RelPermalink }}" class="db no-underline news-item" style="border-bottom: 1px solid #e5e5e5; padding: 1rem; display: flex; justify-content: space-between; align-items: center;">
+        <a href="{{ .RelPermalink }}" class="db no-underline news-item" style="border-bottom: 1px solid #e5e5e5; padding: 1rem 0rem; display: flex; justify-content: space-between; align-items: center;">
           <div class="flex-auto">
             <h3 class="f6 f5-ns fw4 black-90 mb0" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; margin: 0;">{{ .Title }}</h3>
           </div>

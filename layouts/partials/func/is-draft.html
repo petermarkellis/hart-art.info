@@ -1,0 +1,10 @@
+{{/*
+  IsDraft
+  
+  Checks if a page is a draft by checking both .Draft and .Params.draft
+  
+  @param . - The page context
+  @return true if the page is a draft, false otherwise
+*/}}
+{{ return (or .Draft (and (isset .Params "draft") .Params.draft)) }}
+

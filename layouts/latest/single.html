@@ -7,14 +7,7 @@
 
 {{ define "main" }}
 {{/* Check if this is a draft and hide it in production */}}
-{{ $isDraft := false }}
-{{ if .Draft }}
-  {{ $isDraft = true }}
-{{ else if isset .Params "draft" }}
-  {{ if .Params.draft }}
-    {{ $isDraft = true }}
-  {{ end }}
-{{ end }}
+{{ $isDraft := partial "func/is-draft.html" . }}
 {{ if and $isDraft hugo.IsProduction }}
   <div class="ph2 pv4 ph4-ns pv5-ns bg-white" style="max-width: 800px; margin: 0 auto;">
     <h1 class="f4 f3-ns fw6 mb4 black-90" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">{{ if eq .Site.Language.Lang "de" }}ENTWURF{{ else }}DRAFT{{ end }}</h1>
