@@ -1,5 +1,7 @@
 ---
 title: Copyright & Terms of Use
+title_en: Copyright & Terms of Use
+title_de: Urheberrecht & Nutzungsbedingungen
 disclaimer_text_en: >-
   **Copyright Notice**
 
@@ -83,5 +85,89 @@ disclaimer_text_en: >-
 
 
   [hartzheimmark@gmail.com](mailto:hartzheimmark@gmail.com)
-disclaimer_text_de: ""
+disclaimer_text_de: >-
+  **Urheberrechtshinweis**
+
+
+  Alle Kunstwerke, Bilder, Designs, Fotografien und kreativen Inhalte, die auf dieser Website (hard-art.info) angezeigt werden, sind ausschließliches Eigentum von Mark Hartzheim und durch internationale Urheberrechtsgesetze geschützt, einschließlich des deutschen Urheberrechtsgesetzes (UrhG) und der Richtlinien der Europäischen Union.
+
+
+  **Alle Rechte vorbehalten. © Mark Hartzheim.**
+
+
+  Verbotene Nutzungen
+
+
+  Die folgenden Handlungen sind ohne ausdrückliche schriftliche Genehmigung von Mark Hartzheim streng verboten:
+
+
+  * Kopieren, Herunterladen oder Reproduzieren von Kunstwerken oder Bildern
+
+  * Replizieren oder Erstellen abgeleiteter Werke basierend auf den Kunstwerken
+
+  * Verbreiten, Veröffentlichen oder Anzeigen der Kunstwerke in jeglicher Form oder Medium
+
+  * Verwendung der Kunstwerke für kommerzielle Zwecke
+
+  * Verwendung der Kunstwerke zum Trainieren von Modellen künstlicher Intelligenz (KI), maschinellen Lernalgorithmen oder automatisierten Systemen
+
+  * Scraping, Harvesting oder Mining der Kunstwerke für Datenerfassungszwecke
+
+  * Einbindung der Kunstwerke in NFTs oder Blockchain-basierte Projekte
+
+
+
+  **KI und maschinelles Lernen**
+
+
+  Die Kunstwerke auf dieser Website sind ausdrücklich von der Verwendung in Systemen künstlicher Intelligenz ausgeschlossen, einschließlich aber nicht beschränkt auf:
+
+
+  * Trainingsdaten für generative KI-Modelle
+
+  * Datensätze für maschinelles Lernen
+
+  * Training neuronaler Netzwerke
+
+  * Jegliche Form der automatisierten Mustererkennung oder Reproduktion
+
+
+
+  Jegliche Verwendung dieser Kunstwerke für KI-Trainingszwecke stellt eine Verletzung dieser Bedingungen und des geltenden Urheberrechts dar, einschließlich des EU-KI-Gesetzes und der EU-Urheberrechtsrichtlinie (Richtlinie 2019/790), die die Rechte von Urhebern im digitalen Umfeld schützt.
+
+
+  Nach deutschem und EU-Recht sind die Urheberpersönlichkeitsrechte des Künstlers unveräußerlich und umfassen das Recht, als Urheber anerkannt zu werden, sowie das Recht, jeder Entstellung oder Veränderung des Werkes zu widersprechen.
+
+
+  **Zulässige Nutzung**
+
+
+  Das Betrachten der Kunstwerke auf dieser Website zum persönlichen, nicht-kommerziellen Vergnügen ist gestattet. Jede andere Nutzung erfordert eine vorherige schriftliche Genehmigung von Mark Hartzheim.
+
+
+  **Durchsetzung**
+
+
+  Verstöße gegen diese Bedingungen können rechtliche Schritte nach deutschem und europäischem Recht nach sich ziehen. Mark Hartzheim behält sich das Recht vor, alle verfügbaren Rechtsmittel bei unbefugter Nutzung der Kunstwerke geltend zu machen, einschließlich aber nicht beschränkt auf einstweilige Verfügungen, Schadensersatz und strafrechtliche Verfolgung, soweit nach §§ 106-108 UrhG (Urheberrechtsgesetz) anwendbar.
+
+
+  **Gerichtsstand**
+
+
+  Diese Bedingungen unterliegen deutschem Recht. Alle Streitigkeiten, die sich aus der Nutzung dieser Website oder ihrer Inhalte ergeben, unterliegen der ausschließlichen Zuständigkeit deutscher Gerichte.
+
+
+  **Lizenzanfragen**
+
+
+  Wenn Sie an der Lizenzierung, dem Kauf oder der Nutzung von auf dieser Website angezeigten Kunstwerken interessiert sind, kontaktieren Sie bitte Mark Hartzheim, um Bedingungen zu besprechen und eine ordnungsgemäße Genehmigung zu erhalten.
+
+
+  **Kontakt & Anfragen**
+
+
+  Bei Fragen zu diesen Bedingungen, Lizenzanfragen, Anfragen zu Kunstwerken oder anderen Angelegenheiten wenden Sie sich bitte an:
+
+
+  [hartzheimmark@gmail.com](mailto:hartzheimmark@gmail.com)
 ---
