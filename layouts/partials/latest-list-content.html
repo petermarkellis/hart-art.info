@@ -125,7 +125,7 @@
           {{ end }}
         {{ end }}
       {{ end }}
-      <a href="{{ $newsItem.RelPermalink }}" class="db no-underline news-item" style="border-bottom: 1px solid #e5e5e5; padding: 1rem; display: flex; justify-content: space-between; align-items: center;">
+      <a href="{{ $newsItem.RelPermalink }}" class="db no-underline news-item" style="border-bottom: 1px solid #e5e5e5; padding: 1rem 0rem; display: flex; justify-content: space-between; align-items: center;">
         <div class="flex-auto">
           <h3 class="f6 f5-ns fw4 black-90 mb0" style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em; margin: 0;">{{ $newsItem.Title }}</h3>
         </div>
@@ -154,8 +154,6 @@
     .news-item {
       flex-direction: column !important;
       align-items: flex-start !important;
-      padding-left: 0 !important;
-      padding-right: 0 !important;
     }
     .news-item > .flex-auto {
       width: 100%;
